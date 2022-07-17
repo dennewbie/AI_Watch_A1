@@ -8,11 +8,10 @@
 #ifndef Skeleton_h
 #define Skeleton_h
 
-#include <opencv2/opencv.hpp>
-#include <json/json.h>
-#include <json/value.h>
-#include <vector>
+#include "UsageUtility.hpp"
 #include "SingleBodyKeypoint.hpp"
+
+
 
 enum BodyKeypoint { Nose = 0, Neck = 1, RShoulder = 2, RElbow = 3, RWrist = 4,
                     LShoulder = 5, LElbow = 6, LWrist = 7, MidHip = 8, RHip = 9,
@@ -21,6 +20,8 @@ enum BodyKeypoint { Nose = 0, Neck = 1, RShoulder = 2, RElbow = 3, RWrist = 4,
                     LSmallToe = 20, LHeel = 21, RBigToe = 22, RSmallToe = 23, RHeel = 24,
                     Background = 25
                 };
+
+
 
 class Skeleton {
 private:

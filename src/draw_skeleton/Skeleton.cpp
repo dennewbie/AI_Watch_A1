@@ -7,6 +7,8 @@
 
 #include "Skeleton.hpp"
 
+
+
 void Skeleton::setImage (cv::Mat & myImage) {
     this->myImage = myImage;
 }
