@@ -93,15 +93,9 @@ void Skeleton::drawLine (int start, int end) {
     }
 }
 
-
-
 Skeleton::Skeleton (cv::Mat & myImage, std::vector <SingleBodyKeypoint> & bodyKeyPoints, std::vector <bool> & bodyKeyPointsMap, Json::Value skeletonData) {
     setImage(myImage);
     setBodyKeyPoints(bodyKeyPoints);
     setBodyKeyPointsMap(bodyKeyPointsMap);
     setSkeletonData(skeletonData);
-    this->skeletonData = skeletonData;
 }
-
-
-
