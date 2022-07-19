@@ -1,4 +1,11 @@
-// Distanza da punto
+//
+//  distance_image.cpp
+//  Creazione di un'immagine distanza (contiene le distanze per ogni pixel) a partire dall'informazione
+//  sulla profondità fornita dai depth_frame della telecamera RealSense
+//
+//  Created by Denny Caruso on 06/07/22.
+//
+
 #include <librealsense2/rs.hpp>
 #include "usageUtils.hpp"
 
