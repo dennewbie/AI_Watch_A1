@@ -7,7 +7,6 @@
 
 #include "Skeleton.hpp"
 #include <librealsense2/rs.hpp>
-#include "usageUtils.hpp"
 
 
 const int expected_argc = 5;

@@ -7,7 +7,7 @@
 //
 
 #include <librealsense2/rs.hpp>
-#include "usageUtils.hpp"
+#include "renderingUtils.hpp"
 
 // Convert rs2::frame to cv::Mat
 cv::Mat realsenseFrameToMat(const rs2::frame & singleFrame) {

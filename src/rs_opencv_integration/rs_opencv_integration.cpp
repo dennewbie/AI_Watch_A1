@@ -7,7 +7,6 @@
 
 #include <librealsense2/rs.hpp>
 #include <iostream>
-#include "renderingUtils.hpp"
 #include <opencv2/opencv.hpp>
 
 // Convert rs2::frame to cv::Mat
