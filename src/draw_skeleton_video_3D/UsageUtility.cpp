@@ -9,6 +9,32 @@
 
 
 
+void UsageUtility::setFrameID (long unsigned int frameID) {
+    this->frameID = frameID;
+}
+
+void UsageUtility::set_align (rs2::align align) {
+    this->align = align;
+}
+
+void UsageUtility::set_depth_intrin (struct rs2_intrinsics depth_intrin) {
+    this->depth_intrin = depth_intrin;
+}
+
+void UsageUtility::set_color_intrin (struct rs2_intrinsics & color_intrin) {
+    this->color_intrin = color_intrin;
+}
+
+void UsageUtility::set_depth_to_color (struct rs2_extrinsics depth_to_color) {
+    this->depth_to_color = depth_to_color;
+}
+
+void UsageUtility::set_color_to_depth (struct rs2_extrinsics color_to_depth) {
+    this->color_to_depth = color_to_depth;
+}
+
+
+
 const int UsageUtility::get_argc (void) {
     return this->argc;
 }
@@ -25,27 +51,19 @@ const char * UsageUtility::get_expectedUsageMessage (void) {
     return this->expectedUsageMessage;
 }
 
-void UsageUtility::set_depth_intrin (struct rs2_intrinsics depth_intrin) {
-    this->depth_intrin = depth_intrin;
+long unsigned int UsageUtility::getFrameID (void) {
+    return this->frameID;
 }
 
-void UsageUtility::set_color_intrin (struct rs2_intrinsics color_intrin) {
-    this->color_intrin = color_intrin;
-}
-
-void UsageUtility::set_depth_to_color (struct rs2_extrinsics depth_to_color) {
-    this->depth_to_color = depth_to_color;
-}
-
-void UsageUtility::set_color_to_depth (struct rs2_extrinsics color_to_depth) {
-    this->color_to_depth = color_to_depth;
+rs2::align UsageUtility::get_align (void) {
+    return this->align;
 }
 
 struct rs2_intrinsics UsageUtility::get_depth_intrin (void) {
     return this->depth_intrin;
 }
 
-struct rs2_intrinsics UsageUtility::get_color_intrin (void) {
+struct rs2_intrinsics & UsageUtility::get_color_intrin (void) {
     return this->color_intrin;
 }
 
@@ -55,22 +73,6 @@ struct rs2_extrinsics UsageUtility::get_depth_to_color (void) {
 
 struct rs2_extrinsics UsageUtility::get_color_to_depth (void) {
     return this->color_to_depth;
-}
-
-void UsageUtility::setFrameID (long unsigned int frameID) {
-    this->frameID = frameID;
-}
-
-long unsigned int UsageUtility::getFrameID (void) {
-    return this->frameID;
-}
-
-void UsageUtility::set_align (rs2::align align) {
-    this->align = align;
-}
-
-rs2::align UsageUtility::get_align (void) {
-    return this->align;
 }
 
 
@@ -141,7 +143,7 @@ void UsageUtility::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_
     color_intrin = myPipelineProfile.get_stream(RS2_STREAM_COLOR).as<rs2::video_stream_profile>().get_intrinsics();
     set_color_intrin(color_intrin);
     set_color_to_depth(myPipelineProfile.get_stream(RS2_STREAM_DEPTH).as<rs2::video_stream_profile>().get_extrinsics_to(myPipelineProfile.get_stream(RS2_STREAM_COLOR)));
-   set_depth_to_color(myPipelineProfile.get_stream(RS2_STREAM_COLOR).as<rs2::video_stream_profile>().get_extrinsics_to(myPipelineProfile.get_stream(RS2_STREAM_DEPTH)));
+    set_depth_to_color(myPipelineProfile.get_stream(RS2_STREAM_COLOR).as<rs2::video_stream_profile>().get_extrinsics_to(myPipelineProfile.get_stream(RS2_STREAM_DEPTH)));
     
     std::stringstream cleanTerminalCommand;
     cleanTerminalCommand << "rm -r " << get_argv()[3] << "rgb/ > /dev/null && rm -r " << get_argv()[3] << "d/ > /dev/null && rm -r " << get_argv()[3] << "skeleton/ > /dev/null && rm -r " << get_argv()[3] << "videoframe/ > /dev/null && rm -r " << get_argv()[4] << " > /dev/null && mkdir " << get_argv()[3] << "rgb && mkdir " << get_argv()[3] << "d && mkdir " << get_argv()[3] << "videoframe && mkdir " << get_argv()[3] << "skeleton && mkdir " << get_argv()[4];
@@ -155,7 +157,6 @@ void UsageUtility::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pip
         rs2::frame color = alignedStreamData.get_color_frame();
         cv::Mat colorImage = realsenseFrameToMat(color);
         cv::Mat depthImage = realsenseFrameToMat(depth);
-        
         depthImage *= 1000.0 * scale;
         
         auto cols = depth.get_width();
@@ -190,11 +191,10 @@ void UsageUtility::getVideoBodyKeyPoints (void) {
     std::system(firstTerminalCommand.str().c_str());
 }
 
-void UsageUtility::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON, struct rs2_intrinsics & color_intrin) {
+void UsageUtility::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
+    // comment here
     setFrameID(120);
     for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
-        std::vector <SingleBodyKeypoint> bodyKeyPoints;
-        std::vector <bool> bodyKeyPointsMap;
         std::stringstream jsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath;
         jsonFilePath << get_argv()[4] << (getFrameID() - user_nFrame + nFrame) << "_Color_keypoints.json";
         
@@ -208,16 +208,16 @@ void UsageUtility::showSkeleton (unsigned int user_nFrame, Json::Value & current
         cv::Mat distanceImage = cv::Mat(colorImage.rows, colorImage.cols, CV_32FC1);
         loadImage(distanceImagePath.str(), cv::IMREAD_ANYCOLOR | cv::IMREAD_ANYDEPTH, distanceImage);
         cv::imshow("Frame No Skeleton", colorImage);
-        for (Json::Value::ArrayIndex i = 0; i != people.size(); i++) {
+        for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
             Json::Value singlePerson = (people[i])["pose_keypoints_2d"];
-            Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, bodyKeyPoints, bodyKeyPointsMap, singlePerson);
-            singlePersonSkeleton.drawSkeleton(color_intrin);
+            Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, singlePerson, get_color_intrin());
+            singlePersonSkeleton.drawSkeleton();
         }
         
         cv::imshow("Frame Skeleton", colorImage);
         skeletonImagePath << get_argv()[3] << "skeleton/" << (getFrameID() - user_nFrame + nFrame) << "_Skeleton.png";
         saveImage(skeletonImagePath.str(), colorImage);
-        int key = cv::waitKey(1);
+        int key = cv::waitKey(0);
         // if ESC is pressed
         if (key == ESC_KEY) break;
     }

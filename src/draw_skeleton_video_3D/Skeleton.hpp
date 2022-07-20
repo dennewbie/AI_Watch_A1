@@ -8,24 +8,18 @@
 #ifndef Skeleton_h
 #define Skeleton_h
 
-#include "SingleBodyKeypoint.hpp"
-#include "SinglePoint3D.hpp"
+#include "BodyKeyPoint.hpp"
+#include "Point3D.hpp"
 #include <vector>
 #include <opencv2/opencv.hpp>
 #include <json/value.h>
 #include <json/json.h>
 #include <librealsense2/rs.hpp>
 
+static const short int CALLOC_ERROR = 10;
+static const char * CALLOC_SCOPE = "Error during calloc";
 
 
-typedef union {
-    float f;
-    struct {
-        unsigned int mantisa : 23;
-        unsigned int exponent : 8;
-        unsigned int sign : 1;
-    } parts;
-} float_cast;
 
 enum BodyKeypoint { Nose = 0, Neck = 1, RShoulder = 2, RElbow = 3, RWrist = 4,
                     LShoulder = 5, LElbow = 6, LWrist = 7, MidHip = 8, RHip = 9,
@@ -39,36 +33,39 @@ enum BodyKeypoint { Nose = 0, Neck = 1, RShoulder = 2, RElbow = 3, RWrist = 4,
 
 class Skeleton {
 private:
-    cv::Mat rgbImage;
-    cv::Mat dImage;
-    std::vector <SingleBodyKeypoint> bodyKeyPoints;
-    std::vector <bool> bodyKeyPointsMap;
-    Json::Value skeletonData;
-    struct rs2_intrinsics color_intrin;
-    std::vector <SinglePoint3D *> skeletonPoints3D;
+    cv::Mat                     rgb_Image;
+    cv::Mat                     distance_Image;
+    std::vector <BodyKeyPoint>  bodyKeyPoints;
+    std::vector <bool>          bodyKeyPointsMap;
+    Json::Value                 skeletonData;
+    struct rs2_intrinsics       color_intrin;
+    std::vector <Point3D *>     skeletonPoints3D;
     
-    void setRGB_Image (cv::Mat & rgbImage);
-    void setD_Image (cv::Mat & dImage);
-    void setBodyKeyPoints (std::vector <SingleBodyKeypoint> & bodyKeyPoints);
-    void setBodyKeyPointsMap (std::vector <bool> & bodyKeyPointsMap);
-    void setSkeletonData (Json::Value skeletonData);
+    void setRGB_Image           (cv::Mat & rgbImage);
+    void setDistance_Image      (cv::Mat & distanceImage);
+    void setBodyKeyPoints       (std::vector <BodyKeyPoint> & bodyKeyPoints);
+    void setBodyKeyPointsMap    (std::vector <bool> & bodyKeyPointsMap);
+    void setSkeletonData        (Json::Value skeletonData);
+    void set_color_intrin       (struct rs2_intrinsics & color_intrin);
+    void setSkeletonPoints3D    (std::vector <Point3D *> skeletonPoints3D);
     
-    cv::Mat getRGB_Image (void);
-    cv::Mat getD_Image (void);
-    std::vector <SingleBodyKeypoint> getBodyKeyPoints (void);
-    std::vector <bool> getBodyKeyPointsMap (void);
-    Json::Value getSkeletonData (void);
-    void setSkeletonPoints3D (std::vector <SinglePoint3D *> skeletonPoints3D);
-    std::vector <SinglePoint3D *> getSkeletonPoints3D (void);
+    cv::Mat getRGB_Image                        (void);
+    cv::Mat getDistance_Image                   (void);
+    std::vector <BodyKeyPoint> getBodyKeyPoints (void);
+    std::vector <bool> getBodyKeyPointsMap      (void);
+    Json::Value getSkeletonData                 (void);
+    struct rs2_intrinsics & get_color_intrin    (void);
+    std::vector <Point3D *> getSkeletonPoints3D (void);
     
-    void drawBodyKeypoints (void);
-    void drawBodyEdges (void);
-    void drawLine (int start, int end);
-    void writeCoordinates (void);
-    void deprojectSkeletonPoints3D (struct rs2_intrinsics & color_intrin);
+    void calcBodyKeypoints          (void);
+    void calcBodyEdges              (void);
+    void drawLine                   (int start, int end);
+    void writeCoordinates           (void);
+    void deprojectSkeletonPoints3D  (void);
 public:
-    Skeleton (cv::Mat & rgbImage, cv::Mat & dImage, std::vector <SingleBodyKeypoint> & bodyKeyPoints, std::vector <bool> & bodyKeyPointsMap, Json::Value skeletonData);
-    void drawSkeleton (struct rs2_intrinsics & color_intrin);
+    Skeleton            (cv::Mat & rgbImage, cv::Mat & distanceImage, Json::Value skeletonData, struct rs2_intrinsics & color_intrin);
+    ~Skeleton(void);
+    void drawSkeleton   (void);
 };
 
 #endif /* Skeleton_h */
