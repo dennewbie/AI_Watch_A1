@@ -1,57 +1,50 @@
 //
-//  UsageUtility.hpp
+//  FacadeSingleton.hpp
 //  librealsensetest
 //
-//  Created by Denny Caruso on 17/07/22.
+//  Created by Denny Caruso on 20/07/22.
 //
 
-#ifndef UsageUtility_hpp
-#define UsageUtility_hpp
+#ifndef FacadeSingleton_hpp
+#define FacadeSingleton_hpp
 
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <opencv2/opencv.hpp>
+#include <json/value.h>
+#include <json/json.h>
+#include <librealsense2/rs.hpp>
 #include "Skeleton.hpp"
+#include "constants.hpp"
 
 
 
-static const short int CHECK_USAGE_ERROR = 1;
-static const char * CHECK_USAGE_SCOPE = "usage";
-
-static const short int LOAD_IMAGE_ERROR = 2;
-static const char * LOAD_IMAGE_SCOPE = "Could not open or find the image";
-
-static const short int SAVE_IMAGE_ERROR = 3;
-static const char * SAVE_IMAGE_SCOPE = "Could not save the image on disk";
-
-static const short int LOAD_JSON_ERROR = 4;
-static const char * LOAD_JSON_SCOPE = "Could not open or find the JSON file";
-
-static const short int RS_CAMERA_ERROR = 5;
-static const char * RS_CAMERA_SCOPE = "Troubles during initialization of RealSense Camera";
-
-static const short int ESC_KEY = 27;
-static const float depth_min = 0.10;
-static const float depth_max = 6.0;
-
-
-
-class UsageUtility {
+class FacadeSingleton {
 private:
-    const int               argc;
-    const char **           argv;
-    const int               expected_argc;
-    const char *            expectedUsageMessage;
-    long unsigned int       frameID;
-    rs2::align              align;
-    struct rs2_intrinsics   depth_intrin;
-    struct rs2_intrinsics   color_intrin;
-    struct rs2_extrinsics   depth_to_color;
-    struct rs2_extrinsics   color_to_depth;
+    static FacadeSingleton *    sharedInstance;
+    static std::mutex           singletonMutex;
+    const int                   argc;
+    const char **               argv;
+    const int                   expected_argc;
+    const char *                expectedUsageMessage;
+    long unsigned int           frameID;
+    rs2::align                  align;
+    struct rs2_intrinsics       depth_intrin;
+    struct rs2_intrinsics       color_intrin;
+    struct rs2_extrinsics       depth_to_color;
+    struct rs2_extrinsics       color_to_depth;
+    
+    FacadeSingleton (const int argc = 0, const char ** argv = nullptr, const int expected_argc = 0, const char * expectedUsageMessage = nullptr) : argc(argc), argv(argv), expected_argc(expected_argc), expectedUsageMessage(expectedUsageMessage), align(RS2_STREAM_COLOR) {
+        checkUsage();
+        setFrameID(0);
+    }
+    
+    ~FacadeSingleton () {}
     
     
-    
+
     void setFrameID         (long unsigned int newFrameID);
     void set_align          (rs2::align align);
     void set_depth_intrin   (struct rs2_intrinsics depth_intrin);
@@ -69,12 +62,12 @@ private:
     struct rs2_intrinsics & get_color_intrin    (void);
     struct rs2_extrinsics get_depth_to_color    (void);
     struct rs2_extrinsics get_color_to_depth    (void);
-public:
     
-    UsageUtility (const int argc = 0, const char ** argv = nullptr, const int expected_argc = 0, const char * expectedUsageMessage = nullptr) : argc(argc), argv(argv), expected_argc(expected_argc), expectedUsageMessage(expectedUsageMessage), align(RS2_STREAM_COLOR) {
-        checkUsage();
-        setFrameID(0);
-    }
+public:
+    FacadeSingleton (FacadeSingleton & other) = delete;
+    void operator=  (const FacadeSingleton &) = delete;
+    
+    static FacadeSingleton * getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage);
     
     // Controllo dei parametri di input
     void checkUsage             (void);
@@ -88,4 +81,4 @@ public:
     void showSkeleton           (unsigned int user_nFrame, Json::Value & currentJSON);
 };
 
-#endif /* UsageUtility_hpp */
+#endif /* FacadeSingleton_hpp */

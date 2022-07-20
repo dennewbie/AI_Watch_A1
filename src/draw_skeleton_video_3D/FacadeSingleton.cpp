@@ -1,99 +1,110 @@
 //
-//  UsageUtility.cpp
+//  FacadeSingleton.cpp
 //  librealsensetest
 //
-//  Created by Denny Caruso on 17/07/22.
+//  Created by Denny Caruso on 20/07/22.
 //
 
-#include "UsageUtility.hpp"
+#include "FacadeSingleton.hpp"
 
 
 
-void UsageUtility::setFrameID (long unsigned int frameID) {
+FacadeSingleton * FacadeSingleton::sharedInstance { nullptr };
+std::mutex FacadeSingleton::singletonMutex;
+
+
+
+void FacadeSingleton::setFrameID (long unsigned int frameID) {
     this->frameID = frameID;
 }
 
-void UsageUtility::set_align (rs2::align align) {
+void FacadeSingleton::set_align (rs2::align align) {
     this->align = align;
 }
 
-void UsageUtility::set_depth_intrin (struct rs2_intrinsics depth_intrin) {
+void FacadeSingleton::set_depth_intrin (struct rs2_intrinsics depth_intrin) {
     this->depth_intrin = depth_intrin;
 }
 
-void UsageUtility::set_color_intrin (struct rs2_intrinsics & color_intrin) {
+void FacadeSingleton::set_color_intrin (struct rs2_intrinsics & color_intrin) {
     this->color_intrin = color_intrin;
 }
 
-void UsageUtility::set_depth_to_color (struct rs2_extrinsics depth_to_color) {
+void FacadeSingleton::set_depth_to_color (struct rs2_extrinsics depth_to_color) {
     this->depth_to_color = depth_to_color;
 }
 
-void UsageUtility::set_color_to_depth (struct rs2_extrinsics color_to_depth) {
+void FacadeSingleton::set_color_to_depth (struct rs2_extrinsics color_to_depth) {
     this->color_to_depth = color_to_depth;
 }
 
 
 
-const int UsageUtility::get_argc (void) {
+const int FacadeSingleton::get_argc (void) {
     return this->argc;
 }
 
-const char ** UsageUtility::get_argv (void) {
+const char ** FacadeSingleton::get_argv (void) {
     return this->argv;
 }
 
-const int UsageUtility::get_expected_argc (void) {
+const int FacadeSingleton::get_expected_argc (void) {
     return this->expected_argc;
 }
 
-const char * UsageUtility::get_expectedUsageMessage (void) {
+const char * FacadeSingleton::get_expectedUsageMessage (void) {
     return this->expectedUsageMessage;
 }
 
-long unsigned int UsageUtility::getFrameID (void) {
+long unsigned int FacadeSingleton::getFrameID (void) {
     return this->frameID;
 }
 
-rs2::align UsageUtility::get_align (void) {
+rs2::align FacadeSingleton::get_align (void) {
     return this->align;
 }
 
-struct rs2_intrinsics UsageUtility::get_depth_intrin (void) {
+struct rs2_intrinsics FacadeSingleton::get_depth_intrin (void) {
     return this->depth_intrin;
 }
 
-struct rs2_intrinsics & UsageUtility::get_color_intrin (void) {
+struct rs2_intrinsics & FacadeSingleton::get_color_intrin (void) {
     return this->color_intrin;
 }
 
-struct rs2_extrinsics UsageUtility::get_depth_to_color (void) {
+struct rs2_extrinsics FacadeSingleton::get_depth_to_color (void) {
     return this->depth_to_color;
 }
 
-struct rs2_extrinsics UsageUtility::get_color_to_depth (void) {
+struct rs2_extrinsics FacadeSingleton::get_color_to_depth (void) {
     return this->color_to_depth;
 }
 
 
 
-void UsageUtility::checkUsage (void) {
+FacadeSingleton * FacadeSingleton::getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage) {
+    std::lock_guard <std::mutex> lock(singletonMutex);
+    if (sharedInstance == nullptr) sharedInstance = new FacadeSingleton(argc, argv, expected_argc, expectedUsageMessage);
+    return sharedInstance;
+}
+
+void FacadeSingleton::checkUsage (void) {
     if (get_argc() != get_expected_argc()) {
         std::string buffer = "Usage: ./" + std::string(get_argv()[0]) + std::string(get_expectedUsageMessage()) + " -- " + std::string(CHECK_USAGE_SCOPE);
         CV_Error(CHECK_USAGE_ERROR, buffer);
     }
 }
 
-void UsageUtility::loadImage(std::string imagePath, int loadType, cv::Mat & inputImage) {
+void FacadeSingleton::loadImage(std::string imagePath, int loadType, cv::Mat & inputImage) {
     inputImage = cv::imread(imagePath, loadType);
     if (inputImage.empty()) CV_Error(LOAD_IMAGE_ERROR, LOAD_IMAGE_SCOPE);
 }
 
-void UsageUtility::saveImage (std::string imageSavePath, cv::Mat & imageToSave) {
+void FacadeSingleton::saveImage (std::string imageSavePath, cv::Mat & imageToSave) {
     if (!(cv::imwrite(imageSavePath, imageToSave))) CV_Error(SAVE_IMAGE_ERROR, SAVE_IMAGE_SCOPE);
 }
 
-void UsageUtility::loadJSON (std::string filePathJSON, Json::Value & currentJSON) {
+void FacadeSingleton::loadJSON (std::string filePathJSON, Json::Value & currentJSON) {
     Json::Reader readerJSON;
     std::ifstream streamJSON(filePathJSON.c_str(), std::ifstream::binary);
     if (!(readerJSON.parse(streamJSON, currentJSON, false))) {
@@ -102,7 +113,7 @@ void UsageUtility::loadJSON (std::string filePathJSON, Json::Value & currentJSON
     }
 }
 
-cv::Mat UsageUtility::realsenseFrameToMat(const rs2::frame & singleFrame) {
+cv::Mat FacadeSingleton::realsenseFrameToMat(const rs2::frame & singleFrame) {
     rs2::video_frame videoFrame = singleFrame.as<rs2::video_frame>();
     const int frameWidth = videoFrame.get_width(), frameHeight = videoFrame.get_height();
     
@@ -124,7 +135,7 @@ cv::Mat UsageUtility::realsenseFrameToMat(const rs2::frame & singleFrame) {
     }
 }
 
-void UsageUtility::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY) {
+void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY) {
     rs2::log_to_console(RS2_LOG_SEVERITY_ERROR);
     rs2::rates_printer printer;
     rs2::config myConfiguration;
@@ -150,7 +161,7 @@ void UsageUtility::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_
 //    std::system(cleanTerminalCommand.str().c_str());
 }
 
-void UsageUtility::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) try {
+void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) try {
     for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         rs2::frameset streamData = pipelineStream.wait_for_frames(), alignedStreamData = get_align().process(streamData);
         rs2::depth_frame depth = alignedStreamData.get_depth_frame();
@@ -185,13 +196,13 @@ void UsageUtility::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pip
     CV_Error(RS_CAMERA_ERROR, RS_CAMERA_SCOPE);
 }
 
-void UsageUtility::getVideoBodyKeyPoints (void) {
+void FacadeSingleton::getVideoBodyKeyPoints (void) {
     std::stringstream firstTerminalCommand;
     firstTerminalCommand << "cd " << get_argv()[1] << " && " << get_argv()[2] << " --num_gpu 1 --num_gpu_start 2 --display 0 --render_pose 0 --image_dir " << get_argv()[3] << "rgb/" << " --write_json " << get_argv()[4] << " --logging_level 255 > /dev/null";
     std::system(firstTerminalCommand.str().c_str());
 }
 
-void UsageUtility::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
+void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
     // comment here
     setFrameID(120);
     for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
