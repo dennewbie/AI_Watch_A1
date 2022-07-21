@@ -127,13 +127,15 @@ void Skeleton::writeCoordinates (void) {
         // here
 //        if ((getBodyKeyPoints().at(i).getX() == 0 && getBodyKeyPoints().at(i).getY() == 0) || !getBodyKeyPointsMap().at(i)) continue;
         if (!getBodyKeyPointsMap().at(i)) continue;
-        std::stringstream labelText1, labelText2, labelText3;
+        std::stringstream labelText1, labelText2, labelText3, labelText4;
         labelText1 << getSkeletonPoints3D().at(i)->getX();
         labelText2 << getSkeletonPoints3D().at(i)->getY();
         labelText3 << getSkeletonPoints3D().at(i)->getZ();
+        labelText4 << ((BodyKeyPoint *) getSkeletonPoints3D().at(i)->getDecorated())->getConfidence();
         cv::putText(getRGB_Image(), labelText1.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 10), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
         cv::putText(getRGB_Image(), labelText2.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 25), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
         cv::putText(getRGB_Image(), labelText3.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 40), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+        cv::putText(getRGB_Image(), labelText4.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 55), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
     }
 }
 
@@ -149,7 +151,7 @@ void Skeleton::deprojectSkeletonPoints3D () {
         pixel[1] = getBodyKeyPoints().at(i).getY();
         float distance = getDistance_Image().at<float>(pixel[1], pixel[0]);
         rs2_deproject_pixel_to_point(point, & get_color_intrin(), pixel, distance);
-        Point3D * point3D = new Point3D(point[0], point[1], point[2]);
+        Point3D * point3D = new Point3D(point[0], point[1], point[2], new BodyKeyPoint(0, 0, getBodyKeyPoints().at(i).getConfidence()));
         skeletonPoints3D.push_back(point3D);
         delete [] pixel;
         delete [] point;

@@ -203,7 +203,7 @@ void FacadeSingleton::getVideoBodyKeyPoints (void) {
 }
 
 void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
-    // comment here
+    // comment here for complete test
     FacadeSingleton::setFrameID(120);
     for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         std::stringstream jsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath;
