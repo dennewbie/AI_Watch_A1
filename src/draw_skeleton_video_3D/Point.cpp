@@ -17,6 +17,9 @@ void Point::setY (float y) {
     this->y = y;
 }
 
+Point::~Point (void) {
+    delete getDecorated();
+}
 
 
 const Point * Point::getDecorated (void) {

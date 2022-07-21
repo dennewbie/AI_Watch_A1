@@ -60,7 +60,7 @@ protected:
     long unsigned int getFrameID                (void);
     rs2::align get_align                        (void);
     struct rs2_intrinsics get_depth_intrin      (void);
-    struct rs2_intrinsics & get_color_intrin    (void);
+    
     struct rs2_extrinsics get_depth_to_color    (void);
     struct rs2_extrinsics get_color_to_depth    (void);
     
@@ -71,8 +71,10 @@ protected:
 public:
     FacadeSingleton (FacadeSingleton & other) = delete;
     void operator=  (const FacadeSingleton &) = delete;
+    struct rs2_intrinsics & get_color_intrin    (void);
     
     static FacadeSingleton * getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage);
+    static FacadeSingleton * getInstance (void);
     
     
     void loadImage              (std::string imagePath, int loadType, cv::Mat & inputImage);

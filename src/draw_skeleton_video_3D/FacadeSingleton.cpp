@@ -68,10 +68,6 @@ struct rs2_intrinsics FacadeSingleton::get_depth_intrin (void) {
     return this->depth_intrin;
 }
 
-struct rs2_intrinsics & FacadeSingleton::get_color_intrin (void) {
-    return this->color_intrin;
-}
-
 struct rs2_extrinsics FacadeSingleton::get_depth_to_color (void) {
     return this->depth_to_color;
 }
@@ -89,9 +85,19 @@ void FacadeSingleton::checkUsage (void) {
 
 
 
+struct rs2_intrinsics & FacadeSingleton::get_color_intrin (void) {
+    return this->color_intrin;
+}
+
 FacadeSingleton * FacadeSingleton::getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage) {
     std::lock_guard <std::mutex> lock(singletonMutex);
     if (sharedInstance == nullptr) sharedInstance = new FacadeSingleton(argc, argv, expected_argc, expectedUsageMessage);
+    return sharedInstance;
+}
+
+FacadeSingleton * FacadeSingleton::getInstance (void) {
+    std::lock_guard <std::mutex> lock(singletonMutex);
+    if (sharedInstance == nullptr) return nullptr;
     return sharedInstance;
 }
 
@@ -221,7 +227,7 @@ void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & curr
         cv::imshow("Frame No Skeleton", colorImage);
         for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
             Json::Value singlePerson = (people[i])["pose_keypoints_2d"];
-            Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, singlePerson, FacadeSingleton::get_color_intrin());
+            Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, singlePerson);
             singlePersonSkeleton.drawSkeleton();
         }
         

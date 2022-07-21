@@ -10,6 +10,7 @@
 
 #include "BodyKeyPoint.hpp"
 #include "Point3D.hpp"
+#include "FacadeSingleton.hpp"
 #include <vector>
 #include <opencv2/opencv.hpp>
 #include <json/value.h>
@@ -36,7 +37,6 @@ private:
     std::vector <BodyKeyPoint>  bodyKeyPoints;
     std::vector <bool>          bodyKeyPointsMap;
     Json::Value                 skeletonData;
-    struct rs2_intrinsics       color_intrin;
     std::vector <Point3D *>     skeletonPoints3D;
     
     void setRGB_Image           (cv::Mat & rgbImage);
@@ -44,7 +44,6 @@ private:
     void setBodyKeyPoints       (std::vector <BodyKeyPoint> & bodyKeyPoints);
     void setBodyKeyPointsMap    (std::vector <bool> & bodyKeyPointsMap);
     void setSkeletonData        (Json::Value skeletonData);
-    void set_color_intrin       (struct rs2_intrinsics & color_intrin);
     void setSkeletonPoints3D    (std::vector <Point3D *> skeletonPoints3D);
     
     cv::Mat getRGB_Image                        (void);
@@ -52,7 +51,6 @@ private:
     std::vector <BodyKeyPoint> getBodyKeyPoints (void);
     std::vector <bool> getBodyKeyPointsMap      (void);
     Json::Value getSkeletonData                 (void);
-    struct rs2_intrinsics & get_color_intrin    (void);
     std::vector <Point3D *> getSkeletonPoints3D (void);
     
     void calcBodyKeypoints          (void);
@@ -61,8 +59,8 @@ private:
     void writeCoordinates           (void);
     void deprojectSkeletonPoints3D  (void);
 public:
-    Skeleton            (cv::Mat & rgbImage, cv::Mat & distanceImage, Json::Value skeletonData, struct rs2_intrinsics & color_intrin);
-    ~Skeleton(void);
+    Skeleton            (cv::Mat & rgbImage, cv::Mat & distanceImage, Json::Value skeletonData);
+    ~Skeleton           (void);
     void drawSkeleton   (void);
 };
 

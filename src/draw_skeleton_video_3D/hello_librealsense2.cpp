@@ -1,11 +1,9 @@
 //
-//  draw_skeleton_video_3D.cpp
-//  Disegno Body Keypoints and Edges con OpenCV a partire da più file JSON file prodotti da OpenPose.
-//  Proiezione delle coordinate spaziali tridimensionali.
+//  main.cpp
+//  librealsensetest
 //
-//  Created by Denny Caruso on 20/07/22.
+//  Created by Denny Caruso on 06/07/22.
 //
-
 
 #include "FacadeSingleton.hpp"
 
@@ -42,4 +40,3 @@ int main (int argc, const char * argv[]) {
     }
     return EXIT_SUCCESS;
 }
-

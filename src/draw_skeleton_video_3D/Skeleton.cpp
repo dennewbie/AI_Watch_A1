@@ -29,10 +29,6 @@ void Skeleton::setSkeletonData (Json::Value skeletonData) {
     this->skeletonData = skeletonData;
 }
 
-void Skeleton::set_color_intrin (struct rs2_intrinsics & color_intrin) {
-    this->color_intrin = color_intrin;
-}
-
 void Skeleton::setSkeletonPoints3D (std::vector <Point3D *> skeletonPoints3D) {
     this->skeletonPoints3D = skeletonPoints3D;
 }
@@ -57,10 +53,6 @@ std::vector <bool> Skeleton::getBodyKeyPointsMap (void) {
 
 Json::Value Skeleton::getSkeletonData (void) {
     return this->skeletonData;
-}
-
-struct rs2_intrinsics & Skeleton::get_color_intrin (void) {
-    return this->color_intrin;
 }
 
 std::vector <Point3D *> Skeleton::getSkeletonPoints3D (void) {
@@ -140,6 +132,9 @@ void Skeleton::writeCoordinates (void) {
 }
 
 void Skeleton::deprojectSkeletonPoints3D () {
+    FacadeSingleton * globalInstance = FacadeSingleton::getInstance();
+    struct rs2_intrinsics color_intrin;
+    if (globalInstance != nullptr) color_intrin = globalInstance->get_color_intrin();
     for (int i = 0; i < getBodyKeyPoints().size(); i++) {
         if (getBodyKeyPoints().at(i).getX() == 0 && getBodyKeyPoints().at(i).getY() == 0 && getBodyKeyPoints().at(i).getConfidence() == 0) continue;
         if (!getBodyKeyPointsMap().at(i)) continue;
@@ -150,7 +145,7 @@ void Skeleton::deprojectSkeletonPoints3D () {
         pixel[0] = getBodyKeyPoints().at(i).getX();
         pixel[1] = getBodyKeyPoints().at(i).getY();
         float distance = getDistance_Image().at<float>(pixel[1], pixel[0]);
-        rs2_deproject_pixel_to_point(point, & get_color_intrin(), pixel, distance);
+        rs2_deproject_pixel_to_point(point, & color_intrin, pixel, distance);
         Point3D * point3D = new Point3D(point[0], point[1], point[2], new BodyKeyPoint(0, 0, getBodyKeyPoints().at(i).getConfidence()));
         skeletonPoints3D.push_back(point3D);
         delete [] pixel;
@@ -160,11 +155,10 @@ void Skeleton::deprojectSkeletonPoints3D () {
 
 
 
-Skeleton::Skeleton (cv::Mat & rgbImage, cv::Mat & dImage, Json::Value skeletonData, struct rs2_intrinsics & color_intrin) {
+Skeleton::Skeleton (cv::Mat & rgbImage, cv::Mat & dImage, Json::Value skeletonData) {
     setRGB_Image(rgbImage);
     setDistance_Image(dImage);
     setSkeletonData(skeletonData);
-    set_color_intrin(color_intrin);
 }
 
 Skeleton::~Skeleton(void) {
