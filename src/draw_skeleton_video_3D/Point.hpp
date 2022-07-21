@@ -19,14 +19,13 @@ private:
 protected:
     void setX   (float x);
     void setY   (float y);
-    
-    ~Point (void);
 public:
     Point (float x, float y, Point * decorated = nullptr) : decorated(decorated) {
         setX(x);
         setY(y);
     }
     
+    ~Point (void);
     
     const Point * getDecorated  (void);
     float getX                  (void);

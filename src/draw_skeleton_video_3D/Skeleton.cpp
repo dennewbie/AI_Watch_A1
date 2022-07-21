@@ -55,10 +55,6 @@ Json::Value Skeleton::getSkeletonData (void) {
     return this->skeletonData;
 }
 
-std::vector <Point3D *> Skeleton::getSkeletonPoints3D (void) {
-    return this->skeletonPoints3D;
-}
-
 
 
 void Skeleton::calcBodyKeypoints (void) {
@@ -116,8 +112,6 @@ void Skeleton::drawLine (int start, int end) {
 
 void Skeleton::writeCoordinates (void) {
     for (int i = 0; i < getSkeletonPoints3D().size(); i++) {
-        // here
-//        if ((getBodyKeyPoints().at(i).getX() == 0 && getBodyKeyPoints().at(i).getY() == 0) || !getBodyKeyPointsMap().at(i)) continue;
         if (!getBodyKeyPointsMap().at(i)) continue;
         std::stringstream labelText1, labelText2, labelText3, labelText4;
         labelText1 << getSkeletonPoints3D().at(i)->getX();
@@ -136,10 +130,9 @@ void Skeleton::deprojectSkeletonPoints3D () {
     struct rs2_intrinsics color_intrin;
     if (globalInstance != nullptr) color_intrin = globalInstance->get_color_intrin();
     for (int i = 0; i < getBodyKeyPoints().size(); i++) {
-        if (getBodyKeyPoints().at(i).getX() == 0 && getBodyKeyPoints().at(i).getY() == 0 && getBodyKeyPoints().at(i).getConfidence() == 0) continue;
         if (!getBodyKeyPointsMap().at(i)) continue;
-        float * pixel = new float [2];
-        float * point = new float [3];
+        float * pixel = new (std::nothrow) float [2];
+        float * point = new (std::nothrow) float [3];
         if (!pixel || !point) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
         
         pixel[0] = getBodyKeyPoints().at(i).getX();
@@ -171,4 +164,8 @@ void Skeleton::drawSkeleton () {
     calcBodyEdges();
     deprojectSkeletonPoints3D();
     writeCoordinates();
+}
+
+std::vector <Point3D *> Skeleton::getSkeletonPoints3D (void) {
+    return this->skeletonPoints3D;
 }

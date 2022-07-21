@@ -16,7 +16,7 @@ private:
     
     void setZ   (float z);
 public:
-    Point3D (float x, float y, float z, Point * decorated = nullptr);
+    Point3D     (float x, float y, float z, Point * decorated = nullptr);
     
     float getZ  (void);
 };

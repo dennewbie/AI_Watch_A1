@@ -18,7 +18,7 @@ private:
     
     void setConfidence  (float confidence);
 public:
-    BodyKeyPoint (int x, int y, float confidence, Point * decorated = nullptr);
+    BodyKeyPoint        (int x, int y, float confidence, Point * decorated = nullptr);
     
     float getConfidence (void);
 };

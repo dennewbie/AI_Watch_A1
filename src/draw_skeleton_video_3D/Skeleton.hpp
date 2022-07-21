@@ -51,7 +51,6 @@ private:
     std::vector <BodyKeyPoint> getBodyKeyPoints (void);
     std::vector <bool> getBodyKeyPointsMap      (void);
     Json::Value getSkeletonData                 (void);
-    std::vector <Point3D *> getSkeletonPoints3D (void);
     
     void calcBodyKeypoints          (void);
     void calcBodyEdges              (void);
@@ -59,9 +58,10 @@ private:
     void writeCoordinates           (void);
     void deprojectSkeletonPoints3D  (void);
 public:
-    Skeleton            (cv::Mat & rgbImage, cv::Mat & distanceImage, Json::Value skeletonData);
-    ~Skeleton           (void);
-    void drawSkeleton   (void);
+    Skeleton                                        (cv::Mat & rgbImage, cv::Mat & distanceImage, Json::Value skeletonData);
+    ~Skeleton                                       (void);
+    void drawSkeleton                               (void);
+    std::vector <Point3D *> getSkeletonPoints3D     (void);
 };
 
 #endif /* Skeleton_h */

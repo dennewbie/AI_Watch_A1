@@ -18,10 +18,14 @@
 #include <librealsense2/rs.hpp>
 #include "Skeleton.hpp"
 #include "constants.hpp"
+#include "JSON_Manager.hpp"
 
 
-// TODO: all methods static ?
-
+/*
+    TODO: all methods static ?
+    classe apposita per il JSON formatter/deformatter ?
+ 
+ */
 class FacadeSingleton {
 private:
     static FacadeSingleton *    sharedInstance;
@@ -43,9 +47,6 @@ private:
     }
     
     ~FacadeSingleton () {}
-    
-
-    
 protected:
     void setFrameID         (long unsigned int newFrameID);
     void set_align          (rs2::align align);
@@ -66,9 +67,6 @@ protected:
     struct rs2_extrinsics get_color_to_depth    (void);
     
     void checkUsage             (void);
-
-    
-    
 public:
     FacadeSingleton (FacadeSingleton & other) = delete;
     void operator=  (const FacadeSingleton &) = delete;
@@ -78,7 +76,7 @@ public:
     static FacadeSingleton * getInstance (void);
     
     
-    static void loadImage       (std::string imagePath, int loadType, cv::Mat & inputImage);
+    void loadImage              (std::string imagePath, int loadType, cv::Mat & inputImage);
     void saveImage              (std::string imageSavePath, cv::Mat & imageToSave);
     void loadJSON               (std::string jsonFilePath, Json::Value & currentJSON);
     cv::Mat realsenseFrameToMat (const rs2::frame & singleFrame);
