@@ -24,12 +24,13 @@ int main (int argc, const char * argv[]) {
     struct rs2_intrinsics color_intrin;
     FacadeSingleton * myUtility = FacadeSingleton::getInstance(argc, argv, expected_argc, expectedUsageMessage);
     myUtility->startEnvironment(pipelineStream, color_intrin, & scale, resX, resY);
+
 //    UsageUtility myUsageUtility = UsageUtility(argc, argv, expected_argc, expectedUsageMessage);
 //    myUsageUtility.startEnvironment(pipelineStream, color_intrin, & scale, resX, resY);
 //
     while (true) {
-//        myUsageUtility.getVideoFrames(user_nFrame, pipelineStream, scale);
-//        myUsageUtility.getVideoBodyKeyPoints();
+//        myUsageUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
+//        myUsageUtility->getVideoBodyKeyPoints();
         myUtility->showSkeleton(user_nFrame, currentJSON);
     }
     return EXIT_SUCCESS;

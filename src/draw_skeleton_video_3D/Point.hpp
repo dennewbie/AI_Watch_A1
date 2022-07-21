@@ -14,15 +14,20 @@ class Point {
 private:
     float x;
     float y;
+    const Point * decorated;
     
 protected:
     void setX   (float x);
     void setY   (float y);
 public:
-    Point       (float x, float y);
+    Point (float x, float y, Point * decorated = nullptr) : decorated(decorated) {
+        setX(x);
+        setY(y);
+    }
     
-    float getX  (void);
-    float getY  (void);
+    const Point * getDecorated  (void);
+    float getX                  (void);
+    float getY                  (void);
 };
 
 #endif /* Point_hpp */

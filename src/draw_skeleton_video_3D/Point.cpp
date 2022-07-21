@@ -19,9 +19,8 @@ void Point::setY (float y) {
 
 
 
-Point::Point (float x, float y) {
-    setX(x);
-    setY(y);
+const Point * Point::getDecorated (void) {
+    return this->decorated;
 }
 
 float Point::getX (void) {

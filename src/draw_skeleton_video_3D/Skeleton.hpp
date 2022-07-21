@@ -15,9 +15,7 @@
 #include <json/value.h>
 #include <json/json.h>
 #include <librealsense2/rs.hpp>
-
-static const short int CALLOC_ERROR = 10;
-static const char * CALLOC_SCOPE = "Error during calloc";
+#include "constants.hpp"
 
 
 

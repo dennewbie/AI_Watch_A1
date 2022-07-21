@@ -43,8 +43,9 @@ private:
     
     ~FacadeSingleton () {}
     
-    
 
+    
+protected:
     void setFrameID         (long unsigned int newFrameID);
     void set_align          (rs2::align align);
     void set_depth_intrin   (struct rs2_intrinsics depth_intrin);
@@ -63,14 +64,17 @@ private:
     struct rs2_extrinsics get_depth_to_color    (void);
     struct rs2_extrinsics get_color_to_depth    (void);
     
+    void checkUsage             (void);
+
+    
+    
 public:
     FacadeSingleton (FacadeSingleton & other) = delete;
     void operator=  (const FacadeSingleton &) = delete;
     
     static FacadeSingleton * getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage);
     
-    // Controllo dei parametri di input
-    void checkUsage             (void);
+    
     void loadImage              (std::string imagePath, int loadType, cv::Mat & inputImage);
     void saveImage              (std::string imageSavePath, cv::Mat & imageToSave);
     void loadJSON               (std::string jsonFilePath, Json::Value & currentJSON);

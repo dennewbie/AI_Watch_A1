@@ -15,7 +15,7 @@ void Point3D::setZ (float z) {
 
 
 
-Point3D::Point3D (float x, float y, float z) : Point(x, y) {
+Point3D::Point3D (float x, float y, float z, Point * decorated) : Point(x, y, decorated) {
     setZ(z);
 }
 

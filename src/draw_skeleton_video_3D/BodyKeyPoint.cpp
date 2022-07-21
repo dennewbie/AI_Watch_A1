@@ -15,7 +15,7 @@ void BodyKeyPoint::setConfidence (float confidence) {
 
 
 
-BodyKeyPoint::BodyKeyPoint (int x, int y, float confidence) : Point(x, y){
+BodyKeyPoint::BodyKeyPoint (int x, int y, float confidence, Point * decorated) : Point(x, y, decorated) {
     setConfidence(confidence);
 }
 
