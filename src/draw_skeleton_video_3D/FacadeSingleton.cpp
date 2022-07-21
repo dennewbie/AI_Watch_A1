@@ -164,7 +164,7 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     
     std::stringstream cleanTerminalCommand;
     cleanTerminalCommand << "rm -r " << FacadeSingleton::get_argv()[3] << "rgb/ > /dev/null && rm -r " << FacadeSingleton::get_argv()[3] << "d/ > /dev/null && rm -r " << FacadeSingleton::get_argv()[3] << "skeleton/ > /dev/null && rm -r " << get_argv()[3] << "videoframe/ > /dev/null && rm -r " << get_argv()[4] << " > /dev/null && mkdir " << FacadeSingleton::get_argv()[3] << "rgb && mkdir " << FacadeSingleton::get_argv()[3] << "d && mkdir " << FacadeSingleton::get_argv()[3] << "videoframe && mkdir " << FacadeSingleton::get_argv()[3] << "skeleton && mkdir " << FacadeSingleton::get_argv()[4];
-//    std::system(cleanTerminalCommand.str().c_str());
+    std::system(cleanTerminalCommand.str().c_str());
 }
 
 void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) try {
@@ -210,7 +210,7 @@ void FacadeSingleton::getVideoBodyKeyPoints (void) {
 
 void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
     // comment here for complete test
-    FacadeSingleton::setFrameID(120);
+//    FacadeSingleton::setFrameID(120);
     for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         std::stringstream jsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath;
         jsonFilePath << FacadeSingleton::get_argv()[4] << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Color_keypoints.json";
@@ -227,20 +227,14 @@ void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & curr
         cv::imshow("Frame No Skeleton", colorImage);
         
         for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
-//            std::cout << "PEOPLE SIZE: " << people.size() << "\n";
             Json::Value singlePerson = (people[i])["pose_keypoints_2d"];
-//            Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, singlePerson);
-            Skeleton singlePersonSkeleton = Skeleton(FlyweightFactoryW_Mat::getImage(colorImagePath.str(), colorImage), FlyweightFactoryW_Mat::getImage(distanceImagePath.str(), distanceImage), singlePerson);
+            Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, singlePerson);
             singlePersonSkeleton.drawSkeleton();
         }
         
-//        std::cout << "FRAME COMPLETE " << nFrame << "\n";
-        cv::Mat skeletonImage = FlyweightFactoryW_Mat::getImage(colorImagePath.str(), colorImage);
-//        cv::imshow("Frame Skeleton", colorImage);
-        cv::imshow("Frame Skeleton", skeletonImage);
+        cv::imshow("Frame Skeleton", colorImage);
         skeletonImagePath << FacadeSingleton::get_argv()[3] << "skeleton/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Skeleton.png";
-//        FacadeSingleton::saveImage(skeletonImagePath.str(), colorImage);
-        FacadeSingleton::saveImage(skeletonImagePath.str(), skeletonImage);
+        FacadeSingleton::saveImage(skeletonImagePath.str(), colorImage);
         colorImage.release();
         distanceImage.release();
         int key = cv::waitKey(1);
@@ -250,5 +244,5 @@ void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & curr
     
     std::stringstream secondTerminalCommand;
     secondTerminalCommand << "mv -v " << FacadeSingleton::get_argv()[3] << "rgb/* " << FacadeSingleton::get_argv()[3] << "videoframe/ > /dev/null";
-//    std::system(secondTerminalCommand.str().c_str());
+    std::system(secondTerminalCommand.str().c_str());
 }

@@ -18,9 +18,9 @@
 #include <librealsense2/rs.hpp>
 #include "Skeleton.hpp"
 #include "constants.hpp"
-#include "FlyweightFactoryW_Mat.hpp"
 
 
+// TODO: all methods static ?
 
 class FacadeSingleton {
 private:
@@ -78,7 +78,7 @@ public:
     static FacadeSingleton * getInstance (void);
     
     
-    void loadImage              (std::string imagePath, int loadType, cv::Mat & inputImage);
+    static void loadImage       (std::string imagePath, int loadType, cv::Mat & inputImage);
     void saveImage              (std::string imageSavePath, cv::Mat & imageToSave);
     void loadJSON               (std::string jsonFilePath, Json::Value & currentJSON);
     cv::Mat realsenseFrameToMat (const rs2::frame & singleFrame);
