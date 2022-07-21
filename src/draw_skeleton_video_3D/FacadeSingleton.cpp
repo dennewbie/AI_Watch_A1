@@ -225,16 +225,25 @@ void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & curr
         cv::Mat distanceImage = cv::Mat(colorImage.rows, colorImage.cols, CV_32FC1);
         FacadeSingleton::loadImage(distanceImagePath.str(), cv::IMREAD_ANYCOLOR | cv::IMREAD_ANYDEPTH, distanceImage);
         cv::imshow("Frame No Skeleton", colorImage);
+        
         for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
+//            std::cout << "PEOPLE SIZE: " << people.size() << "\n";
             Json::Value singlePerson = (people[i])["pose_keypoints_2d"];
-            Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, singlePerson);
+//            Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, singlePerson);
+            Skeleton singlePersonSkeleton = Skeleton(FlyweightFactoryW_Mat::getImage(colorImagePath.str(), colorImage), FlyweightFactoryW_Mat::getImage(distanceImagePath.str(), distanceImage), singlePerson);
             singlePersonSkeleton.drawSkeleton();
         }
         
-        cv::imshow("Frame Skeleton", colorImage);
+//        std::cout << "FRAME COMPLETE " << nFrame << "\n";
+        cv::Mat skeletonImage = FlyweightFactoryW_Mat::getImage(colorImagePath.str(), colorImage);
+//        cv::imshow("Frame Skeleton", colorImage);
+        cv::imshow("Frame Skeleton", skeletonImage);
         skeletonImagePath << FacadeSingleton::get_argv()[3] << "skeleton/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Skeleton.png";
-        FacadeSingleton::saveImage(skeletonImagePath.str(), colorImage);
-        int key = cv::waitKey(0);
+//        FacadeSingleton::saveImage(skeletonImagePath.str(), colorImage);
+        FacadeSingleton::saveImage(skeletonImagePath.str(), skeletonImage);
+        colorImage.release();
+        distanceImage.release();
+        int key = cv::waitKey(1);
         // if ESC is pressed
         if (key == ESC_KEY) break;
     }

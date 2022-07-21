@@ -16,3 +16,7 @@ void W_Mat::setImage (cv::Mat & image) {
 cv::Mat & W_Mat::getImage (void) {
     return this->image;
 }
+
+std::string W_Mat::getImageName (void) {
+    return this->imageName;
+}

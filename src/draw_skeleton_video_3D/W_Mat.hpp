@@ -15,13 +15,14 @@ private:
     const std::string imageName;
     cv::Mat image;
     
-    void setImage (cv::Mat & image);
+    void setImage                   (cv::Mat & image);
 public:
     W_Mat (std::string imageName, cv::Mat & image) : imageName(imageName) {
         setImage(image);
     }
     
-    cv::Mat & getImage (void);
+    std::string     getImageName    (void);
+    cv::Mat &       getImage        (void);
 };
 
 #endif /* W_Mat_hpp */

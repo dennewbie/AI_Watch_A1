@@ -18,6 +18,7 @@
 #include <librealsense2/rs.hpp>
 #include "Skeleton.hpp"
 #include "constants.hpp"
+#include "FlyweightFactoryW_Mat.hpp"
 
 
 
