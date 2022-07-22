@@ -34,6 +34,7 @@ class Skeleton {
 private:
     cv::Mat                     rgb_Image;
     cv::Mat                     distance_Image;
+    cv::Mat                     skeleton_Image;
     std::vector <BodyKeyPoint>  bodyKeyPoints;
     std::vector <bool>          bodyKeyPointsMap;
     Json::Value                 skeletonData;
@@ -41,6 +42,7 @@ private:
     
     void setRGB_Image           (cv::Mat & rgbImage);
     void setDistance_Image      (cv::Mat & distanceImage);
+    void setSkeleton_Image      (cv::Mat & skeleton_Image);
     void setBodyKeyPoints       (std::vector <BodyKeyPoint> & bodyKeyPoints);
     void setBodyKeyPointsMap    (std::vector <bool> & bodyKeyPointsMap);
     void setSkeletonData        (Json::Value skeletonData);
@@ -48,6 +50,7 @@ private:
     
     cv::Mat getRGB_Image                        (void);
     cv::Mat getDistance_Image                   (void);
+    cv::Mat getSkeleton_Image                   (void);
     std::vector <BodyKeyPoint> getBodyKeyPoints (void);
     std::vector <bool> getBodyKeyPointsMap      (void);
     Json::Value getSkeletonData                 (void);
@@ -58,7 +61,7 @@ private:
     void writeCoordinates           (void);
     void deprojectSkeletonPoints3D  (void);
 public:
-    Skeleton                                        (cv::Mat & rgbImage, cv::Mat & distanceImage, Json::Value skeletonData);
+    Skeleton                                        (cv::Mat & rgbImage, cv::Mat & distanceImage, Json::Value skeletonData, cv::Mat & skeletonImage);
     ~Skeleton                                       (void);
     void drawSkeleton                               (void);
     std::vector <Point3D *> getSkeletonPoints3D     (void);

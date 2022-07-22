@@ -141,7 +141,7 @@ cv::Mat FacadeSingleton::realsenseFrameToMat(const rs2::frame & singleFrame) {
     }
 }
 
-void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY) {
+void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY) try {
     rs2::log_to_console(RS2_LOG_SEVERITY_ERROR);
     rs2::rates_printer printer;
     rs2::config myConfiguration;
@@ -153,7 +153,7 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     rs2::depth_sensor sensor = myPipelineProfile.get_device().first<rs2::depth_sensor>();
     * scale = sensor.get_depth_scale();
     
-    // Capture 30 frames to give autoexposure, etc. a chance to settle
+//     Capture 30 frames to give autoexposure, etc. a chance to settle
     for (int i = 0; i < 30; i++) pipelineStream.wait_for_frames();
     
     FacadeSingleton::set_depth_intrin(myPipelineProfile.get_stream(RS2_STREAM_DEPTH).as<rs2::video_stream_profile>().get_intrinsics());
@@ -163,17 +163,42 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     FacadeSingleton::set_depth_to_color(myPipelineProfile.get_stream(RS2_STREAM_COLOR).as<rs2::video_stream_profile>().get_extrinsics_to(myPipelineProfile.get_stream(RS2_STREAM_DEPTH)));
     
     std::stringstream cleanTerminalCommand;
-    cleanTerminalCommand << "rm -r " << FacadeSingleton::get_argv()[3] << "rgb/ > /dev/null && rm -r " << FacadeSingleton::get_argv()[3] << "d/ > /dev/null && rm -r " << FacadeSingleton::get_argv()[3] << "skeleton/ > /dev/null && rm -r " << get_argv()[3] << "videoframe/ > /dev/null && rm -r " << get_argv()[4] << " > /dev/null && mkdir " << FacadeSingleton::get_argv()[3] << "rgb && mkdir " << FacadeSingleton::get_argv()[3] << "d && mkdir " << FacadeSingleton::get_argv()[3] << "videoframe && mkdir " << FacadeSingleton::get_argv()[3] << "skeleton && mkdir " << FacadeSingleton::get_argv()[4];
+    cleanTerminalCommand << "rm -r " << FacadeSingleton::get_argv()[3] << "rgb/ > /dev/null && "
+                            "rm -r " << FacadeSingleton::get_argv()[3] << "d/ > /dev/null && "
+                            "rm -r " << FacadeSingleton::get_argv()[3] << "skeleton/ > /dev/null && "
+                            "rm -r " << get_argv()[3] << "videoframe/ > /dev/null && "
+                            "rm -r " << get_argv()[4] << " > /dev/null && "
+                            "rm -r " << FacadeSingleton::get_argv()[3] << "depth/ > /dev/null && "
+                            "rm -r " << FacadeSingleton::get_argv()[3] << "sk/ > /dev/null && "
+                            "mkdir " << FacadeSingleton::get_argv()[3] << "rgb && "
+                            "mkdir " << FacadeSingleton::get_argv()[3] << "d && "
+                            "mkdir " << FacadeSingleton::get_argv()[3] << "videoframe && "
+                            "mkdir " << FacadeSingleton::get_argv()[3] << "skeleton && "
+                            "mkdir " << FacadeSingleton::get_argv()[3] << "depth && "
+                            "mkdir " << FacadeSingleton::get_argv()[3] << "sk && "
+                            "mkdir " << FacadeSingleton::get_argv()[4];
 //    std::system(cleanTerminalCommand.str().c_str());
+    std::stringstream cleanSK;
+    cleanSK << "rm -r " << FacadeSingleton::get_argv()[3] << "sk/ > /dev/null && mkdir " << FacadeSingleton::get_argv()[3] << "sk";
+    std::system(cleanSK.str().c_str());
+} catch (const rs2::error & e){
+    std::cerr << "RealSense error calling " << e.get_failed_function() << "(" << e.get_failed_args() << "):\n   " << e.what() << std::endl;
+    CV_Error(RS_CAMERA_ERROR, RS_CAMERA_SCOPE);
+} catch (const std::exception & e) {
+    std::cerr << e.what() << std::endl;
+    CV_Error(RS_CAMERA_ERROR, RS_CAMERA_SCOPE);
 }
 
 void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) try {
+    rs2::colorizer colorMap;
     for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         rs2::frameset streamData = pipelineStream.wait_for_frames(), alignedStreamData = get_align().process(streamData);
         rs2::depth_frame depth = alignedStreamData.get_depth_frame();
         rs2::frame color = alignedStreamData.get_color_frame();
+        rs2::frame colorizedDepth = depth.apply_filter(colorMap);
         cv::Mat colorImage = FacadeSingleton::realsenseFrameToMat(color);
         cv::Mat depthImage = FacadeSingleton::realsenseFrameToMat(depth);
+        cv::Mat colorizedDepthImage = FacadeSingleton::realsenseFrameToMat(colorizedDepth);
         depthImage *= 1000.0 * scale;
         
         auto cols = depth.get_width();
@@ -181,17 +206,23 @@ void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & 
         cv::Mat distanceImage = cv::Mat::zeros(rows, cols, CV_32FC1);
         for (int i = 0; i < cols; i++) for (int j = 0; j < rows; j++) distanceImage.at<float>(j, i) = (float) depth.get_distance(i, j);
         
-        std::stringstream colorImagePath, distanceImagePath;
-        std::stringstream colorImageName, distanceImageName;
+        std::stringstream colorImagePath, distanceImagePath, colorizedDepthImagePath;
+        std::stringstream colorImageName, distanceImageName, colorizedDepthImageName;
         
         colorImageName << FacadeSingleton::getFrameID() << "_Color";
         distanceImageName << FacadeSingleton::getFrameID() << "_Distance";
+        colorizedDepthImageName << FacadeSingleton::getFrameID() << "_Depth";
+        
         colorImagePath << FacadeSingleton::get_argv()[3] << "rgb/" << colorImageName.str() << ".png";
-        distanceImagePath <<  FacadeSingleton::get_argv()[3] << "d/" << distanceImageName.str() << ".exr";
-        FacadeSingleton::saveImage(colorImagePath.str(), colorImage);
-        FacadeSingleton::saveImage(distanceImagePath.str(), distanceImage);
+        distanceImagePath << FacadeSingleton::get_argv()[3] << "d/" << distanceImageName.str() << ".exr";
+        colorizedDepthImagePath << FacadeSingleton::get_argv()[3] << "depth/" << colorizedDepthImageName.str() << ".png";
+//        FacadeSingleton::saveImage(colorImagePath.str(), colorImage);
+//        FacadeSingleton::saveImage(distanceImagePath.str(), distanceImage);
+//        FacadeSingleton::saveImage(colorizedDepthImagePath.str(), colorizedDepthImage);
         colorImage.release();
         depthImage.release();
+        distanceImage.release();
+        colorizedDepthImage.release();
         FacadeSingleton::setFrameID(FacadeSingleton::getFrameID() + 1);
     }
 } catch (const rs2::error & e){
@@ -204,41 +235,53 @@ void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & 
 
 void FacadeSingleton::getVideoBodyKeyPoints (void) {
     std::stringstream firstTerminalCommand;
-    firstTerminalCommand << "cd " << FacadeSingleton::get_argv()[1] << " && " << FacadeSingleton::get_argv()[2] << " --num_gpu 1 --num_gpu_start 2 --display 0 --render_pose 0 --image_dir " << FacadeSingleton::get_argv()[3] << "rgb/" << " --write_json " << FacadeSingleton::get_argv()[4] << " --logging_level 255 > /dev/null";
-//    std::system(firstTerminalCommand.str().c_str());
+//    firstTerminalCommand << "cd " << FacadeSingleton::get_argv()[1] << " && " << FacadeSingleton::get_argv()[2] << " --num_gpu 1 --num_gpu_start 2 --display 0 --render_pose 0 --image_dir " << FacadeSingleton::get_argv()[3] << "rgb/" << " --write_json " << FacadeSingleton::get_argv()[4] << " --logging_level 255 > /dev/null";
+    firstTerminalCommand << "cd " << FacadeSingleton::get_argv()[1] << " && " << FacadeSingleton::get_argv()[2] << " --num_gpu 1 --num_gpu_start 2 --display 0 --render_pose 0 --image_dir " << FacadeSingleton::get_argv()[3] << "rgb/" << " --write_json " << FacadeSingleton::get_argv()[4];
+    std::system(firstTerminalCommand.str().c_str());
 }
 
 void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
     // comment here for complete test
-    FacadeSingleton::setFrameID(120);
+    FacadeSingleton::setFrameID(user_nFrame);
+    std::cout << "\nBody key points claimed. Now drawing skeletons...\n";
     for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
-        std::stringstream jsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath;
+        std::stringstream jsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath;
         jsonFilePath << FacadeSingleton::get_argv()[4] << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Color_keypoints.json";
         
         FacadeSingleton::loadJSON(jsonFilePath.str(), currentJSON);
         Json::Value people = currentJSON["people"];
         colorImagePath << FacadeSingleton::get_argv()[3] << "rgb/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Color.png";
         distanceImagePath << FacadeSingleton::get_argv()[3] << "d/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Distance.exr";
+        colorizedDepthImagePath << FacadeSingleton::get_argv()[3] << "depth/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Depth.png";
         
-        cv::Mat colorImage;
+        cv::Mat colorImage, colorizedDepthImage;
         FacadeSingleton::loadImage(colorImagePath.str(), cv::IMREAD_COLOR, colorImage);
         cv::Mat distanceImage = cv::Mat(colorImage.rows, colorImage.cols, CV_32FC1);
         FacadeSingleton::loadImage(distanceImagePath.str(), cv::IMREAD_ANYCOLOR | cv::IMREAD_ANYDEPTH, distanceImage);
+        FacadeSingleton::loadImage(colorizedDepthImagePath.str(), cv::IMREAD_COLOR, colorizedDepthImage);
         cv::imshow("Frame No Skeleton", colorImage);
+        cv::imshow("Frame Colorized Depth", colorizedDepthImage);
+        cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
         
         for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
             Json::Value singlePerson = (people[i])["pose_keypoints_2d"];
-            Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, singlePerson);
+            Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, singlePerson, skeletonOnlyImage);
             singlePersonSkeleton.drawSkeleton();
-            JSON_Manager manager;
-            manager.makeJSON(singlePersonSkeleton.getSkeletonPoints3D());
+//            JSON_Manager manager;
+//            manager.makeJSON(singlePersonSkeleton.getSkeletonPoints3D());
         }
         
+        cv::imshow("Frame Skeleton Background Cut", skeletonOnlyImage);
         cv::imshow("Frame Skeleton", colorImage);
+        skeletonOnlyImagePath << FacadeSingleton::get_argv()[3] << "sk/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_sk.png";
         skeletonImagePath << FacadeSingleton::get_argv()[3] << "skeleton/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Skeleton.png";
         FacadeSingleton::saveImage(skeletonImagePath.str(), colorImage);
+//        std::cout << "\n" << skeletonOnlyImagePath.str() << "\n";
+        FacadeSingleton::saveImage(skeletonOnlyImagePath.str(), skeletonOnlyImage);
         colorImage.release();
         distanceImage.release();
+        colorizedDepthImage.release();
+        skeletonOnlyImage.release();
         int key = cv::waitKey(1);
         // if ESC is pressed
         if (key == ESC_KEY) break;

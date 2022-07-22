@@ -43,10 +43,10 @@ private:
     
     FacadeSingleton (const int argc = 0, const char ** argv = nullptr, const int expected_argc = 0, const char * expectedUsageMessage = nullptr) : argc(argc), argv(argv), expected_argc(expected_argc), expectedUsageMessage(expectedUsageMessage), align(RS2_STREAM_COLOR) {
         checkUsage();
-        setFrameID(0);
+        setFrameID(150);
     }
     
-    ~FacadeSingleton () {}
+    ~FacadeSingleton () { }
 protected:
     void setFrameID         (long unsigned int newFrameID);
     void set_align          (rs2::align align);

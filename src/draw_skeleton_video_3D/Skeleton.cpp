@@ -17,6 +17,10 @@ void Skeleton::setDistance_Image (cv::Mat & myImage) {
     this->distance_Image = myImage;
 }
 
+void Skeleton::setSkeleton_Image (cv::Mat & myImage) {
+    this->skeleton_Image = myImage;
+}
+
 void Skeleton::setBodyKeyPoints (std::vector <BodyKeyPoint> & bodyKeyPoints) {
     this->bodyKeyPoints = bodyKeyPoints;
 }
@@ -41,6 +45,10 @@ cv::Mat Skeleton::getRGB_Image(void) {
 
 cv::Mat Skeleton::getDistance_Image(void) {
     return this->distance_Image;
+}
+
+cv::Mat Skeleton::getSkeleton_Image(void) {
+    return this->skeleton_Image;
 }
 
 std::vector <BodyKeyPoint> Skeleton::getBodyKeyPoints (void) {
@@ -71,6 +79,7 @@ void Skeleton::calcBodyEdges (void) {
     for (int i = 0; i < getBodyKeyPoints().size(); i++) {
         if (!getBodyKeyPointsMap().at(i)) continue;
         cv::circle(getRGB_Image(), cv::Point(getBodyKeyPoints().at(i).getX(), getBodyKeyPoints().at(i).getY()), 4, cv::Scalar(0, 0, 255), 8, cv::LINE_8, 0);
+        cv::circle(getSkeleton_Image(), cv::Point(getBodyKeyPoints().at(i).getX(), getBodyKeyPoints().at(i).getY()), 4, cv::Scalar(0, 0, 255), 8, cv::LINE_8, 0);
         if (i >= 24 || (!getBodyKeyPointsMap().at(i))) continue;
         
         switch (i) {
@@ -106,6 +115,8 @@ void Skeleton::calcBodyEdges (void) {
 void Skeleton::drawLine (int start, int end) {
     if (getBodyKeyPointsMap().at(start) && getBodyKeyPointsMap().at(end)) {
         cv::line(getRGB_Image(), cv::Point(getBodyKeyPoints().at(start).getX(), getBodyKeyPoints().at(start).getY()),
+                 cv::Point(getBodyKeyPoints().at(end).getX(), getBodyKeyPoints().at(end).getY()), cv::Scalar(0, 255, 0), 3, cv::LINE_8, 0);
+        cv::line(getSkeleton_Image(), cv::Point(getBodyKeyPoints().at(start).getX(), getBodyKeyPoints().at(start).getY()),
                  cv::Point(getBodyKeyPoints().at(end).getX(), getBodyKeyPoints().at(end).getY()), cv::Scalar(0, 255, 0), 3, cv::LINE_8, 0);
     }
 }
@@ -148,9 +159,10 @@ void Skeleton::deprojectSkeletonPoints3D () {
 
 
 
-Skeleton::Skeleton (cv::Mat & rgbImage, cv::Mat & dImage, Json::Value skeletonData) {
+Skeleton::Skeleton (cv::Mat & rgbImage, cv::Mat & dImage, Json::Value skeletonData, cv::Mat & skeleton_Image) {
     setRGB_Image(rgbImage);
     setDistance_Image(dImage);
+    setSkeleton_Image(skeleton_Image);
     setSkeletonData(skeletonData);
 }
 
