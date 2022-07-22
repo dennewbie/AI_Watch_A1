@@ -10,6 +10,8 @@
 
 #include "Point.hpp"
 
+
+
 class Point3D : public Point {
 private:
     float z;

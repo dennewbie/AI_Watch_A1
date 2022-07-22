@@ -21,11 +21,7 @@
 #include "JSON_Manager.hpp"
 
 
-/*
-    TODO: all methods static ?
-    classe apposita per il JSON formatter/deformatter ?
- 
- */
+
 class FacadeSingleton {
 private:
     static FacadeSingleton *    sharedInstance;

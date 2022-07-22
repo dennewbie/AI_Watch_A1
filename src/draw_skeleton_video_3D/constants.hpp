@@ -8,6 +8,8 @@
 #ifndef constants_h
 #define constants_h
 
+
+
 static const short int CHECK_USAGE_ERROR = 1;
 static const char * CHECK_USAGE_SCOPE = "usage";
 

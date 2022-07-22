@@ -34,7 +34,7 @@ class Skeleton {
 private:
     cv::Mat                     rgb_Image;
     cv::Mat                     distance_Image;
-    cv::Mat                     skeleton_Image;
+    cv::Mat                     skeleton_Image; // remove
     std::vector <BodyKeyPoint>  bodyKeyPoints;
     std::vector <bool>          bodyKeyPointsMap;
     Json::Value                 skeletonData;
@@ -57,11 +57,12 @@ private:
     
     void calcBodyKeypoints          (void);
     void calcBodyEdges              (void);
-    void drawLine                   (int start, int end);
-    void writeCoordinates           (void);
+    void drawLine                   (unsigned char start, unsigned char end);
+    void drawCircle                 (cv::Point center);
     void deprojectSkeletonPoints3D  (void);
+    void writeCoordinates           (void);
 public:
-    Skeleton                                        (cv::Mat & rgbImage, cv::Mat & distanceImage, Json::Value skeletonData, cv::Mat & skeletonImage);
+    Skeleton                                        (cv::Mat & rgbImage, cv::Mat & distanceImage, cv::Mat & skeletonImage, Json::Value skeletonData);
     ~Skeleton                                       (void);
     void drawSkeleton                               (void);
     std::vector <Point3D *> getSkeletonPoints3D     (void);

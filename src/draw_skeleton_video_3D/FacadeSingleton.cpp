@@ -243,7 +243,6 @@ void FacadeSingleton::getVideoBodyKeyPoints (void) {
 void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
     // comment here for complete test
     FacadeSingleton::setFrameID(user_nFrame);
-    std::cout << "\nBody key points claimed. Now drawing skeletons...\n";
     for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         std::stringstream jsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath;
         jsonFilePath << FacadeSingleton::get_argv()[4] << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Color_keypoints.json";
@@ -265,10 +264,12 @@ void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & curr
         
         for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
             Json::Value singlePerson = (people[i])["pose_keypoints_2d"];
-            Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, singlePerson, skeletonOnlyImage);
+            Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);
             singlePersonSkeleton.drawSkeleton();
-//            JSON_Manager manager;
-//            manager.makeJSON(singlePersonSkeleton.getSkeletonPoints3D());
+            JSON_Manager::makeJSON(singlePersonSkeleton.getSkeletonPoints3D());
+            JSON_Manager::saveJSON(std::string("skeletonPoints3D.json"));
+            
+            // kafka send
         }
         
         cv::imshow("Frame Skeleton Background Cut", skeletonOnlyImage);
@@ -276,7 +277,6 @@ void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & curr
         skeletonOnlyImagePath << FacadeSingleton::get_argv()[3] << "sk/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_sk.png";
         skeletonImagePath << FacadeSingleton::get_argv()[3] << "skeleton/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Skeleton.png";
         FacadeSingleton::saveImage(skeletonImagePath.str(), colorImage);
-//        std::cout << "\n" << skeletonOnlyImagePath.str() << "\n";
         FacadeSingleton::saveImage(skeletonOnlyImagePath.str(), skeletonOnlyImage);
         colorImage.release();
         distanceImage.release();

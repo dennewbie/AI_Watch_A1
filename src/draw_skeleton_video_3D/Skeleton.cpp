@@ -64,7 +64,7 @@ Json::Value Skeleton::getSkeletonData (void) {
 }
 
 
-
+// don't change following method, otherwise error
 void Skeleton::calcBodyKeypoints (void) {
     int j = 0;
     for (Json::Value::ArrayIndex i = 0; i < skeletonData.size(); i++) {
@@ -76,11 +76,9 @@ void Skeleton::calcBodyKeypoints (void) {
 }
 
 void Skeleton::calcBodyEdges (void) {
-    for (int i = 0; i < getBodyKeyPoints().size(); i++) {
-        if (!getBodyKeyPointsMap().at(i)) continue;
-        cv::circle(getRGB_Image(), cv::Point(getBodyKeyPoints().at(i).getX(), getBodyKeyPoints().at(i).getY()), 4, cv::Scalar(0, 0, 255), 8, cv::LINE_8, 0);
-        cv::circle(getSkeleton_Image(), cv::Point(getBodyKeyPoints().at(i).getX(), getBodyKeyPoints().at(i).getY()), 4, cv::Scalar(0, 0, 255), 8, cv::LINE_8, 0);
+    for (unsigned char i = 0; i < getBodyKeyPoints().size(); i++) {
         if (i >= 24 || (!getBodyKeyPointsMap().at(i))) continue;
+        drawCircle(cv::Point(getBodyKeyPoints().at(i).getX(), getBodyKeyPoints().at(i).getY()));
         
         switch (i) {
             case Nose ... RElbow:
@@ -89,7 +87,6 @@ void Skeleton::calcBodyEdges (void) {
             case LHip ... LKnee:
             case LBigToe:
             case RBigToe:
-                if (!getBodyKeyPointsMap().at(i)) break;
                 drawLine(i, i + 1);
                 break;
             default:
@@ -112,35 +109,25 @@ void Skeleton::calcBodyEdges (void) {
     drawLine(RAnkle, RHeel);
 }
 
-void Skeleton::drawLine (int start, int end) {
+void Skeleton::drawLine (unsigned char start, unsigned char end) {
     if (getBodyKeyPointsMap().at(start) && getBodyKeyPointsMap().at(end)) {
         cv::line(getRGB_Image(), cv::Point(getBodyKeyPoints().at(start).getX(), getBodyKeyPoints().at(start).getY()),
                  cv::Point(getBodyKeyPoints().at(end).getX(), getBodyKeyPoints().at(end).getY()), cv::Scalar(0, 255, 0), 3, cv::LINE_8, 0);
         cv::line(getSkeleton_Image(), cv::Point(getBodyKeyPoints().at(start).getX(), getBodyKeyPoints().at(start).getY()),
-                 cv::Point(getBodyKeyPoints().at(end).getX(), getBodyKeyPoints().at(end).getY()), cv::Scalar(0, 255, 0), 3, cv::LINE_8, 0);
+                 cv::Point(getBodyKeyPoints().at(end).getX(), getBodyKeyPoints().at(end).getY()), cv::Scalar(0, 255, 0), 3, cv::LINE_8, 0); // remove
     }
 }
 
-void Skeleton::writeCoordinates (void) {
-    for (int i = 0; i < getSkeletonPoints3D().size(); i++) {
-        if (!getBodyKeyPointsMap().at(i)) continue;
-        std::stringstream labelText1, labelText2, labelText3, labelText4;
-        labelText1 << getSkeletonPoints3D().at(i)->getX();
-        labelText2 << getSkeletonPoints3D().at(i)->getY();
-        labelText3 << getSkeletonPoints3D().at(i)->getZ();
-        labelText4 << ((BodyKeyPoint *) getSkeletonPoints3D().at(i)->getDecorated())->getConfidence();
-        cv::putText(getRGB_Image(), labelText1.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 10), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
-        cv::putText(getRGB_Image(), labelText2.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 25), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
-        cv::putText(getRGB_Image(), labelText3.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 40), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
-        cv::putText(getRGB_Image(), labelText4.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 55), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
-    }
+void Skeleton::drawCircle (cv::Point center) {
+    cv::circle(getRGB_Image(), center, 4, cv::Scalar(0, 0, 255), 8, cv::LINE_8, 0);
+    cv::circle(getSkeleton_Image(), center, 4, cv::Scalar(0, 0, 255), 8, cv::LINE_8, 0); // remove
 }
 
 void Skeleton::deprojectSkeletonPoints3D () {
     FacadeSingleton * globalInstance = FacadeSingleton::getInstance();
     struct rs2_intrinsics color_intrin;
     if (globalInstance != nullptr) color_intrin = globalInstance->get_color_intrin();
-    for (int i = 0; i < getBodyKeyPoints().size(); i++) {
+    for (unsigned char i = 0; i < getBodyKeyPoints().size(); i++) {
         if (!getBodyKeyPointsMap().at(i)) continue;
         float * pixel = new (std::nothrow) float [2];
         float * point = new (std::nothrow) float [3];
@@ -157,9 +144,24 @@ void Skeleton::deprojectSkeletonPoints3D () {
     }
 }
 
+void Skeleton::writeCoordinates (void) {
+    for (unsigned char i = 0; i < getSkeletonPoints3D().size(); i++) {
+        if (!getBodyKeyPointsMap().at(i)) continue;
+        std::stringstream labelText1, labelText2, labelText3, labelText4;
+        labelText1 << getSkeletonPoints3D().at(i)->getX();
+        labelText2 << getSkeletonPoints3D().at(i)->getY();
+        labelText3 << getSkeletonPoints3D().at(i)->getZ();
+        labelText4 << ((BodyKeyPoint *) getSkeletonPoints3D().at(i)->getDecorated())->getConfidence();
+        cv::putText(getRGB_Image(), labelText1.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 10), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+        cv::putText(getRGB_Image(), labelText2.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 25), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+        cv::putText(getRGB_Image(), labelText3.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 40), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+        cv::putText(getRGB_Image(), labelText4.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 55), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+    }
+}
 
 
-Skeleton::Skeleton (cv::Mat & rgbImage, cv::Mat & dImage, Json::Value skeletonData, cv::Mat & skeleton_Image) {
+
+Skeleton::Skeleton (cv::Mat & rgbImage, cv::Mat & dImage, cv::Mat & skeleton_Image, Json::Value skeletonData) {
     setRGB_Image(rgbImage);
     setDistance_Image(dImage);
     setSkeleton_Image(skeleton_Image);

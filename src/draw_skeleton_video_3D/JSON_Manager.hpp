@@ -15,20 +15,24 @@
 #include <json/json.h>
 #include <json/writer.h>
 #include <iostream>
+#include <iostream>
+#include <fstream>
 #include "Point3D.hpp"
 // Nota: inviare prima quante persone (x) e quanti frame (y) e poi x file json per ogni frame y[i]
 
 
 
 class JSON_Manager {
-    std::string outputData;
-public:
-    JSON_Manager (void) {
-    }
+    static std::string stringOutputData;
     
-    void makeJSON                               (std::vector <Point3D *> skeletonPoints3D);
-    std::string getStringOutputData             (void);
-    std::stringstream getStringStreamOutputData (void);
+    static void setStringOutputData        (std::string stringOutputData);
+    static std::string getStringOutputData (void);
+public:
+    JSON_Manager (void) { }
+    
+    static void makeJSON                               (std::vector <Point3D *> skeletonPoints3D);
+    static void saveJSON                               (std::string filePath);
+    
 };
 
 #endif /* JSON_Manager_hpp */
