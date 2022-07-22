@@ -15,14 +15,6 @@ const char * expectedUsageMessage = "Usage: sudo ./hello_librealsense2.bin <path
 
 
 
-/*
- 
- idee pattern:
- - flyweight per non generare troppi punti/skeleton
- - uno per fare decoupling con la parte di JSON,con la parte di gestione immagini, etc.
- 
- */
-
 int main (int argc, const char * argv[]) {
     rs2::pipeline pipelineStream;
     Json::Value currentJSON;

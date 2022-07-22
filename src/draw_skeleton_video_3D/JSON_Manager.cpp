@@ -22,6 +22,14 @@ std::string JSON_Manager::getStringOutputData (void) {
 }
 
 
+void JSON_Manager::loadJSON (std::string filePathJSON, Json::Value & currentJSON) {
+    Json::Reader readerJSON;
+    std::ifstream streamJSON(filePathJSON.c_str(), std::ifstream::binary);
+    if (!(readerJSON.parse(streamJSON, currentJSON, false))) {
+        std::cout  << "\n" << readerJSON.getFormattedErrorMessages() << "\n";
+        CV_Error(LOAD_JSON_ERROR, LOAD_JSON_SCOPE);
+    }
+}
 
 void JSON_Manager::makeJSON (std::vector <Point3D *> skeletonPoints3D) {
 //    Json::Value root, arraySkeletonPoints3D(Json::arrayValue);
@@ -66,4 +74,16 @@ void JSON_Manager::saveJSON (std::string filePath) {
     std::ofstream outputFile("skeletonPoints3D.json");
     outputFile << JSON_Manager::getStringOutputData();
     outputFile.close();
+}
+
+Json::Value JSON_Manager::getValueAt (std::string key, Json::Value currentJSON) {
+    return currentJSON[key];
+}
+
+Json::Value JSON_Manager::getValueAt (unsigned int i, Json::Value currentJSON) {
+    return currentJSON[i];
+}
+
+Json::Value JSON_Manager::getValueAt (std::string key, unsigned int i, Json::Value currentJSON) {
+    return (currentJSON[i])[key];
 }

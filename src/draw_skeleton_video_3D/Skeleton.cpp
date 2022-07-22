@@ -68,7 +68,11 @@ Json::Value Skeleton::getSkeletonData (void) {
 void Skeleton::calcBodyKeypoints (void) {
     int j = 0;
     for (Json::Value::ArrayIndex i = 0; i < skeletonData.size(); i++) {
-        bodyKeyPoints.push_back(BodyKeyPoint(skeletonData[i].asInt(), skeletonData[i + 1].asInt(), skeletonData[i + 2].asFloat()));
+        bodyKeyPoints.push_back(BodyKeyPoint(
+            JSON_Manager::getValueAt((unsigned int) i,     getSkeletonData()).asInt(),
+            JSON_Manager::getValueAt((unsigned int) i + 1, getSkeletonData()).asInt(),
+            JSON_Manager::getValueAt((unsigned int) i + 2, getSkeletonData()).asFloat())
+        );
         bodyKeyPointsMap.push_back(bodyKeyPoints.at(j).getX() > 0 && bodyKeyPoints.at(j).getY() > 0 && bodyKeyPoints.at(j).getConfidence() > 0.00);
         i += 2;
         j += 1;

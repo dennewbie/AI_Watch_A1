@@ -110,15 +110,6 @@ void FacadeSingleton::saveImage (std::string imageSavePath, cv::Mat & imageToSav
     if (!(cv::imwrite(imageSavePath, imageToSave))) CV_Error(SAVE_IMAGE_ERROR, SAVE_IMAGE_SCOPE);
 }
 
-void FacadeSingleton::loadJSON (std::string filePathJSON, Json::Value & currentJSON) {
-    Json::Reader readerJSON;
-    std::ifstream streamJSON(filePathJSON.c_str(), std::ifstream::binary);
-    if (!(readerJSON.parse(streamJSON, currentJSON, false))) {
-        std::cout  << "\n" << readerJSON.getFormattedErrorMessages() << "\n";
-        CV_Error(LOAD_JSON_ERROR, LOAD_JSON_SCOPE);
-    }
-}
-
 cv::Mat FacadeSingleton::realsenseFrameToMat(const rs2::frame & singleFrame) {
     rs2::video_frame videoFrame = singleFrame.as<rs2::video_frame>();
     const int frameWidth = videoFrame.get_width(), frameHeight = videoFrame.get_height();
@@ -247,8 +238,8 @@ void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & curr
         std::stringstream jsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath;
         jsonFilePath << FacadeSingleton::get_argv()[4] << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Color_keypoints.json";
         
-        FacadeSingleton::loadJSON(jsonFilePath.str(), currentJSON);
-        Json::Value people = currentJSON["people"];
+        JSON_Manager::loadJSON(jsonFilePath.str(), currentJSON);
+        Json::Value people = JSON_Manager::getValueAt("people", currentJSON);
         colorImagePath << FacadeSingleton::get_argv()[3] << "rgb/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Color.png";
         distanceImagePath << FacadeSingleton::get_argv()[3] << "d/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Distance.exr";
         colorizedDepthImagePath << FacadeSingleton::get_argv()[3] << "depth/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Depth.png";
@@ -263,11 +254,11 @@ void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & curr
         cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
         
         for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
-            Json::Value singlePerson = (people[i])["pose_keypoints_2d"];
+            Json::Value singlePerson = JSON_Manager::getValueAt("pose_keypoints_2d", i, people);
             Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);
             singlePersonSkeleton.drawSkeleton();
             JSON_Manager::makeJSON(singlePersonSkeleton.getSkeletonPoints3D());
-            JSON_Manager::saveJSON(std::string("skeletonPoints3D.json"));
+            JSON_Manager::saveJSON(std::string(JSON_FILE_PATH));
             
             // kafka send
         }

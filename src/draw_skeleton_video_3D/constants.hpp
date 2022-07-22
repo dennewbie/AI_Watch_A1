@@ -31,5 +31,6 @@ static const char * CALLOC_SCOPE = "Error during calloc";
 static const short int ESC_KEY = 27;
 static const float depth_min = 0.10;
 static const float depth_max = 6.0;
+static const char * JSON_FILE_PATH = "skeletonPoints3D.json";
 
 #endif /* constants_h */

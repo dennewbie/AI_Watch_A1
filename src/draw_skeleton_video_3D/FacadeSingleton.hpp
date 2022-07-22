@@ -62,7 +62,7 @@ protected:
     struct rs2_extrinsics get_depth_to_color    (void);
     struct rs2_extrinsics get_color_to_depth    (void);
     
-    void checkUsage             (void);
+    void checkUsage                             (void);
 public:
     FacadeSingleton (FacadeSingleton & other) = delete;
     void operator=  (const FacadeSingleton &) = delete;
@@ -74,7 +74,6 @@ public:
     
     void loadImage              (std::string imagePath, int loadType, cv::Mat & inputImage);
     void saveImage              (std::string imageSavePath, cv::Mat & imageToSave);
-    void loadJSON               (std::string jsonFilePath, Json::Value & currentJSON);
     cv::Mat realsenseFrameToMat (const rs2::frame & singleFrame);
     void startEnvironment       (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY);
     void getVideoFrames         (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale);
