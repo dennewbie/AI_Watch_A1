@@ -1,0 +1,24 @@
+//
+//  OpenCV_Manager.hpp
+//  librealsensetest
+//
+//  Created by Denny Caruso on 23/07/22.
+//
+
+#ifndef OpenCV_Manager_hpp
+#define OpenCV_Manager_hpp
+
+#include "../FacadeSingleton/FacadeSingleton.hpp"
+
+
+
+class OpenCV_Manager {
+public:
+    void loadImage                  (std::string imagePath, int loadType, cv::Mat & inputImage);
+    void saveImage                  (std::string imageSavePath, cv::Mat & imageToSave);
+    cv::Mat realsenseFrameToMat     (const rs2::frame & singleFrame);
+    void getVideoFrames             (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale);
+    void showSkeleton               (unsigned int user_nFrame, Json::Value & currentJSON);
+};
+
+#endif /* OpenCV_Manager_hpp */

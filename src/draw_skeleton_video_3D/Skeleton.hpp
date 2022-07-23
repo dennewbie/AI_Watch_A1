@@ -8,15 +8,9 @@
 #ifndef Skeleton_h
 #define Skeleton_h
 
-#include "BodyKeyPoint.hpp"
-#include "Point3D.hpp"
 #include "FacadeSingleton.hpp"
-#include <vector>
-#include <opencv2/opencv.hpp>
-#include <json/value.h>
-#include <json/json.h>
-#include <librealsense2/rs.hpp>
-#include "constants.hpp"
+#include "Points/Point3D.hpp"
+#include "Points/BodyKeyPoint.hpp"
 
 
 

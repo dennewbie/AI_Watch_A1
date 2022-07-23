@@ -25,9 +25,6 @@ int main (int argc, const char * argv[]) {
     FacadeSingleton * myUtility = FacadeSingleton::getInstance(argc, argv, expected_argc, expectedUsageMessage);
     myUtility->startEnvironment(pipelineStream, color_intrin, & scale, resX, resY);
 
-//    UsageUtility myUsageUtility = UsageUtility(argc, argv, expected_argc, expectedUsageMessage);
-//    myUtility->startEnvironment(pipelineStream, color_intrin, & scale, resX, resY);
-
     while (true) {
         myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
 //        myUtility->getVideoBodyKeyPoints();

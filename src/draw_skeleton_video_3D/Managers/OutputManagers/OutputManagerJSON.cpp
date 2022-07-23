@@ -33,7 +33,7 @@ void OutputManagerJSON::loadJSON (std::string filePathJSON, Json::Value & curren
     Json::Reader readerJSON;
     std::ifstream streamJSON(filePathJSON.c_str(), std::ifstream::binary);
     if (!(readerJSON.parse(streamJSON, currentJSON, false))) {
-        std::cout  << "\n" << readerJSON.getFormattedErrorMessages() << "\n";
+        std::cout << "\n" << readerJSON.getFormattedErrorMessages() << "\n";
         CV_Error(LOAD_JSON_ERROR, LOAD_JSON_SCOPE);
     }
 }

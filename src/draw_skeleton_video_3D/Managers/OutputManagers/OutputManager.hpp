@@ -12,11 +12,13 @@
 #include <sstream>
 #include <fstream>
 #include <string>
+#include <vector>
 #include <json/json.h>
 #include <json/value.h>
-#include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
 #include "constants.hpp"
 #include "../../Points/Point3D.hpp"
+#include "../../Points/BodyKeyPoint.hpp"
 
 
 

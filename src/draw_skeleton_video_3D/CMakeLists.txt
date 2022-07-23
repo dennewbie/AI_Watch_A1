@@ -30,6 +30,7 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/FacadeSingleton")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Command")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Managers/OutputManagers")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Managers/RealSenseManagers")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Managers")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
 link_directories(/Users/dennycaruso/Desktop/materiale_tesi/openpose/build/caffe/lib)
 link_directories(/usr/local/opt/boost@1.79/lib)
@@ -46,7 +47,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 add_executable(hello_librealsense2.bin hello_librealsense2.cpp Skeleton.cpp Points/BodyKeyPoint.cpp Points/Point3D.cpp Points/Point.cpp 
 FacadeSingleton/FacadeSingleton.cpp Managers/OutputManagers/OutputManager.cpp Managers/OutputManagers/OutputManagerJSON.cpp 
 Managers/RealSenseManagers/RealSenseManager.cpp Managers/RealSenseManagers/RealSenseD435Manager.cpp Command/SystemCommand.cpp Command/CleanCommand.cpp 
-Command/MoveCommand.cpp Command/OpenPoseCommand.cpp)
+Command/MoveCommand.cpp Command/OpenPoseCommand.cpp Managers/OpenCV_Manager.cpp)
 
 
 # Link librealsense2 to the target

@@ -10,7 +10,7 @@
 
 #include <string>
 #include <sstream>
-#include "FacadeSingleton.hpp"
+#include "../Managers/UsageManager.hpp"
 
 
 

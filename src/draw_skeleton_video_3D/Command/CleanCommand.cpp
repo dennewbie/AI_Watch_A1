@@ -11,21 +11,24 @@
 
 void CleanCommand::setCommand (void) {
     std::stringstream cleanTerminalCommand;
-    cleanTerminalCommand << "rm -r " << FacadeSingleton::getInstance()->get_argv()[3] << "rgb/ > /dev/null && "
-                            "rm -r " << FacadeSingleton::getInstance()->get_argv()[3] << "d/ > /dev/null && "
-                            "rm -r " << FacadeSingleton::getInstance()->get_argv()[3] << "skeleton/ > /dev/null && "
-                            "rm -r " << FacadeSingleton::getInstance()->get_argv()[3] << "videoframe/ > /dev/null && "
-                            "rm -r " << FacadeSingleton::getInstance()->get_argv()[4] << "op/ > /dev/null && "
-                            "rm -r " << FacadeSingleton::getInstance()->get_argv()[3] << "depth/ > /dev/null && "
-                            "rm -r " << FacadeSingleton::getInstance()->get_argv()[3] << "sk/ > /dev/null && "
-                            "rm -r " << FacadeSingleton::getInstance()->get_argv()[4] << "movement/ > /dev/null && "
-                            "mkdir " << FacadeSingleton::getInstance()->get_argv()[3] << "rgb && "
-                            "mkdir " << FacadeSingleton::getInstance()->get_argv()[3] << "d && "
-                            "mkdir " << FacadeSingleton::getInstance()->get_argv()[3] << "videoframe && "
-                            "mkdir " << FacadeSingleton::getInstance()->get_argv()[3] << "skeleton && "
-                            "mkdir " << FacadeSingleton::getInstance()->get_argv()[3] << "depth && "
-                            "mkdir " << FacadeSingleton::getInstance()->get_argv()[3] << "sk && "
-                            "mkdir " << FacadeSingleton::getInstance()->get_argv()[4] << "movement/ && "
-                            "mkdir " << FacadeSingleton::getInstance()->get_argv()[4] << "op/";
+    const char ** argv = UsageManager::getInstance()->get_argv();
+    const char * imagesFolder = argv[3];
+    const char * outputFolder = argv[4];
+    cleanTerminalCommand << "rm -r " << imagesFolder << "rgb/ > /dev/null && "
+                            "rm -r " << imagesFolder << "d/ > /dev/null && "
+                            "rm -r " << imagesFolder << "skeleton/ > /dev/null && "
+                            "rm -r " << imagesFolder << "videoframe/ > /dev/null && "
+                            "rm -r " << outputFolder << "op/ > /dev/null && "
+                            "rm -r " << imagesFolder << "depth/ > /dev/null && "
+                            "rm -r " << imagesFolder << "sk/ > /dev/null && "
+                            "rm -r " << outputFolder << "movement/ > /dev/null && "
+                            "mkdir " << imagesFolder << "rgb && "
+                            "mkdir " << imagesFolder << "d && "
+                            "mkdir " << imagesFolder << "videoframe && "
+                            "mkdir " << imagesFolder << "skeleton && "
+                            "mkdir " << imagesFolder << "depth && "
+                            "mkdir " << imagesFolder << "sk && "
+                            "mkdir " << outputFolder << "movement/ && "
+                            "mkdir " << outputFolder << "op/";
     SystemCommand::command = std::string(cleanTerminalCommand.str());
 }

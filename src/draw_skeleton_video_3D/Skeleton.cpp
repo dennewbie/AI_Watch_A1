@@ -74,11 +74,7 @@ void Skeleton::calcBodyKeypoints (void) {
             outputManagerJSON->getValueAt((unsigned int) i + 1, getSkeletonData()).asInt(),
             outputManagerJSON->getValueAt((unsigned int) i + 2, getSkeletonData()).asFloat())
         );
-//        bodyKeyPoints.push_back(BodyKeyPoint(
-//            ((OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager())->getValueAt((unsigned int) i,     getSkeletonData()).asInt(),
-//            ((OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager())getValueAt((unsigned int) i + 1, getSkeletonData()).asInt(),
-//            ((OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager())getValueAt((unsigned int) i + 2, getSkeletonData()).asFloat())
-//        );
+        
         bodyKeyPointsMap.push_back(bodyKeyPoints.at(j).getX() > 0 && bodyKeyPoints.at(j).getY() > 0 && bodyKeyPoints.at(j).getConfidence() > 0.00);
         i += 2;
         j += 1;

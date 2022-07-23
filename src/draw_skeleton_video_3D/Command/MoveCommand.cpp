@@ -11,7 +11,8 @@
 
 void MoveCommand::setCommand (void) {
     std::stringstream moveTerminalCommand;
-    moveTerminalCommand << "mv -v " << FacadeSingleton::getInstance()->get_argv()[3] << "rgb/* "
-                        << FacadeSingleton::getInstance()->get_argv()[3] << "videoframe/ > /dev/null";
+    const char ** argv = UsageManager::getInstance()->get_argv();
+    const char * imagesFolder = argv[3];
+    moveTerminalCommand << "mv -v " << imagesFolder << "rgb/* " << imagesFolder << "videoframe/ > /dev/null";
     SystemCommand::command = std::string(moveTerminalCommand.str());
 }
