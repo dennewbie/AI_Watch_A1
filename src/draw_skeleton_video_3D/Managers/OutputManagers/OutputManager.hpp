@@ -32,7 +32,7 @@ public:
 
 class OutputManagerJSON : public OutputManager {
 public:
-    void makeOutputString                        (std::vector <Point3D *> skeletonPoints3D);
+    void makeOutputString                        (std::vector <Point3D *> skeletonPoints3D) override;
     void loadJSON                                (std::string filePathJSON, Json::Value & currentJSON);
     void saveJSON                                (std::string filePath);
     Json::Value getValueAt                       (std::string key, Json::Value currentJSON);

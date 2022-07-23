@@ -25,17 +25,17 @@ public:
 
 class CleanCommand : public SystemCommand {
 protected:
-    void setCommand (void);
+    void setCommand (void) override;
 };
 
 class OpenPoseCommand : public SystemCommand {
 protected:
-    void setCommand (void);
+    void setCommand (void) override;
 };
 
 class MoveCommand : public SystemCommand {
 protected:
-    void setCommand (void);
+    void setCommand (void) override;
 };
 
 #endif /* SystemCommand_hpp */
