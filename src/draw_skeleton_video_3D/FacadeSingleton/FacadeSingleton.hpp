@@ -19,6 +19,7 @@
 #include "Skeleton.hpp"
 #include "constants.hpp"
 #include "JSON_Manager.hpp"
+#include "SystemCommand.hpp"
 
 
 
@@ -39,7 +40,7 @@ private:
     
     FacadeSingleton (const int argc = 0, const char ** argv = nullptr, const int expected_argc = 0, const char * expectedUsageMessage = nullptr) : argc(argc), argv(argv), expected_argc(expected_argc), expectedUsageMessage(expectedUsageMessage), align(RS2_STREAM_COLOR) {
         checkUsage();
-        setFrameID(150);
+        setFrameID(0);
     }
     
     ~FacadeSingleton () { }
@@ -52,7 +53,7 @@ protected:
     void set_color_to_depth (struct rs2_extrinsics color_to_depth);
     
     const int get_argc                          (void);
-    const char ** get_argv                      (void);
+   
     const int get_expected_argc                 (void);
     const char * get_expectedUsageMessage       (void);
     long unsigned int getFrameID                (void);
@@ -70,7 +71,7 @@ public:
     
     static FacadeSingleton * getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage);
     static FacadeSingleton * getInstance (void);
-    
+    const char ** get_argv                      (void);
     
     void loadImage              (std::string imagePath, int loadType, cv::Mat & inputImage);
     void saveImage              (std::string imageSavePath, cv::Mat & imageToSave);

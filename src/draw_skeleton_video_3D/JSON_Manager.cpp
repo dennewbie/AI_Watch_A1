@@ -32,46 +32,28 @@ void JSON_Manager::loadJSON (std::string filePathJSON, Json::Value & currentJSON
 }
 
 void JSON_Manager::makeJSON (std::vector <Point3D *> skeletonPoints3D) {
-//    Json::Value root, arraySkeletonPoints3D(Json::arrayValue);
-//    Json::StyledStreamWriter writer;
-//    for (auto singlePoint3D: skeletonPoints3D) {
-//        Json::Value singlePoint3D_JSON;
-//        singlePoint3D_JSON["x"] = Json::Value(singlePoint3D->getX());
-//        singlePoint3D_JSON["y"] = Json::Value(singlePoint3D->getY());
-//        singlePoint3D_JSON["z"] = Json::Value(singlePoint3D->getZ());
-//        singlePoint3D_JSON["x_rotation"] = Json::Value(0.0);
-//        singlePoint3D_JSON["y_rotation"] = Json::Value(0.0);
-//        singlePoint3D_JSON["z_rotation"] = Json::Value(0.0);
-//        singlePoint3D_JSON["w_rotation"] = Json::Value(1.0);
-//        singlePoint3D_JSON["thingId"] = Json::Value(std::string("org.eclipse.ditto:camera01"));
-//        arraySkeletonPoints3D.append(singlePoint3D_JSON);
-//    }
-//
-//    root["_Movement"] = arraySkeletonPoints3D;
-    std::stringstream outputDataStringStream;
-    outputDataStringStream << "{" << std::endl << "\t\"_Movement\":\n\t[";
-    short unsigned int bodyKeyPoints = 0;
+    Json::Value root, arraySkeletonPoints3D(Json::arrayValue);
+    Json::StyledStreamWriter writer;
     for (auto singlePoint3D: skeletonPoints3D) {
-        bodyKeyPoints += 1;
-        outputDataStringStream << "\n\t\t{\n\t\t\t\"x\": " << singlePoint3D->getX() << ","
-        "\n\t\t\t\"y\": " << singlePoint3D->getY() << ","
-        "\n\t\t\t\"z\": " << singlePoint3D->getZ() << ","
-        "\n\t\t\t\"x_rotation\": 0.0,"
-        "\n\t\t\t\"y_rotation\": 0.0,"
-        "\n\t\t\t\"z_rotation\": 0.0,"
-        "\n\t\t\t\"w_rotation\": 1.0,"
-        "\n\t\t\t\"thingId\": \"org.eclipse.ditto:camera01\""
-        "\n\t\t}";
-        if (bodyKeyPoints < skeletonPoints3D.size()) outputDataStringStream << ",";
+        Json::Value singlePoint3D_JSON;
+        singlePoint3D_JSON["x"] = Json::Value(singlePoint3D->getX());
+        singlePoint3D_JSON["y"] = Json::Value(singlePoint3D->getY());
+        singlePoint3D_JSON["z"] = Json::Value(singlePoint3D->getZ());
+        singlePoint3D_JSON["x_rotation"] = Json::Value(0.0);
+        singlePoint3D_JSON["y_rotation"] = Json::Value(0.0);
+        singlePoint3D_JSON["z_rotation"] = Json::Value(0.0);
+        singlePoint3D_JSON["w_rotation"] = Json::Value(1.0);
+        singlePoint3D_JSON["thingId"] = Json::Value(std::string("org.eclipse.ditto:camera01"));
+        arraySkeletonPoints3D.append(singlePoint3D_JSON);
     }
-    
-    outputDataStringStream << "\n\t]\n}";
-    JSON_Manager::setStringOutputData(outputDataStringStream.str());
+
+    root["_Movement"] = arraySkeletonPoints3D;
+    JSON_Manager::setStringOutputData(root.toStyledString());
 }
 
 void JSON_Manager::saveJSON (std::string filePath) {
     Json::StyledStreamWriter writer;
-    std::ofstream outputFile("skeletonPoints3D.json");
+    std::ofstream outputFile(filePath);
     outputFile << JSON_Manager::getStringOutputData();
     outputFile.close();
 }

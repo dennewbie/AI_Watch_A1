@@ -45,7 +45,7 @@ const int FacadeSingleton::get_argc (void) {
 }
 
 const char ** FacadeSingleton::get_argv (void) {
-    return this->argv;
+    return FacadeSingleton::argv;
 }
 
 const int FacadeSingleton::get_expected_argc (void) {
@@ -153,21 +153,25 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     FacadeSingleton::set_color_to_depth(myPipelineProfile.get_stream(RS2_STREAM_DEPTH).as<rs2::video_stream_profile>().get_extrinsics_to(myPipelineProfile.get_stream(RS2_STREAM_COLOR)));
     FacadeSingleton::set_depth_to_color(myPipelineProfile.get_stream(RS2_STREAM_COLOR).as<rs2::video_stream_profile>().get_extrinsics_to(myPipelineProfile.get_stream(RS2_STREAM_DEPTH)));
     
-    std::stringstream cleanTerminalCommand;
-    cleanTerminalCommand << "rm -r " << FacadeSingleton::get_argv()[3] << "rgb/ > /dev/null && "
-                            "rm -r " << FacadeSingleton::get_argv()[3] << "d/ > /dev/null && "
-                            "rm -r " << FacadeSingleton::get_argv()[3] << "skeleton/ > /dev/null && "
-                            "rm -r " << get_argv()[3] << "videoframe/ > /dev/null && "
-                            "rm -r " << get_argv()[4] << " > /dev/null && "
-                            "rm -r " << FacadeSingleton::get_argv()[3] << "depth/ > /dev/null && "
-                            "rm -r " << FacadeSingleton::get_argv()[3] << "sk/ > /dev/null && "
-                            "mkdir " << FacadeSingleton::get_argv()[3] << "rgb && "
-                            "mkdir " << FacadeSingleton::get_argv()[3] << "d && "
-                            "mkdir " << FacadeSingleton::get_argv()[3] << "videoframe && "
-                            "mkdir " << FacadeSingleton::get_argv()[3] << "skeleton && "
-                            "mkdir " << FacadeSingleton::get_argv()[3] << "depth && "
-                            "mkdir " << FacadeSingleton::get_argv()[3] << "sk && "
-                            "mkdir " << FacadeSingleton::get_argv()[4];
+    CleanCommand cleanCommand;
+//    cleanCommand.executeCommand();
+//    std::stringstream cleanTerminalCommand;
+//    cleanTerminalCommand << "rm -r " << FacadeSingleton::get_argv()[3] << "rgb/ > /dev/null && "
+//                            "rm -r " << FacadeSingleton::get_argv()[3] << "d/ > /dev/null && "
+//                            "rm -r " << FacadeSingleton::get_argv()[3] << "skeleton/ > /dev/null && "
+//                            "rm -r " << FacadeSingleton::get_argv()[3] << "videoframe/ > /dev/null && "
+//                            "rm -r " << FacadeSingleton::get_argv()[4] << "op/ > /dev/null && "
+//                            "rm -r " << FacadeSingleton::get_argv()[3] << "depth/ > /dev/null && "
+//                            "rm -r " << FacadeSingleton::get_argv()[3] << "sk/ > /dev/null && "
+//                            "rm -r " << FacadeSingleton::get_argv()[4] << "movement/ > /dev/null && "
+//                            "mkdir " << FacadeSingleton::get_argv()[3] << "rgb && "
+//                            "mkdir " << FacadeSingleton::get_argv()[3] << "d && "
+//                            "mkdir " << FacadeSingleton::get_argv()[3] << "videoframe && "
+//                            "mkdir " << FacadeSingleton::get_argv()[3] << "skeleton && "
+//                            "mkdir " << FacadeSingleton::get_argv()[3] << "depth && "
+//                            "mkdir " << FacadeSingleton::get_argv()[3] << "sk && "
+//                            "mkdir " << FacadeSingleton::get_argv()[4] << "movement/ && "
+//                            "mkdir " << FacadeSingleton::get_argv()[4] << "op/";
 //    std::system(cleanTerminalCommand.str().c_str());
     std::stringstream cleanSK;
     cleanSK << "rm -r " << FacadeSingleton::get_argv()[3] << "sk/ > /dev/null && mkdir " << FacadeSingleton::get_argv()[3] << "sk";
@@ -226,19 +230,22 @@ void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & 
 
 void FacadeSingleton::getVideoBodyKeyPoints (void) {
     std::stringstream firstTerminalCommand;
-//    firstTerminalCommand << "cd " << FacadeSingleton::get_argv()[1] << " && " << FacadeSingleton::get_argv()[2] << " --num_gpu 1 --num_gpu_start 2 --display 0 --render_pose 0 --image_dir " << FacadeSingleton::get_argv()[3] << "rgb/" << " --write_json " << FacadeSingleton::get_argv()[4] << " --logging_level 255 > /dev/null";
-    firstTerminalCommand << "cd " << FacadeSingleton::get_argv()[1] << " && " << FacadeSingleton::get_argv()[2] << " --num_gpu 1 --num_gpu_start 2 --display 0 --render_pose 0 --image_dir " << FacadeSingleton::get_argv()[3] << "rgb/" << " --write_json " << FacadeSingleton::get_argv()[4];
-    std::system(firstTerminalCommand.str().c_str());
+//    firstTerminalCommand << "cd " << FacadeSingleton::get_argv()[1] << " && " << FacadeSingleton::get_argv()[2] << " --num_gpu 1 --num_gpu_start 2 --display 0 --render_pose 0 --image_dir " << FacadeSingleton::get_argv()[3] << "rgb/" << " --write_json " << FacadeSingleton::get_argv()[4] << "op/ --logging_level 255 > /dev/null";
+    
+    OpenPoseCommand openPoseCommand;
+    openPoseCommand.executeCommand();
+//    firstTerminalCommand << "cd " << FacadeSingleton::get_argv()[1] << " && " << FacadeSingleton::get_argv()[2] << " --num_gpu 1 --num_gpu_start 2 --display 0 --render_pose 0 --image_dir " << FacadeSingleton::get_argv()[3] << "rgb/" << " --write_json " << FacadeSingleton::get_argv()[4] << "op/ --logging_level 255 > /dev/null";
+//    std::system(firstTerminalCommand.str().c_str());
 }
 
 void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
     // comment here for complete test
     FacadeSingleton::setFrameID(user_nFrame);
     for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
-        std::stringstream jsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath;
-        jsonFilePath << FacadeSingleton::get_argv()[4] << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Color_keypoints.json";
+        std::stringstream inputJsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath, outputJsonFilePath;
+        inputJsonFilePath << FacadeSingleton::get_argv()[4] << "op/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Color_keypoints.json";
         
-        JSON_Manager::loadJSON(jsonFilePath.str(), currentJSON);
+        JSON_Manager::loadJSON(inputJsonFilePath.str(), currentJSON);
         Json::Value people = JSON_Manager::getValueAt("people", currentJSON);
         colorImagePath << FacadeSingleton::get_argv()[3] << "rgb/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Color.png";
         distanceImagePath << FacadeSingleton::get_argv()[3] << "d/" << (FacadeSingleton::getFrameID() - user_nFrame + nFrame) << "_Distance.exr";
@@ -258,8 +265,10 @@ void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & curr
             Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);
             singlePersonSkeleton.drawSkeleton();
             JSON_Manager::makeJSON(singlePersonSkeleton.getSkeletonPoints3D());
-            JSON_Manager::saveJSON(std::string(JSON_FILE_PATH));
-            
+            outputJsonFilePath << FacadeSingleton::get_argv()[4] << "movement/frame" << nFrame << "_person" << i << "_" << JSON_FILE_PATH;
+            JSON_Manager::saveJSON(std::string(outputJsonFilePath.str()));
+            outputJsonFilePath.str(std::string());
+            outputJsonFilePath.clear();
             // kafka send
         }
         
@@ -278,7 +287,9 @@ void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & curr
         if (key == ESC_KEY) break;
     }
     
-    std::stringstream secondTerminalCommand;
-    secondTerminalCommand << "mv -v " << FacadeSingleton::get_argv()[3] << "rgb/* " << FacadeSingleton::get_argv()[3] << "videoframe/ > /dev/null";
+    MoveCommand moveCommand;
+    moveCommand.executeCommand();
+//    std::stringstream secondTerminalCommand;
+//    secondTerminalCommand << "mv -v " << FacadeSingleton::get_argv()[3] << "rgb/* " << FacadeSingleton::get_argv()[3] << "videoframe/ > /dev/null";
 //    std::system(secondTerminalCommand.str().c_str());
 }

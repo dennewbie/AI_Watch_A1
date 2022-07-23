@@ -31,12 +31,12 @@ class JSON_Manager {
 public:
     JSON_Manager (void) { }
     
-    static void loadJSON                               (std::string filePathJSON, Json::Value & currentJSON);
-    static void makeJSON                               (std::vector <Point3D *> skeletonPoints3D);
-    static void saveJSON                               (std::string filePath);
-    static Json::Value getValueAt                    (std::string key, Json::Value currentJSON);
-    static Json::Value getValueAt                    (unsigned int i, Json::Value currentJSON);
-    static Json::Value getValueAt                    (std::string key, unsigned int i, Json::Value currentJSON);
+    static void loadJSON                                (std::string filePathJSON, Json::Value & currentJSON);
+    static void makeJSON                                (std::vector <Point3D *> skeletonPoints3D);
+    static void saveJSON                                (std::string filePath);
+    static Json::Value getValueAt                       (std::string key, Json::Value currentJSON);
+    static Json::Value getValueAt                       (unsigned int i, Json::Value currentJSON);
+    static Json::Value getValueAt                       (std::string key, unsigned int i, Json::Value currentJSON);
     
 };
 
