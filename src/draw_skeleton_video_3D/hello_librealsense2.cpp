@@ -31,7 +31,7 @@ int main (int argc, const char * argv[]) {
     while (true) {
         myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
 //        myUtility->getVideoBodyKeyPoints();
-//        myUtility->showSkeleton(user_nFrame, currentJSON);
+        myUtility->showSkeleton(user_nFrame, currentJSON);
         break;
     }
     return EXIT_SUCCESS;

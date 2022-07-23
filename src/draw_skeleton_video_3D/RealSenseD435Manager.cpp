@@ -91,20 +91,13 @@ void RealSenseD435Manager::startEnvironment (rs2::pipeline & pipelineStream, str
     CV_Error(RS_CAMERA_ERROR, RS_CAMERA_SCOPE);
 }
 
-void RealSenseD435Manager::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, std::vector <rs2::depth_frame> & depthFrames, std::vector <rs2::frame> & colorFrames, std::vector <rs2::frame> & colorizedDepthFrames) try {
+void RealSenseD435Manager::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, rs2::depth_frame & depthFrame, rs2::frame & colorFrame, rs2::frame & colorizedDepthFrame) try {
     rs2::colorizer colorMap;
-    
-    for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
-        rs2::frameset streamData = pipelineStream.wait_for_frames(), alignedStreamData = get_align().process(streamData);
-        rs2::depth_frame depth = alignedStreamData.get_depth_frame();
-        rs2::frame color = alignedStreamData.get_color_frame();
-        rs2::frame colorizedDepth = depth.apply_filter(colorMap);
-        
-        depthFrames.push_back(depth);
-        colorFrames.push_back(color);
-        colorizedDepthFrames.push_back(colorizedDepth);
-        setFrameID(RealSenseD435Manager::getFrameID() + 1);
-    }
+    rs2::frameset streamData = pipelineStream.wait_for_frames(), alignedStreamData = get_align().process(streamData);
+    depthFrame = alignedStreamData.get_depth_frame();
+    colorFrame = alignedStreamData.get_color_frame();
+    colorizedDepthFrame = depthFrame.apply_filter(colorMap);
+    setFrameID(RealSenseD435Manager::getFrameID() + 1);
 } catch (const rs2::error & e){
     std::cerr << "RealSense error calling " << e.get_failed_function() << "(" << e.get_failed_args() << "):\n   " << e.what() << std::endl;
     CV_Error(RS_CAMERA_ERROR, RS_CAMERA_SCOPE);

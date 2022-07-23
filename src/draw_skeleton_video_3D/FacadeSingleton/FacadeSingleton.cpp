@@ -39,7 +39,7 @@ std::mutex FacadeSingleton::singletonMutex;
 //}
 
 
-void FacadeSingleton::setCameraManager (RealSenseD435Manager cameraManager) {
+void FacadeSingleton::setCameraManager (RealSenseD435Manager * cameraManager) {
     this->cameraManager = cameraManager;
 }
 
@@ -104,7 +104,7 @@ const char ** FacadeSingleton::get_argv (void) {
     return FacadeSingleton::argv;
 }
 
-RealSenseD435Manager FacadeSingleton::getCameraManager (void) {
+RealSenseD435Manager * FacadeSingleton::getCameraManager (void) {
     return this->cameraManager;
 }
 
@@ -140,8 +140,8 @@ cv::Mat FacadeSingleton::realsenseFrameToMat(const rs2::frame & singleFrame) {
 }
 
 void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY) {
-    FacadeSingleton::setCameraManager(RealSenseD435Manager());
-    FacadeSingleton::getCameraManager().startEnvironment(pipelineStream, color_intrin, scale, resX, resY);
+    FacadeSingleton::setCameraManager(new RealSenseD435Manager());
+    FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY);
     
     CleanCommand cleanCommand;
 //    cleanCommand.executeCommand();
@@ -151,28 +151,28 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
 }
 
 void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) {
-    std::vector <rs2::depth_frame> depthFrames;
-    std::vector <rs2::frame> colorFrames, colorizedDepthFrames;
-    getCameraManager().getVideoFrames(user_nFrame, pipelineStream, depthFrames, colorFrames, colorizedDepthFrames);
-    auto cols = depthFrames.at(0).get_width();
-    auto rows = depthFrames.at(0).get_height();
-    
     // blocco openCV Manager
     for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
-        cv::Mat colorImage = FacadeSingleton::realsenseFrameToMat(colorFrames.at(nFrame));
-        cv::Mat depthImage = FacadeSingleton::realsenseFrameToMat(depthFrames.at(nFrame));
-        cv::Mat colorizedDepthImage = FacadeSingleton::realsenseFrameToMat(colorizedDepthFrames.at(nFrame));
+        rs2::depth_frame depthFrame = rs2::depth_frame(rs2::frame());
+        rs2::frame colorFrame, colorizedDepthFrame;
+        getCameraManager()->getVideoFrames(user_nFrame, pipelineStream, depthFrame, colorFrame, colorizedDepthFrame);
+        auto cols = depthFrame.get_width();
+        auto rows = depthFrame.get_height();
+        
+        cv::Mat colorImage = FacadeSingleton::realsenseFrameToMat(colorFrame);
+        cv::Mat depthImage = FacadeSingleton::realsenseFrameToMat(depthFrame);
+        cv::Mat colorizedDepthImage = FacadeSingleton::realsenseFrameToMat(colorizedDepthFrame);
         depthImage *= 1000.0 * scale;
         
         cv::Mat distanceImage = cv::Mat::zeros(rows, cols, CV_32FC1);
-        for (int i = 0; i < cols; i++) for (int j = 0; j < rows; j++) distanceImage.at<float>(j, i) = (float) depthFrames.at(nFrame).get_distance(i, j);
+        for (int i = 0; i < cols; i++) for (int j = 0; j < rows; j++) distanceImage.at<float>(j, i) = (float) depthFrame.get_distance(i, j);
         
         std::stringstream colorImagePath, distanceImagePath, colorizedDepthImagePath;
         std::stringstream colorImageName, distanceImageName, colorizedDepthImageName;
         
-        colorImageName << getCameraManager().getFrameID() << "_Color";
-        distanceImageName << getCameraManager().getFrameID() << "_Distance";
-        colorizedDepthImageName << getCameraManager().getFrameID() << "_Depth";
+        colorImageName << getCameraManager()->getFrameID() << "_Color";
+        distanceImageName << getCameraManager()->getFrameID() << "_Distance";
+        colorizedDepthImageName << getCameraManager()->getFrameID() << "_Depth";
         
         colorImagePath << FacadeSingleton::get_argv()[3] << "rgb/" << colorImageName.str() << ".png";
         distanceImagePath << FacadeSingleton::get_argv()[3] << "d/" << distanceImageName.str() << ".exr";
@@ -180,11 +180,6 @@ void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & 
 //        FacadeSingleton::saveImage(colorImagePath.str(), colorImage);
 //        FacadeSingleton::saveImage(distanceImagePath.str(), distanceImage);
 //        FacadeSingleton::saveImage(colorizedDepthImagePath.str(), colorizedDepthImage);
-        cv::imshow("RGB", colorImage);
-        cv::imshow("Frame Colorized Depth", colorizedDepthImage);
-        cv::imshow("Distance", distanceImage);
-        cv::imshow("Frame Depth", depthImage);
-        cv::waitKey(0);
         colorImage.release();
         depthImage.release();
         distanceImage.release();
@@ -201,16 +196,15 @@ void FacadeSingleton::getVideoBodyKeyPoints (void) {
 // blocco openCV Manager
 void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
     // comment here for complete test
-    
     for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         std::stringstream inputJsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath, outputJsonFilePath;
-        inputJsonFilePath << FacadeSingleton::get_argv()[4] << "op/" << (getCameraManager().getFrameID() - user_nFrame + nFrame) << "_Color_keypoints.json";
+        inputJsonFilePath << FacadeSingleton::get_argv()[4] << "op/" << (getCameraManager()->getFrameID() - user_nFrame + nFrame) << "_Color_keypoints.json";
         
         JSON_Manager::loadJSON(inputJsonFilePath.str(), currentJSON);
         Json::Value people = JSON_Manager::getValueAt("people", currentJSON);
-        colorImagePath << FacadeSingleton::get_argv()[3] << "rgb/" << (getCameraManager().getFrameID() - user_nFrame + nFrame) << "_Color.png";
-        distanceImagePath << FacadeSingleton::get_argv()[3] << "d/" << (getCameraManager().getFrameID() - user_nFrame + nFrame) << "_Distance.exr";
-        colorizedDepthImagePath << FacadeSingleton::get_argv()[3] << "depth/" << (getCameraManager().getFrameID() - user_nFrame + nFrame) << "_Depth.png";
+        colorImagePath << FacadeSingleton::get_argv()[3] << "rgb/" << (getCameraManager()->getFrameID() - user_nFrame + nFrame) << "_Color.png";
+        distanceImagePath << FacadeSingleton::get_argv()[3] << "d/" << (getCameraManager()->getFrameID() - user_nFrame + nFrame) << "_Distance.exr";
+        colorizedDepthImagePath << FacadeSingleton::get_argv()[3] << "depth/" << (getCameraManager()->getFrameID() - user_nFrame + nFrame) << "_Depth.png";
         
         cv::Mat colorImage, colorizedDepthImage;
         FacadeSingleton::loadImage(colorImagePath.str(), cv::IMREAD_COLOR, colorImage);
@@ -235,8 +229,8 @@ void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & curr
         
         cv::imshow("Frame Skeleton Background Cut", skeletonOnlyImage);
         cv::imshow("Frame Skeleton", colorImage);
-        skeletonOnlyImagePath << FacadeSingleton::get_argv()[3] << "sk/" << (getCameraManager().getFrameID() - user_nFrame + nFrame) << "_sk.png";
-        skeletonImagePath << FacadeSingleton::get_argv()[3] << "skeleton/" << (getCameraManager().getFrameID() - user_nFrame + nFrame) << "_Skeleton.png";
+        skeletonOnlyImagePath << FacadeSingleton::get_argv()[3] << "sk/" << (getCameraManager()->getFrameID() - user_nFrame + nFrame) << "_sk.png";
+        skeletonImagePath << FacadeSingleton::get_argv()[3] << "skeleton/" << (getCameraManager()->getFrameID() - user_nFrame + nFrame) << "_Skeleton.png";
         FacadeSingleton::saveImage(skeletonImagePath.str(), colorImage);
         FacadeSingleton::saveImage(skeletonOnlyImagePath.str(), skeletonOnlyImage);
         colorImage.release();

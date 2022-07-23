@@ -31,7 +31,7 @@ private:
     const char **               argv;
     const int                   expected_argc;
     const char *                expectedUsageMessage;
-    RealSenseD435Manager        cameraManager;
+    RealSenseD435Manager *      cameraManager;
 //    long unsigned int           frameID;
 //    rs2::align                  align;
 //    struct rs2_intrinsics       depth_intrin;
@@ -50,7 +50,7 @@ protected:
 //    void set_depth_to_color (struct rs2_extrinsics depth_to_color);
 //    void set_color_to_depth (struct rs2_extrinsics color_to_depth);
 //
-    void setCameraManager (RealSenseD435Manager cameraManager);
+    void setCameraManager (RealSenseD435Manager * cameraManager);
     
     const int get_argc                          (void);
     const int get_expected_argc                 (void);
@@ -70,7 +70,7 @@ public:
     static FacadeSingleton * getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage);
     static FacadeSingleton * getInstance (void);
     const char ** get_argv               (void);
-    RealSenseD435Manager getCameraManager(void);
+    RealSenseD435Manager * getCameraManager(void);
     
     void loadImage              (std::string imagePath, int loadType, cv::Mat & inputImage);
     void saveImage              (std::string imageSavePath, cv::Mat & imageToSave);

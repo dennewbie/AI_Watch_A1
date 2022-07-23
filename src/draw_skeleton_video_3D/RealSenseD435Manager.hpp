@@ -43,8 +43,8 @@ public:
     void startEnvironment                       (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale,
                                                  unsigned short int resX, unsigned short int resY);
     void getVideoFrames                         (unsigned int user_nFrame, rs2::pipeline & pipelineStream,
-                                                 std::vector <rs2::depth_frame> & depthFrames, std::vector <rs2::frame> & colorFrames,
-                                                 std::vector <rs2::frame> & colorizedDepthFrames);
+                                                 rs2::depth_frame & depthFrames, rs2::frame & colorFrames,
+                                                 rs2::frame & colorizedDepthFrames);
 };
 
 #endif /* RealSenseD435Manager_hpp */
