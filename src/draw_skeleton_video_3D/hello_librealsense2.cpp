@@ -29,9 +29,9 @@ int main (int argc, const char * argv[]) {
 //    myUtility->startEnvironment(pipelineStream, color_intrin, & scale, resX, resY);
 
     while (true) {
-//        myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
+        myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
 //        myUtility->getVideoBodyKeyPoints();
-        myUtility->showSkeleton(user_nFrame, currentJSON);
+//        myUtility->showSkeleton(user_nFrame, currentJSON);
         break;
     }
     return EXIT_SUCCESS;

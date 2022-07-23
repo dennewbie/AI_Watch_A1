@@ -130,7 +130,7 @@ void Skeleton::drawCircle (cv::Point center) {
 void Skeleton::deprojectSkeletonPoints3D () {
     FacadeSingleton * globalInstance = FacadeSingleton::getInstance();
     struct rs2_intrinsics color_intrin;
-    if (globalInstance != nullptr) color_intrin = globalInstance->get_color_intrin();
+    if (globalInstance != nullptr) color_intrin = globalInstance->getCameraManager().get_color_intrin();
     for (unsigned char i = 0; i < getBodyKeyPoints().size(); i++) {
         if (!getBodyKeyPointsMap().at(i)) continue;
         float * pixel = new (std::nothrow) float [2];
