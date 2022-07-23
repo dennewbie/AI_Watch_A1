@@ -13,34 +13,13 @@ FacadeSingleton * FacadeSingleton::sharedInstance { nullptr };
 std::mutex FacadeSingleton::singletonMutex;
 
 
-//
-//void FacadeSingleton::setFrameID (long unsigned int frameID) {
-//    this->frameID = frameID;
-//}
-//
-//void FacadeSingleton::set_align (rs2::align align) {
-//    this->align = align;
-//}
-//
-//void FacadeSingleton::set_depth_intrin (struct rs2_intrinsics depth_intrin) {
-//    this->depth_intrin = depth_intrin;
-//}
-//
-//void FacadeSingleton::set_color_intrin (struct rs2_intrinsics & color_intrin) {
-//    this->color_intrin = color_intrin;
-//}
-//
-//void FacadeSingleton::set_depth_to_color (struct rs2_extrinsics depth_to_color) {
-//    this->depth_to_color = depth_to_color;
-//}
-//
-//void FacadeSingleton::set_color_to_depth (struct rs2_extrinsics color_to_depth) {
-//    this->color_to_depth = color_to_depth;
-//}
 
-
-void FacadeSingleton::setCameraManager (RealSenseD435Manager * cameraManager) {
+void FacadeSingleton::setCameraManager (RealSenseManager * cameraManager) {
     this->cameraManager = cameraManager;
+}
+
+void FacadeSingleton::setOutputManager (OutputManager * outputManager) {
+    this->outputManager = outputManager;
 }
 
 const int FacadeSingleton::get_argc (void) {
@@ -54,26 +33,6 @@ const int FacadeSingleton::get_expected_argc (void) {
 const char * FacadeSingleton::get_expectedUsageMessage (void) {
     return this->expectedUsageMessage;
 }
-//
-//long unsigned int FacadeSingleton::getFrameID (void) {
-//    return this->frameID;
-//}
-//
-//rs2::align FacadeSingleton::get_align (void) {
-//    return this->align;
-//}
-//
-//struct rs2_intrinsics FacadeSingleton::get_depth_intrin (void) {
-//    return this->depth_intrin;
-//}
-//
-//struct rs2_extrinsics FacadeSingleton::get_depth_to_color (void) {
-//    return this->depth_to_color;
-//}
-//
-//struct rs2_extrinsics FacadeSingleton::get_color_to_depth (void) {
-//    return this->color_to_depth;
-//}
 
 void FacadeSingleton::checkUsage (void) {
     if (get_argc() != get_expected_argc()) {
@@ -83,10 +42,6 @@ void FacadeSingleton::checkUsage (void) {
 }
 
 
-//
-//struct rs2_intrinsics & FacadeSingleton::get_color_intrin (void) {
-//    return this->color_intrin;
-//}
 
 FacadeSingleton * FacadeSingleton::getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage) {
     std::lock_guard <std::mutex> lock(singletonMutex);
@@ -104,8 +59,12 @@ const char ** FacadeSingleton::get_argv (void) {
     return FacadeSingleton::argv;
 }
 
-RealSenseD435Manager * FacadeSingleton::getCameraManager (void) {
+RealSenseManager * FacadeSingleton::getCameraManager (void) {
     return this->cameraManager;
+}
+
+OutputManager * FacadeSingleton::getOutputManager (void) {
+    return this->outputManager;
 }
 
 void FacadeSingleton::loadImage(std::string imagePath, int loadType, cv::Mat & inputImage) {
@@ -141,6 +100,7 @@ cv::Mat FacadeSingleton::realsenseFrameToMat(const rs2::frame & singleFrame) {
 
 void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY) {
     FacadeSingleton::setCameraManager(new RealSenseD435Manager());
+    FacadeSingleton::setOutputManager(new OutputManagerJSON());
     FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY);
     
     CleanCommand cleanCommand;
@@ -200,8 +160,9 @@ void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & curr
         std::stringstream inputJsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath, outputJsonFilePath;
         inputJsonFilePath << FacadeSingleton::get_argv()[4] << "op/" << (getCameraManager()->getFrameID() - user_nFrame + nFrame) << "_Color_keypoints.json";
         
-        JSON_Manager::loadJSON(inputJsonFilePath.str(), currentJSON);
-        Json::Value people = JSON_Manager::getValueAt("people", currentJSON);
+        OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) getOutputManager();
+        outputManagerJSON->loadJSON(inputJsonFilePath.str(), currentJSON);
+        Json::Value people = outputManagerJSON->getValueAt("people", currentJSON);
         colorImagePath << FacadeSingleton::get_argv()[3] << "rgb/" << (getCameraManager()->getFrameID() - user_nFrame + nFrame) << "_Color.png";
         distanceImagePath << FacadeSingleton::get_argv()[3] << "d/" << (getCameraManager()->getFrameID() - user_nFrame + nFrame) << "_Distance.exr";
         colorizedDepthImagePath << FacadeSingleton::get_argv()[3] << "depth/" << (getCameraManager()->getFrameID() - user_nFrame + nFrame) << "_Depth.png";
@@ -216,12 +177,12 @@ void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & curr
         cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
         
         for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
-            Json::Value singlePerson = JSON_Manager::getValueAt("pose_keypoints_2d", i, people);
+            Json::Value singlePerson = outputManagerJSON->getValueAt("pose_keypoints_2d", i, people);
             Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);
             singlePersonSkeleton.drawSkeleton();
-            JSON_Manager::makeJSON(singlePersonSkeleton.getSkeletonPoints3D());
+            outputManagerJSON->makeOutputString(singlePersonSkeleton.getSkeletonPoints3D());
             outputJsonFilePath << FacadeSingleton::get_argv()[4] << "movement/frame" << nFrame << "_person" << i << "_" << JSON_FILE_PATH;
-            JSON_Manager::saveJSON(std::string(outputJsonFilePath.str()));
+            outputManagerJSON->saveJSON(std::string(outputJsonFilePath.str()));
             outputJsonFilePath.str(std::string());
             outputJsonFilePath.clear();
             // kafka send

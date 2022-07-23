@@ -67,12 +67,18 @@ Json::Value Skeleton::getSkeletonData (void) {
 // don't change following method, otherwise error
 void Skeleton::calcBodyKeypoints (void) {
     int j = 0;
+    OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager();
     for (Json::Value::ArrayIndex i = 0; i < skeletonData.size(); i++) {
         bodyKeyPoints.push_back(BodyKeyPoint(
-            JSON_Manager::getValueAt((unsigned int) i,     getSkeletonData()).asInt(),
-            JSON_Manager::getValueAt((unsigned int) i + 1, getSkeletonData()).asInt(),
-            JSON_Manager::getValueAt((unsigned int) i + 2, getSkeletonData()).asFloat())
+            outputManagerJSON->getValueAt((unsigned int) i, getSkeletonData()).asInt(),
+            outputManagerJSON->getValueAt((unsigned int) i + 1, getSkeletonData()).asInt(),
+            outputManagerJSON->getValueAt((unsigned int) i + 2, getSkeletonData()).asFloat())
         );
+//        bodyKeyPoints.push_back(BodyKeyPoint(
+//            ((OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager())->getValueAt((unsigned int) i,     getSkeletonData()).asInt(),
+//            ((OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager())getValueAt((unsigned int) i + 1, getSkeletonData()).asInt(),
+//            ((OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager())getValueAt((unsigned int) i + 2, getSkeletonData()).asFloat())
+//        );
         bodyKeyPointsMap.push_back(bodyKeyPoints.at(j).getX() > 0 && bodyKeyPoints.at(j).getY() > 0 && bodyKeyPoints.at(j).getConfidence() > 0.00);
         i += 2;
         j += 1;

@@ -28,7 +28,8 @@ INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Points")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/FacadeSingleton")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Command")
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/JSON_Manager")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Managers/OutputManagers")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Managers/RealSenseManagers")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
 link_directories(/Users/dennycaruso/Desktop/materiale_tesi/openpose/build/caffe/lib)
 link_directories(/usr/local/opt/boost@1.79/lib)
@@ -42,10 +43,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 # Add the application sources to the target
 # add_executable(${PROJECT_NAME} hello_librealsense2.cpp)
-add_executable(hello_librealsense2.bin hello_librealsense2.cpp Skeleton.cpp 
-Points/BodyKeyPoint.cpp Points/Point3D.cpp Points/Point.cpp 
-FacadeSingleton/FacadeSingleton.cpp JSON_Manager/JSON_Manager.cpp RealSenseD435Manager.cpp 
-Command/SystemCommand.cpp Command/CleanCommand.cpp Command/MoveCommand.cpp Command/OpenPoseCommand.cpp)
+add_executable(hello_librealsense2.bin hello_librealsense2.cpp Skeleton.cpp Points/BodyKeyPoint.cpp Points/Point3D.cpp Points/Point.cpp 
+FacadeSingleton/FacadeSingleton.cpp Managers/OutputManagers/OutputManager.cpp Managers/OutputManagers/OutputManagerJSON.cpp 
+Managers/RealSenseManagers/RealSenseManager.cpp Managers/RealSenseManagers/RealSenseD435Manager.cpp Command/SystemCommand.cpp Command/CleanCommand.cpp 
+Command/MoveCommand.cpp Command/OpenPoseCommand.cpp)
 
 
 # Link librealsense2 to the target
