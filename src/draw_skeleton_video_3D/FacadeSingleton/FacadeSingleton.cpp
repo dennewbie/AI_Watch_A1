@@ -8,7 +8,6 @@
 #include "FacadeSingleton.hpp"
 
 
-
 FacadeSingleton * FacadeSingleton::sharedInstance { nullptr };
 std::mutex FacadeSingleton::singletonMutex;
 
@@ -72,11 +71,6 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     
     CleanCommand cleanCommand;
     cleanCommand.executeCommand();
-//    std::stringstream cleanSK;
-//    const char ** argv = UsageManager::getInstance()->get_argv();
-//    const char * imagesFolder = argv[imagesFolderOffset];
-//    cleanSK << "rm -r " <<imagesFolder << "sk/ > /dev/null && mkdir " << imagesFolder << "sk";
-//    std::system(cleanSK.str().c_str());
 }
 
 void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) {

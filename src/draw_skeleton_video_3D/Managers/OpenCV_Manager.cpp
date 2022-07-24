@@ -93,48 +93,49 @@ void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & curre
         inputJsonFilePath << outputFolder << "op/" << (frameID - user_nFrame + nFrame) << "_Color_keypoints.json";
         
         OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager();
-        outputManagerJSON->loadJSON(inputJsonFilePath.str(), currentJSON);
-        Json::Value people = outputManagerJSON->getValueAt("people", currentJSON);
-        colorImagePath << imagesFolder << "rgb/" << (frameID - user_nFrame + nFrame) << "_Color.png";
-        distanceImagePath << imagesFolder << "d/" << (frameID - user_nFrame + nFrame) << "_Distance.exr";
-        colorizedDepthImagePath << imagesFolder<< "depth/" << (frameID - user_nFrame + nFrame) << "_Depth.png";
-        
-        cv::Mat colorImage, colorizedDepthImage;
-        loadImage(colorImagePath.str(), cv::IMREAD_COLOR, colorImage);
-        cv::Mat distanceImage = cv::Mat(colorImage.rows, colorImage.cols, CV_32FC1);
-        loadImage(distanceImagePath.str(), cv::IMREAD_ANYCOLOR | cv::IMREAD_ANYDEPTH, distanceImage);
-        loadImage(colorizedDepthImagePath.str(), cv::IMREAD_COLOR, colorizedDepthImage);
-        cv::imshow("Frame No Skeleton", colorImage);
-        cv::imshow("Frame Colorized Depth", colorizedDepthImage);
-        cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
-        
-        for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
-            Json::Value singlePerson = outputManagerJSON->getValueAt("pose_keypoints_2d", i, people);
-            Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);
-            singlePersonSkeleton.drawSkeleton();
-            outputManagerJSON->makeOutputString(singlePersonSkeleton.getSkeletonPoints3D());
-            outputJsonFilePath << outputFolder << "movement/frame" << nFrame << "_person" << i << "_" << JSON_FILE_PATH;
-            outputManagerJSON->saveJSON(std::string(outputJsonFilePath.str()));
-            outputJsonFilePath.str(std::string());
-            outputJsonFilePath.clear();
-            // kafka send
+        if (outputManagerJSON->loadJSON(inputJsonFilePath.str(), currentJSON)) {
+            Json::Value people = outputManagerJSON->getValueAt("people", currentJSON);
+            colorImagePath << imagesFolder << "rgb/" << (frameID - user_nFrame + nFrame) << "_Color.png";
+            distanceImagePath << imagesFolder << "d/" << (frameID - user_nFrame + nFrame) << "_Distance.exr";
+            colorizedDepthImagePath << imagesFolder<< "depth/" << (frameID - user_nFrame + nFrame) << "_Depth.png";
+            
+            cv::Mat colorImage, colorizedDepthImage;
+            loadImage(colorImagePath.str(), cv::IMREAD_COLOR, colorImage);
+            cv::Mat distanceImage = cv::Mat(colorImage.rows, colorImage.cols, CV_32FC1);
+            loadImage(distanceImagePath.str(), cv::IMREAD_ANYCOLOR | cv::IMREAD_ANYDEPTH, distanceImage);
+            loadImage(colorizedDepthImagePath.str(), cv::IMREAD_COLOR, colorizedDepthImage);
+            cv::imshow("Frame No Skeleton", colorImage);
+            cv::imshow("Frame Colorized Depth", colorizedDepthImage);
+            cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
+            
+            for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
+                Json::Value singlePerson = outputManagerJSON->getValueAt("pose_keypoints_2d", i, people);
+                Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);
+                singlePersonSkeleton.drawSkeleton();
+                outputManagerJSON->makeOutputString(singlePersonSkeleton.getSkeletonPoints3D());
+                outputJsonFilePath << outputFolder << "movement/frame" << nFrame << "_person" << i << "_" << JSON_FILE_PATH;
+                outputManagerJSON->saveJSON(std::string(outputJsonFilePath.str()));
+                outputJsonFilePath.str(std::string());
+                outputJsonFilePath.clear();
+                // kafka send
+            }
+            
+            cv::imshow("Frame Skeleton Background Cut", skeletonOnlyImage);
+            cv::imshow("Frame Skeleton", colorImage);
+            skeletonOnlyImagePath << imagesFolder << "sk/" << (frameID - user_nFrame + nFrame) << "_sk.png";
+            skeletonImagePath << imagesFolder << "skeleton/" << (frameID - user_nFrame + nFrame) << "_Skeleton.png";
+            saveImage(skeletonImagePath.str(), colorImage);
+            saveImage(skeletonOnlyImagePath.str(), skeletonOnlyImage);
+            colorImage.release();
+            distanceImage.release();
+            colorizedDepthImage.release();
+            skeletonOnlyImage.release();
+            int key = cv::waitKey(1);
+            // if ESC is pressed
+            if (key == ESC_KEY) break;
         }
-        
-        cv::imshow("Frame Skeleton Background Cut", skeletonOnlyImage);
-        cv::imshow("Frame Skeleton", colorImage);
-        skeletonOnlyImagePath << imagesFolder << "sk/" << (frameID - user_nFrame + nFrame) << "_sk.png";
-        skeletonImagePath << imagesFolder << "skeleton/" << (frameID - user_nFrame + nFrame) << "_Skeleton.png";
-        saveImage(skeletonImagePath.str(), colorImage);
-        saveImage(skeletonOnlyImagePath.str(), skeletonOnlyImage);
-        colorImage.release();
-        distanceImage.release();
-        colorizedDepthImage.release();
-        skeletonOnlyImage.release();
-        int key = cv::waitKey(1);
-        // if ESC is pressed
-        if (key == ESC_KEY) break;
     }
-    
-    MoveCommand moveCommand;
-    moveCommand.executeCommand();
+
+    CleanCommand cleanCommand;
+    cleanCommand.executeCommand();
 }

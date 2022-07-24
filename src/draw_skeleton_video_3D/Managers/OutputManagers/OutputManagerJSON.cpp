@@ -29,13 +29,10 @@ void OutputManagerJSON::makeOutputString (std::vector <Point3D *> skeletonPoints
     OutputManager::setStringOutputData(root.toStyledString());
 }
 
-void OutputManagerJSON::loadJSON (std::string filePathJSON, Json::Value & currentJSON) {
+bool OutputManagerJSON::loadJSON (std::string filePathJSON, Json::Value & currentJSON) {
     Json::Reader readerJSON;
     std::ifstream streamJSON(filePathJSON.c_str(), std::ifstream::binary);
-    if (!(readerJSON.parse(streamJSON, currentJSON, false))) {
-        std::cout << "\n" << readerJSON.getFormattedErrorMessages() << "\n";
-        CV_Error(LOAD_JSON_ERROR, LOAD_JSON_SCOPE);
-    }
+    return readerJSON.parse(streamJSON, currentJSON, false);
 }
 
 void OutputManagerJSON::saveJSON (std::string filePath) {
