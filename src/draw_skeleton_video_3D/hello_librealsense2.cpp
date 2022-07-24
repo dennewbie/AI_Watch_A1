@@ -19,17 +19,15 @@ int main (int argc, const char * argv[]) {
     rs2::pipeline pipelineStream;
     Json::Value currentJSON;
     float scale;
-    unsigned int user_nFrame = 360, resX = 848, resY = 480;
+    unsigned int user_nFrame = 50, resX = 848, resY = 480;
     struct rs2_intrinsics color_intrin;
-//    pipelineStream.start();
     FacadeSingleton * myUtility = FacadeSingleton::getInstance(argc, argv, expected_argc, expectedUsageMessage);
     myUtility->startEnvironment(pipelineStream, color_intrin, & scale, resX, resY);
 
     while (true) {
         myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
-//        myUtility->getVideoBodyKeyPoints();
+        myUtility->getVideoBodyKeyPoints();
         myUtility->showSkeleton(user_nFrame, currentJSON);
-        break;
     }
     return EXIT_SUCCESS;
 }

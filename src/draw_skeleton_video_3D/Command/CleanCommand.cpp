@@ -12,8 +12,8 @@
 void CleanCommand::setCommand (void) {
     std::stringstream cleanTerminalCommand;
     const char ** argv = UsageManager::getInstance()->get_argv();
-    const char * imagesFolder = argv[3];
-    const char * outputFolder = argv[4];
+    const char * imagesFolder = argv[imagesFolderOffset];
+    const char * outputFolder = argv[outputFolderOffset];
     cleanTerminalCommand << "rm -r " << imagesFolder << "rgb/ > /dev/null && "
                             "rm -r " << imagesFolder << "d/ > /dev/null && "
                             "rm -r " << imagesFolder << "skeleton/ > /dev/null && "

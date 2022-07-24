@@ -37,7 +37,7 @@ public:
     static UsageManager * getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage);
     static UsageManager * getInstance (void);
     
-    static const char ** get_argv        (void);
+    static const char ** get_argv     (void);
     
 };
 

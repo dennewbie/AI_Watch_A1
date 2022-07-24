@@ -8,14 +8,13 @@
 #include "FacadeSingleton.hpp"
 
 
-// costanti al posto degli indici di argv
-// cambiare nomi metodi uguali in classi diverse
+
 FacadeSingleton * FacadeSingleton::sharedInstance { nullptr };
 std::mutex FacadeSingleton::singletonMutex;
 
 
-FacadeSingleton::FacadeSingleton (const int argc = 0, const char ** argv = nullptr, const int expected_argc = 0, const char * expectedUsageMessage = nullptr) {
-    setUsageManager(new UsageManager::getInstance(argc, argv, expected_argc, expectedUsageMessage));
+FacadeSingleton::FacadeSingleton (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage) {
+    setUsageManager(UsageManager::getInstance(argc, argv, expected_argc, expectedUsageMessage));
 }
 
 void FacadeSingleton::setCameraManager (RealSenseManager * cameraManager) {
@@ -72,19 +71,21 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY);
     
     CleanCommand cleanCommand;
-//    cleanCommand.executeCommand();
-    std::stringstream cleanSK;
-    cleanSK << "rm -r " << FacadeSingleton::get_argv()[3] << "sk/ > /dev/null && mkdir " << FacadeSingleton::get_argv()[3] << "sk";
-    std::system(cleanSK.str().c_str());
+    cleanCommand.executeCommand();
+//    std::stringstream cleanSK;
+//    const char ** argv = UsageManager::getInstance()->get_argv();
+//    const char * imagesFolder = argv[imagesFolderOffset];
+//    cleanSK << "rm -r " <<imagesFolder << "sk/ > /dev/null && mkdir " << imagesFolder << "sk";
+//    std::system(cleanSK.str().c_str());
 }
 
 void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) {
-    getOpenCV_Manager()->getVideoFrames(user_nFrame, pipelineStream, scale);
+    getOpenCV_Manager()->getVideoFramesCV(user_nFrame, pipelineStream, scale);
 }
 
 void FacadeSingleton::getVideoBodyKeyPoints (void) {
     OpenPoseCommand openPoseCommand;
-//    openPoseCommand.executeCommand();
+    openPoseCommand.executeCommand();
 }
 
 void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {

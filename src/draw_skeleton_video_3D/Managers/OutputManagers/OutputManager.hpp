@@ -16,7 +16,7 @@
 #include <json/json.h>
 #include <json/value.h>
 #include <opencv2/core.hpp>
-#include "constants.hpp"
+#include "../../constants.hpp"
 #include "../../Points/Point3D.hpp"
 #include "../../Points/BodyKeyPoint.hpp"
 

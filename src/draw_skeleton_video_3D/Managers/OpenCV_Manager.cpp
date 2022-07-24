@@ -40,17 +40,16 @@ cv::Mat OpenCV_Manager::realsenseFrameToMat(const rs2::frame & singleFrame) {
     }
 }
 
-void OpenCV_Manager::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) {
+void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) {
     const char ** argv = UsageManager::getInstance()->get_argv();
-    const char * imagesFolder = argv[3];
-    const char * outputFolder = argv[4];
+    const char * imagesFolder = argv[imagesFolderOffset];
     RealSenseManager * cameraManager = FacadeSingleton::getInstance()->getCameraManager();
-    unsigned long frameID = cameraManager->getFrameID();
     
     for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
+        unsigned long frameID = cameraManager->getFrameID();
         rs2::depth_frame depthFrame = rs2::depth_frame(rs2::frame());
         rs2::frame colorFrame, colorizedDepthFrame;
-        cameraManager->getVideoFrames(user_nFrame, pipelineStream, depthFrame, colorFrame, colorizedDepthFrame);
+        cameraManager->getVideoFramesRS(user_nFrame, pipelineStream, depthFrame, colorFrame, colorizedDepthFrame);
         auto cols = depthFrame.get_width();
         auto rows = depthFrame.get_height();
         
@@ -72,9 +71,9 @@ void OpenCV_Manager::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & p
         colorImagePath << imagesFolder << "rgb/" << colorImageName.str() << ".png";
         distanceImagePath << imagesFolder << "d/" << distanceImageName.str() << ".exr";
         colorizedDepthImagePath << imagesFolder << "depth/" << colorizedDepthImageName.str() << ".png";
-//        saveImage(colorImagePath.str(), colorImage);
-//        saveImage(distanceImagePath.str(), distanceImage);
-//        saveImage(colorizedDepthImagePath.str(), colorizedDepthImage);
+        saveImage(colorImagePath.str(), colorImage);
+        saveImage(distanceImagePath.str(), distanceImage);
+        saveImage(colorizedDepthImagePath.str(), colorizedDepthImage);
         colorImage.release();
         depthImage.release();
         distanceImage.release();
@@ -84,8 +83,8 @@ void OpenCV_Manager::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & p
 
 void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
     const char ** argv = UsageManager::getInstance()->get_argv();
-    const char * imagesFolder = argv[3];
-    const char * outputFolder = argv[4];
+    const char * imagesFolder = argv[imagesFolderOffset];
+    const char * outputFolder = argv[outputFolderOffset];
     RealSenseManager * cameraManager = FacadeSingleton::getInstance()->getCameraManager();
     unsigned long frameID = cameraManager->getFrameID();
     
@@ -137,5 +136,5 @@ void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & curre
     }
     
     MoveCommand moveCommand;
-//    moveCommand.executeCommand();
+    moveCommand.executeCommand();
 }

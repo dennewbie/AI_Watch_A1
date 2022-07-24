@@ -8,7 +8,10 @@
 #ifndef OpenCV_Manager_hpp
 #define OpenCV_Manager_hpp
 
-#include "../FacadeSingleton/FacadeSingleton.hpp"
+#include "../Skeleton.hpp"
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/highgui.hpp>
 
 
 
@@ -17,7 +20,7 @@ public:
     void loadImage                  (std::string imagePath, int loadType, cv::Mat & inputImage);
     void saveImage                  (std::string imageSavePath, cv::Mat & imageToSave);
     cv::Mat realsenseFrameToMat     (const rs2::frame & singleFrame);
-    void getVideoFrames             (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale);
+    void getVideoFramesCV             (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale);
     void showSkeleton               (unsigned int user_nFrame, Json::Value & currentJSON);
 };
 

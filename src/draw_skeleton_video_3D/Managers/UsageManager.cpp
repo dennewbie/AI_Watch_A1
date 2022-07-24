@@ -16,7 +16,7 @@ std::mutex UsageManager::singletonMutex;
 
 void UsageManager::checkUsage (void) {
     if (get_argc() != get_expected_argc()) {
-        std::string buffer = "Usage: ./" + std::string(get_argv()[0]) + std::string(get_expectedUsageMessage()) + " -- " + std::string(CHECK_USAGE_SCOPE);
+        std::string buffer = "Usage: ./" + std::string(get_argv()[programNameOffset]) + std::string(get_expectedUsageMessage()) + " -- " + std::string(CHECK_USAGE_SCOPE);
         CV_Error(CHECK_USAGE_ERROR, buffer);
     }
 }

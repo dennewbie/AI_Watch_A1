@@ -8,26 +8,20 @@
 #ifndef FacadeSingleton_hpp
 #define FacadeSingleton_hpp
 
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <fstream>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/imgproc.hpp>
-#include <json/value.h>
-#include <json/json.h>
-#include "Skeleton.hpp"
-#include "constants.hpp"
 #include "../Command/SystemCommand.hpp"
 #include "../Managers/RealSenseManagers/RealSenseManager.hpp"
 #include "../Managers/OutputManagers/OutputManager.hpp"
 #include "../Managers/OpenCV_Manager.hpp"
-#include "UsageManager.hpp"
+#include "../Managers/UsageManager.hpp"
+
+
 
 class RealSenseManager;
 class OutputManager;
 class OpenCV_Manager;
 class UsageManager;
+
+
 
 class FacadeSingleton {
 private:
