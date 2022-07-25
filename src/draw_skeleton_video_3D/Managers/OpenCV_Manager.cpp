@@ -11,7 +11,10 @@
 
 void OpenCV_Manager::loadImage(std::string imagePath, int loadType, cv::Mat & inputImage) {
     inputImage = cv::imread(imagePath, loadType);
-    if (inputImage.empty()) CV_Error(LOAD_IMAGE_ERROR, LOAD_IMAGE_SCOPE);
+    if (inputImage.empty()) {
+        std::cout << "IMAGE NOT FOUND: " << imagePath << "\n";
+        CV_Error(LOAD_IMAGE_ERROR, LOAD_IMAGE_SCOPE);
+    }
 }
 
 void OpenCV_Manager::saveImage (std::string imageSavePath, cv::Mat & imageToSave) {
@@ -135,7 +138,4 @@ void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & curre
             if (key == ESC_KEY) break;
         }
     }
-
-    CleanCommand cleanCommand;
-    cleanCommand.executeCommand();
 }

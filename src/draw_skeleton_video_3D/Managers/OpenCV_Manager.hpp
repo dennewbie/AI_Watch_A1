@@ -17,6 +17,7 @@
 
 class OpenCV_Manager {
 public:
+    virtual ~OpenCV_Manager() = default;
     void loadImage                  (std::string imagePath, int loadType, cv::Mat & inputImage);
     void saveImage                  (std::string imageSavePath, cv::Mat & imageToSave);
     cv::Mat realsenseFrameToMat     (const rs2::frame & singleFrame);

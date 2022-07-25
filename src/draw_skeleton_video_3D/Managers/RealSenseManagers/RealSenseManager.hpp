@@ -37,6 +37,7 @@ protected:
     struct rs2_extrinsics get_color_to_depth    (void);
 public:
     RealSenseManager (void);
+    virtual ~RealSenseManager() = default;
     long unsigned int getFrameID                (void);
     struct rs2_intrinsics & get_color_intrin    (void);
     virtual void startEnvironment               (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale,

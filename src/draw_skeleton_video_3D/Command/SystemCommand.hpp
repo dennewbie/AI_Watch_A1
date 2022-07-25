@@ -20,6 +20,7 @@ protected:
     virtual void setCommand (void) = 0;
     std::string getCommand (void);
 public:
+    virtual ~SystemCommand() = default;
     void executeCommand (void);
 };
 

@@ -34,6 +34,7 @@ private:
     UsageManager *              usageManager;
     
     FacadeSingleton (const int argc = 0, const char ** argv = nullptr, const int expected_argc = 0, const char * expectedUsageMessage = nullptr);
+    ~FacadeSingleton(void);
 protected:
     void setCameraManager (RealSenseManager * cameraManager);
     void setOutputManager (OutputManager * outputManager);

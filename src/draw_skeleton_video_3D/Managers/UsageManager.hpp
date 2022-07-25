@@ -34,6 +34,7 @@ private:
         checkUsage();
     }
 public:
+    virtual ~UsageManager() = default;
     static UsageManager * getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage);
     static UsageManager * getInstance (void);
     

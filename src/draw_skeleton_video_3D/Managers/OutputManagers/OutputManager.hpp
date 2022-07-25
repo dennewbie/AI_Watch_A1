@@ -29,6 +29,7 @@ protected:
     void setStringOutputData                    (std::string stringOutputData);
     std::string getStringOutputData             (void);
 public:
+    virtual ~OutputManager() = default;
     virtual void makeOutputString               (std::vector <Point3D *> skeletonPoints3D) = 0;
 };
 
