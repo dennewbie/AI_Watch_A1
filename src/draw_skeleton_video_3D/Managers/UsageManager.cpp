@@ -48,5 +48,8 @@ UsageManager * UsageManager::getInstance (void) {
 }
 
 const char ** UsageManager::get_argv (void) {
-    return UsageManager::getInstance()->argv;
+    std::stringstream openPoseTerminalCommand;
+    UsageManager * usageManagerInstance = UsageManager::getInstance();
+    if (usageManagerInstance == nullptr) CV_Error(USAGE_MANAGER_NULLPTR_ERROR, USAGE_MANAGER_NULLPTR_SCOPE);
+    return usageManagerInstance->argv;
 }

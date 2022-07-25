@@ -10,8 +10,10 @@
 
 
 void OpenPoseCommand::setCommand (void) {
+    UsageManager * usageManagerInstance = UsageManager::getInstance();
+    if (usageManagerInstance == nullptr) CV_Error(USAGE_MANAGER_NULLPTR_ERROR, USAGE_MANAGER_NULLPTR_SCOPE);
+    const char ** argv = usageManagerInstance->get_argv();
     std::stringstream openPoseTerminalCommand;
-    const char ** argv = UsageManager::getInstance()->get_argv();
     const char * openPoseFolder = argv[openPoseFolderOffset];
     const char * openPoseExecuteCommand = argv[openPoseExecuteCommandOffset];
     const char * imagesFolder = argv[imagesFolderOffset];

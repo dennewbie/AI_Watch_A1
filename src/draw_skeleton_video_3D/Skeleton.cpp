@@ -64,10 +64,12 @@ Json::Value Skeleton::getSkeletonData (void) {
 }
 
 
-// don't change following method, otherwise error
+// Don't change following method, otherwise error
 void Skeleton::calcBodyKeypoints (void) {
     int j = 0;
-    OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager();
+    FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
+    if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
+    OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) facadeSingletonInstance->getOutputManager();
     for (Json::Value::ArrayIndex i = 0; i < skeletonData.size(); i++) {
         bodyKeyPoints.push_back(BodyKeyPoint(
             outputManagerJSON->getValueAt((unsigned int) i, getSkeletonData()).asInt(),
@@ -130,9 +132,9 @@ void Skeleton::drawCircle (cv::Point center) {
 }
 
 void Skeleton::deprojectSkeletonPoints3D () {
-    FacadeSingleton * globalInstance = FacadeSingleton::getInstance();
-    struct rs2_intrinsics color_intrin;
-    if (globalInstance != nullptr) color_intrin = globalInstance->getCameraManager()->get_color_intrin();
+    FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
+    if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
+    struct rs2_intrinsics color_intrin = facadeSingletonInstance->getCameraManager()->get_color_intrin();
     for (unsigned char i = 0; i < getBodyKeyPoints().size(); i++) {
         if (!getBodyKeyPointsMap().at(i)) continue;
         float * pixel = new (std::nothrow) float [2];

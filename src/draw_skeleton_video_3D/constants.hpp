@@ -28,6 +28,14 @@ static const char * RS_CAMERA_SCOPE = "Troubles during initialization of RealSen
 static const short int CALLOC_ERROR = 6;
 static const char * CALLOC_SCOPE = "Error during calloc";
 
+static const short int FACADE_SINGLETON_NULLPTR_ERROR = 7;
+static const char * FACADE_SINGLETON_NULLPTR_SCOPE = "FacadeSingleton::getInstance() returns nullptr";
+
+static const short int USAGE_MANAGER_NULLPTR_ERROR = 8;
+static const char * USAGE_MANAGER_NULLPTR_SCOPE = "UsageManager::getInstance() returns nullptr";
+
+
+
 static const short int ESC_KEY = 27;
 static const float depth_min = 0.10;
 static const float depth_max = 6.0;

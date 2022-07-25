@@ -10,8 +10,10 @@
 
 
 void MoveCommand::setCommand (void) {
+    UsageManager * usageManagerInstance = UsageManager::getInstance();
+    if (usageManagerInstance == nullptr) CV_Error(USAGE_MANAGER_NULLPTR_ERROR, USAGE_MANAGER_NULLPTR_SCOPE);
+    const char ** argv = usageManagerInstance->get_argv();
     std::stringstream moveTerminalCommand;
-    const char ** argv = UsageManager::getInstance()->get_argv();
     const char * imagesFolder = argv[imagesFolderOffset];
     moveTerminalCommand << "mv -v " << imagesFolder << "rgb/* " << imagesFolder << "videoframe/ > /dev/null";
     SystemCommand::command = std::string(moveTerminalCommand.str());
