@@ -78,9 +78,9 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
         colorImagePath << imagesFolder << "rgb/" << colorImageName.str() << ".png";
         distanceImagePath << imagesFolder << "d/" << distanceImageName.str() << ".exr";
         colorizedDepthImagePath << imagesFolder << "depth/" << colorizedDepthImageName.str() << ".png";
-        saveImage(colorImagePath.str(), colorImage);
-        saveImage(distanceImagePath.str(), distanceImage);
-        saveImage(colorizedDepthImagePath.str(), colorizedDepthImage);
+//        saveImage(colorImagePath.str(), colorImage);
+//        saveImage(distanceImagePath.str(), distanceImage);
+//        saveImage(colorizedDepthImagePath.str(), colorizedDepthImage);
         colorImage.release();
         depthImage.release();
         distanceImage.release();
@@ -103,7 +103,7 @@ void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & curre
         std::stringstream inputJsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath, outputJsonFilePath;
         currentImageID = frameID - user_nFrame + nFrame;
         inputJsonFilePath << outputFolder << "op/" << currentImageID << "_Color_keypoints.json";
-        
+
         OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager();
         if (outputManagerJSON->loadJSON(inputJsonFilePath.str(), currentJSON)) {
             Json::Value people = outputManagerJSON->getValueAt("people", currentJSON);
@@ -126,7 +126,7 @@ void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & curre
                 singlePersonSkeleton.drawSkeleton();
                 // mapping coordinate
                 
-                outputManagerJSON->makeOutputString(singlePersonSkeleton.getSkeletonPoints3D());
+                outputManagerJSON->makeOutputString(* singlePersonSkeleton.getSkeletonPoints3D());
                 outputJsonFilePath << outputFolder << "movement/frame" << nFrame << "_person" << i << "_" << JSON_FILE_PATH;
                 outputManagerJSON->saveJSON(std::string(outputJsonFilePath.str()));
                 outputJsonFilePath.str(std::string());

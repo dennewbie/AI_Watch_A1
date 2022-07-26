@@ -37,14 +37,18 @@ static const char * USAGE_MANAGER_NULLPTR_SCOPE = "UsageManager::getInstance() r
 
 
 static const short int ESC_KEY = 27;
+
 static const float depth_min = 0.10;
 static const float depth_max = 6.0;
+
 static const char * JSON_FILE_PATH = "skeletonPoints3D.json";
+
 static const short int programNameOffset = 0;
 static const short int openPoseFolderOffset = 1;
 static const short int openPoseExecuteCommandOffset = 2;
 static const short int imagesFolderOffset = 3;
 static const short int outputFolderOffset = 4;
 
+static const short int openPoseBodyKeyPointsNumber = 24;
 
 #endif /* constants_h */

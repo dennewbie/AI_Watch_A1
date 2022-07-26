@@ -6,6 +6,7 @@
 //
 
 #include "FacadeSingleton.hpp"
+//#include "Managers/CoordinateMappingManager.hpp"
 
 
 
@@ -16,6 +17,19 @@ const char * expectedUsageMessage = "Usage: sudo ./hello_librealsense2.bin <path
 
 
 int main (int argc, const char * argv[]) {
+//    CoordinateMappingManager manager = CoordinateMappingManager();
+//    std::vector <Point3D *> points;
+//    points.push_back(new Point3D(-0.69, 0.27, 2.215));
+//    points.push_back(new Point3D(-0.69, -0.77, 2.215));
+//    points.push_back(new Point3D(-0.69, -1.1, 2.215));
+//    points.push_back(new Point3D(-0.69, 1.1, 2.215));
+//    points.push_back(new Point3D(-0.69, 0.9, 2.215));
+//    points.push_back(new Point3D(-0.69, 0.8, 2.215));
+//    points.push_back(new Point3D(-0.69, 0.7, 2.215));
+//    std::vector <Point3D *> newPoints = manager.mapToMeters(points);
+//    for (auto singlePoint: newPoints) {
+//        std::cout << "X: " << singlePoint->getX() << "\nY: " << singlePoint->getY() << "\nZ: " << singlePoint->getZ() << "\n\n";
+//    }
     rs2::pipeline pipelineStream;
     Json::Value currentJSON;
     float scale;
@@ -26,8 +40,9 @@ int main (int argc, const char * argv[]) {
 
     while (true) {
         myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
-        myUtility->getVideoBodyKeyPoints();
+//        myUtility->getVideoBodyKeyPoints();
         myUtility->showSkeleton(user_nFrame, currentJSON);
     }
     return EXIT_SUCCESS;
 }
+

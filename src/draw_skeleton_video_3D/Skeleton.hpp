@@ -11,6 +11,7 @@
 #include "FacadeSingleton/FacadeSingleton.hpp"
 #include "Points/Point3D.hpp"
 #include "Points/BodyKeyPoint.hpp"
+#include "Managers/CoordinateMappingManager.hpp"
 
 
 
@@ -32,22 +33,27 @@ private:
     std::vector <BodyKeyPoint>  bodyKeyPoints;
     std::vector <bool>          bodyKeyPointsMap;
     Json::Value                 skeletonData;
-    std::vector <Point3D *>     skeletonPoints3D;
+    std::vector <Point3D *>     skeletonPoints3D_RS;
+    CoordinateMappingManager *  coordinateMappingManager;
+    std::vector <Point3D *> *   skeletonPoints3D;
     
-    void setRGB_Image           (cv::Mat & rgbImage);
-    void setDistance_Image      (cv::Mat & distanceImage);
-    void setSkeleton_Image      (cv::Mat & skeleton_Image);
-    void setBodyKeyPoints       (std::vector <BodyKeyPoint> & bodyKeyPoints);
-    void setBodyKeyPointsMap    (std::vector <bool> & bodyKeyPointsMap);
-    void setSkeletonData        (Json::Value skeletonData);
-    void setSkeletonPoints3D    (std::vector <Point3D *> skeletonPoints3D);
+    void setRGB_Image               (cv::Mat & rgbImage);
+    void setDistance_Image          (cv::Mat & distanceImage);
+    void setSkeleton_Image          (cv::Mat & skeleton_Image);
+    void setBodyKeyPoints           (std::vector <BodyKeyPoint> & bodyKeyPoints);
+    void setBodyKeyPointsMap        (std::vector <bool> & bodyKeyPointsMap);
+    void setSkeletonData            (Json::Value skeletonData);
+    void setSkeletonPoints3D_RS     (std::vector <Point3D *> skeletonPoints3D_RS);
+    void setSkeletonPoints3D        (std::vector <Point3D *> * skeletonPoints3D);
+    void setCoordinateMappingManager(CoordinateMappingManager * coordinateMappingManager);
     
-    cv::Mat getRGB_Image                        (void);
-    cv::Mat getDistance_Image                   (void);
-    cv::Mat getSkeleton_Image                   (void);
-    std::vector <BodyKeyPoint> getBodyKeyPoints (void);
-    std::vector <bool> getBodyKeyPointsMap      (void);
-    Json::Value getSkeletonData                 (void);
+    cv::Mat getRGB_Image                                    (void);
+    cv::Mat getDistance_Image                               (void);
+    cv::Mat getSkeleton_Image                               (void);
+    std::vector <BodyKeyPoint> getBodyKeyPoints             (void);
+    std::vector <bool> getBodyKeyPointsMap                  (void);
+    Json::Value getSkeletonData                             (void);
+    CoordinateMappingManager * getCoordinateMappingManager  (void);
     
     void calcBodyKeypoints          (void);
     void calcBodyEdges              (void);
@@ -59,7 +65,8 @@ public:
     Skeleton                                        (cv::Mat & rgbImage, cv::Mat & distanceImage, cv::Mat & skeletonImage, Json::Value skeletonData);
     ~Skeleton                                       (void);
     void drawSkeleton                               (void);
-    std::vector <Point3D *> getSkeletonPoints3D     (void);
+    std::vector <Point3D *> getSkeletonPoints3D_RS  (void);
+    std::vector <Point3D *> * getSkeletonPoints3D   (void);
 };
 
 #endif /* Skeleton_h */
