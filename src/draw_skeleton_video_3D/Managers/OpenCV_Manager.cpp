@@ -109,7 +109,7 @@ void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & curre
             Json::Value people = outputManagerJSON->getValueAt("people", currentJSON);
             colorImagePath << imagesFolder << "rgb/" << currentImageID << "_Color.png";
             distanceImagePath << imagesFolder << "d/" << currentImageID << "_Distance.exr";
-            colorizedDepthImagePath << imagesFolder<< "depth/" << currentImageID << "_Depth.png";
+            colorizedDepthImagePath << imagesFolder << "depth/" << currentImageID << "_Depth.png";
             
             cv::Mat colorImage, colorizedDepthImage;
             loadImage(colorImagePath.str(), cv::IMREAD_COLOR, colorImage);

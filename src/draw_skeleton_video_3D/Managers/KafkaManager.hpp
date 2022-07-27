@@ -8,6 +8,5 @@
 #ifndef KafkaManager_hpp
 #define KafkaManager_hpp
 
-#include <stdio.h>
 
 #endif /* KafkaManager_hpp */
