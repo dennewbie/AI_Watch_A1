@@ -55,3 +55,17 @@ std::vector <Point3D *> * CoordinateMappingManager::mapToMeters (std::vector <Po
     return newPoints;
 }
 
+
+std::vector <Point3D *> * CoordinateMappingManager::mapToMetersForUnity (std::vector <Point3D *> pointsToMap, float xOrigin, float zOrigin) {
+    std::vector <Point3D *> * newPoints = new std::vector <Point3D *>;
+    
+    for (auto & singlePoint: pointsToMap) {
+        newPoints->push_back(new Point3D(
+            transformWidthCoordinate(singlePoint->getX()) - std::abs(xOrigin),
+            transformHeightCoordinate(singlePoint->getY()),
+            - (singlePoint->getZ() + std::abs(zOrigin)))
+        );
+    }
+    
+    return newPoints;
+}

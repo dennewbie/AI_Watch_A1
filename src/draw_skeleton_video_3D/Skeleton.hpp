@@ -11,7 +11,6 @@
 #include "FacadeSingleton/FacadeSingleton.hpp"
 #include "Points/Point3D.hpp"
 #include "Points/BodyKeyPoint.hpp"
-#include "Managers/CoordinateMappingManager.hpp"
 
 
 
@@ -34,7 +33,6 @@ private:
     std::vector <bool>          bodyKeyPointsMap;
     Json::Value                 skeletonData;
     std::vector <Point3D *>     skeletonPoints3D_RS;
-    CoordinateMappingManager *  coordinateMappingManager;
     std::vector <Point3D *> *   skeletonPoints3D;
     
     void setRGB_Image               (cv::Mat & rgbImage);
@@ -45,7 +43,6 @@ private:
     void setSkeletonData            (Json::Value skeletonData);
     void setSkeletonPoints3D_RS     (std::vector <Point3D *> skeletonPoints3D_RS);
     void setSkeletonPoints3D        (std::vector <Point3D *> * skeletonPoints3D);
-    void setCoordinateMappingManager(CoordinateMappingManager * coordinateMappingManager);
     
     cv::Mat getRGB_Image                                    (void);
     cv::Mat getDistance_Image                               (void);
@@ -53,7 +50,6 @@ private:
     std::vector <BodyKeyPoint> getBodyKeyPoints             (void);
     std::vector <bool> getBodyKeyPointsMap                  (void);
     Json::Value getSkeletonData                             (void);
-    CoordinateMappingManager * getCoordinateMappingManager  (void);
     
     void calcBodyKeypoints          (void);
     void calcBodyEdges              (void);

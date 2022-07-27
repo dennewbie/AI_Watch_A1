@@ -8,8 +8,10 @@
 #include "FacadeSingleton.hpp"
 
 
+
 FacadeSingleton * FacadeSingleton::sharedInstance { nullptr };
 std::mutex FacadeSingleton::singletonMutex;
+
 
 
 FacadeSingleton::FacadeSingleton (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage) {
@@ -39,6 +41,9 @@ void FacadeSingleton::setUsageManager(UsageManager * usageManager) {
     this->usageManager = usageManager;
 }
 
+void FacadeSingleton::setCoordinateMappingManager (CoordinateMappingManager * coordinateMappingManager) {
+    this->coordinateMappingManager = coordinateMappingManager;
+}
 
 
 
@@ -70,10 +75,15 @@ UsageManager * FacadeSingleton::getUsageManager (void) {
     return this->usageManager;
 }
 
+CoordinateMappingManager * FacadeSingleton::getCoordinateMappingManager (void) {
+    return this->coordinateMappingManager;
+}
+
 void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY) {
     FacadeSingleton::setCameraManager(new RealSenseD435Manager());
     FacadeSingleton::setOutputManager(new OutputManagerJSON());
     FacadeSingleton::setOpenCV_Manager(new OpenCV_Manager());
+    FacadeSingleton::setCoordinateMappingManager(new CoordinateMappingManager());
     FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY);
     
     SystemCommand * cleanCommand = new CleanCommand();

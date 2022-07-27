@@ -25,6 +25,9 @@ static const float maxWidthRS = 3.5; //  |      ---->x|
 static const float minHeightRS = -1.0;
 static const float maxHeightRS = 1.0;
 
+static const float xOriginUnity = -26.89;
+static const float zOriginUnity = -3.842;
+
 
 
 class CoordinateMappingManager {
@@ -33,7 +36,8 @@ private:
     float transformHeightCoordinate     (float heightCoordinate);
     float inverseTransform              (float inputNumber);
 public:
-    std::vector <Point3D *> * mapToMeters (std::vector <Point3D *> pointsToMap);
+    std::vector <Point3D *> * mapToMeters           (std::vector <Point3D *> pointsToMap);
+    std::vector <Point3D *> * mapToMetersForUnity   (std::vector <Point3D *> pointsToMap, float xOrigin, float zOrigin);
 };
 
 #endif /* CoordinateMappingManager_hpp */

@@ -124,7 +124,6 @@ void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & curre
                 Json::Value singlePerson = outputManagerJSON->getValueAt("pose_keypoints_2d", i, people);
                 Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);
                 singlePersonSkeleton.drawSkeleton();
-                // mapping coordinate
                 
                 outputManagerJSON->makeOutputString(* singlePersonSkeleton.getSkeletonPoints3D());
                 outputJsonFilePath << outputFolder << "movement/frame" << nFrame << "_person" << i << "_" << JSON_FILE_PATH;

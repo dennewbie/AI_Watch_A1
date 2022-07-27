@@ -41,10 +41,6 @@ void Skeleton::setSkeletonPoints3D (std::vector <Point3D *> * skeletonPoints3D) 
     this->skeletonPoints3D = skeletonPoints3D;
 }
 
-void Skeleton::setCoordinateMappingManager (CoordinateMappingManager * coordinateMappingManager) {
-    this->coordinateMappingManager = coordinateMappingManager;
-}
-
 
 
 cv::Mat Skeleton::getRGB_Image(void) {
@@ -69,10 +65,6 @@ std::vector <bool> Skeleton::getBodyKeyPointsMap (void) {
 
 Json::Value Skeleton::getSkeletonData (void) {
     return this->skeletonData;
-}
-
-CoordinateMappingManager * Skeleton::getCoordinateMappingManager (void) {
-    return this->coordinateMappingManager;
 }
 
 // Don't change following method, otherwise error
@@ -194,7 +186,6 @@ Skeleton::Skeleton (cv::Mat & rgbImage, cv::Mat & dImage, cv::Mat & skeleton_Ima
     setDistance_Image(dImage);
     setSkeleton_Image(skeleton_Image);
     setSkeletonData(skeletonData);
-    setCoordinateMappingManager(new CoordinateMappingManager());
 }
 
 Skeleton::~Skeleton(void) {
@@ -209,7 +200,9 @@ void Skeleton::drawSkeleton () {
     calcBodyKeypoints();
     calcBodyEdges();
     deprojectSkeletonPoints3D();
-    setSkeletonPoints3D(getCoordinateMappingManager()->mapToMeters(getSkeletonPoints3D_RS()));
+    FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
+    if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
+    setSkeletonPoints3D(facadeSingletonInstance->getCoordinateMappingManager()->mapToMetersForUnity(getSkeletonPoints3D_RS(), zOriginUnity, xOriginUnity));
     writeCoordinates();
 }
 
@@ -217,8 +210,6 @@ std::vector <Point3D *> Skeleton::getSkeletonPoints3D_RS (void) {
     return this->skeletonPoints3D_RS;
 }
 
-
 std::vector <Point3D *> * Skeleton::getSkeletonPoints3D (void) {
     return this->skeletonPoints3D;
 }
-
