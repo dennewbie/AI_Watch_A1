@@ -30,12 +30,14 @@ protected:
     std::string getStringOutputData             (void);
 public:
     virtual ~OutputManager() = default;
-    virtual void makeOutputString               (std::vector <Point3D *> skeletonPoints3D) = 0;
+    virtual void makeOutputString               (std::vector <Point3D *> skeletonPoints3D, std::vector <bool> bodyKeyPointsMap,
+                                                 unsigned int frameID, unsigned int personID) = 0;
 };
 
 class OutputManagerJSON : public OutputManager {
 public:
-    void makeOutputString                        (std::vector <Point3D *> skeletonPoints3D) override;
+    void makeOutputString                        (std::vector <Point3D *> skeletonPoints3D, std::vector <bool> bodyKeyPointsMap,
+                                                  unsigned int frameID, unsigned int personID) override;
     bool loadJSON                                (std::string filePathJSON, Json::Value & currentJSON);
     void saveJSON                                (std::string filePath);
     Json::Value getValueAt                       (std::string key, Json::Value currentJSON);

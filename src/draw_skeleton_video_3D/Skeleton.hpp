@@ -48,7 +48,6 @@ private:
     cv::Mat getDistance_Image                               (void);
     cv::Mat getSkeleton_Image                               (void);
     std::vector <BodyKeyPoint> getBodyKeyPoints             (void);
-    std::vector <bool> getBodyKeyPointsMap                  (void);
     Json::Value getSkeletonData                             (void);
     
     void calcBodyKeypoints          (void);
@@ -61,6 +60,7 @@ public:
     Skeleton                                        (cv::Mat & rgbImage, cv::Mat & distanceImage, cv::Mat & skeletonImage, Json::Value skeletonData);
     ~Skeleton                                       (void);
     void drawSkeleton                               (void);
+    std::vector <bool> getBodyKeyPointsMap          (void);
     std::vector <Point3D *> getSkeletonPoints3D_RS  (void);
     std::vector <Point3D *> * getSkeletonPoints3D   (void);
 };

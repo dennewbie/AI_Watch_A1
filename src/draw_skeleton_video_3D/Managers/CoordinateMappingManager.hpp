@@ -36,8 +36,9 @@ private:
     float transformHeightCoordinate     (float heightCoordinate);
     float inverseTransform              (float inputNumber);
 public:
-    std::vector <Point3D *> * mapToMeters           (std::vector <Point3D *> pointsToMap);
-    std::vector <Point3D *> * mapToMetersForUnity   (std::vector <Point3D *> pointsToMap, float xOrigin, float zOrigin);
+    std::vector <Point3D *> * mapToMeters           (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap);
+    std::vector <Point3D *> * mapToMetersForUnity   (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap,
+                                                     float xOrigin, float zOrigin);
 };
 
 #endif /* CoordinateMappingManager_hpp */

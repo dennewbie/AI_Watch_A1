@@ -99,6 +99,7 @@ void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & curre
     RealSenseManager * cameraManager = facadeSingletonInstance->getCameraManager();
     unsigned long frameID = cameraManager->getFrameID(), currentImageID;
     
+    // perchè non è unsigned long int?
     for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         std::stringstream inputJsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath, outputJsonFilePath;
         currentImageID = frameID - user_nFrame + nFrame;
@@ -119,13 +120,12 @@ void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & curre
             cv::imshow("Frame No Skeleton", colorImage);
             cv::imshow("Frame Colorized Depth", colorizedDepthImage);
             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
-            
             for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
                 Json::Value singlePerson = outputManagerJSON->getValueAt("pose_keypoints_2d", i, people);
                 Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);
                 singlePersonSkeleton.drawSkeleton();
                 
-                outputManagerJSON->makeOutputString(* singlePersonSkeleton.getSkeletonPoints3D());
+                outputManagerJSON->makeOutputString(* singlePersonSkeleton.getSkeletonPoints3D(), singlePersonSkeleton.getBodyKeyPointsMap(), nFrame, (unsigned int) i);
                 outputJsonFilePath << outputFolder << "movement/frame" << nFrame << "_person" << i << "_" << JSON_FILE_PATH;
                 outputManagerJSON->saveJSON(std::string(outputJsonFilePath.str()));
                 outputJsonFilePath.str(std::string());

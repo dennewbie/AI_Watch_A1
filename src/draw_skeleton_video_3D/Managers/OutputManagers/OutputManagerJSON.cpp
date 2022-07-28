@@ -9,14 +9,16 @@
 
 
 
-void OutputManagerJSON::makeOutputString (std::vector <Point3D *> skeletonPoints3D) {
+void OutputManagerJSON::makeOutputString (std::vector <Point3D *> skeletonPoints3D, std::vector <bool> bodyKeyPointsMap, unsigned int frameID, unsigned int personID) {
     Json::Value root, arraySkeletonPoints3D(Json::arrayValue);
     Json::StyledStreamWriter writer;
-    for (auto singlePoint3D: skeletonPoints3D) {
+    for (unsigned char i = 0; i < skeletonPoints3D.size() - 1; i++) {
         Json::Value singlePoint3D_JSON;
-        singlePoint3D_JSON["x"] = Json::Value(singlePoint3D->getX());
-        singlePoint3D_JSON["y"] = Json::Value(singlePoint3D->getY());
-        singlePoint3D_JSON["z"] = Json::Value(singlePoint3D->getZ());
+        singlePoint3D_JSON["pointID"] = Json::Value((unsigned int) i);
+        singlePoint3D_JSON["confidence"] = Json::Value(((BodyKeyPoint *) skeletonPoints3D.at(i)->getDecorated())->getConfidence());
+        singlePoint3D_JSON["x"] = Json::Value((double) skeletonPoints3D.at(i)->getX());
+        singlePoint3D_JSON["y"] = Json::Value((double) skeletonPoints3D.at(i)->getY());
+        singlePoint3D_JSON["z"] = Json::Value((double) skeletonPoints3D.at(i)->getZ());
         singlePoint3D_JSON["x_rotation"] = Json::Value(0.0);
         singlePoint3D_JSON["y_rotation"] = Json::Value(0.0);
         singlePoint3D_JSON["z_rotation"] = Json::Value(0.0);
@@ -25,6 +27,8 @@ void OutputManagerJSON::makeOutputString (std::vector <Point3D *> skeletonPoints
         arraySkeletonPoints3D.append(singlePoint3D_JSON);
     }
 
+    root["ID_Frame"] = frameID;
+    root["ID_Person"] = personID;
     root["_Movement"] = arraySkeletonPoints3D;
     OutputManager::setStringOutputData(root.toStyledString());
 }

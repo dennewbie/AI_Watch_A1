@@ -140,15 +140,21 @@ void Skeleton::deprojectSkeletonPoints3D () {
     struct rs2_intrinsics color_intrin = facadeSingletonInstance->getCameraManager()->get_color_intrin();
     drawCircle(cv::Point(848, 480));
     for (unsigned char i = 0; i < getBodyKeyPoints().size(); i++) {
-        if (!getBodyKeyPointsMap().at(i)) continue;
         float * pixel = new (std::nothrow) float [2];
         float * point = new (std::nothrow) float [3];
+        float distance = 0;
         if (!pixel || !point) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
         
-        pixel[0] = getBodyKeyPoints().at(i).getX();
-        pixel[1] = getBodyKeyPoints().at(i).getY();
-        float distance = getDistance_Image().at<float>(pixel[1], pixel[0]);
-        rs2_deproject_pixel_to_point(point, & color_intrin, pixel, distance);
+        if (!getBodyKeyPointsMap().at(i)) {
+            point[0] = point[1] = point[2] = pixel[0] = pixel[1] = 0;
+        } else {
+            pixel[0] = getBodyKeyPoints().at(i).getX();
+            pixel[1] = getBodyKeyPoints().at(i).getY();
+            distance = getDistance_Image().at<float>(pixel[1], pixel[0]);
+            rs2_deproject_pixel_to_point(point, & color_intrin, pixel, distance);
+        }
+        
+        
 //        pixel[0] = 480;
 //        pixel[1] = 848;
 //        float distance = getDistance_Image().at<float>(pixel[1], pixel[0]);
@@ -162,20 +168,18 @@ void Skeleton::deprojectSkeletonPoints3D () {
 
 void Skeleton::writeCoordinates (void) {
     for (unsigned char i = 0; i < getSkeletonPoints3D()->size(); i++) {
-        if (!getBodyKeyPointsMap().at(i)) continue;
-        std::stringstream labelText1, labelText2, labelText3, labelText4;
-        labelText1 << getSkeletonPoints3D()->at(i)->getX();
-        labelText2 << getSkeletonPoints3D()->at(i)->getY();
-        labelText3 << getSkeletonPoints3D()->at(i)->getZ();
-//        labelText4 << ((BodyKeyPoint *) getSkeletonPoints3D().at(i)->getDecorated())->getConfidence();
-//        std::cout << getSkeletonPoints3D()->at(i)->getY() << "\n";
+        std::stringstream labelTextX, labelTextY, labelTextZ, labelTextConfidence;
+        labelTextX << getSkeletonPoints3D()->at(i)->getX();
+        labelTextY << getSkeletonPoints3D()->at(i)->getY();
+        labelTextZ << getSkeletonPoints3D()->at(i)->getZ();
+        labelTextConfidence << ((BodyKeyPoint *) getSkeletonPoints3D()->at(i)->getDecorated())->getConfidence();
 
         if (i == 0) {
-        cv::putText(getRGB_Image(), labelText1.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 10), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
-        cv::putText(getRGB_Image(), labelText2.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 25), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
-        cv::putText(getRGB_Image(), labelText3.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 40), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+        cv::putText(getRGB_Image(), labelTextX.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 10), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+        cv::putText(getRGB_Image(), labelTextY.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 25), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+        cv::putText(getRGB_Image(), labelTextZ.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 40), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
         }
-//        cv::putText(getRGB_Image(), labelText4.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 55), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+//        cv::putText(getRGB_Image(), labelTextConfidence.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 55), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
     }
 }
 
@@ -202,7 +206,7 @@ void Skeleton::drawSkeleton () {
     deprojectSkeletonPoints3D();
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
-    setSkeletonPoints3D(facadeSingletonInstance->getCoordinateMappingManager()->mapToMetersForUnity(getSkeletonPoints3D_RS(), zOriginUnity, xOriginUnity));
+    setSkeletonPoints3D(facadeSingletonInstance->getCoordinateMappingManager()->mapToMetersForUnity(getSkeletonPoints3D_RS(), getBodyKeyPointsMap(), zOriginUnity, xOriginUnity));
     writeCoordinates();
 }
 
