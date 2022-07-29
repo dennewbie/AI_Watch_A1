@@ -78,9 +78,9 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
         colorImagePath << imagesFolder << "rgb/" << colorImageName.str() << ".png";
         distanceImagePath << imagesFolder << "d/" << distanceImageName.str() << ".exr";
         colorizedDepthImagePath << imagesFolder << "depth/" << colorizedDepthImageName.str() << ".png";
-        //        saveImage(colorImagePath.str(), colorImage);
-        //        saveImage(distanceImagePath.str(), distanceImage);
-        //        saveImage(colorizedDepthImagePath.str(), colorizedDepthImage);
+        saveImage(colorImagePath.str(), colorImage);
+        saveImage(distanceImagePath.str(), distanceImage);
+        saveImage(colorizedDepthImagePath.str(), colorizedDepthImage);
         colorImage.release();
         depthImage.release();
         distanceImage.release();

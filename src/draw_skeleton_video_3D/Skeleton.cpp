@@ -138,7 +138,7 @@ void Skeleton::drawLine (unsigned char start, unsigned char end) {
 
 void Skeleton::drawCircle (cv::Point center) {
     cv::circle(getRGB_Image(), center, 4, cv::Scalar(0, 0, 255), 8, cv::LINE_8, 0);
-    cv::circle(getSkeleton_Image(), center, 4, cv::Scalar(0, 0, 255), 8, cv::LINE_8, 0); // remove
+//    cv::circle(getSkeleton_Image(), center, 4, cv::Scalar(0, 0, 255), 8, cv::LINE_8, 0); // remove
 }
 
 void Skeleton::deprojectSkeletonPoints3D () {

@@ -42,7 +42,7 @@ public:
     unsigned int getFrameID                     (void);
     struct rs2_intrinsics & get_color_intrin    (void);
     virtual void startEnvironment               (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale,
-                                                 unsigned short int resX, unsigned short int resY) = 0;
+                                                 unsigned short int resX, unsigned short int resY, bool firstBoot) = 0;
     virtual void getVideoFramesRS               (unsigned int user_nFrame, rs2::pipeline & pipelineStream,
                                                  rs2::depth_frame & depthFrames, rs2::frame & colorFrames,
                                                   rs2::frame & colorizedDepthFrames) = 0;
@@ -51,7 +51,7 @@ public:
 class RealSenseD435Manager : public RealSenseManager {
 public:
     void startEnvironment                       (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale,
-                                                 unsigned short int resX, unsigned short int resY) override;
+                                                 unsigned short int resX, unsigned short int resY, bool firstBoot) override;
     void getVideoFramesRS                       (unsigned int user_nFrame, rs2::pipeline & pipelineStream,
                                                  rs2::depth_frame & depthFrames, rs2::frame & colorFrames,
                                                  rs2::frame & colorizedDepthFrames) override;

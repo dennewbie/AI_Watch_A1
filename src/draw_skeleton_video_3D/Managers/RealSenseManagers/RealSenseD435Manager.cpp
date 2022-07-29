@@ -9,7 +9,7 @@
 
 
 
-void RealSenseD435Manager::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY) try {
+void RealSenseD435Manager::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY, bool firstBoot) try {
     rs2::log_to_console(RS2_LOG_SEVERITY_ERROR);
     rs2::rates_printer printer;
     rs2::config myConfiguration;
@@ -22,7 +22,7 @@ void RealSenseD435Manager::startEnvironment (rs2::pipeline & pipelineStream, str
     * scale = sensor.get_depth_scale();
     
 //     Capture 30 frames to give autoexposure, etc. a chance to settle
-    for (int i = 0; i < 30; i++) pipelineStream.wait_for_frames();
+    if (firstBoot) for (int i = 0; i < 30; i++) pipelineStream.wait_for_frames();
     
     set_depth_intrin(myPipelineProfile.get_stream(RS2_STREAM_DEPTH).as<rs2::video_stream_profile>().get_intrinsics());
     color_intrin = myPipelineProfile.get_stream(RS2_STREAM_COLOR).as<rs2::video_stream_profile>().get_intrinsics();
@@ -39,6 +39,9 @@ void RealSenseD435Manager::startEnvironment (rs2::pipeline & pipelineStream, str
 
 void RealSenseD435Manager::getVideoFramesRS (unsigned int user_nFrame, rs2::pipeline & pipelineStream, rs2::depth_frame & depthFrame, rs2::frame & colorFrame, rs2::frame & colorizedDepthFrame) try {
     rs2::colorizer colorMap;
+//    pipelineStream.stop();
+//    startEnvironment(pipelineStream, get_color_intrin(), nullptr, get_color_intrin().width, get_color_intrin().height, NOT_FIRST_BOOT);
+    for (int i = 0; i < framesToSkip; i++) pipelineStream.wait_for_frames();
     rs2::frameset streamData = pipelineStream.wait_for_frames(), alignedStreamData = get_align().process(streamData);
     depthFrame = alignedStreamData.get_depth_frame();
     colorFrame = alignedStreamData.get_color_frame();

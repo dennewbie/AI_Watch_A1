@@ -20,14 +20,14 @@ int main (int argc, const char * argv[]) {
     Json::Value currentJSON;
     float scale;
     // risoluzione ottimale D435: 848x480
-    unsigned  int user_nFrame = 150, resX = 848, resY = 480;
+    unsigned  int user_nFrame = 60, resX = 848, resY = 480;
     struct rs2_intrinsics color_intrin;
     FacadeSingleton * myUtility = FacadeSingleton::getInstance(argc, argv, expected_argc, expectedUsageMessage);
     myUtility->startEnvironment(pipelineStream, color_intrin, & scale, resX, resY);
 
     while (true) {
         myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
-//        myUtility->getVideoBodyKeyPoints();
+        myUtility->getVideoBodyKeyPoints();
         myUtility->showSkeleton(user_nFrame, currentJSON);
     }
     return EXIT_SUCCESS;
