@@ -120,19 +120,35 @@ void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & curre
             cv::imshow("Frame No Skeleton", colorImage);
             cv::imshow("Frame Colorized Depth", colorizedDepthImage);
             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
+            
+            Json::Value root, peopleArray(Json::arrayValue);
+            root["ID_Frame"] = nFrame;
+            std::stringstream completeJSON;
+            
             for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
                 Json::Value singlePerson = outputManagerJSON->getValueAt("pose_keypoints_2d", i, people);
                 Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);
                 singlePersonSkeleton.drawSkeleton();
                 
-                outputManagerJSON->makeOutputString(* singlePersonSkeleton.getSkeletonPoints3D(), singlePersonSkeleton.getBodyKeyPointsMap(), nFrame, (unsigned int) i);
-                outputJsonFilePath << outputFolder << "movement/frame" << nFrame << "_person" << i << "_" << JSON_FILE_PATH;
-                outputManagerJSON->saveJSON(std::string(outputJsonFilePath.str()));
-                outputJsonFilePath.str(std::string());
-                outputJsonFilePath.clear();
+                peopleArray.append(outputManagerJSON->makeOutputString(* singlePersonSkeleton.getSkeletonPoints3D(), singlePersonSkeleton.getBodyKeyPointsMap(), nFrame, (unsigned int) i));
+//                completeJSON << outputManagerJSON->getStringOutputData() << ",\n";
+                
+//                outputJsonFilePath << outputFolder << "movement/frame" << nFrame << "_person" << i << "_" << JSON_FILE_PATH;
+//                outputManagerJSON->saveJSON(std::string(outputJsonFilePath.str()));
+//                outputJsonFilePath.str(std::string());
+//                outputJsonFilePath.clear();
                 
                 // kafka send
             }
+            
+            
+            
+            root["People"] = peopleArray;
+            outputManagerJSON->setStringOutputData(root.toStyledString());
+            outputJsonFilePath << outputFolder << "movement/frame" << nFrame << "_" << JSON_FILE_PATH;
+            outputManagerJSON->saveJSON(std::string(outputJsonFilePath.str()));
+            outputJsonFilePath.str(std::string());
+            outputJsonFilePath.clear();
             
             cv::imshow("Frame Skeleton Background Cut", skeletonOnlyImage);
             cv::imshow("Frame Skeleton", colorImage);

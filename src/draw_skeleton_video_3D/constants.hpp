@@ -41,7 +41,7 @@ static const short int ESC_KEY = 27;
 static const float depth_min = 0.10;
 static const float depth_max = 6.0;
 
-static const char * JSON_FILE_PATH = "skeletonPoints3D.json";
+static const char * JSON_FILE_PATH = "skeletonsPoints3D.json";
 
 static const short int programNameOffset = 0;
 static const short int openPoseFolderOffset = 1;
@@ -50,5 +50,7 @@ static const short int imagesFolderOffset = 3;
 static const short int outputFolderOffset = 4;
 
 static const short int openPoseBodyKeyPointsNumber = 24;
+
+static const short int skeletonThreshold = 4;
 
 #endif /* constants_h */

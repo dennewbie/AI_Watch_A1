@@ -70,6 +70,7 @@ Json::Value Skeleton::getSkeletonData (void) {
 // Don't change following method, otherwise error
 void Skeleton::calcBodyKeypoints (void) {
     int j = 0;
+    unsigned char counterBodyKeyPointsMap = 0;
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
     OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) facadeSingletonInstance->getOutputManager();
@@ -81,9 +82,15 @@ void Skeleton::calcBodyKeypoints (void) {
         );
         
         bodyKeyPointsMap.push_back(bodyKeyPoints.at(j).getX() > 0 && bodyKeyPoints.at(j).getY() > 0 && bodyKeyPoints.at(j).getConfidence() > 0.00);
+        if (bodyKeyPointsMap.back()) counterBodyKeyPointsMap += 1;
         i += 2;
         j += 1;
     }
+    
+//    if (counterBodyKeyPointsMap <= skeletonThreshold) {
+//        bodyKeyPointsMap.clear();
+//        bodyKeyPoints.clear();
+//    }
 }
 
 void Skeleton::calcBodyEdges (void) {
