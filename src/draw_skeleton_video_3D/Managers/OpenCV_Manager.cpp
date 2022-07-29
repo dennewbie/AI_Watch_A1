@@ -52,8 +52,8 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
     RealSenseManager * cameraManager = facadeSingletonInstance->getCameraManager();
     
-    for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
-        unsigned long frameID = cameraManager->getFrameID();
+    for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
+        unsigned int frameID = cameraManager->getFrameID();
         rs2::depth_frame depthFrame = rs2::depth_frame(rs2::frame());
         rs2::frame colorFrame, colorizedDepthFrame;
         cameraManager->getVideoFramesRS(user_nFrame, pipelineStream, depthFrame, colorFrame, colorizedDepthFrame);
@@ -78,9 +78,9 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
         colorImagePath << imagesFolder << "rgb/" << colorImageName.str() << ".png";
         distanceImagePath << imagesFolder << "d/" << distanceImageName.str() << ".exr";
         colorizedDepthImagePath << imagesFolder << "depth/" << colorizedDepthImageName.str() << ".png";
-//        saveImage(colorImagePath.str(), colorImage);
-//        saveImage(distanceImagePath.str(), distanceImage);
-//        saveImage(colorizedDepthImagePath.str(), colorizedDepthImage);
+        //        saveImage(colorImagePath.str(), colorImage);
+        //        saveImage(distanceImagePath.str(), distanceImage);
+        //        saveImage(colorizedDepthImagePath.str(), colorizedDepthImage);
         colorImage.release();
         depthImage.release();
         distanceImage.release();
@@ -89,23 +89,20 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
 }
 
 void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
-    UsageManager * usageManagerInstance = UsageManager::getInstance();
-    if (usageManagerInstance == nullptr) CV_Error(USAGE_MANAGER_NULLPTR_ERROR, USAGE_MANAGER_NULLPTR_SCOPE);
-    const char ** argv = usageManagerInstance->get_argv();
-    const char * imagesFolder = argv[imagesFolderOffset];
-    const char * outputFolder = argv[outputFolderOffset];
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
     RealSenseManager * cameraManager = facadeSingletonInstance->getCameraManager();
-    unsigned long frameID = cameraManager->getFrameID(), currentImageID;
+    OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager();
+    UsageManager * usageManagerInstance = UsageManager::getInstance();
+    if (usageManagerInstance == nullptr) CV_Error(USAGE_MANAGER_NULLPTR_ERROR, USAGE_MANAGER_NULLPTR_SCOPE);
+    const char ** argv = usageManagerInstance->get_argv(), * imagesFolder = argv[imagesFolderOffset], * outputFolder = argv[outputFolderOffset];
+    unsigned int frameID = cameraManager->getFrameID(), currentImageID;
     
-    // perchè non è unsigned long int?
-    for (int nFrame = 0; nFrame < user_nFrame; nFrame++) {
+    for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         std::stringstream inputJsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath, outputJsonFilePath;
         currentImageID = frameID - user_nFrame + nFrame;
         inputJsonFilePath << outputFolder << "op/" << currentImageID << "_Color_keypoints.json";
-
-        OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager();
+        
         if (outputManagerJSON->loadJSON(inputJsonFilePath.str(), currentJSON)) {
             Json::Value people = outputManagerJSON->getValueAt("people", currentJSON);
             colorImagePath << imagesFolder << "rgb/" << currentImageID << "_Color.png";
@@ -121,34 +118,7 @@ void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & curre
             cv::imshow("Frame Colorized Depth", colorizedDepthImage);
             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
             
-            Json::Value root, peopleArray(Json::arrayValue);
-            root["ID_Frame"] = nFrame;
-            std::stringstream completeJSON;
-            
-            for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
-                Json::Value singlePerson = outputManagerJSON->getValueAt("pose_keypoints_2d", i, people);
-                Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);
-                singlePersonSkeleton.drawSkeleton();
-                
-                peopleArray.append(outputManagerJSON->makeOutputString(* singlePersonSkeleton.getSkeletonPoints3D(), singlePersonSkeleton.getBodyKeyPointsMap(), nFrame, (unsigned int) i));
-//                completeJSON << outputManagerJSON->getStringOutputData() << ",\n";
-                
-//                outputJsonFilePath << outputFolder << "movement/frame" << nFrame << "_person" << i << "_" << JSON_FILE_PATH;
-//                outputManagerJSON->saveJSON(std::string(outputJsonFilePath.str()));
-//                outputJsonFilePath.str(std::string());
-//                outputJsonFilePath.clear();
-                
-                // kafka send
-            }
-            
-            
-            
-            root["People"] = peopleArray;
-            outputManagerJSON->setStringOutputData(root.toStyledString());
-            outputJsonFilePath << outputFolder << "movement/frame" << nFrame << "_" << JSON_FILE_PATH;
-            outputManagerJSON->saveJSON(std::string(outputJsonFilePath.str()));
-            outputJsonFilePath.str(std::string());
-            outputJsonFilePath.clear();
+            outputManagerJSON->createJSON(people, colorImage, distanceImage, skeletonOnlyImage, nFrame, outputFolder);
             
             cv::imshow("Frame Skeleton Background Cut", skeletonOnlyImage);
             cv::imshow("Frame Skeleton", colorImage);

@@ -87,10 +87,10 @@ void Skeleton::calcBodyKeypoints (void) {
         j += 1;
     }
     
-//    if (counterBodyKeyPointsMap <= skeletonThreshold) {
-//        bodyKeyPointsMap.clear();
-//        bodyKeyPoints.clear();
-//    }
+    if (counterBodyKeyPointsMap <= skeletonThreshold) {
+        bodyKeyPointsMap.clear();
+        bodyKeyPoints.clear();
+    }
 }
 
 void Skeleton::calcBodyEdges (void) {
@@ -161,7 +161,6 @@ void Skeleton::deprojectSkeletonPoints3D () {
             rs2_deproject_pixel_to_point(point, & color_intrin, pixel, distance);
         }
         
-        
 //        pixel[0] = 480;
 //        pixel[1] = 848;
 //        float distance = getDistance_Image().at<float>(pixel[1], pixel[0]);
@@ -182,11 +181,12 @@ void Skeleton::writeCoordinates (void) {
         labelTextConfidence << ((BodyKeyPoint *) getSkeletonPoints3D()->at(i)->getDecorated())->getConfidence();
 
         if (i == 0) {
-        cv::putText(getRGB_Image(), labelTextX.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 10), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
-        cv::putText(getRGB_Image(), labelTextY.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 25), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
-        cv::putText(getRGB_Image(), labelTextZ.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 40), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+            cv::putText(getRGB_Image(), labelTextX.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 10), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+            cv::putText(getRGB_Image(), labelTextY.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 25), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+            cv::putText(getRGB_Image(), labelTextZ.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 40), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+//            cv::putText(getRGB_Image(), labelTextConfidence.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 55), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
         }
-//        cv::putText(getRGB_Image(), labelTextConfidence.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 55), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+
     }
 }
 

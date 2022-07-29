@@ -9,7 +9,7 @@
 
 
 
-void RealSenseManager::setFrameID (long unsigned int frameID) {
+void RealSenseManager::setFrameID (unsigned int frameID) {
     this->frameID = frameID;
 }
 
@@ -55,7 +55,7 @@ RealSenseManager::RealSenseManager (void) : align(RS2_STREAM_COLOR) {
     setFrameID(0);
 }
 
-long unsigned int RealSenseManager::getFrameID (void) {
+unsigned int RealSenseManager::getFrameID (void) {
     return this->frameID;
 }
 

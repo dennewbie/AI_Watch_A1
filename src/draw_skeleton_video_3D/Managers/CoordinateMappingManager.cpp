@@ -60,7 +60,6 @@ std::vector <Point3D *> * CoordinateMappingManager::mapToMeters (std::vector <Po
     return newPoints;
 }
 
-
 std::vector <Point3D *> * CoordinateMappingManager::mapToMetersForUnity (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap, float xOrigin, float zOrigin) {
     std::vector <Point3D *> * newPoints = new std::vector <Point3D *>;
     

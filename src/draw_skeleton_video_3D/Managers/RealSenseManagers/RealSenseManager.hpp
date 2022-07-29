@@ -17,14 +17,14 @@
 
 class RealSenseManager {
 private:
-    long unsigned int           frameID;
+    unsigned int           frameID;
     rs2::align                  align;
     struct rs2_intrinsics       depth_intrin;
     struct rs2_intrinsics       color_intrin;
     struct rs2_extrinsics       depth_to_color;
     struct rs2_extrinsics       color_to_depth;
 protected:
-    void setFrameID             (long unsigned int newFrameID);
+    void setFrameID             (unsigned int newFrameID);
     void set_align              (rs2::align align);
     void set_depth_intrin       (struct rs2_intrinsics depth_intrin);
     void set_color_intrin       (struct rs2_intrinsics & color_intrin);
@@ -39,7 +39,7 @@ protected:
 public:
     RealSenseManager (void);
     virtual ~RealSenseManager() = default;
-    long unsigned int getFrameID                (void);
+    unsigned int getFrameID                     (void);
     struct rs2_intrinsics & get_color_intrin    (void);
     virtual void startEnvironment               (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale,
                                                  unsigned short int resX, unsigned short int resY) = 0;
@@ -52,7 +52,7 @@ class RealSenseD435Manager : public RealSenseManager {
 public:
     void startEnvironment                       (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale,
                                                  unsigned short int resX, unsigned short int resY) override;
-    void getVideoFramesRS                         (unsigned int user_nFrame, rs2::pipeline & pipelineStream,
+    void getVideoFramesRS                       (unsigned int user_nFrame, rs2::pipeline & pipelineStream,
                                                  rs2::depth_frame & depthFrames, rs2::frame & colorFrames,
                                                  rs2::frame & colorizedDepthFrames) override;
 };

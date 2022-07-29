@@ -27,8 +27,6 @@ Json::Value OutputManagerJSON::makeOutputString (std::vector <Point3D *> skeleto
         arraySkeletonPoints3D.append(singlePoint3D_JSON);
     }
 
-//    root["ID_Frame"] = frameID;
-//    root["ID_Person"] = personID;
     root[std::to_string(personID)] = arraySkeletonPoints3D;
     OutputManager::setStringOutputData(root.toStyledString());
     return root;
@@ -57,4 +55,24 @@ Json::Value OutputManagerJSON::getValueAt (unsigned int i, Json::Value currentJS
 
 Json::Value OutputManagerJSON::getValueAt (std::string key, unsigned int i, Json::Value currentJSON) {
     return (currentJSON[i])[key];
+}
+
+void OutputManagerJSON::createJSON (Json::Value people, cv::Mat & colorImage, cv::Mat & distanceImage, cv::Mat & skeletonOnlyImage, unsigned int nFrame, const char * outputFolder) {
+    Json::Value root, peopleArray(Json::arrayValue);
+    std::stringstream outputJsonFilePath;
+    root["ID_Frame"] = nFrame;
+    
+    for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
+        Json::Value singlePerson = getValueAt("pose_keypoints_2d", i, people);
+        Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);
+        singlePersonSkeleton.drawSkeleton();
+        peopleArray.append(makeOutputString(* singlePersonSkeleton.getSkeletonPoints3D(), singlePersonSkeleton.getBodyKeyPointsMap(), nFrame, (unsigned int) i));
+    }
+    
+    root["People"] = peopleArray;
+    setStringOutputData(root.toStyledString());
+    outputJsonFilePath << outputFolder << "movement/frame" << nFrame << "_" << JSON_FILE_PATH;
+    saveJSON(std::string(outputJsonFilePath.str()));
+    outputJsonFilePath.str(std::string());
+    outputJsonFilePath.clear();
 }
