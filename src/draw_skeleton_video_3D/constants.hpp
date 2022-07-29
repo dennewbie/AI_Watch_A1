@@ -52,7 +52,8 @@ static const short int outputFolderOffset = 4;
 static const short int openPoseBodyKeyPointsNumber = 24;
 
 static const short int skeletonThreshold = 4;
-static const short int framesToSkip = 30;
+//static const short int framesToSkip = 30;
+static const short int framesToSkip = 1;
 static const bool NOT_FIRST_BOOT = false;
 static const bool FIRST_BOOT = true;
 

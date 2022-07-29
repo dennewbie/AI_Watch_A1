@@ -47,7 +47,7 @@ public:
     Json::Value getValueAt                       (std::string key, Json::Value currentJSON);
     Json::Value getValueAt                       (unsigned int i, Json::Value currentJSON);
     Json::Value getValueAt                       (std::string key, unsigned int i, Json::Value currentJSON);
-    void createJSON                              (Json::Value people, cv::Mat & colorImage, cv::Mat & distanceImage, cv::Mat & skeletonOnlyImage,
+    void createJSON                              (Json::Value & people, cv::Mat & colorImage, cv::Mat & distanceImage, cv::Mat & skeletonOnlyImage,
                                                   unsigned int nFrame, const char * outputFolder);
 };
 

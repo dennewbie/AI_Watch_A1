@@ -118,7 +118,7 @@ void OpenCV_Manager::showSkeleton (unsigned int user_nFrame, Json::Value & curre
             cv::imshow("Frame Colorized Depth", colorizedDepthImage);
             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
             
-            outputManagerJSON->createJSON(people, colorImage, distanceImage, skeletonOnlyImage, nFrame, outputFolder);
+            outputManagerJSON->createJSON(people, colorImage, distanceImage, skeletonOnlyImage, currentImageID, outputFolder);
             
             cv::imshow("Frame Skeleton Background Cut", skeletonOnlyImage);
             cv::imshow("Frame Skeleton", colorImage);

@@ -12,7 +12,9 @@
 Json::Value OutputManagerJSON::makeOutputString (std::vector <Point3D *> skeletonPoints3D, std::vector <bool> bodyKeyPointsMap, unsigned int frameID, unsigned int personID) {
     Json::Value root, arraySkeletonPoints3D(Json::arrayValue);
     Json::StyledStreamWriter writer;
-    for (unsigned char i = 0; i < skeletonPoints3D.size() - 1; i++) {
+    
+    for (unsigned char i = 0; i < skeletonPoints3D.size(); i++) {
+        if (i >= 24) continue;
         Json::Value singlePoint3D_JSON;
         singlePoint3D_JSON["pointID"] = Json::Value((unsigned int) i);
         singlePoint3D_JSON["confidence"] = Json::Value(((BodyKeyPoint *) skeletonPoints3D.at(i)->getDecorated())->getConfidence());
@@ -57,11 +59,11 @@ Json::Value OutputManagerJSON::getValueAt (std::string key, unsigned int i, Json
     return (currentJSON[i])[key];
 }
 
-void OutputManagerJSON::createJSON (Json::Value people, cv::Mat & colorImage, cv::Mat & distanceImage, cv::Mat & skeletonOnlyImage, unsigned int nFrame, const char * outputFolder) {
+void OutputManagerJSON::createJSON (Json::Value & people, cv::Mat & colorImage, cv::Mat & distanceImage, cv::Mat & skeletonOnlyImage, unsigned int nFrame, const char * outputFolder) {
     Json::Value root, peopleArray(Json::arrayValue);
     std::stringstream outputJsonFilePath;
     root["ID_Frame"] = nFrame;
-    
+
     for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
         Json::Value singlePerson = getValueAt("pose_keypoints_2d", i, people);
         Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);

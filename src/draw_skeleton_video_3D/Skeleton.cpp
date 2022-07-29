@@ -76,20 +76,15 @@ void Skeleton::calcBodyKeypoints (void) {
     OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) facadeSingletonInstance->getOutputManager();
     for (Json::Value::ArrayIndex i = 0; i < skeletonData.size(); i++) {
         bodyKeyPoints.push_back(BodyKeyPoint(
-            outputManagerJSON->getValueAt((unsigned int) i, getSkeletonData()).asInt(),
-            outputManagerJSON->getValueAt((unsigned int) i + 1, getSkeletonData()).asInt(),
-            outputManagerJSON->getValueAt((unsigned int) i + 2, getSkeletonData()).asFloat())
-        );
+                                             outputManagerJSON->getValueAt((unsigned int) i, getSkeletonData()).asInt(),
+                                             outputManagerJSON->getValueAt((unsigned int) i + 1, getSkeletonData()).asInt(),
+                                             outputManagerJSON->getValueAt((unsigned int) i + 2, getSkeletonData()).asFloat())
+                                );
         
         bodyKeyPointsMap.push_back(bodyKeyPoints.at(j).getX() > 0 && bodyKeyPoints.at(j).getY() > 0 && bodyKeyPoints.at(j).getConfidence() > 0.00);
         if (bodyKeyPointsMap.back()) counterBodyKeyPointsMap += 1;
         i += 2;
         j += 1;
-    }
-    
-    if (counterBodyKeyPointsMap <= skeletonThreshold) {
-        bodyKeyPointsMap.clear();
-        bodyKeyPoints.clear();
     }
 }
 
@@ -138,7 +133,7 @@ void Skeleton::drawLine (unsigned char start, unsigned char end) {
 
 void Skeleton::drawCircle (cv::Point center) {
     cv::circle(getRGB_Image(), center, 4, cv::Scalar(0, 0, 255), 8, cv::LINE_8, 0);
-//    cv::circle(getSkeleton_Image(), center, 4, cv::Scalar(0, 0, 255), 8, cv::LINE_8, 0); // remove
+    cv::circle(getSkeleton_Image(), center, 4, cv::Scalar(0, 0, 255), 8, cv::LINE_8, 0); // remove
 }
 
 void Skeleton::deprojectSkeletonPoints3D () {
@@ -161,10 +156,10 @@ void Skeleton::deprojectSkeletonPoints3D () {
             rs2_deproject_pixel_to_point(point, & color_intrin, pixel, distance);
         }
         
-//        pixel[0] = 480;
-//        pixel[1] = 848;
-//        float distance = getDistance_Image().at<float>(pixel[1], pixel[0]);
-//        rs2_deproject_pixel_to_point(point, & color_intrin, pixel, distance);
+        //        pixel[0] = 480;
+        //        pixel[1] = 848;
+        //        float distance = getDistance_Image().at<float>(pixel[1], pixel[0]);
+        //        rs2_deproject_pixel_to_point(point, & color_intrin, pixel, distance);
         Point3D * point3D = new Point3D(point[0], point[1], point[2], new BodyKeyPoint(0, 0, getBodyKeyPoints().at(i).getConfidence()));
         skeletonPoints3D_RS.push_back(point3D);
         delete [] pixel;
@@ -179,14 +174,14 @@ void Skeleton::writeCoordinates (void) {
         labelTextY << getSkeletonPoints3D()->at(i)->getY();
         labelTextZ << getSkeletonPoints3D()->at(i)->getZ();
         labelTextConfidence << ((BodyKeyPoint *) getSkeletonPoints3D()->at(i)->getDecorated())->getConfidence();
-
+        
         if (i == 0) {
             cv::putText(getRGB_Image(), labelTextX.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 10), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
             cv::putText(getRGB_Image(), labelTextY.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 25), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
             cv::putText(getRGB_Image(), labelTextZ.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 40), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
-//            cv::putText(getRGB_Image(), labelTextConfidence.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 55), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
+            //            cv::putText(getRGB_Image(), labelTextConfidence.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 55), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
         }
-
+        
     }
 }
 
@@ -203,7 +198,7 @@ Skeleton::~Skeleton(void) {
     for (auto & point: * getSkeletonPoints3D()) delete point;
     for (auto & point: getSkeletonPoints3D_RS()) delete point;
     getSkeletonPoints3D()->clear();
-    delete getSkeletonPoints3D();
+    if (getSkeletonPoints3D() != nullptr) delete getSkeletonPoints3D();
     getSkeletonPoints3D_RS().clear();
 }
 

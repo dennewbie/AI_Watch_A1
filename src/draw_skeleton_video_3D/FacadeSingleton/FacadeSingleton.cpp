@@ -102,8 +102,8 @@ void FacadeSingleton::getVideoBodyKeyPoints (void) {
 }
 
 void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
-//    getOpenCV_Manager()->showSkeleton(user_nFrame, currentJSON);
+    getOpenCV_Manager()->showSkeleton(user_nFrame, currentJSON);
     SystemCommand * cleanCommand = new CleanCommand();
-    cleanCommand->executeCommand();
+//    cleanCommand->executeCommand();
     delete cleanCommand;
 }
