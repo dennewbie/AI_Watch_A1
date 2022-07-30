@@ -23,7 +23,7 @@ public:
     void saveImage                  (std::string imageSavePath, cv::Mat & imageToSave);
     cv::Mat realsenseFrameToMat     (const rs2::frame & singleFrame);
     void getVideoFramesCV           (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale);
-    void showSkeleton               (unsigned int user_nFrame, Json::Value & currentJSON);
+    void showSkeletonCV               (unsigned int user_nFrame, Json::Value & currentJSON);
 };
 
 #endif /* OpenCV_Manager_hpp */

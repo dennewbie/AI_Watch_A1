@@ -13,7 +13,7 @@
 #include "../Managers/OutputManagers/OutputManager.hpp"
 #include "../Managers/OpenCV_Manager.hpp"
 #include "../Managers/UsageManager.hpp"
-#include "../Managers/CoordinateMappingManager.hpp"
+#include "../Managers/CoordinateManagers/CoordinateMappingManager.hpp"
 
 
 

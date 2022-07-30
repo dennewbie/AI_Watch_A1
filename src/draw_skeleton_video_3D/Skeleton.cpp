@@ -208,7 +208,7 @@ void Skeleton::drawSkeleton () {
     deprojectSkeletonPoints3D();
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
-    setSkeletonPoints3D(facadeSingletonInstance->getCoordinateMappingManager()->mapToMetersForUnity(getSkeletonPoints3D_RS(), getBodyKeyPointsMap(), zOriginUnity, xOriginUnity));
+    setSkeletonPoints3D(facadeSingletonInstance->getCoordinateMappingManager()->mapToMeters(getSkeletonPoints3D_RS(), getBodyKeyPointsMap(), zOriginUnity, xOriginUnity));
     writeCoordinates();
 }
 

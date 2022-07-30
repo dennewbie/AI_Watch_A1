@@ -83,7 +83,7 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     FacadeSingleton::setCameraManager(new RealSenseD435Manager());
     FacadeSingleton::setOutputManager(new OutputManagerJSON());
     FacadeSingleton::setOpenCV_Manager(new OpenCV_Manager());
-    FacadeSingleton::setCoordinateMappingManager(new CoordinateMappingManager());
+    FacadeSingleton::setCoordinateMappingManager(new UnityCoordinateMappingManager());
     FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY, FIRST_BOOT);
     
     SystemCommand * cleanCommand = new CleanCommand();
@@ -102,7 +102,7 @@ void FacadeSingleton::getVideoBodyKeyPoints (void) {
 }
 
 void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
-    getOpenCV_Manager()->showSkeleton(user_nFrame, currentJSON);
+    getOpenCV_Manager()->showSkeletonCV(user_nFrame, currentJSON);
     SystemCommand * cleanCommand = new CleanCommand();
 //    cleanCommand->executeCommand();
     delete cleanCommand;

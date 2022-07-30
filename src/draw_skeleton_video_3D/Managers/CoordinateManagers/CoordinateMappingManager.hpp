@@ -10,8 +10,8 @@
 
 #include <vector>
 #include <cmath>
-#include "../Points/Point3D.hpp"
-#include "../Points/BodyKeyPoint.hpp"
+#include "../../Points/Point3D.hpp"
+#include "../../Points/BodyKeyPoint.hpp"
 
 
 
@@ -28,17 +28,23 @@ static const float maxHeightRS = 1.0;
 static const float xOriginUnity = -26.89;
 static const float zOriginUnity = -3.842;
 
+static const float distanceCameraFromBackWall = 0.5;
+
 
 
 class CoordinateMappingManager {
-private:
+protected:
     float transformWidthCoordinate      (float widthCoordinate);
     float transformHeightCoordinate     (float heightCoordinate);
     float inverseTransform              (float inputNumber);
 public:
-    std::vector <Point3D *> * mapToMeters           (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap);
-    std::vector <Point3D *> * mapToMetersForUnity   (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap,
+    virtual std::vector <Point3D *> * mapToMeters   (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap,
                                                      float xOrigin, float zOrigin);
+};
+
+class UnityCoordinateMappingManager : public CoordinateMappingManager {
+    std::vector <Point3D *> * mapToMeters           (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap,
+                                                     float xOrigin, float zOrigin) override;
 };
 
 #endif /* CoordinateMappingManager_hpp */
