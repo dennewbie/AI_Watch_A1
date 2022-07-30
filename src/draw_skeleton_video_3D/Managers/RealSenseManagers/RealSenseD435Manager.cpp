@@ -39,11 +39,17 @@ void RealSenseD435Manager::startEnvironment (rs2::pipeline & pipelineStream, str
 
 void RealSenseD435Manager::getVideoFramesRS (unsigned int user_nFrame, rs2::pipeline & pipelineStream, rs2::depth_frame & depthFrame, rs2::frame & colorFrame, rs2::frame & colorizedDepthFrame) try {
     rs2::colorizer colorMap;
+    rs2::spatial_filter spatialFilter;
+    
 //    pipelineStream.stop();
 //    startEnvironment(pipelineStream, get_color_intrin(), nullptr, get_color_intrin().width, get_color_intrin().height, NOT_FIRST_BOOT);
     for (int i = 0; i < framesToSkip; i++) pipelineStream.wait_for_frames();
     rs2::frameset streamData = pipelineStream.wait_for_frames(), alignedStreamData = get_align().process(streamData);
     depthFrame = alignedStreamData.get_depth_frame();
+    
+    spatialFilter.set_option(RS2_OPTION_HOLES_FILL, 1);
+    depthFrame = spatialFilter.process(depthFrame);
+    
     colorFrame = alignedStreamData.get_color_frame();
     colorizedDepthFrame = depthFrame.apply_filter(colorMap);
     setFrameID(RealSenseD435Manager::getFrameID() + 1);

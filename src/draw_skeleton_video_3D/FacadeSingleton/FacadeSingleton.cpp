@@ -87,17 +87,17 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY, FIRST_BOOT);
     
     SystemCommand * cleanCommand = new CleanCommand();
-    cleanCommand->executeCommand();
+//    cleanCommand->executeCommand();
     delete cleanCommand;
 }
 
 void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) {
-    getOpenCV_Manager()->getVideoFramesCV(user_nFrame, pipelineStream, scale);
+//    getOpenCV_Manager()->getVideoFramesCV(user_nFrame, pipelineStream, scale);
 }
 
 void FacadeSingleton::getVideoBodyKeyPoints (void) {
     SystemCommand * openPoseCommand = new OpenPoseCommand();
-    openPoseCommand->executeCommand();
+//    openPoseCommand->executeCommand();
     delete openPoseCommand;
 }
 
