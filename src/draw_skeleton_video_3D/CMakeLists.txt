@@ -49,7 +49,7 @@ add_executable(hello_librealsense2.bin hello_librealsense2.cpp Skeleton.cpp Poin
 FacadeSingleton/FacadeSingleton.cpp Managers/OutputManagers/OutputManager.cpp Managers/OutputManagers/OutputManagerJSON.cpp 
 Managers/RealSenseManagers/RealSenseManager.cpp Managers/RealSenseManagers/RealSenseD435Manager.cpp Command/SystemCommand.cpp Command/CleanCommand.cpp 
 Command/MoveCommand.cpp Command/OpenPoseCommand.cpp Managers/OpenCV_Manager.cpp Managers/UsageManager.cpp Managers/CoordinateManagers/CoordinateMappingManager.cpp
-Managers/CoordinateManagers/UnityCoordinateMappingManager.cpp Managers/KafkaManager.cpp)
+Managers/CoordinateManagers/UnityCoordinateMappingManager.cpp Managers/KafkaManager.cpp Managers/ImageManager.cpp)
 
 
 # Link librealsense2 to the target

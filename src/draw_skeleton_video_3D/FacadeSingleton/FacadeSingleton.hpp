@@ -14,6 +14,7 @@
 #include "../Managers/OpenCV_Manager.hpp"
 #include "../Managers/UsageManager.hpp"
 #include "../Managers/CoordinateManagers/CoordinateMappingManager.hpp"
+#include "../Managers/ImageManager.hpp"
 
 
 
@@ -33,7 +34,8 @@ private:
     OutputManager *             outputManager;
     OpenCV_Manager *            openCV_Manager;
     UsageManager *              usageManager;
-    CoordinateMappingManager * coordinateMappingManager;
+    CoordinateMappingManager *  coordinateMappingManager;
+    ImageManager *              imageManager;
     
     FacadeSingleton (const int argc = 0, const char ** argv = nullptr, const int expected_argc = 0, const char * expectedUsageMessage = nullptr);
     ~FacadeSingleton(void);
@@ -43,6 +45,7 @@ protected:
     void setOpenCV_Manager              (OpenCV_Manager * openCV_Manager);
     void setUsageManager                (UsageManager * usageManager);
     void setCoordinateMappingManager    (CoordinateMappingManager * coordinateMappingManager);
+    void setImageManager                (ImageManager * imageManager);
 public:
     FacadeSingleton (FacadeSingleton & other) = delete;
     void operator=  (const FacadeSingleton &) = delete;
@@ -55,6 +58,7 @@ public:
     OpenCV_Manager * getOpenCV_Manager                      (void);
     UsageManager * getUsageManager                          (void);
     CoordinateMappingManager * getCoordinateMappingManager  (void);
+    ImageManager * getImageManager                          (void);
     
     void startEnvironment       (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale,
                                  unsigned short int resX, unsigned short int resY);

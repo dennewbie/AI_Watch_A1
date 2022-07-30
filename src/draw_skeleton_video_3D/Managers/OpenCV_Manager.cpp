@@ -9,18 +9,6 @@
 
 
 
-void OpenCV_Manager::loadImage(std::string imagePath, int loadType, cv::Mat & inputImage) {
-    inputImage = cv::imread(imagePath, loadType);
-    if (inputImage.empty()) {
-        std::cout << "IMAGE NOT FOUND: " << imagePath << "\n";
-        CV_Error(LOAD_IMAGE_ERROR, LOAD_IMAGE_SCOPE);
-    }
-}
-
-void OpenCV_Manager::saveImage (std::string imageSavePath, cv::Mat & imageToSave) {
-    if (!(cv::imwrite(imageSavePath, imageToSave))) CV_Error(SAVE_IMAGE_ERROR, SAVE_IMAGE_SCOPE);
-}
-
 cv::Mat OpenCV_Manager::realsenseFrameToMat(const rs2::frame & singleFrame) {
     rs2::video_frame videoFrame = singleFrame.as<rs2::video_frame>();
     const int frameWidth = videoFrame.get_width(), frameHeight = videoFrame.get_height();
@@ -51,40 +39,29 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
     RealSenseManager * cameraManager = facadeSingletonInstance->getCameraManager();
+    ImageManager * imageManager = facadeSingletonInstance->getImageManager();
     
     for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         unsigned int frameID = cameraManager->getFrameID();
         rs2::depth_frame depthFrame = rs2::depth_frame(rs2::frame());
         rs2::frame colorFrame, colorizedDepthFrame;
         cameraManager->getVideoFramesRS(user_nFrame, pipelineStream, depthFrame, colorFrame, colorizedDepthFrame);
-        auto cols = depthFrame.get_width();
-        auto rows = depthFrame.get_height();
+        int cols = depthFrame.get_width(), rows = depthFrame.get_height();
         
-        cv::Mat colorImage = realsenseFrameToMat(colorFrame);
-        cv::Mat depthImage = realsenseFrameToMat(depthFrame);
-        cv::Mat colorizedDepthImage = realsenseFrameToMat(colorizedDepthFrame);
+        cv::Mat colorImage = realsenseFrameToMat(colorFrame), distanceImage = cv::Mat::zeros(rows, cols, CV_32FC1);
+        cv::Mat depthImage = realsenseFrameToMat(depthFrame), colorizedDepthImage = realsenseFrameToMat(colorizedDepthFrame);
         depthImage *= 1000.0 * scale;
         
-        cv::Mat distanceImage = cv::Mat::zeros(rows, cols, CV_32FC1);
-        for (int i = 0; i < cols; i++) for (int j = 0; j < rows; j++) distanceImage.at<float>(j, i) = (float) depthFrame.get_distance(i, j);
+        for (int i = 0; i < cols; i++) for (int j = 0; j < rows; j++) distanceImage.at <float> (j, i) = (float) depthFrame.get_distance(i, j);
         
         std::stringstream colorImagePath, distanceImagePath, colorizedDepthImagePath;
-        std::stringstream colorImageName, distanceImageName, colorizedDepthImageName;
-        
-        colorImageName << frameID << "_Color";
-        distanceImageName << frameID << "_Distance";
-        colorizedDepthImageName << frameID << "_Depth";
-        
-        colorImagePath << imagesFolder << "rgb/" << colorImageName.str() << ".png";
-        distanceImagePath << imagesFolder << "d/" << distanceImageName.str() << ".exr";
-        colorizedDepthImagePath << imagesFolder << "depth/" << colorizedDepthImageName.str() << ".png";
-        saveImage(colorImagePath.str(), colorImage);
-        saveImage(distanceImagePath.str(), distanceImage);
-        saveImage(colorizedDepthImagePath.str(), colorizedDepthImage);
-        colorImage.release();
-        depthImage.release();
-        distanceImage.release();
-        colorizedDepthImage.release();
+        colorImagePath <<           imagesFolder << "rgb/" <<   frameID << "_Color.png";
+        distanceImagePath <<        imagesFolder << "d/" <<     frameID << "_Distance.exr";
+        colorizedDepthImagePath <<  imagesFolder << "depth/" << frameID << "_Depth.png";
+        imageManager->showImages( { colorImage, colorizedDepthImage }, { "RGB", "D COLOR" } );
+        imageManager->saveImages( { colorImage, distanceImage, colorizedDepthImage },
+                                 { colorImagePath.str(), distanceImagePath.str(), colorizedDepthImagePath.str() } );
+        imageManager->releaseImages( { colorImage, depthImage, distanceImage, colorizedDepthImage } );
     }
 }
 
@@ -95,6 +72,7 @@ void OpenCV_Manager::showSkeletonCV (unsigned int user_nFrame, Json::Value & cur
     OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager();
     UsageManager * usageManagerInstance = UsageManager::getInstance();
     if (usageManagerInstance == nullptr) CV_Error(USAGE_MANAGER_NULLPTR_ERROR, USAGE_MANAGER_NULLPTR_SCOPE);
+    ImageManager * imageManager = facadeSingletonInstance->getImageManager();
     const char ** argv = usageManagerInstance->get_argv(), * imagesFolder = argv[imagesFolderOffset], * outputFolder = argv[outputFolderOffset];
     unsigned int frameID = cameraManager->getFrameID(), currentImageID;
     
@@ -110,29 +88,20 @@ void OpenCV_Manager::showSkeletonCV (unsigned int user_nFrame, Json::Value & cur
             colorizedDepthImagePath << imagesFolder << "depth/" << currentImageID << "_Depth.png";
             
             cv::Mat colorImage, colorizedDepthImage;
-            loadImage(colorImagePath.str(), cv::IMREAD_COLOR, colorImage);
+            imageManager->loadImage(colorImagePath.str(), cv::IMREAD_COLOR, colorImage);
             cv::Mat distanceImage = cv::Mat(colorImage.rows, colorImage.cols, CV_32FC1);
-            loadImage(distanceImagePath.str(), cv::IMREAD_ANYCOLOR | cv::IMREAD_ANYDEPTH, distanceImage);
-            loadImage(colorizedDepthImagePath.str(), cv::IMREAD_COLOR, colorizedDepthImage);
-            cv::imshow("Frame No Skeleton", colorImage);
-            cv::imshow("Frame Colorized Depth", colorizedDepthImage);
+            imageManager->loadImage(distanceImagePath.str(), cv::IMREAD_ANYCOLOR | cv::IMREAD_ANYDEPTH, distanceImage);
+            imageManager->loadImage(colorizedDepthImagePath.str(), cv::IMREAD_COLOR, colorizedDepthImage);
+            imageManager->showImages( { colorImage, colorizedDepthImage }, { "Frame No Skeleton", "Frame Colorized Depth" } );
             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
             
             outputManagerJSON->createJSON(people, colorImage, distanceImage, skeletonOnlyImage, currentImageID, outputFolder);
             
-            cv::imshow("Frame Skeleton Background Cut", skeletonOnlyImage);
-            cv::imshow("Frame Skeleton", colorImage);
+            imageManager->showImages( { skeletonOnlyImage, colorImage }, { "Frame Skeleton Background Cut", "Frame Skeleton" } );
             skeletonOnlyImagePath << imagesFolder << "sk/" << currentImageID << "_sk.png";
             skeletonImagePath << imagesFolder << "skeleton/" << currentImageID << "_Skeleton.png";
-            saveImage(skeletonImagePath.str(), colorImage);
-            saveImage(skeletonOnlyImagePath.str(), skeletonOnlyImage);
-            colorImage.release();
-            distanceImage.release();
-            colorizedDepthImage.release();
-            skeletonOnlyImage.release();
-            int key = cv::waitKey(1);
-            // if ESC is pressed
-            if (key == ESC_KEY) break;
+            imageManager->saveImages( { colorImage, skeletonOnlyImage }, { skeletonImagePath.str(), skeletonOnlyImagePath.str() } );
+            imageManager->releaseImages( { colorImage, distanceImage, colorizedDepthImage, skeletonOnlyImage } );
         }
     }
 }

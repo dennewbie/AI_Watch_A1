@@ -23,6 +23,7 @@ FacadeSingleton::~FacadeSingleton (void) {
     delete getOutputManager();
     delete getOpenCV_Manager();
     delete getUsageManager();
+    delete getImageManager();
 }
 
 void FacadeSingleton::setCameraManager (RealSenseManager * cameraManager) {
@@ -43,6 +44,10 @@ void FacadeSingleton::setUsageManager(UsageManager * usageManager) {
 
 void FacadeSingleton::setCoordinateMappingManager (CoordinateMappingManager * coordinateMappingManager) {
     this->coordinateMappingManager = coordinateMappingManager;
+}
+
+void FacadeSingleton::setImageManager (ImageManager * imageManager) {
+    this->imageManager = imageManager;
 }
 
 
@@ -79,20 +84,25 @@ CoordinateMappingManager * FacadeSingleton::getCoordinateMappingManager (void) {
     return this->coordinateMappingManager;
 }
 
+ImageManager * FacadeSingleton::getImageManager (void) {
+    return this->imageManager;
+}
+
 void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY) {
     FacadeSingleton::setCameraManager(new RealSenseD435Manager());
     FacadeSingleton::setOutputManager(new OutputManagerJSON());
     FacadeSingleton::setOpenCV_Manager(new OpenCV_Manager());
     FacadeSingleton::setCoordinateMappingManager(new UnityCoordinateMappingManager());
+    FacadeSingleton::setImageManager(new ImageManager());
     FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY, FIRST_BOOT);
     
     SystemCommand * cleanCommand = new CleanCommand();
-//    cleanCommand->executeCommand();
+    cleanCommand->executeCommand();
     delete cleanCommand;
 }
 
 void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) {
-//    getOpenCV_Manager()->getVideoFramesCV(user_nFrame, pipelineStream, scale);
+    getOpenCV_Manager()->getVideoFramesCV(user_nFrame, pipelineStream, scale);
 }
 
 void FacadeSingleton::getVideoBodyKeyPoints (void) {

@@ -43,7 +43,7 @@ void RealSenseD435Manager::getVideoFramesRS (unsigned int user_nFrame, rs2::pipe
     
 //    pipelineStream.stop();
 //    startEnvironment(pipelineStream, get_color_intrin(), nullptr, get_color_intrin().width, get_color_intrin().height, NOT_FIRST_BOOT);
-    for (int i = 0; i < framesToSkip; i++) pipelineStream.wait_for_frames();
+//    for (int i = 0; i < framesToSkip; i++) pipelineStream.wait_for_frames();
     rs2::frameset streamData = pipelineStream.wait_for_frames(), alignedStreamData = get_align().process(streamData);
     depthFrame = alignedStreamData.get_depth_frame();
     
