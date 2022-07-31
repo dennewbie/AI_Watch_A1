@@ -46,7 +46,7 @@ std::vector <Point3D *> * CoordinateMappingManager::mapToMeters (std::vector <Po
     
     for (unsigned char i = 0; i < bodyKeyPointsMap.size(); i++) {
         if (!bodyKeyPointsMap.at(i)) {
-            newPoints->push_back(new Point3D(0, 0, 0));
+            newPoints->push_back(new Point3D(0, 0, 0, new BodyKeyPoint(0, 0, 0)));
         } else {
             newPoints->push_back(new Point3D(
                 transformWidthCoordinate(pointsToMap.at(i)->getX()),
