@@ -6,7 +6,7 @@
 //
 
 #include "CoordinateMappingManager.hpp"
-#include <iostream>
+
 
 
 std::vector <Point3D *> * UnityCoordinateMappingManager::mapToMeters (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap, float xOrigin, float zOrigin) {

@@ -23,6 +23,7 @@ FacadeSingleton::~FacadeSingleton (void) {
     delete getOutputManager();
     delete getOpenCV_Manager();
     delete getUsageManager();
+    delete getCoordinateMappingManager();
     delete getImageManager();
 }
 
@@ -97,7 +98,7 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY, FIRST_BOOT);
     
     SystemCommand * cleanCommand = new CleanCommand();
-    cleanCommand->executeCommand();
+//    cleanCommand->executeCommand();
     delete cleanCommand;
 }
 

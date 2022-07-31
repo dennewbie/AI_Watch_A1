@@ -16,19 +16,19 @@
 
 
 static const float minWidth = 0; // |x<----      |
-static const float maxWidth = 5.271; //  |      ---->x|
+static const float maxWidth = 2.55; //  |      ---->x|
 static const float minHeight = 0.0;
-static const float maxHeight = 3.0;
+static const float maxHeight = 2.7;
 
 static const float minWidthRS = -3.5; // |x<----      |
 static const float maxWidthRS = 3.5; //  |      ---->x|
 static const float minHeightRS = -1.0;
 static const float maxHeightRS = 1.0;
 
-static const float xOriginUnity = -26.89;
-static const float zOriginUnity = -3.842;
+static const float xOriginUnity = 0;
+static const float zOriginUnity = 0;
 
-static const float distanceCameraFromBackWall = 0.5;
+static const float distanceCameraFromBackWall = 0.0;
 
 
 
