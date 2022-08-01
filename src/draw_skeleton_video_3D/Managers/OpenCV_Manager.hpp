@@ -9,7 +9,6 @@
 #define OpenCV_Manager_hpp
 
 #include "../Skeleton.hpp"
-#include "ImageManager.hpp"
 
 
 

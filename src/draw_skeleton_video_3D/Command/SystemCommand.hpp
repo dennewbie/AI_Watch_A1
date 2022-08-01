@@ -8,7 +8,6 @@
 #ifndef SystemCommand_hpp
 #define SystemCommand_hpp
 
-#include <string>
 #include <sstream>
 #include "../Managers/UsageManager.hpp"
 

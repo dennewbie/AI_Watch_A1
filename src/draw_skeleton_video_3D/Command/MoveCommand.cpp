@@ -15,6 +15,6 @@ void MoveCommand::setCommand (void) {
     const char ** argv = usageManagerInstance->get_argv();
     std::stringstream moveTerminalCommand;
     const char * imagesFolder = argv[imagesFolderOffset];
-    moveTerminalCommand << "mv -v " << imagesFolder << "rgb/* " << imagesFolder << "videoframe/ > /dev/null";
+    moveTerminalCommand << "mv -v " << imagesFolder << "rgb/ " << imagesFolder << "videoframe/ > /dev/null";
     SystemCommand::setCommand(std::string(moveTerminalCommand.str()));
 }

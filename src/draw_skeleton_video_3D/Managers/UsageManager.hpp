@@ -37,7 +37,7 @@ public:
     UsageManager (UsageManager & other) = delete;
     void operator=  (const UsageManager &) = delete;
     
-    virtual ~UsageManager() = default;
+    virtual ~UsageManager();
     static UsageManager * getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage);
     static UsageManager * getInstance (void);
     

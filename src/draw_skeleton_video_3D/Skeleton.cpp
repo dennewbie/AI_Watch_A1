@@ -103,7 +103,6 @@ void Skeleton::calcBodyEdges (void) {
                 drawLine(i, i + 1);
                 break;
             default:
-                throw std::runtime_error("OpenPose BodyKeyPoiny ID not supported!");
                 break;
         }
     }
@@ -126,7 +125,7 @@ void Skeleton::drawLine (unsigned char start, unsigned char end) {
         cv::line(getRGB_Image(), cv::Point(getBodyKeyPoints().at(start).getX(), getBodyKeyPoints().at(start).getY()),
                  cv::Point(getBodyKeyPoints().at(end).getX(), getBodyKeyPoints().at(end).getY()), cv::Scalar(0, 255, 0), 3, cv::LINE_8, 0);
         cv::line(getSkeleton_Image(), cv::Point(getBodyKeyPoints().at(start).getX(), getBodyKeyPoints().at(start).getY()),
-                 cv::Point(getBodyKeyPoints().at(end).getX(), getBodyKeyPoints().at(end).getY()), cv::Scalar(0, 255, 0), 3, cv::LINE_8, 0);
+                 cv::Point(getBodyKeyPoints().at(end).getX(), getBodyKeyPoints().at(end).getY()), cv::Scalar(0, 255, 0), 3, cv::LINE_8, 0); // remove in future
     }
 }
 

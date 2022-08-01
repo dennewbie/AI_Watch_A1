@@ -18,7 +18,7 @@ void Point::setY (float y) {
 }
 
 Point::~Point (void) {
-    delete getDecorated();
+    if (getDecorated() != nullptr) delete getDecorated();
 }
 
 

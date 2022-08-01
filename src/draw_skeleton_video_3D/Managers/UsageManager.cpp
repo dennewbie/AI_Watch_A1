@@ -35,6 +35,10 @@ const char * UsageManager::get_expectedUsageMessage (void) {
 
 
 
+UsageManager::~UsageManager() {
+    delete sharedInstance;
+}
+
 UsageManager * UsageManager::getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage) {
     std::lock_guard <std::mutex> lock(singletonMutex);
     if (sharedInstance == nullptr) sharedInstance = new UsageManager(argc, argv, expected_argc, expectedUsageMessage);

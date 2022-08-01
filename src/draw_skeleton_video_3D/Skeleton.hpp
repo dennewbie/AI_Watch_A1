@@ -9,8 +9,6 @@
 #define Skeleton_h
 
 #include "FacadeSingleton/FacadeSingleton.hpp"
-#include "Points/Point3D.hpp"
-#include "Points/BodyKeyPoint.hpp"
 
 
 

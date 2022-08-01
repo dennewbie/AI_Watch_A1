@@ -25,6 +25,7 @@ FacadeSingleton::~FacadeSingleton (void) {
     delete getUsageManager();
     delete getCoordinateMappingManager();
     delete getImageManager();
+    delete sharedInstance;
 }
 
 void FacadeSingleton::setCameraManager (RealSenseManager * cameraManager) {

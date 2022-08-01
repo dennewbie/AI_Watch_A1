@@ -72,7 +72,7 @@ void OutputManagerJSON::createJSON (Json::Value & people, cv::Mat & colorImage, 
     }
     
     root["People"] = peopleArray;
-    setStringOutputData(root.toStyledString());
+    OutputManager::setStringOutputData(root.toStyledString());
     outputJsonFilePath << outputFolder << "movement/frame" << nFrame << "_" << JSON_FILE_PATH;
     saveJSON(std::string(outputJsonFilePath.str()));
     outputJsonFilePath.str(std::string());
