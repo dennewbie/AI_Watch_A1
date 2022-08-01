@@ -17,14 +17,14 @@
 
 class RealSenseManager {
 private:
-    unsigned int           frameID;
+    unsigned int                frameID;
     rs2::align                  align;
     struct rs2_intrinsics       depth_intrin;
     struct rs2_intrinsics       color_intrin;
     struct rs2_extrinsics       depth_to_color;
     struct rs2_extrinsics       color_to_depth;
 protected:
-    void setFrameID             (unsigned int newFrameID);
+    void setFrameID             (unsigned int frameID);
     void set_align              (rs2::align align);
     void set_depth_intrin       (struct rs2_intrinsics depth_intrin);
     void set_color_intrin       (struct rs2_intrinsics & color_intrin);
@@ -45,7 +45,7 @@ public:
                                                  unsigned short int resX, unsigned short int resY, bool firstBoot) = 0;
     virtual void getVideoFramesRS               (unsigned int user_nFrame, rs2::pipeline & pipelineStream,
                                                  rs2::depth_frame & depthFrames, rs2::frame & colorFrames,
-                                                  rs2::frame & colorizedDepthFrames) = 0;
+                                                 rs2::frame & colorizedDepthFrames) = 0;
 };
 
 class RealSenseD435Manager : public RealSenseManager {

@@ -15,9 +15,11 @@
 
 
 class SystemCommand {
-protected:
+private:
     std::string command;
+protected:
     virtual void setCommand (void) = 0;
+    void setCommand (std::string command);
     std::string getCommand (void);
 public:
     virtual ~SystemCommand() = default;

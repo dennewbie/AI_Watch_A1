@@ -22,9 +22,6 @@ Point::~Point (void) {
 }
 
 
-const Point * Point::getDecorated (void) {
-    return this->decorated;
-}
 
 float Point::getX (void) {
     return this->x;
@@ -32,4 +29,8 @@ float Point::getX (void) {
 
 float Point::getY (void) {
     return this->y;
+}
+
+const Point * Point::getDecorated (void) {
+    return this->decorated;
 }

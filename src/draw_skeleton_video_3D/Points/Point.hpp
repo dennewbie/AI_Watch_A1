@@ -27,9 +27,9 @@ public:
     
     ~Point (void);
     
-    const Point * getDecorated  (void);
     float getX                  (void);
     float getY                  (void);
+    const Point * getDecorated  (void);
 };
 
 #endif /* Point_hpp */

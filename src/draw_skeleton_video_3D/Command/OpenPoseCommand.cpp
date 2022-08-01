@@ -20,11 +20,12 @@ void OpenPoseCommand::setCommand (void) {
     const char * outputFolder = argv[outputFolderOffset];
     
     openPoseTerminalCommand << "cd " << openPoseFolder << " && " << openPoseExecuteCommand
-                            << " --num_gpu 1 --num_gpu_start 2 --display 0 --render_pose 0 --image_dir "
+                            << " --net_resolution -1x128 --num_gpu 1 --num_gpu_start 2 --display 0 --render_pose 0 --image_dir "
                             << imagesFolder << "rgb/" << " --write_json " << outputFolder << "op/"
                             << " --logging_level 255 > /dev/null";
 //    openPoseTerminalCommand << "cd " << openPoseFolder << " && " << openPoseExecuteCommand
-//                            << " --num_gpu 1 --num_gpu_start 2 --display 0 --render_pose 0 --image_dir "
-//                            << imagesFolder << "rgb/" << " --write_json " << outputFolder << "op/";
-    SystemCommand::command = std::string(openPoseTerminalCommand.str());
+//                            << " --net_resolution -1x128 --num_gpu 1 --num_gpu_start 2 --display 0 --render_pose 0 --image_dir "
+//                            << imagesFolder << "rgb/" << " --write_json " << outputFolder << "op/"
+//                            << " --logging_level 255 > /dev/null";
+    SystemCommand::setCommand(std::string(openPoseTerminalCommand.str()));
 }

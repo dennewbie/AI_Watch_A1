@@ -68,8 +68,8 @@ void OpenCV_Manager::showSkeletonCV (unsigned int user_nFrame, Json::Value & cur
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
     RealSenseManager * cameraManager = facadeSingletonInstance->getCameraManager();
-    OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) FacadeSingleton::getInstance()->getOutputManager();
-    UsageManager * usageManagerInstance = UsageManager::getInstance();
+    OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) facadeSingletonInstance->getOutputManager();
+    UsageManager * usageManagerInstance = facadeSingletonInstance->getUsageManager();
     if (usageManagerInstance == nullptr) CV_Error(USAGE_MANAGER_NULLPTR_ERROR, USAGE_MANAGER_NULLPTR_SCOPE);
     ImageManager * imageManager = facadeSingletonInstance->getImageManager();
     const char ** argv = usageManagerInstance->get_argv(), * imagesFolder = argv[imagesFolderOffset], * outputFolder = argv[outputFolderOffset];

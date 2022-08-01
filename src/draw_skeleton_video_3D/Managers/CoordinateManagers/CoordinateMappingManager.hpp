@@ -43,6 +43,7 @@ public:
 };
 
 class UnityCoordinateMappingManager : public CoordinateMappingManager {
+public:
     std::vector <Point3D *> * mapToMeters           (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap,
                                                      float xOrigin, float zOrigin) override;
 };

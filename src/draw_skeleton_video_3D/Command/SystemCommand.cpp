@@ -9,6 +9,10 @@
 
 
 
+void SystemCommand::setCommand (std::string command) {
+    this->command = command;
+}
+
 std::string SystemCommand::getCommand (void) {
     return this->command;
 }

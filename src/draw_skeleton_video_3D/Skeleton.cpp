@@ -76,9 +76,9 @@ void Skeleton::calcBodyKeypoints (void) {
     OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) facadeSingletonInstance->getOutputManager();
     for (Json::Value::ArrayIndex i = 0; i < skeletonData.size(); i++) {
         bodyKeyPoints.push_back(BodyKeyPoint(
-                                             outputManagerJSON->getValueAt((unsigned int) i, getSkeletonData()).asInt(),
-                                             outputManagerJSON->getValueAt((unsigned int) i + 1, getSkeletonData()).asInt(),
-                                             outputManagerJSON->getValueAt((unsigned int) i + 2, getSkeletonData()).asFloat())
+                                 outputManagerJSON->getValueAt((unsigned int) i, getSkeletonData()).asInt(),
+                                 outputManagerJSON->getValueAt((unsigned int) i + 1, getSkeletonData()).asInt(),
+                                 outputManagerJSON->getValueAt((unsigned int) i + 2, getSkeletonData()).asFloat())
                                 );
         
         bodyKeyPointsMap.push_back(bodyKeyPoints.at(j).getX() > 0 && bodyKeyPoints.at(j).getY() > 0 && bodyKeyPoints.at(j).getConfidence() > 0.00);
@@ -103,6 +103,7 @@ void Skeleton::calcBodyEdges (void) {
                 drawLine(i, i + 1);
                 break;
             default:
+                throw std::runtime_error("OpenPose BodyKeyPoiny ID not supported!");
                 break;
         }
     }
@@ -114,10 +115,8 @@ void Skeleton::calcBodyEdges (void) {
     drawLine(REye, REar);
     drawLine(LEye, Nose);
     drawLine(LEye, LEar);
-    
     drawLine(LAnkle, LBigToe);
     drawLine(LAnkle, LHeel);
-    
     drawLine(RAnkle, RBigToe);
     drawLine(RAnkle, RHeel);
 }
@@ -142,9 +141,7 @@ void Skeleton::deprojectSkeletonPoints3D () {
     struct rs2_intrinsics color_intrin = facadeSingletonInstance->getCameraManager()->get_color_intrin();
     drawCircle(cv::Point(848, 480));
     for (unsigned char i = 0; i < getBodyKeyPoints().size(); i++) {
-        float * pixel = new (std::nothrow) float [2];
-        float * point = new (std::nothrow) float [3];
-        float distance = 0;
+        float * pixel = new (std::nothrow) float [2], * point = new (std::nothrow) float [3], distance = 0;
         if (!pixel || !point) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
         
         if (!getBodyKeyPointsMap().at(i)) {

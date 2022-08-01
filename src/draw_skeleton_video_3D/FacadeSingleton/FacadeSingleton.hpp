@@ -22,6 +22,8 @@ class RealSenseManager;
 class OutputManager;
 class OpenCV_Manager;
 class UsageManager;
+class CoordinateMappingManager;
+class ImageManager;
 
 
 

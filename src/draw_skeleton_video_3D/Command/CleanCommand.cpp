@@ -33,5 +33,5 @@ void CleanCommand::setCommand (void) {
                             "mkdir " << imagesFolder << "sk && "
                             "mkdir " << outputFolder << "movement/ && "
                             "mkdir " << outputFolder << "op/";
-    SystemCommand::command = std::string(cleanTerminalCommand.str());
+    SystemCommand::setCommand(std::string(cleanTerminalCommand.str()));
 }
