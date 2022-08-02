@@ -25,6 +25,7 @@ FacadeSingleton::~FacadeSingleton (void) {
     delete getUsageManager();
     delete getCoordinateMappingManager();
     delete getImageManager();
+    delete getKafkaManager();
     delete sharedInstance;
 }
 
@@ -50,6 +51,10 @@ void FacadeSingleton::setCoordinateMappingManager (CoordinateMappingManager * co
 
 void FacadeSingleton::setImageManager (ImageManager * imageManager) {
     this->imageManager = imageManager;
+}
+
+void FacadeSingleton::setKafkaManager (KafkaManager * kafkaManager) {
+    this->kafkaManager = kafkaManager;
 }
 
 
@@ -90,13 +95,18 @@ ImageManager * FacadeSingleton::getImageManager (void) {
     return this->imageManager;
 }
 
-void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY) {
-    FacadeSingleton::setCameraManager(new RealSenseD435Manager());
-    FacadeSingleton::setOutputManager(new OutputManagerJSON());
-    FacadeSingleton::setOpenCV_Manager(new OpenCV_Manager());
-    FacadeSingleton::setCoordinateMappingManager(new CoordinateMappingManager());
-    FacadeSingleton::setImageManager(new ImageManager());
-    FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY, FIRST_BOOT);
+KafkaManager * FacadeSingleton::getKafkaManager (void) {
+    return this->kafkaManager;
+}
+
+void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY, const char * destinationKafkaTopic) {
+//    FacadeSingleton::setCameraManager(new RealSenseD435Manager());
+//    FacadeSingleton::setOutputManager(new OutputManagerJSON());
+//    FacadeSingleton::setOpenCV_Manager(new OpenCV_Manager());
+//    FacadeSingleton::setCoordinateMappingManager(new CoordinateMappingManager());
+//    FacadeSingleton::setImageManager(new ImageManager());
+    FacadeSingleton::setKafkaManager(new KafkaManager(destinationKafkaTopic));
+//    FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY, FIRST_BOOT);
     
     SystemCommand * cleanCommand = new CleanCommand();
     cleanCommand->executeCommand();
@@ -113,8 +123,13 @@ void FacadeSingleton::getVideoBodyKeyPoints (void) {
     delete openPoseCommand;
 }
 
-void FacadeSingleton::showSkeleton (unsigned int user_nFrame, Json::Value & currentJSON) {
-    getOpenCV_Manager()->showSkeletonCV(user_nFrame, currentJSON);
+void FacadeSingleton::showSkeletons (unsigned int user_nFrame, Json::Value & currentJSON) {
+    getOpenCV_Manager()->showSkeletonsCV(user_nFrame, currentJSON);
+}
+
+void FacadeSingleton::sendData (void) {
+    
+    getKafkaManager()->sendData();
     SystemCommand * cleanCommand = new CleanCommand();
 //    cleanCommand->executeCommand();
     delete cleanCommand;

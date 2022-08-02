@@ -64,7 +64,7 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
     }
 }
 
-void OpenCV_Manager::showSkeletonCV (unsigned int user_nFrame, Json::Value & currentJSON) {
+void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame, Json::Value & currentJSON) {
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
     RealSenseManager * cameraManager = facadeSingletonInstance->getCameraManager();

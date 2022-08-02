@@ -18,7 +18,7 @@ public:
     
     cv::Mat realsenseFrameToMat     (const rs2::frame & singleFrame);
     void getVideoFramesCV           (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale);
-    void showSkeletonCV             (unsigned int user_nFrame, Json::Value & currentJSON);
+    void showSkeletonsCV            (unsigned int user_nFrame, Json::Value & currentJSON);
 };
 
 #endif /* OpenCV_Manager_hpp */

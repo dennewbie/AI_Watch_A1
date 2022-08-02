@@ -19,12 +19,19 @@ find_package(OpenPose REQUIRED)
 find_package(Protobuf REQUIRED)
 find_package(Boost)
 find_package(PkgConfig REQUIRED)
+
+pkg_check_modules(deps REQUIRED IMPORTED_TARGET glib-2.0)
+set(CMAKE_EXE_LINKER_FLAGS "-lrdkafka++ -lrdkafka")
+
 include_directories(${PROTOBUF_INCLUDE_DIR})
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 include_directories( ${OpenPose_INCLUDE_DIRS})
 include_directories( ${GFLAGS_INCLUDE_DIR})
 include_directories( ${GLOG_INCLUDE_DIR})
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
+INCLUDE_DIRECTORIES( ${GLIB_INCLUDE_DIRS} )
+include_directories( ${LIBRDKAFKA_INCLUDE_DIRS})
+
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Points")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/FacadeSingleton")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Command")
@@ -33,12 +40,19 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Managers/RealSenseManagers")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Managers/CoordinateManagers")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Managers")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
+include_directories("/usr/local/opt/glib/lib/glib-2.0/include/")
+include_directories("/usr/local/opt/glib/include/glib-2.0")
+include_directories("/usr/local/Cellar/librdkafka/1.9.2/include") 
+
 link_directories(/Users/dennycaruso/Desktop/materiale_tesi/openpose/build/caffe/lib)
 link_directories(/usr/local/opt/boost@1.79/lib)
 link_directories(/usr/local/Cellar/jsoncpp/1.9.5/lib)
+link_directories(/usr/local/opt/glib/lib)
+link_directories(/usr/local/Cellar/librdkafka/1.9.2/lib)
 
 
 pkg_check_modules(JSONCPP jsoncpp)
+pkg_check_modules(deps REQUIRED IMPORTED_TARGET glib-2.0)
 # Enable C++11
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
@@ -51,7 +65,6 @@ Managers/RealSenseManagers/RealSenseManager.cpp Managers/RealSenseManagers/RealS
 Command/MoveCommand.cpp Command/OpenPoseCommand.cpp Managers/OpenCV_Manager.cpp Managers/UsageManager.cpp Managers/CoordinateManagers/CoordinateMappingManager.cpp
 Managers/CoordinateManagers/UnityCoordinateMappingManager.cpp Managers/KafkaManager.cpp Managers/ImageManager.cpp)
 
-
 # Link librealsense2 to the target
 link_libraries(${JSONCPP_LIBRARIES})
-target_link_libraries(hello_librealsense2.bin ${realsense2_LIBRARY} glfw OpenGL::GL ${OpenCV_LIBS} ${OpenPose_LIBS} ${GFLAGS_LIBRARY} ${GLOG_LIBRARY} ${PROTOBUF_LIBRARY} ${Boost_LIBRARIES} ${JSONCPP_LIBRARIES})
+target_link_libraries(hello_librealsense2.bin PkgConfig::deps ${realsense2_LIBRARY} glfw OpenGL::GL ${OpenCV_LIBS} ${OpenPose_LIBS} ${GFLAGS_LIBRARY} ${GLOG_LIBRARY} ${PROTOBUF_LIBRARY} ${Boost_LIBRARIES} ${JSONCPP_LIBRARIES} ${GLIB_LIBRARIES} )

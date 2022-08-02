@@ -16,19 +16,22 @@ const char * expectedUsageMessage = "Usage: sudo ./hello_librealsense2.bin <path
 
 
 int main (int argc, const char * argv[]) {
+    srand((unsigned int) time(NULL));
     rs2::pipeline pipelineStream;
     Json::Value currentJSON;
     float scale;
+    const char * destinationKafkaTopic = "purchases";
     // risoluzione ottimale D435: 848x480
     unsigned  int user_nFrame = 25, resX = 848, resY = 480;
     struct rs2_intrinsics color_intrin;
     FacadeSingleton * myUtility = FacadeSingleton::getInstance(argc, argv, expected_argc, expectedUsageMessage);
-    myUtility->startEnvironment(pipelineStream, color_intrin, & scale, resX, resY);
+    myUtility->startEnvironment(pipelineStream, color_intrin, & scale, resX, resY, destinationKafkaTopic);
 
     while (true) {
-        myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
-        myUtility->getVideoBodyKeyPoints();
-        myUtility->showSkeleton(user_nFrame, currentJSON);
+//        myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
+//        myUtility->getVideoBodyKeyPoints();
+//        myUtility->showSkeletons(user_nFrame, currentJSON);
+        myUtility->sendData();
         break;
     }
     return EXIT_SUCCESS;

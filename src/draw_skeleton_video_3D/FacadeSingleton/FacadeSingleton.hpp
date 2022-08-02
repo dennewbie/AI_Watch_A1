@@ -15,6 +15,7 @@
 #include "../Managers/UsageManager.hpp"
 #include "../Managers/CoordinateManagers/CoordinateMappingManager.hpp"
 #include "../Managers/ImageManager.hpp"
+#include "../Managers/KafkaManager.hpp"
 
 
 
@@ -24,6 +25,7 @@ class OpenCV_Manager;
 class UsageManager;
 class CoordinateMappingManager;
 class ImageManager;
+class KafkaManager;
 
 
 
@@ -38,6 +40,7 @@ private:
     UsageManager *              usageManager;
     CoordinateMappingManager *  coordinateMappingManager;
     ImageManager *              imageManager;
+    KafkaManager *              kafkaManager;
     
     FacadeSingleton (const int argc = 0, const char ** argv = nullptr, const int expected_argc = 0, const char * expectedUsageMessage = nullptr);
     ~FacadeSingleton(void);
@@ -48,6 +51,7 @@ protected:
     void setUsageManager                (UsageManager * usageManager);
     void setCoordinateMappingManager    (CoordinateMappingManager * coordinateMappingManager);
     void setImageManager                (ImageManager * imageManager);
+    void setKafkaManager                (KafkaManager * kafkaManager);
 public:
     FacadeSingleton (FacadeSingleton & other) = delete;
     void operator=  (const FacadeSingleton &) = delete;
@@ -61,12 +65,14 @@ public:
     UsageManager * getUsageManager                          (void);
     CoordinateMappingManager * getCoordinateMappingManager  (void);
     ImageManager * getImageManager                          (void);
+    KafkaManager * getKafkaManager                          (void);
     
     void startEnvironment       (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale,
-                                 unsigned short int resX, unsigned short int resY);
+                                 unsigned short int resX, unsigned short int resY, const char * destinationKafkaTopic);
     void getVideoFrames         (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale);
     void getVideoBodyKeyPoints  (void);
-    void showSkeleton           (unsigned int user_nFrame, Json::Value & currentJSON);
+    void showSkeletons          (unsigned int user_nFrame, Json::Value & currentJSON);
+    void sendData               (void);
 };
 
 #endif /* FacadeSingleton_hpp */
