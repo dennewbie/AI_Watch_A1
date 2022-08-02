@@ -76,7 +76,7 @@ KafkaManager::~KafkaManager (void) {
     rd_kafka_destroy(getProducer());
 }
 
-void KafkaManager::sendData(void) {
+void KafkaManager::setupProducer (void) {
     char errorString[512];
     const char * configurationFile = "../configuration_file.ini";
     
@@ -99,44 +99,29 @@ void KafkaManager::sendData(void) {
     
     // Configuration object is now owned, and freed, by the rd_kafka_t instance.
     setConfiguration(NULL);
-    
+}
+
+void KafkaManager::sendData (const char * key, Json::Value root) {
     // Produce data by selecting random values from these lists.
     int message_count = 10;
-    const char * topic = "purchases";
-    const char * user_ids[6] = {"eabara", "jsmith", "sgarcia", "jbernard", "htanaka", "awalther"};
-    const char * products[5] = {"book", "alarm clock", "t-shirts", "gift card", "batteries"};
-    
-    for (int i = 0; i < message_count; i++) {
-        const char * key =  user_ids[arc4random() % getArraySize(user_ids)];
-        const char * value =  products[arc4random() % getArraySize(products)];
-        size_t key_len = strlen(key);
-        size_t value_len = strlen(value);
-        
-        rd_kafka_resp_err_t err;
-        err = rd_kafka_producev(producer,
-                                RD_KAFKA_V_TOPIC(getTopic()),
-                                RD_KAFKA_V_MSGFLAGS(RD_KAFKA_MSG_F_COPY),
-                                RD_KAFKA_V_KEY((void *) key, key_len),
-                                RD_KAFKA_V_VALUE((void *)value, value_len),
-                                RD_KAFKA_V_OPAQUE(NULL),
-                                RD_KAFKA_V_END);
-        
-        if (err) {
-            g_error("Failed to produce to topic %s: %s", topic, rd_kafka_err2str(err));
-        } else {
-            g_message("Produced event to topic %s: key = %12s value = %12s", topic, key, value);
-        }
-        
-        rd_kafka_poll(producer, 0);
+    std::string keyString = root.toStyledString();
+    const char * value = keyString.c_str();
+    size_t messageSize = (size_t) keyString.size();
+    rd_kafka_resp_err_t err = rd_kafka_producev(getProducer(), RD_KAFKA_V_TOPIC(getTopic()), RD_KAFKA_V_MSGFLAGS(RD_KAFKA_MSG_F_COPY),
+                              RD_KAFKA_V_KEY((void *) key, strlen(key) * sizeof(char)), RD_KAFKA_V_VALUE((void *) value, messageSize),
+                              RD_KAFKA_V_OPAQUE(NULL), RD_KAFKA_V_END);
+                      
+    if (err) {
+        g_error("Failed to produce to topic %s: %s", topic, rd_kafka_err2str(err));
+    } else {
+        g_message("Produced event to topic %s: key = %12s value = %12s", topic, key, value);
     }
     
+    rd_kafka_poll(producer, 0);
     // Block until the messages are all sent.
     g_message("Flushing final messages..");
     rd_kafka_flush(producer, 10 * 1000);
     
-    if (rd_kafka_outq_len(producer) > 0) {
-        g_error("%d message(s) were not delivered", rd_kafka_outq_len(producer));
-    }
-    
+    if (rd_kafka_outq_len(producer) > 0) g_error("%d message(s) were not delivered", rd_kafka_outq_len(producer));
     g_message("%d events were produced to topic %s.", message_count, topic);
 }

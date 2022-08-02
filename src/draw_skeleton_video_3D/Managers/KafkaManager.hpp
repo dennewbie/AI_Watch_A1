@@ -10,7 +10,8 @@
 
 #include <librdkafka/rdkafka.h>
 #include <glib.h>
-#include <iostream>
+#include <json/json.h>
+#include <json/value.h>
 
 
 
@@ -33,7 +34,8 @@ private:
 public:
     KafkaManager            (const char * topic) : topic(topic) { }
     ~KafkaManager           (void);
-    void sendData           (void);
+    void setupProducer      (void);
+    void sendData           (const char * key, Json::Value root);
 };
 
 

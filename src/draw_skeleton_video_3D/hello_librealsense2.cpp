@@ -28,10 +28,10 @@ int main (int argc, const char * argv[]) {
     myUtility->startEnvironment(pipelineStream, color_intrin, & scale, resX, resY, destinationKafkaTopic);
 
     while (true) {
-//        myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
-//        myUtility->getVideoBodyKeyPoints();
-//        myUtility->showSkeletons(user_nFrame, currentJSON);
-        myUtility->sendData();
+        myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
+        myUtility->getVideoBodyKeyPoints();
+        myUtility->showSkeletons(user_nFrame, currentJSON);
+        myUtility->sendData(user_nFrame);
         break;
     }
     return EXIT_SUCCESS;

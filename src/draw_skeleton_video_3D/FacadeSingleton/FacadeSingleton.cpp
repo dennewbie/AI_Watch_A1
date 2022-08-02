@@ -100,16 +100,17 @@ KafkaManager * FacadeSingleton::getKafkaManager (void) {
 }
 
 void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY, const char * destinationKafkaTopic) {
-//    FacadeSingleton::setCameraManager(new RealSenseD435Manager());
-//    FacadeSingleton::setOutputManager(new OutputManagerJSON());
-//    FacadeSingleton::setOpenCV_Manager(new OpenCV_Manager());
-//    FacadeSingleton::setCoordinateMappingManager(new CoordinateMappingManager());
-//    FacadeSingleton::setImageManager(new ImageManager());
+    FacadeSingleton::setCameraManager(new RealSenseD435Manager());
+    FacadeSingleton::setOutputManager(new OutputManagerJSON());
+    FacadeSingleton::setOpenCV_Manager(new OpenCV_Manager());
+    FacadeSingleton::setCoordinateMappingManager(new CoordinateMappingManager());
+    FacadeSingleton::setImageManager(new ImageManager());
     FacadeSingleton::setKafkaManager(new KafkaManager(destinationKafkaTopic));
-//    FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY, FIRST_BOOT);
+    FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY, FIRST_BOOT);
+    FacadeSingleton::getKafkaManager()->setupProducer();
     
     SystemCommand * cleanCommand = new CleanCommand();
-    cleanCommand->executeCommand();
+//    cleanCommand->executeCommand();
     delete cleanCommand;
 }
 
@@ -119,7 +120,7 @@ void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & 
 
 void FacadeSingleton::getVideoBodyKeyPoints (void) {
     SystemCommand * openPoseCommand = new OpenPoseCommand();
-    openPoseCommand->executeCommand();
+//    openPoseCommand->executeCommand();
     delete openPoseCommand;
 }
 
@@ -127,9 +128,22 @@ void FacadeSingleton::showSkeletons (unsigned int user_nFrame, Json::Value & cur
     getOpenCV_Manager()->showSkeletonsCV(user_nFrame, currentJSON);
 }
 
-void FacadeSingleton::sendData (void) {
+void FacadeSingleton::sendData (unsigned int user_nFrame) {
+    const char ** argv = FacadeSingleton::getUsageManager()->get_argv(), * outputFolder = argv[outputFolderOffset];
+    unsigned int frameID = FacadeSingleton::getCameraManager()->getFrameID(), currentImageID;
+    OutputManagerJSON * myOutputManagerJSON = (OutputManagerJSON *) FacadeSingleton::getOutputManager();
     
-    getKafkaManager()->sendData();
+    for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
+        Json::Value currentJSON;
+        std::stringstream outputJsonFilePath;
+        currentImageID = frameID - user_nFrame + nFrame;
+        outputJsonFilePath << outputFolder << "movement/frame" << currentImageID << "_skeletonsPoints3D.json";
+        if (myOutputManagerJSON->loadJSON(outputJsonFilePath.str(), currentJSON)) {
+            std::string key = std::to_string(currentImageID);
+            FacadeSingleton::getKafkaManager()->sendData(key.c_str(), currentJSON);
+        }
+    }
+
     SystemCommand * cleanCommand = new CleanCommand();
 //    cleanCommand->executeCommand();
     delete cleanCommand;

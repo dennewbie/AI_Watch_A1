@@ -72,7 +72,7 @@ public:
     void getVideoFrames         (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale);
     void getVideoBodyKeyPoints  (void);
     void showSkeletons          (unsigned int user_nFrame, Json::Value & currentJSON);
-    void sendData               (void);
+    void sendData               (unsigned int user_nFrame);
 };
 
 #endif /* FacadeSingleton_hpp */
