@@ -65,7 +65,7 @@ void KafkaManager::setupProducer (void) {
     
     g_autoptr(GError) error = NULL;
     g_autoptr(GKeyFile) key_file = g_key_file_new();
-    if (!g_key_file_load_from_file (key_file, configurationFile, G_KEY_FILE_NONE, &error)) {
+    if (!g_key_file_load_from_file (key_file, configurationFile, G_KEY_FILE_NONE, & error)) {
         g_error ("Error loading config file: %s", error->message);
     }
     

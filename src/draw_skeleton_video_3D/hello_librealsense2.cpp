@@ -20,7 +20,7 @@ int main (int argc, const char * argv[]) {
     rs2::pipeline pipelineStream;
     Json::Value currentJSON;
     float scale;
-    const char * destinationKafkaTopic = "purchases";
+    const char * destinationKafkaTopic = "t1";
     // risoluzione ottimale D435: 848x480
     unsigned  int user_nFrame = 360, resX = 848, resY = 480;
     struct rs2_intrinsics color_intrin;

@@ -32,7 +32,7 @@ private:
     void loadConfigurationGroup     (rd_kafka_conf_t * conf, GKeyFile * key_file, const char * group);
     int getArraySize                (const char ** array);
     static void dr_msg_cb           (rd_kafka_t * kafka_handle, const rd_kafka_message_t * rkmessage, void * opaque);
-    void setupProducer      (void);
+    void setupProducer              (void);
 public:
     KafkaManager            (const char * topic) : topic(topic) {
         setupProducer();
