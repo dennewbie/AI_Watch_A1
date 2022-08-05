@@ -9,7 +9,7 @@
 
 
 
-cv::Mat OpenCV_Manager::realsenseFrameToMat(const rs2::frame & singleFrame) {
+cv::Mat OpenCV_Manager::realsenseFrameToMat (const rs2::frame & singleFrame) {
     rs2::video_frame videoFrame = singleFrame.as<rs2::video_frame>();
     const int frameWidth = videoFrame.get_width(), frameHeight = videoFrame.get_height();
     

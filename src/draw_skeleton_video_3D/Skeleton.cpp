@@ -41,17 +41,21 @@ void Skeleton::setSkeletonPoints3D (std::vector <Point3D *> * skeletonPoints3D) 
     this->skeletonPoints3D = skeletonPoints3D;
 }
 
+void Skeleton::setConsistency (float consistency) {
+    this->consistency = consistency;
+}
+
 
 
 cv::Mat Skeleton::getRGB_Image(void) {
     return this->rgb_Image;
 }
 
-cv::Mat Skeleton::getDistance_Image(void) {
+cv::Mat Skeleton::getDistance_Image (void) {
     return this->distance_Image;
 }
 
-cv::Mat Skeleton::getSkeleton_Image(void) {
+cv::Mat Skeleton::getSkeleton_Image (void) {
     return this->skeleton_Image;
 }
 
@@ -70,7 +74,6 @@ Json::Value Skeleton::getSkeletonData (void) {
 // Don't change following method, otherwise error
 void Skeleton::calcBodyKeypoints (void) {
     int j = 0;
-    unsigned char counterBodyKeyPointsMap = 0;
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
     OutputManagerJSON * outputManagerJSON = (OutputManagerJSON *) facadeSingletonInstance->getOutputManager();
@@ -82,10 +85,12 @@ void Skeleton::calcBodyKeypoints (void) {
                                 );
         
         bodyKeyPointsMap.push_back(bodyKeyPoints.at(j).getX() > 0 && bodyKeyPoints.at(j).getY() > 0 && bodyKeyPoints.at(j).getConfidence() > 0.00);
-        if (bodyKeyPointsMap.back()) counterBodyKeyPointsMap += 1;
+        setConsistency(getConsistency() + bodyKeyPoints.at(j).getConfidence());
         i += 2;
         j += 1;
     }
+    
+    setConsistency(getConsistency() / openPoseBodyKeyPointsNumber);
 }
 
 void Skeleton::calcBodyEdges (void) {
@@ -134,7 +139,7 @@ void Skeleton::drawCircle (cv::Point center) {
     cv::circle(getSkeleton_Image(), center, 4, cv::Scalar(0, 0, 255), 8, cv::LINE_8, 0); // remove
 }
 
-void Skeleton::deprojectSkeletonPoints3D () {
+void Skeleton::deprojectSkeletonPoints3D (void) {
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
     struct rs2_intrinsics color_intrin = facadeSingletonInstance->getCameraManager()->get_color_intrin();
@@ -183,9 +188,10 @@ Skeleton::Skeleton (cv::Mat & rgbImage, cv::Mat & dImage, cv::Mat & skeleton_Ima
     setDistance_Image(dImage);
     setSkeleton_Image(skeleton_Image);
     setSkeletonData(skeletonData);
+    setConsistency(0.0);
 }
 
-Skeleton::~Skeleton(void) {
+Skeleton::~Skeleton (void) {
     for (auto & point: * getSkeletonPoints3D()) delete point;
     for (auto & point: getSkeletonPoints3D_RS()) delete point;
     getSkeletonPoints3D()->clear();
@@ -193,7 +199,7 @@ Skeleton::~Skeleton(void) {
     getSkeletonPoints3D_RS().clear();
 }
 
-void Skeleton::drawSkeleton () {
+void Skeleton::generateSkeleton () {
     calcBodyKeypoints();
     calcBodyEdges();
     deprojectSkeletonPoints3D();
@@ -209,4 +215,8 @@ std::vector <Point3D *> Skeleton::getSkeletonPoints3D_RS (void) {
 
 std::vector <Point3D *> * Skeleton::getSkeletonPoints3D (void) {
     return this->skeletonPoints3D;
+}
+
+float Skeleton::getConsistency (void) {
+    return this->consistency;
 }

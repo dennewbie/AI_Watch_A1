@@ -68,8 +68,10 @@ void OutputManagerJSON::createJSON (Json::Value & people, cv::Mat & colorImage, 
     for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
         Json::Value singlePerson = getValueAt("pose_keypoints_2d", i, people);
         Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);
-        singlePersonSkeleton.drawSkeleton();
-        peopleArray.append(makeOutputString(* singlePersonSkeleton.getSkeletonPoints3D(), singlePersonSkeleton.getBodyKeyPointsMap(), nFrame, (unsigned int) i));
+        singlePersonSkeleton.generateSkeleton();
+        if (singlePersonSkeleton.getConsistency() > skeletonThreshold) {
+            peopleArray.append(makeOutputString(* singlePersonSkeleton.getSkeletonPoints3D(), singlePersonSkeleton.getBodyKeyPointsMap(), nFrame, (unsigned int) i));
+        }
     }
     
     root["People"] = peopleArray;

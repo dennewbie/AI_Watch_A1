@@ -32,6 +32,7 @@ private:
     Json::Value                 skeletonData;
     std::vector <Point3D *>     skeletonPoints3D_RS;
     std::vector <Point3D *> *   skeletonPoints3D;
+    float consistency;
     
     void setRGB_Image               (cv::Mat & rgbImage);
     void setDistance_Image          (cv::Mat & distanceImage);
@@ -41,6 +42,7 @@ private:
     void setSkeletonData            (Json::Value skeletonData);
     void setSkeletonPoints3D_RS     (std::vector <Point3D *> skeletonPoints3D_RS);
     void setSkeletonPoints3D        (std::vector <Point3D *> * skeletonPoints3D);
+    void setConsistency             (float consistency);
     
     cv::Mat getRGB_Image                                    (void);
     cv::Mat getDistance_Image                               (void);
@@ -57,10 +59,11 @@ private:
 public:
     Skeleton                                        (cv::Mat & rgbImage, cv::Mat & distanceImage, cv::Mat & skeletonImage, Json::Value skeletonData);
     ~Skeleton                                       (void);
-    void drawSkeleton                               (void);
+    void generateSkeleton                           (void);
     std::vector <bool> getBodyKeyPointsMap          (void);
     std::vector <Point3D *> getSkeletonPoints3D_RS  (void);
     std::vector <Point3D *> * getSkeletonPoints3D   (void);
+    float getConsistency                            (void);
 };
 
 #endif /* Skeleton_h */

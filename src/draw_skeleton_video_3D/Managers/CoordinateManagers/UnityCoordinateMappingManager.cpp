@@ -11,7 +11,6 @@
 
 std::vector <Point3D *> * UnityCoordinateMappingManager::mapToMeters (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap, float xOrigin, float zOrigin) {
     std::vector <Point3D *> * newPoints = new std::vector <Point3D *>;
-    
     for (unsigned char i = 0; i < bodyKeyPointsMap.size(); i++) {
         if (!bodyKeyPointsMap.at(i)) {
             newPoints->push_back(new Point3D(0, 0, 0, new BodyKeyPoint(0, 0, 0)));
