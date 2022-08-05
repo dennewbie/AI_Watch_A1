@@ -105,9 +105,9 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     FacadeSingleton::setOpenCV_Manager(new OpenCV_Manager());
     FacadeSingleton::setCoordinateMappingManager(new CoordinateMappingManager());
     FacadeSingleton::setImageManager(new ImageManager());
-    FacadeSingleton::setKafkaManager(new KafkaManager(destinationKafkaTopic));
+//    FacadeSingleton::setKafkaManager(new KafkaManager(destinationKafkaTopic));
     FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY, FIRST_BOOT);
-    FacadeSingleton::getKafkaManager()->setupProducer();
+//    FacadeSingleton::getKafkaManager()->setupProducer();
     
     SystemCommand * cleanCommand = new CleanCommand();
 //    cleanCommand->executeCommand();

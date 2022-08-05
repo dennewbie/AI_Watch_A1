@@ -29,7 +29,8 @@ Json::Value OutputManagerJSON::makeOutputString (std::vector <Point3D *> skeleto
         arraySkeletonPoints3D.append(singlePoint3D_JSON);
     }
 
-    root[std::to_string(personID)] = arraySkeletonPoints3D;
+    root["personID"] = Json::Value((unsigned int) personID);
+    root["skeleton"] = arraySkeletonPoints3D;
     OutputManager::setStringOutputData(root.toStyledString());
     return root;
 }
