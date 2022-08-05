@@ -4607,7 +4607,7 @@
 											"font": "Arial;13;1",
 											"left": 2021,
 											"top": 2671,
-											"width": 216.42333984375,
+											"width": 597.974609375,
 											"height": 13,
 											"text": "KafkaManager"
 										},
@@ -4642,7 +4642,7 @@
 									"font": "Arial;13;0",
 									"left": 2016,
 									"top": 2664,
-									"width": 226.42333984375,
+									"width": 607.974609375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGCWVx4Oji5lP4="
@@ -4666,11 +4666,64 @@
 									"model": {
 										"$ref": "AAAAAAGCWVx4OTi1DCM="
 									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGCbXk0XYccQjQ=",
+											"_parent": {
+												"$ref": "AAAAAAGCWVx4Oji9arU="
+											},
+											"model": {
+												"$ref": "AAAAAAGCbXk0UYcZ3yQ="
+											},
+											"font": "Arial;13;0",
+											"left": 2021,
+											"top": 2694,
+											"width": 597.974609375,
+											"height": 13,
+											"text": "-producer: rd_kafka_t *",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGCbXmCQIlA10o=",
+											"_parent": {
+												"$ref": "AAAAAAGCWVx4Oji9arU="
+											},
+											"model": {
+												"$ref": "AAAAAAGCbXmCM4k9+08="
+											},
+											"font": "Arial;13;0",
+											"left": 2021,
+											"top": 2709,
+											"width": 597.974609375,
+											"height": 13,
+											"text": "-configuration: rd_kafka_conf_t *",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGCbXmxeIp0i4E=",
+											"_parent": {
+												"$ref": "AAAAAAGCWVx4Oji9arU="
+											},
+											"model": {
+												"$ref": "AAAAAAGCbXmxa4pxXwo="
+											},
+											"font": "Arial;13;0",
+											"left": 2021,
+											"top": 2724,
+											"width": 597.974609375,
+											"height": 13,
+											"text": "-topic: const char *",
+											"horizontalAlignment": 0
+										}
+									],
 									"font": "Arial;13;0",
 									"left": 2016,
 									"top": 2689,
-									"width": 226.42333984375,
-									"height": 10
+									"width": 607.974609375,
+									"height": 53
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -4684,6 +4737,160 @@
 									"subViews": [
 										{
 											"_type": "UMLOperationView",
+											"_id": "AAAAAAGCbXo26Y2R1HI=",
+											"_parent": {
+												"$ref": "AAAAAAGCWVx4Oji+dbg="
+											},
+											"model": {
+												"$ref": "AAAAAAGCbXo23I2OX2A="
+											},
+											"font": "Arial;13;0",
+											"left": 2021,
+											"top": 2747,
+											"width": 597.974609375,
+											"height": 13,
+											"text": "-setProducer(producer: rd_kafka_t *): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGCbXp/rI9BmRw=",
+											"_parent": {
+												"$ref": "AAAAAAGCWVx4Oji+dbg="
+											},
+											"model": {
+												"$ref": "AAAAAAGCbXp/no8+430="
+											},
+											"font": "Arial;13;0",
+											"left": 2021,
+											"top": 2762,
+											"width": 597.974609375,
+											"height": 13,
+											"text": "-setConfiguration(configuration: rd_kafka_conf_t *): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGCbXrHnZDxrjg=",
+											"_parent": {
+												"$ref": "AAAAAAGCWVx4Oji+dbg="
+											},
+											"model": {
+												"$ref": "AAAAAAGCbXrHkJDu2yk="
+											},
+											"font": "Arial;13;0",
+											"left": 2021,
+											"top": 2777,
+											"width": 597.974609375,
+											"height": 13,
+											"text": "-getProducer(void): rd_kafka_t *",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGCbXs1WpKh98U=",
+											"_parent": {
+												"$ref": "AAAAAAGCWVx4Oji+dbg="
+											},
+											"model": {
+												"$ref": "AAAAAAGCbXs1RpKe/c4="
+											},
+											"font": "Arial;13;0",
+											"left": 2021,
+											"top": 2792,
+											"width": 597.974609375,
+											"height": 13,
+											"text": "-getConfiguration(void): rd_kafka_conf_t *",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGCbXtoC5RRTMM=",
+											"_parent": {
+												"$ref": "AAAAAAGCWVx4Oji+dbg="
+											},
+											"model": {
+												"$ref": "AAAAAAGCbXtn/ZROg9E="
+											},
+											"font": "Arial;13;0",
+											"left": 2021,
+											"top": 2807,
+											"width": 597.974609375,
+											"height": 13,
+											"text": "-getTopic(void): const char *",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGCbXuPI5YBe4o=",
+											"_parent": {
+												"$ref": "AAAAAAGCWVx4Oji+dbg="
+											},
+											"model": {
+												"$ref": "AAAAAAGCbXuPFpX+ljA="
+											},
+											"font": "Arial;13;0",
+											"left": 2021,
+											"top": 2822,
+											"width": 597.974609375,
+											"height": 13,
+											"text": "-loadConfigurationGroup(conf: rd_kafka_conf_t *, key_file: GKeyFile *, group: const char *): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGCbXw8gZgtK9s=",
+											"_parent": {
+												"$ref": "AAAAAAGCWVx4Oji+dbg="
+											},
+											"model": {
+												"$ref": "AAAAAAGCbXw8cpgq2q8="
+											},
+											"font": "Arial;13;0",
+											"left": 2021,
+											"top": 2837,
+											"width": 597.974609375,
+											"height": 13,
+											"text": "-getArraySize(const char ** array): int",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGCbXytppndapY=",
+											"_parent": {
+												"$ref": "AAAAAAGCWVx4Oji+dbg="
+											},
+											"model": {
+												"$ref": "AAAAAAGCbXytl5naLqw="
+											},
+											"font": "Arial;13;0",
+											"left": 2021,
+											"top": 2852,
+											"width": 597.974609375,
+											"height": 13,
+											"underline": true,
+											"text": "-dr_msg_cb(kafka_handle: rd_kafka_t *, rkmessage: const rd_kafka_message_t *, opaque: void *): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGCbX2iqp7boOw=",
+											"_parent": {
+												"$ref": "AAAAAAGCWVx4Oji+dbg="
+											},
+											"model": {
+												"$ref": "AAAAAAGCbX2inZ7YYXE="
+											},
+											"font": "Arial;13;0",
+											"left": 2021,
+											"top": 2867,
+											"width": 597.974609375,
+											"height": 13,
+											"text": "-setupProducer(void): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
 											"_id": "AAAAAAGCWWrW6jnU86Y=",
 											"_parent": {
 												"$ref": "AAAAAAGCWVx4Oji+dbg="
@@ -4693,10 +4900,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 2021,
-											"top": 2704,
-											"width": 216.42333984375,
+											"top": 2882,
+											"width": 597.974609375,
 											"height": 13,
-											"text": "+KafkaManager(void): KafkaManager",
+											"text": "+KafkaManager(topic: const char *): KafkaManager",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4710,18 +4917,35 @@
 											},
 											"font": "Arial;13;0",
 											"left": 2021,
-											"top": 2719,
-											"width": 216.42333984375,
+											"top": 2897,
+											"width": 597.974609375,
 											"height": 13,
 											"text": "+~KafkaManager(void)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGCbX5FHKJtr8U=",
+											"_parent": {
+												"$ref": "AAAAAAGCWVx4Oji+dbg="
+											},
+											"model": {
+												"$ref": "AAAAAAGCbX5FDqJqyOc="
+											},
+											"font": "Arial;13;0",
+											"left": 2021,
+											"top": 2912,
+											"width": 597.974609375,
+											"height": 13,
+											"text": "+sendData(key: const char *, root: JSON_Value): void",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 2016,
-									"top": 2699,
-									"width": 226.42333984375,
-									"height": 38
+									"top": 2742,
+									"width": 607.974609375,
+									"height": 188
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -4760,8 +4984,8 @@
 							"containerChangeable": true,
 							"left": 2016,
 							"top": 2664,
-							"width": 226.42333984375,
-							"height": 73,
+							"width": 607.974609375,
+							"height": 266,
 							"nameCompartment": {
 								"$ref": "AAAAAAGCWVx4Oji4mjA="
 							},
@@ -16079,7 +16303,337 @@
 						"$ref": "AAAAAAGCWJeFiTEgyow="
 					},
 					"name": "KafkaManager",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGCbXk0UYcZ3yQ=",
+							"_parent": {
+								"$ref": "AAAAAAGCWVx4OTi1DCM="
+							},
+							"name": "producer",
+							"visibility": "private",
+							"type": "rd_kafka_t *"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGCbXmCM4k9+08=",
+							"_parent": {
+								"$ref": "AAAAAAGCWVx4OTi1DCM="
+							},
+							"name": "configuration",
+							"visibility": "private",
+							"type": "rd_kafka_conf_t *"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGCbXmxa4pxXwo=",
+							"_parent": {
+								"$ref": "AAAAAAGCWVx4OTi1DCM="
+							},
+							"name": "topic",
+							"visibility": "private",
+							"type": "const char *"
+						}
+					],
 					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGCbXo23I2OX2A=",
+							"_parent": {
+								"$ref": "AAAAAAGCWVx4OTi1DCM="
+							},
+							"name": "setProducer",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXpmfo5JuEE=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXo23I2OX2A="
+									},
+									"name": "producer",
+									"type": "rd_kafka_t *"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXpmfo5KXUg=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXo23I2OX2A="
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGCbXp/no8+430=",
+							"_parent": {
+								"$ref": "AAAAAAGCWVx4OTi1DCM="
+							},
+							"name": "setConfiguration",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXqslI/5gdo=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXp/no8+430="
+									},
+									"name": "configuration",
+									"type": "rd_kafka_conf_t *"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXqslI/6bqI=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXp/no8+430="
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGCbXrHkJDu2yk=",
+							"_parent": {
+								"$ref": "AAAAAAGCWVx4OTi1DCM="
+							},
+							"name": "getProducer",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXs0YpHmsYU=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXrHkJDu2yk="
+									},
+									"name": "void",
+									"type": ""
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXs0YpHnGWo=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXrHkJDu2yk="
+									},
+									"type": "rd_kafka_t *",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGCbXs1RpKe/c4=",
+							"_parent": {
+								"$ref": "AAAAAAGCWVx4OTi1DCM="
+							},
+							"name": "getConfiguration",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXtfopNZ48w=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXs1RpKe/c4="
+									},
+									"name": "void",
+									"type": ""
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXtfopNai8A=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXs1RpKe/c4="
+									},
+									"type": "rd_kafka_conf_t *",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGCbXtn/ZROg9E=",
+							"_parent": {
+								"$ref": "AAAAAAGCWVx4OTi1DCM="
+							},
+							"name": "getTopic",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXuHmZUJOPM=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXtn/ZROg9E="
+									},
+									"name": "void",
+									"type": ""
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXuHmZUKF6s=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXtn/ZROg9E="
+									},
+									"type": "const char *",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGCbXuPFpX+ljA=",
+							"_parent": {
+								"$ref": "AAAAAAGCWVx4OTi1DCM="
+							},
+							"name": "loadConfigurationGroup",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXwzCZa5AiY=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXuPFpX+ljA="
+									},
+									"name": "conf",
+									"type": "rd_kafka_conf_t *"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXwzCZa6zQ0=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXuPFpX+ljA="
+									},
+									"name": "key_file",
+									"type": "GKeyFile *"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXwzCpa7xxc=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXuPFpX+ljA="
+									},
+									"name": "group",
+									"type": "const char *"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXwzCpa8vQ4=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXuPFpX+ljA="
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGCbXw8cpgq2q8=",
+							"_parent": {
+								"$ref": "AAAAAAGCWVx4OTi1DCM="
+							},
+							"name": "getArraySize",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXx8kpjln3w=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXw8cpgq2q8="
+									},
+									"name": "const char ** array",
+									"type": ""
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbXx8kpjm5Sg=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXw8cpgq2q8="
+									},
+									"type": "int",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGCbXytl5naLqw=",
+							"_parent": {
+								"$ref": "AAAAAAGCWVx4OTi1DCM="
+							},
+							"name": "dr_msg_cb",
+							"visibility": "private",
+							"isStatic": true,
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbX1jn5rSvSc=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXytl5naLqw="
+									},
+									"name": "kafka_handle",
+									"type": "rd_kafka_t *"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbX1joJrTVlg=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXytl5naLqw="
+									},
+									"name": "rkmessage",
+									"type": "const rd_kafka_message_t *"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbX1joJrUti0=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXytl5naLqw="
+									},
+									"name": "opaque",
+									"type": "void *"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbX1joZrVRf0=",
+									"_parent": {
+										"$ref": "AAAAAAGCbXytl5naLqw="
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGCbX2inZ7YYXE=",
+							"_parent": {
+								"$ref": "AAAAAAGCWVx4OTi1DCM="
+							},
+							"name": "setupProducer",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbX3UOZ/Q8WQ=",
+									"_parent": {
+										"$ref": "AAAAAAGCbX2inZ7YYXE="
+									},
+									"name": "void",
+									"type": ""
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbX3UOZ/R9QA=",
+									"_parent": {
+										"$ref": "AAAAAAGCbX2inZ7YYXE="
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
 						{
 							"_type": "UMLOperation",
 							"_id": "AAAAAAGCWWrW1jnRDk0=",
@@ -16094,8 +16648,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGCWWrW1jnRDk0="
 									},
-									"name": "void",
-									"type": ""
+									"name": "topic",
+									"type": "const char *"
 								},
 								{
 									"_type": "UMLParameter",
@@ -16126,6 +16680,43 @@
 									},
 									"name": "void",
 									"type": ""
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGCbX5FDqJqyOc=",
+							"_parent": {
+								"$ref": "AAAAAAGCWVx4OTi1DCM="
+							},
+							"name": "sendData",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbX6NNaMlaVw=",
+									"_parent": {
+										"$ref": "AAAAAAGCbX5FDqJqyOc="
+									},
+									"name": "key",
+									"type": "const char *"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbX6NNaMmzxw=",
+									"_parent": {
+										"$ref": "AAAAAAGCbX5FDqJqyOc="
+									},
+									"name": "root",
+									"type": "JSON_Value"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCbX6NNaMnfhA=",
+									"_parent": {
+										"$ref": "AAAAAAGCbX5FDqJqyOc="
+									},
+									"type": "void",
+									"direction": "return"
 								}
 							]
 						}

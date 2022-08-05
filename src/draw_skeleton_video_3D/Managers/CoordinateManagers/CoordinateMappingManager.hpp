@@ -28,7 +28,7 @@ static const float maxHeightRS = 1.0;
 static const float xOriginUnity = 0;
 static const float zOriginUnity = 0;
 
-static const float distanceCameraFromBackWall = 0.0;
+static const float distanceCameraFromBackWall = 0.3;
 
 
 

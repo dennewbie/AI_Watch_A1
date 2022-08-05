@@ -22,7 +22,7 @@ int main (int argc, const char * argv[]) {
     float scale;
     const char * destinationKafkaTopic = "purchases";
     // risoluzione ottimale D435: 848x480
-    unsigned  int user_nFrame = 25, resX = 848, resY = 480;
+    unsigned  int user_nFrame = 360, resX = 848, resY = 480;
     struct rs2_intrinsics color_intrin;
     FacadeSingleton * myUtility = FacadeSingleton::getInstance(argc, argv, expected_argc, expectedUsageMessage);
     myUtility->startEnvironment(pipelineStream, color_intrin, & scale, resX, resY, destinationKafkaTopic);
