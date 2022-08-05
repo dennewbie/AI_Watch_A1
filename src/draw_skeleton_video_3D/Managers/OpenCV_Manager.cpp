@@ -58,8 +58,8 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
         colorImagePath <<           imagesFolder << "rgb/" <<   frameID << "_Color.png";
         distanceImagePath <<        imagesFolder << "d/" <<     frameID << "_Distance.exr";
         colorizedDepthImagePath <<  imagesFolder << "depth/" << frameID << "_Depth.png";
-//        imageManager->saveImages( { colorImage, distanceImage, colorizedDepthImage },
-//                                 { colorImagePath.str(), distanceImagePath.str(), colorizedDepthImagePath.str() } );
+        imageManager->saveImages( { colorImage, distanceImage, colorizedDepthImage },
+                                 { colorImagePath.str(), distanceImagePath.str(), colorizedDepthImagePath.str() } );
         imageManager->releaseImages( { colorImage, depthImage, distanceImage, colorizedDepthImage } );
     }
 }
@@ -99,7 +99,7 @@ void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame, Json::Value & cu
             imageManager->showImages( { skeletonOnlyImage, colorImage }, { "Frame Skeleton Background Cut", "Frame Skeleton" } );
             skeletonOnlyImagePath << imagesFolder << "sk/" << currentImageID << "_sk.png";
             skeletonImagePath << imagesFolder << "skeleton/" << currentImageID << "_Skeleton.png";
-//            imageManager->saveImages( { colorImage, skeletonOnlyImage }, { skeletonImagePath.str(), skeletonOnlyImagePath.str() } );
+            imageManager->saveImages( { colorImage, skeletonOnlyImage }, { skeletonImagePath.str(), skeletonOnlyImagePath.str() } );
             imageManager->releaseImages( { colorImage, distanceImage, colorizedDepthImage, skeletonOnlyImage } );
         }
     }

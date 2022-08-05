@@ -10,6 +10,7 @@
 
 
 
+// Error codes and error messages declaration.
 static const short int CHECK_USAGE_ERROR = 1;
 static const char * CHECK_USAGE_SCOPE = "usage";
 
@@ -25,26 +26,24 @@ static const char * LOAD_JSON_SCOPE = "Could not open or find the JSON file";
 static const short int RS_CAMERA_ERROR = 5;
 static const char * RS_CAMERA_SCOPE = "Troubles during initialization of RealSense Camera";
 
-static const short int CALLOC_ERROR = 6;
-static const char * CALLOC_SCOPE = "Error during calloc";
-
-static const short int FACADE_SINGLETON_NULLPTR_ERROR = 7;
+static const short int FACADE_SINGLETON_NULLPTR_ERROR = 6;
 static const char * FACADE_SINGLETON_NULLPTR_SCOPE = "FacadeSingleton::getInstance() returns nullptr";
 
-static const short int USAGE_MANAGER_NULLPTR_ERROR = 8;
+static const short int USAGE_MANAGER_NULLPTR_ERROR = 7;
 static const char * USAGE_MANAGER_NULLPTR_SCOPE = "UsageManager::getInstance() returns nullptr";
 
-static const short int RDKAFKA_GET_KEYS_FROM_JSON_ERROR = 9;
+static const short int RDKAFKA_GET_KEYS_FROM_JSON_ERROR = 8;
 static const char * RDKAFKA_GET_KEYS_FROM_JSON_SCOPE = "KafkaManager::loadConfigurationGroup() error during g_key_file_get_keys()";
 
-static const short int RDKAFKA_GET_KEY_FROM_JSON_ERROR = 10;
+static const short int RDKAFKA_GET_KEY_FROM_JSON_ERROR = 9;
 static const char * RDKAFKA_GET_KEY_FROM_JSON_SCOPE = "KafkaManager::loadConfigurationGroup() error during g_key_file_get_string()";
 
-static const short int RDKAFKA_CONF_SET_ERROR = 11;
+static const short int RDKAFKA_CONF_SET_ERROR = 10;
 static const char * RDKAFKA_CONF_SET_SCOPE = "KafkaManager::loadConfigurationGroup() error during rd_kafka_conf_set()";
 
 
 
+// Other useful constants declaration.
 static const short int ESC_KEY = 27;
 
 static const float depth_min = 0.10;

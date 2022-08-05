@@ -143,7 +143,6 @@ void Skeleton::deprojectSkeletonPoints3D (void) {
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
     struct rs2_intrinsics color_intrin = facadeSingletonInstance->getCameraManager()->get_color_intrin();
-    drawCircle(cv::Point(848, 480));
     for (unsigned char i = 0; i < getBodyKeyPoints().size(); i++) {
         float * pixel = new (std::nothrow) float [2], * point = new (std::nothrow) float [3], distance = 0;
         if (!pixel || !point) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
