@@ -17,7 +17,7 @@ std::string SystemCommand::getCommand (void) {
     return this->command;
 }
 
-void SystemCommand::executeCommand (void) {
-    setCommand();
+void SystemCommand::executeCommand (int * argc, char *** argv) {
+    setCommand(argc, argv);
     std::system(getCommand().c_str());
 }

@@ -16,7 +16,7 @@
 #include "../Managers/CoordinateManagers/CoordinateMappingManager.hpp"
 #include "../Managers/ImageManager.hpp"
 #include "../Managers/KafkaManager.hpp"
-
+#include <fstream>
 
 
 class RealSenseManager;
@@ -42,7 +42,7 @@ private:
     ImageManager *              imageManager;
     KafkaManager *              kafkaManager;
     
-    FacadeSingleton (const int argc = 0, const char ** argv = nullptr, const int expected_argc = 0, const char * expectedUsageMessage = nullptr);
+    FacadeSingleton (int * argc = nullptr, char *** argv = nullptr, const int expected_argc = 0, const char * expectedUsageMessage = nullptr);
     ~FacadeSingleton(void);
 protected:
     void setCameraManager               (RealSenseManager * cameraManager);
@@ -56,7 +56,7 @@ public:
     FacadeSingleton (FacadeSingleton & other) = delete;
     void operator=  (const FacadeSingleton &) = delete;
     
-    static FacadeSingleton * getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage);
+    static FacadeSingleton * getInstance (int * argc, char *** argv, const int expected_argc, const char * expectedUsageMessage);
     static FacadeSingleton * getInstance (void);
     
     RealSenseManager * getCameraManager                     (void);
@@ -70,7 +70,7 @@ public:
     void startEnvironment       (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale,
                                  unsigned short int resX, unsigned short int resY, const char * destinationKafkaTopic);
     void getVideoFrames         (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale);
-    void getVideoBodyKeyPoints  (void);
+    void getVideoBodyKeyPoints  (int * argc, char *** argv);
     void showSkeletons          (unsigned int user_nFrame, Json::Value & currentJSON);
     void sendData               (unsigned int user_nFrame);
 };

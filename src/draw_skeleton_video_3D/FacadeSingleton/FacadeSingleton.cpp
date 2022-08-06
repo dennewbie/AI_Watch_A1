@@ -14,8 +14,21 @@ std::mutex FacadeSingleton::singletonMutex;
 
 
 
-FacadeSingleton::FacadeSingleton (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage) {
-    setUsageManager(UsageManager::getInstance(argc, argv, expected_argc, expectedUsageMessage));
+FacadeSingleton::FacadeSingleton (int * argc, char *** argv, const int expected_argc, const char * expectedUsageMessage) {
+    std::ifstream inputFile("conf.conf");
+    std::string singleLineConfigurationFile;
+    int * localArgc = (int *) malloc(sizeof(int));
+    * localArgc = 5;
+    char *** localArgv = (char ***) malloc(sizeof(char **));
+    * localArgv = (char **) malloc(5 * sizeof(char **));
+    unsigned char rowCounter = 0;
+    while (inputFile >> singleLineConfigurationFile) {
+        (* localArgv)[rowCounter] = (char *) malloc((unsigned int) (singleLineConfigurationFile.size() + 1) * sizeof(char));
+        strcpy((* localArgv)[rowCounter], singleLineConfigurationFile.c_str());
+        rowCounter++;
+    }
+    
+    setUsageManager(UsageManager::getInstance(localArgc, localArgv, expected_argc, expectedUsageMessage));
 }
 
 FacadeSingleton::~FacadeSingleton (void) {
@@ -59,7 +72,7 @@ void FacadeSingleton::setKafkaManager (KafkaManager * kafkaManager) {
 
 
 
-FacadeSingleton * FacadeSingleton::getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage) {
+FacadeSingleton * FacadeSingleton::getInstance (int * argc, char *** argv, const int expected_argc, const char * expectedUsageMessage) {
     std::lock_guard <std::mutex> lock(singletonMutex);
     if (sharedInstance == nullptr) sharedInstance = new FacadeSingleton(argc, argv, expected_argc, expectedUsageMessage);
     return sharedInstance;
@@ -109,7 +122,7 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY, FIRST_BOOT);
     
     SystemCommand * cleanCommand = new CleanCommand();
-    cleanCommand->executeCommand();
+//    cleanCommand->executeCommand(getUsageManager()->get_argc(), getUsageManager()->get_argv());
     delete cleanCommand;
 }
 
@@ -117,10 +130,10 @@ void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & 
     getOpenCV_Manager()->getVideoFramesCV(user_nFrame, pipelineStream, scale);
 }
 
-void FacadeSingleton::getVideoBodyKeyPoints (void) {
-    SystemCommand * openPoseCommand = new OpenPoseCommand();
-    openPoseCommand->executeCommand();
-    delete openPoseCommand;
+void FacadeSingleton::getVideoBodyKeyPoints (int * argc, char *** argv) {
+//    SystemCommand * openPoseCommand = new OpenPoseCommand();
+//    openPoseCommand->executeCommand(argc, argv);
+//    delete openPoseCommand;
 }
 
 void FacadeSingleton::showSkeletons (unsigned int user_nFrame, Json::Value & currentJSON) {
@@ -128,7 +141,7 @@ void FacadeSingleton::showSkeletons (unsigned int user_nFrame, Json::Value & cur
 }
 
 void FacadeSingleton::sendData (unsigned int user_nFrame) {
-    const char ** argv = FacadeSingleton::getUsageManager()->get_argv(), * outputFolder = argv[outputFolderOffset];
+    char ** argv = * FacadeSingleton::getUsageManager()->get_argv(), * outputFolder = argv[outputFolderOffset];
     unsigned int frameID = FacadeSingleton::getCameraManager()->getFrameID(), currentImageID;
     OutputManagerJSON * myOutputManagerJSON = (OutputManagerJSON *) FacadeSingleton::getOutputManager();
     

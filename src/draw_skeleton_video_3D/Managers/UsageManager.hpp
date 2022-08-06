@@ -20,17 +20,16 @@ private:
     static UsageManager *       sharedInstance;
     static std::mutex           singletonMutex;
     
-    const int                   argc;
-    const char **               argv;
+    int *                       argc;
+    char ***                    argv;
     const int                   expected_argc;
     const char *                expectedUsageMessage;
     
-    const int get_argc                          (void);
     const int get_expected_argc                 (void);
     const char * get_expectedUsageMessage       (void);
     void checkUsage                             (void);
     
-    UsageManager (const int argc = 0, const char ** argv = nullptr, const int expected_argc = 0, const char * expectedUsageMessage = nullptr) : argc(argc), argv(argv), expected_argc(expected_argc), expectedUsageMessage(expectedUsageMessage) {
+    UsageManager (int * argc = nullptr, char *** argv = nullptr, const int expected_argc = 0, const char * expectedUsageMessage = nullptr) : argc(argc), argv(argv), expected_argc(expected_argc), expectedUsageMessage(expectedUsageMessage) {
         checkUsage();
     }
 public:
@@ -38,10 +37,11 @@ public:
     void operator=  (const UsageManager &) = delete;
     
     virtual ~UsageManager();
-    static UsageManager * getInstance (const int argc, const char ** argv, const int expected_argc, const char * expectedUsageMessage);
+    static UsageManager * getInstance (int * argc, char *** argv, const int expected_argc, const char * expectedUsageMessage);
     static UsageManager * getInstance (void);
     
-    const char ** get_argv     (void);
+    int * get_argc         (void);
+    char *** get_argv      (void);
     
 };
 
