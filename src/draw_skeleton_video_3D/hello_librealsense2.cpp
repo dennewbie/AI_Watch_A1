@@ -6,7 +6,8 @@
 //
 
 #include "FacadeSingleton.hpp"
-
+#include <openpose/flags.hpp>
+#include <openpose/headers.hpp>
 
 
 const int expected_argc = 5;
@@ -50,4 +51,3 @@ int main (int argc, const char * argv[]) {
     }
     return EXIT_SUCCESS;
 }
-

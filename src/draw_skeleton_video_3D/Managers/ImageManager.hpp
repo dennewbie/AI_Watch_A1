@@ -30,3 +30,4 @@ public:
 };
 
 #endif /* ImageManager_hpp */
+

@@ -145,7 +145,7 @@ void Skeleton::deprojectSkeletonPoints3D (void) {
     struct rs2_intrinsics color_intrin = facadeSingletonInstance->getCameraManager()->get_color_intrin();
     for (unsigned char i = 0; i < getBodyKeyPoints().size(); i++) {
         float * pixel = new (std::nothrow) float [2], * point = new (std::nothrow) float [3], distance = 0;
-        if (!pixel || !point) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
+        if (!pixel || !point) CV_Error(NEW_ALLOC_ERROR, NEW_ALLOC_SCOPE);
         
         if (!getBodyKeyPointsMap().at(i)) {
             point[0] = point[1] = point[2] = pixel[0] = pixel[1] = 0;
@@ -204,6 +204,7 @@ void Skeleton::generateSkeleton () {
     deprojectSkeletonPoints3D();
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
+    // xOrigin and zOrigin parameters are inverted as the built Unity world requires.
     setSkeletonPoints3D(facadeSingletonInstance->getCoordinateMappingManager()->mapToMeters(getSkeletonPoints3D_RS(), getBodyKeyPointsMap(), zOriginUnity, xOriginUnity));
     writeCoordinates();
 }

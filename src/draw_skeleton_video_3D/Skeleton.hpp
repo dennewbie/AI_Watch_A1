@@ -11,6 +11,7 @@
 #include "FacadeSingleton/FacadeSingleton.hpp"
 
 
+
 /**
  * @brief Enumeration for body keypoints produced from OpenPose. 
  * @see https://github.com/CMU-Perceptual-Computing-Lab/openpose
@@ -24,10 +25,11 @@ enum BodyKeypoint { Nose = 0, Neck = 1, RShoulder = 2, RElbow = 3, RWrist = 4,
                 };
 
 
+
 /**
  * Skeleton class is a class that keeps track of the image different frames where a specific skeleton may appears, 
  * its body key points, correspondent 3D space points, and other useful information skeleton-related.
- * @brief Skeleton class used for skeleton creations and manipulations.
+ * @brief Skeleton class is used for skeleton creations and manipulations.
  */
 class Skeleton {
 private:
@@ -233,6 +235,7 @@ public:
      * @brief A high-level method that abstracts all the internal structure and operations of the Skeleton class. 
      * It first calls calcBodyKeypoints(), then calcBodyEdges(), deprojectSkeletonPoints3D(), convert the coordinates 
      * in a specific format and then write them on the RGB image with writeCoordinates().
+     * @see mapToMeters (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap, float xOrigin, float zOrigin)
      */
     void generateSkeleton                           (void);
     /**

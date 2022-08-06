@@ -16,13 +16,23 @@ find_package(OpenCV REQUIRED)
 find_package(Protobuf REQUIRED)
 find_package(PkgConfig REQUIRED)
 
+find_package(GFlags)
+find_package(Glog)
+find_package(OpenPose REQUIRED)
+find_package(Boost 1.79.0 COMPONENTS filesystem system thread iostreams chrono date_time regex REQUIRED)
+
+
+
 pkg_check_modules(deps REQUIRED IMPORTED_TARGET glib-2.0)
-set(CMAKE_EXE_LINKER_FLAGS "-lrdkafka++ -lrdkafka")
+set(CMAKE_EXE_LINKER_FLAGS "-lrdkafka++ -lrdkafka -lgflags")
 
 include_directories(${PROTOBUF_INCLUDE_DIR})
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 INCLUDE_DIRECTORIES( ${GLIB_INCLUDE_DIRS} )
 include_directories( ${LIBRDKAFKA_INCLUDE_DIRS})
+include_directories( ${BOOST_INCLUDEDIR})
+include_directories(${OpenPose_INCLUDE_DIRS} ${GFLAGS_INCLUDE_DIR} ${GLOG_INCLUDE_DIR})
+
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Points")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/FacadeSingleton")
@@ -36,10 +46,14 @@ include_directories("/usr/local/opt/glib/lib/glib-2.0/include/")
 include_directories("/usr/local/opt/glib/include/glib-2.0")
 include_directories("/usr/local/Cellar/librdkafka/1.9.2/include") 
 
+
 link_directories(/usr/local/Cellar/jsoncpp/1.9.5/lib)
 link_directories(/usr/local/opt/glib/lib)
 link_directories(/usr/local/Cellar/librdkafka/1.9.2/lib)
-
+link_directories(/Users/dennycaruso/Desktop/materiale_tesi/openpose/build/caffe/lib) 
+link_directories(/usr/local/opt/boost@1.79/lib)
+link_directories(${BOOST_LIBRARYDIR}) 
+link_directories(/usr/local/opt/gflags/lib)
 
 pkg_check_modules(JSONCPP jsoncpp)
 pkg_check_modules(deps REQUIRED IMPORTED_TARGET glib-2.0)
@@ -57,4 +71,4 @@ Managers/CoordinateManagers/UnityCoordinateMappingManager.cpp Managers/KafkaMana
 
 # Link librealsense2 to the target
 link_libraries(${JSONCPP_LIBRARIES})
-target_link_libraries(hello_librealsense2.bin PkgConfig::deps ${realsense2_LIBRARY} glfw OpenGL::GL ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} ${JSONCPP_LIBRARIES} ${GLIB_LIBRARIES} )
+target_link_libraries(hello_librealsense2.bin PkgConfig::deps ${BOOST_LIBS} Boost::filesystem ${OpenPose_LIBS} ${GFLAGS_LIBRARY} ${GLOG_LIBRARY} ${realsense2_LIBRARY} glfw OpenGL::GL ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} ${JSONCPP_LIBRARIES} ${GLIB_LIBRARIES} )

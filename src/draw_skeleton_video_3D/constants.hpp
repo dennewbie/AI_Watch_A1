@@ -41,6 +41,9 @@ static const char * RDKAFKA_GET_KEY_FROM_JSON_SCOPE = "KafkaManager::loadConfigu
 static const short int RDKAFKA_CONF_SET_ERROR = 10;
 static const char * RDKAFKA_CONF_SET_SCOPE = "KafkaManager::loadConfigurationGroup() error during rd_kafka_conf_set()";
 
+static const short int NEW_ALLOC_ERROR = 11;
+static const char * NEW_ALLOC_SCOPE = "Error while allocating dynamic memory with new.";
+
 
 
 // Other useful constants declaration.
