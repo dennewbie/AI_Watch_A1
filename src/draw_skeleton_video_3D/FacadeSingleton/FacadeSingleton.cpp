@@ -14,21 +14,23 @@ std::mutex FacadeSingleton::singletonMutex;
 
 
 
-FacadeSingleton::FacadeSingleton (int * argc, char *** argv, const int expected_argc, const char * expectedUsageMessage) {
-    std::ifstream inputFile("conf.conf");
+FacadeSingleton::FacadeSingleton (const int expected_argc, const char * expectedUsageMessage) {
+    std::ifstream inputFile(CONF_FILE_PATH);
     std::string singleLineConfigurationFile;
-    int * localArgc = (int *) malloc(sizeof(int));
-    * localArgc = 5;
-    char *** localArgv = (char ***) malloc(sizeof(char **));
-    * localArgv = (char **) malloc(5 * sizeof(char **));
+    int * fileArgc = (int *) calloc(1, sizeof(int));
+    * fileArgc = (int) totalFileParameters;
+    char *** fileArgv = (char ***) calloc(1, sizeof(char **));
+    * fileArgv = (char **) calloc(totalFileParameters, sizeof(char **));
     unsigned char rowCounter = 0;
+    if (!fileArgc || !fileArgv || ! * fileArgv) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
     while (inputFile >> singleLineConfigurationFile) {
-        (* localArgv)[rowCounter] = (char *) malloc((unsigned int) (singleLineConfigurationFile.size() + 1) * sizeof(char));
-        strcpy((* localArgv)[rowCounter], singleLineConfigurationFile.c_str());
+        (* fileArgv)[rowCounter] = (char *) calloc((unsigned int) singleLineConfigurationFile.size(), sizeof(char));
+        if (!(* fileArgv)[rowCounter]) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
+        strcpy((* fileArgv)[rowCounter], singleLineConfigurationFile.c_str());
         rowCounter++;
     }
     
-    setUsageManager(UsageManager::getInstance(localArgc, localArgv, expected_argc, expectedUsageMessage));
+    setUsageManager(UsageManager::getInstance(fileArgc, fileArgv, expected_argc, expectedUsageMessage));
 }
 
 FacadeSingleton::~FacadeSingleton (void) {
@@ -72,9 +74,9 @@ void FacadeSingleton::setKafkaManager (KafkaManager * kafkaManager) {
 
 
 
-FacadeSingleton * FacadeSingleton::getInstance (int * argc, char *** argv, const int expected_argc, const char * expectedUsageMessage) {
+FacadeSingleton * FacadeSingleton::getInstance (const int expected_argc, const char * expectedUsageMessage) {
     std::lock_guard <std::mutex> lock(singletonMutex);
-    if (sharedInstance == nullptr) sharedInstance = new FacadeSingleton(argc, argv, expected_argc, expectedUsageMessage);
+    if (sharedInstance == nullptr) sharedInstance = new FacadeSingleton(expected_argc, expectedUsageMessage);
     return sharedInstance;
 }
 
@@ -122,7 +124,7 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY, FIRST_BOOT);
     
     SystemCommand * cleanCommand = new CleanCommand();
-//    cleanCommand->executeCommand(getUsageManager()->get_argc(), getUsageManager()->get_argv());
+    cleanCommand->executeCommand(getUsageManager()->get_argc(), getUsageManager()->get_argv());
     delete cleanCommand;
 }
 
@@ -131,13 +133,13 @@ void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & 
 }
 
 void FacadeSingleton::getVideoBodyKeyPoints (int * argc, char *** argv) {
-//    SystemCommand * openPoseCommand = new OpenPoseCommand();
-//    openPoseCommand->executeCommand(argc, argv);
-//    delete openPoseCommand;
+    SystemCommand * openPoseCommand = new OpenPoseCommand();
+    openPoseCommand->executeCommand(argc, argv);
+    delete openPoseCommand;
 }
 
-void FacadeSingleton::showSkeletons (unsigned int user_nFrame, Json::Value & currentJSON) {
-    getOpenCV_Manager()->showSkeletonsCV(user_nFrame, currentJSON);
+void FacadeSingleton::showSkeletons (unsigned int user_nFrame) {
+    getOpenCV_Manager()->showSkeletonsCV(user_nFrame);
 }
 
 void FacadeSingleton::sendData (unsigned int user_nFrame) {
@@ -145,18 +147,18 @@ void FacadeSingleton::sendData (unsigned int user_nFrame) {
     unsigned int frameID = FacadeSingleton::getCameraManager()->getFrameID(), currentImageID;
     OutputManagerJSON * myOutputManagerJSON = (OutputManagerJSON *) FacadeSingleton::getOutputManager();
     
-    for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
-        Json::Value currentJSON;
-        std::stringstream outputJsonFilePath;
-        currentImageID = frameID - user_nFrame + nFrame;
-        outputJsonFilePath << outputFolder << "movement/frame" << currentImageID << "_skeletonsPoints3D.json";
-        if (myOutputManagerJSON->loadJSON(outputJsonFilePath.str(), currentJSON)) {
-            std::string key = std::to_string(currentImageID);
-            FacadeSingleton::getKafkaManager()->sendData(key.c_str(), currentJSON);
-        }
-    }
+//    for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
+//        Json::Value currentJSON;
+//        std::stringstream outputJsonFilePath;
+//        currentImageID = frameID - user_nFrame + nFrame;
+//        outputJsonFilePath << outputFolder << "movement/frame" << currentImageID << "_skeletonsPoints3D.json";
+//        if (myOutputManagerJSON->loadJSON(outputJsonFilePath.str(), currentJSON)) {
+//            std::string key = std::to_string(currentImageID);
+//            FacadeSingleton::getKafkaManager()->sendData(key.c_str(), currentJSON);
+//        }
+//    }
 
     SystemCommand * cleanCommand = new CleanCommand();
-//    cleanCommand->executeCommand();
+    cleanCommand->executeCommand(getUsageManager()->get_argc(), getUsageManager()->get_argv());
     delete cleanCommand;
 }

@@ -42,7 +42,6 @@ public:
     
     int * get_argc         (void);
     char *** get_argv      (void);
-    
 };
 
 #endif /* UsageManager_hpp */

@@ -42,7 +42,7 @@ private:
     ImageManager *              imageManager;
     KafkaManager *              kafkaManager;
     
-    FacadeSingleton (int * argc = nullptr, char *** argv = nullptr, const int expected_argc = 0, const char * expectedUsageMessage = nullptr);
+    FacadeSingleton (const int expected_argc = 0, const char * expectedUsageMessage = nullptr);
     ~FacadeSingleton(void);
 protected:
     void setCameraManager               (RealSenseManager * cameraManager);
@@ -56,7 +56,7 @@ public:
     FacadeSingleton (FacadeSingleton & other) = delete;
     void operator=  (const FacadeSingleton &) = delete;
     
-    static FacadeSingleton * getInstance (int * argc, char *** argv, const int expected_argc, const char * expectedUsageMessage);
+    static FacadeSingleton * getInstance (const int expected_argc, const char * expectedUsageMessage);
     static FacadeSingleton * getInstance (void);
     
     RealSenseManager * getCameraManager                     (void);
@@ -71,7 +71,7 @@ public:
                                  unsigned short int resX, unsigned short int resY, const char * destinationKafkaTopic);
     void getVideoFrames         (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale);
     void getVideoBodyKeyPoints  (int * argc, char *** argv);
-    void showSkeletons          (unsigned int user_nFrame, Json::Value & currentJSON);
+    void showSkeletons          (unsigned int user_nFrame);
     void sendData               (unsigned int user_nFrame);
 };
 

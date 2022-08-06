@@ -58,13 +58,13 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
         colorImagePath <<           imagesFolder << "rgb/" <<   frameID << "_Color.png";
         distanceImagePath <<        imagesFolder << "d/" <<     frameID << "_Distance.exr";
         colorizedDepthImagePath <<  imagesFolder << "depth/" << frameID << "_Depth.png";
-//        imageManager->saveImages( { colorImage, distanceImage, colorizedDepthImage },
-//                                 { colorImagePath.str(), distanceImagePath.str(), colorizedDepthImagePath.str() } );
+        imageManager->saveImages( { colorImage, distanceImage, colorizedDepthImage },
+                                 { colorImagePath.str(), distanceImagePath.str(), colorizedDepthImagePath.str() } );
         imageManager->releaseImages( { colorImage, depthImage, distanceImage, colorizedDepthImage } );
     }
 }
 
-void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame, Json::Value & currentJSON) {
+void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame) {
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
     RealSenseManager * cameraManager = facadeSingletonInstance->getCameraManager();
@@ -74,11 +74,12 @@ void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame, Json::Value & cu
     ImageManager * imageManager = facadeSingletonInstance->getImageManager();
     char ** argv = * usageManagerInstance->get_argv(), * imagesFolder = argv[imagesFolderOffset], * outputFolder = argv[outputFolderOffset];
     unsigned int frameID = cameraManager->getFrameID(), currentImageID;
+    Json::Value currentJSON;
     
     for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         std::stringstream inputJsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath, outputJsonFilePath;
         currentImageID = frameID - user_nFrame + nFrame;
-        inputJsonFilePath << outputFolder << "op/" << currentImageID << "_Color_keypoints.json";
+        inputJsonFilePath << outputFolder << "op/" << nFrame << "_keypoints.json";
         
         if (outputManagerJSON->loadJSON(inputJsonFilePath.str(), currentJSON)) {
             Json::Value people = outputManagerJSON->getValueAt("people", currentJSON);
@@ -99,7 +100,7 @@ void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame, Json::Value & cu
             imageManager->showImages( { skeletonOnlyImage, colorImage }, { "Frame Skeleton Background Cut", "Frame Skeleton" } );
             skeletonOnlyImagePath << imagesFolder << "sk/" << currentImageID << "_sk.png";
             skeletonImagePath << imagesFolder << "skeleton/" << currentImageID << "_Skeleton.png";
-//            imageManager->saveImages( { colorImage, skeletonOnlyImage }, { skeletonImagePath.str(), skeletonOnlyImagePath.str() } );
+            imageManager->saveImages( { colorImage, skeletonOnlyImage }, { skeletonImagePath.str(), skeletonOnlyImagePath.str() } );
             imageManager->releaseImages( { colorImage, distanceImage, colorizedDepthImage, skeletonOnlyImage } );
         }
     }

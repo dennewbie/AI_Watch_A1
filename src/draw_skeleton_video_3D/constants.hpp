@@ -44,6 +44,8 @@ static const char * RDKAFKA_CONF_SET_SCOPE = "KafkaManager::loadConfigurationGro
 static const short int NEW_ALLOC_ERROR = 11;
 static const char * NEW_ALLOC_SCOPE = "Error while allocating dynamic memory with new.";
 
+static const short int CALLOC_ERROR = 12;
+static const char * CALLOC_SCOPE = "Error during calloc.";
 
 
 // Other useful constants declaration.
@@ -53,12 +55,14 @@ static const float depth_min = 0.10;
 static const float depth_max = 6.0;
 
 static const char * JSON_FILE_PATH = "skeletonsPoints3D.json";
+static const char * CONF_FILE_PATH = "conf.conf";
 
 static const short int programNameOffset = 0;
 static const short int openPoseFolderOffset = 1;
 static const short int openPoseExecuteCommandOffset = 2;
 static const short int imagesFolderOffset = 3;
 static const short int outputFolderOffset = 4;
+static const short int totalFileParameters = 5;
 
 static const short int openPoseBodyKeyPointsNumber = 24;
 
