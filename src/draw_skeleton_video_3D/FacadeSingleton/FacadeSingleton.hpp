@@ -19,6 +19,7 @@
 #include <fstream>
 
 
+
 class RealSenseManager;
 class OutputManager;
 class OpenCV_Manager;
@@ -29,17 +30,73 @@ class KafkaManager;
 
 
 
+/**
+ * A facade is a structural design pattern that provides a simplified interface to a library, 
+ * a framework, or any other complex set of classes. A Facade class can often be transformed into a 
+ * Singleton since a single facade object is sufficient in most cases. Since we need just one access 
+ * point to this class and since the internal submodules are complex, a class FacadeSingleton 
+ * implements both behaviors.  
+ * @brief FacadeSingleton class is used as a single access point to a simplified interface.
+ */
 class FacadeSingleton {
 private:
+    /**
+     * @brief The field for storing the singleton instance.
+     */
     static FacadeSingleton *    sharedInstance;
+    /**
+     * @brief Mutex for thread-safe access.
+     */
     static std::mutex           singletonMutex;
     
+
+
+    /**
+     * @brief A pointer to RealSenseManager object. A RealSenseManager object is responsible for 
+     * handling the camera setup, frames acquisition and frames post-processing.
+     * @see RealSenseManager.hpp
+     */
     RealSenseManager *          cameraManager;
+    /**
+     * @brief A pointer to OutputManager object. An OutputManager object is responsible for 
+     * handling the final output generation to send via Kafka later on.
+     * @see OutputManager.hpp
+     */
     OutputManager *             outputManager;
+    /**
+     * @brief A pointer to OpenCV_Manager object. An OpenCV_Manager object is responsible for 
+     * converting camera frame to an OpenCV matrix and booting building skeletons into the image.
+     * @see OpenCV_Manager.hpp
+     */
     OpenCV_Manager *            openCV_Manager;
+    /**
+     * @brief A pointer to UsageManager object. An UsageManager object is responsible for 
+     * checking if the parameters read from configuration file are fine, correct and valid. 
+     * Furthermore this class provides methods to access this parameters.
+     * @see UsageManager.hpp
+     */
     UsageManager *              usageManager;
+    /**
+     * @brief A pointer to CoordinateMappingManager object. A CoordinateMappingManager object is responsible 
+     * for transforming one coordinate range values' space into another one. For instance, it can transform 
+     * a RealSense coordinates space to meters or to Unity coordinates. In both cases, there are several 
+     * parameters to set up regarding the scene and the room where the camera is installed.
+     * @see constants.hpp
+     * @see CoordinateMappingManager.hpp
+     */
     CoordinateMappingManager *  coordinateMappingManager;
+    /**
+     * @brief A pointer to CoordinateMappingManager object. A CoordinateMappingManager object is responsible 
+     * for broad tasks such as loading, saving, and showing images, as well as releasing the memory 
+     * allocated for those images.
+     * @see ImageManager.hpp
+     */
     ImageManager *              imageManager;
+    /**
+     * @brief A pointer to KafkaManager object. A KafkaManager object is responsible 
+     * for sending previously produced JSON output via Kafka.
+     * @see KafkaManager.hpp
+     */
     KafkaManager *              kafkaManager;
     
     FacadeSingleton (const int expected_argc = 0, const char * expectedUsageMessage = nullptr);

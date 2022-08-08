@@ -9,7 +9,7 @@
 
 
 
-void MoveCommand::setCommand (int * argc, char *** argv) {
+void MoveCommand::setCommand (int * fileArgc, char *** argv) {
     UsageManager * usageManagerInstance = UsageManager::getInstance();
     if (usageManagerInstance == nullptr) CV_Error(USAGE_MANAGER_NULLPTR_ERROR, USAGE_MANAGER_NULLPTR_SCOPE);
     char *** localArgv = usageManagerInstance->get_argv();
