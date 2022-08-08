@@ -23,6 +23,7 @@ FacadeSingleton::FacadeSingleton (const int expected_argc, const char * expected
     * fileArgv = (char **) calloc(totalFileParameters, sizeof(char **));
     unsigned char rowCounter = 0;
     if (!fileArgc || !fileArgv || ! * fileArgv) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
+    // read usage's configuration parameters from file
     while (inputFile >> singleLineConfigurationFile) {
         (* fileArgv)[rowCounter] = (char *) calloc((unsigned int) singleLineConfigurationFile.size(), sizeof(char));
         if (!(* fileArgv)[rowCounter]) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
