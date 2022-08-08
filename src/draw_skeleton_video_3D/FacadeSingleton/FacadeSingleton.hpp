@@ -243,7 +243,7 @@ public:
      * It lets the application focus on the computer vision output of the modules, or the device output data. 
      * The pipeline can manage computer vision modules, which are implemented as a processing block. 
      * The pipeline is the consumer of the processing block interface, while the application consumes the computer vision interface.
-     * @param color_intrin Reference to video stream intrinsics.
+     * @param color_intrin Reference to color video stream intrinsics.
      * @param scale Pointer to scaling factor.
      * @param resX x resoultion <->
      * @param resY y resolution
@@ -277,7 +277,7 @@ public:
     /**
      * @brief Retrieve OpenPose's output, convert it to RealSense coordinate's space, show results and save them.
      * @param user_nFrame frame's number to capture according to user choice.
-     * @see showSkeletonsCV (unsigned int user_nFrame)
+     * @see showSkeletonsCV(unsigned int user_nFrame)
      */
     void showSkeletons          (unsigned int user_nFrame);
     /**

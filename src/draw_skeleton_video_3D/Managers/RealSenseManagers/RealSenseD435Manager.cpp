@@ -21,7 +21,7 @@ void RealSenseD435Manager::startEnvironment (rs2::pipeline & pipelineStream, str
     rs2::depth_sensor sensor = myPipelineProfile.get_device().first<rs2::depth_sensor>();
     * scale = sensor.get_depth_scale();
     
-//     Capture 30 frames to give autoexposure, etc. a chance to settle
+    // Capture 30 frames to give autoexposure, etc. a chance to settle
     if (firstBoot) for (int i = 0; i < 30; i++) pipelineStream.wait_for_frames();
     
     RealSenseManager::set_depth_intrin(myPipelineProfile.get_stream(RS2_STREAM_DEPTH).as<rs2::video_stream_profile>().get_intrinsics());
@@ -41,9 +41,9 @@ void RealSenseD435Manager::getVideoFramesRS (unsigned int user_nFrame, rs2::pipe
     rs2::colorizer colorMap;
     rs2::spatial_filter spatialFilter;
     
+    // Capture frames and apply post-processing
     rs2::frameset streamData = pipelineStream.wait_for_frames(), alignedStreamData = RealSenseManager::get_align().process(streamData);
     depthFrame = alignedStreamData.get_depth_frame();
-    
     spatialFilter.set_option(RS2_OPTION_HOLES_FILL, 1);
     depthFrame = spatialFilter.process(depthFrame);
     

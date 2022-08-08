@@ -47,14 +47,9 @@ void KafkaManager::loadConfigurationGroup(rd_kafka_conf_t * conf, GKeyFile * key
 }
 
 int KafkaManager::getArraySize (const char ** array) {
-    return (sizeof(array) / sizeof(array[0]));
+    return (array == nullptr || * array == nullptr) ? 0 : (sizeof(array) / sizeof(array[0]));
 }
 
-/**
- * @brief Optional per-message delivery callback (triggered by poll() or flush())
- * when a message has been successfully delivered or permanently
- * failed delivery (after retries).
- */
 void KafkaManager::dr_msg_cb (rd_kafka_t * kafka_handle, const rd_kafka_message_t * rkmessage, void * opaque) {
     if (rkmessage->err) g_error("Message delivery failed: %s", rd_kafka_err2str(rkmessage->err));
 }
@@ -93,7 +88,6 @@ KafkaManager::~KafkaManager (void) {
 
 void KafkaManager::sendData (const char * key, Json::Value root) {
     // Produce data
-//    int message_count = 10;
     std::string keyString = root.toStyledString();
     const char * value = keyString.c_str();
     size_t messageSize = (size_t) keyString.size();

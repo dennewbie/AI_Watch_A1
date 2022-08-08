@@ -41,23 +41,27 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
     RealSenseManager * cameraManager = facadeSingletonInstance->getCameraManager();
     ImageManager * imageManager = facadeSingletonInstance->getImageManager();
     
+    // Do this until we don't capture, convert, scale, compute and save user_nFrame frame
     for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
+        // Capture
         unsigned int frameID = cameraManager->getFrameID();
         rs2::depth_frame depthFrame = rs2::depth_frame(rs2::frame());
         rs2::frame colorFrame, colorizedDepthFrame;
         cameraManager->getVideoFramesRS(user_nFrame, pipelineStream, depthFrame, colorFrame, colorizedDepthFrame);
         int cols = depthFrame.get_width(), rows = depthFrame.get_height();
-
+        // Convert
         cv::Mat colorImage = realsenseFrameToMat(colorFrame), distanceImage = cv::Mat::zeros(rows, cols, CV_32FC1);
         cv::Mat depthImage = realsenseFrameToMat(depthFrame), colorizedDepthImage = realsenseFrameToMat(colorizedDepthFrame);
+        // Scale
         depthImage *= 1000.0 * scale;
-
+        // Compute distance
         for (int i = 0; i < cols; i++) for (int j = 0; j < rows; j++) distanceImage.at <float> (j, i) = (float) depthFrame.get_distance(i, j);
 
         std::stringstream colorImagePath, distanceImagePath, colorizedDepthImagePath;
         colorImagePath <<           imagesFolder << "rgb/" <<   frameID << "_Color.png";
         distanceImagePath <<        imagesFolder << "d/" <<     frameID << "_Distance.exr";
         colorizedDepthImagePath <<  imagesFolder << "depth/" << frameID << "_Depth.png";
+        // Save
         imageManager->saveImages( { colorImage, distanceImage, colorizedDepthImage },
                                  { colorImagePath.str(), distanceImagePath.str(), colorizedDepthImagePath.str() } );
         imageManager->releaseImages( { colorImage, depthImage, distanceImage, colorizedDepthImage } );
@@ -76,17 +80,20 @@ void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame) {
     unsigned int frameID = cameraManager->getFrameID(), currentImageID;
     Json::Value currentJSON;
     
+    // Do this until we don't iterate on user_nFrame frame
     for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         std::stringstream inputJsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath, outputJsonFilePath;
         currentImageID = frameID - user_nFrame + nFrame;
         inputJsonFilePath << outputFolder << "op/" << nFrame << "_keypoints.json";
         
+        // Try to load OpenPose's output JSON file
         if (outputManagerJSON->loadJSON(inputJsonFilePath.str(), currentJSON)) {
             Json::Value people = outputManagerJSON->getValueAt("people", currentJSON);
             colorImagePath << imagesFolder << "rgb/" << currentImageID << "_Color.png";
             distanceImagePath << imagesFolder << "d/" << currentImageID << "_Distance.exr";
             colorizedDepthImagePath << imagesFolder << "depth/" << currentImageID << "_Depth.png";
             
+            // Load images captured previously from camera
             cv::Mat colorImage, colorizedDepthImage;
             imageManager->loadImage(colorImagePath.str(), cv::IMREAD_COLOR, colorImage);
             cv::Mat distanceImage = cv::Mat(colorImage.rows, colorImage.cols, CV_32FC1);
@@ -95,8 +102,10 @@ void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame) {
             imageManager->showImages( { colorImage, colorizedDepthImage }, { "Frame No Skeleton", "Frame Colorized Depth" } );
             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
             
+            // Produce a JSON output file for each person present in this frame
             outputManagerJSON->createJSON(people, colorImage, distanceImage, skeletonOnlyImage, currentImageID, outputFolder);
             
+            // Show images and save them
             imageManager->showImages( { skeletonOnlyImage, colorImage }, { "Frame Skeleton Background Cut", "Frame Skeleton" } );
             skeletonOnlyImagePath << imagesFolder << "sk/" << currentImageID << "_sk.png";
             skeletonImagePath << imagesFolder << "skeleton/" << currentImageID << "_Skeleton.png";
