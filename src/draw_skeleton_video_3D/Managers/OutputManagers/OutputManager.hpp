@@ -46,10 +46,11 @@ protected:
     /**
      * @brief This method has to be overridden from OutputManager's subclasses to fill the "stringOutputData" 
      * string with a certain value which will be saved later.
-     * @param skeletonPoints3D 
-     * @param bodyKeyPointsMap 
-     * @param frameID 
-     * @param personID 
+     * @param skeletonPoints3D A vector that contains pointers to Points3D whose coordinates represent the skeleton's junctions in certain space coordinates.
+     * @param bodyKeyPointsMap A vector that contains for each body joint retrieved from OpenPose a corresponding boolean that means if that body joint 
+     * is a valuable and effective body joint or not.
+     * @param frameID current frame ID
+     * @param personID current person ID within the current frame
      * @return Json::Value 
      */
     virtual Json::Value makeOutputString        (std::vector <Point3D *> skeletonPoints3D, std::vector <bool> bodyKeyPointsMap,
@@ -61,14 +62,20 @@ public:
     virtual ~OutputManager() = default;
 };
 
+
+
+/**
+ * @brief OutputManagerJSON class is a class that abstracts final JSON output-producing operations.
+ */
 class OutputManagerJSON : public OutputManager {    
 protected:
     /**
      * @brief This method is specific for saving the output in JSON format.
-     * @param skeletonPoints3D 
-     * @param bodyKeyPointsMap 
-     * @param frameID 
-     * @param personID 
+     * @param skeletonPoints3D A vector that contains pointers to Points3D whose coordinates represent the skeleton's junctions in certain space coordinates.
+     * @param bodyKeyPointsMap A vector that contains for each body joint retrieved from OpenPose a corresponding boolean that means if that body joint 
+     * is a valuable and effective body joint or not.
+     * @param frameID current frame ID
+     * @param personID current person ID within the current frame
      * @return Json::Value 
      */
     Json::Value makeOutputString                 (std::vector <Point3D *> skeletonPoints3D, std::vector <bool> bodyKeyPointsMap,

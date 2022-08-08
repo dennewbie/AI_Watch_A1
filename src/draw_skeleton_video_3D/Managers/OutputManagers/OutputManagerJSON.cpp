@@ -13,9 +13,11 @@ Json::Value OutputManagerJSON::makeOutputString (std::vector <Point3D *> skeleto
     Json::Value root, arraySkeletonPoints3D(Json::arrayValue);
     Json::StyledStreamWriter writer;
     
+    // For each OpenPose's skeleton body joint point
     for (unsigned char i = 0; i < skeletonPoints3D.size(); i++) {
         if (i >= 24) continue;
         Json::Value singlePoint3D_JSON;
+        // Build JSON node for i-th body joint point
         singlePoint3D_JSON["pointID"] = Json::Value((unsigned int) i);
         singlePoint3D_JSON["confidence"] = Json::Value(((BodyKeyPoint *) skeletonPoints3D.at(i)->getDecorated())->getConfidence());
         singlePoint3D_JSON["x"] = Json::Value((double) skeletonPoints3D.at(i)->getZ());
@@ -65,10 +67,12 @@ void OutputManagerJSON::createJSON (Json::Value & people, cv::Mat & colorImage, 
     std::stringstream outputJsonFilePath;
     root["ID_Frame"] = nFrame;
 
+    // For each OpenPose's detected skeleton 
     for (Json::Value::ArrayIndex i = 0; i < people.size(); i++) {
         Json::Value singlePerson = getValueAt("pose_keypoints_2d", i, people);
         Skeleton singlePersonSkeleton = Skeleton(colorImage, distanceImage, skeletonOnlyImage, singlePerson);
         singlePersonSkeleton.generateSkeleton();
+        // Discard Skeleton with low consistency value
         if (singlePersonSkeleton.getConsistency() > skeletonThreshold) {
             peopleArray.append(makeOutputString(* singlePersonSkeleton.getSkeletonPoints3D(), singlePersonSkeleton.getBodyKeyPointsMap(), nFrame, (unsigned int) i));
         }
