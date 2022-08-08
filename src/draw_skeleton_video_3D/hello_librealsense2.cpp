@@ -47,6 +47,7 @@ int main (int argc, char ** argv) {
         myUtility->getVideoBodyKeyPoints(& argc, & argv);
         myUtility->showSkeletons(user_nFrame);
         myUtility->sendData(user_nFrame);
+        myUtility->cleanBuildFolder();
 //        break;
     }
     return EXIT_SUCCESS;

@@ -281,13 +281,17 @@ public:
      */
     void showSkeletons          (unsigned int user_nFrame);
     /**
-     * @brief Send saved results by getVideoBodyKeyPoints(...) via Kafka using the KafkaManager. After that clean
-     * the build folder, in order to prepare the environment for the next loop iteration.
+     * @brief Send saved results by getVideoBodyKeyPoints(...) via Kafka using the KafkaManager.
      * @param user_nFrame frame's number to capture according to user choice.
      * @see https://kafka.apache.org/documentation/
      * @see sendData(const char * key, Json::Value root)
      */
     void sendData               (unsigned int user_nFrame);
+    /**
+     * @brief This method cleans the build folder, in order to prepare the environment for the next loop iteration. It does this by deleting all images and JSON files
+     * produced during the current loop iteration.
+     */
+    void cleanBuildFolder       (void);
 };
 
 #endif /* FacadeSingleton_hpp */

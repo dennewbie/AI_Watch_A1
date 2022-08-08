@@ -32,6 +32,9 @@ const char * UsageManager::get_expectedUsageMessage (void) {
 
 
 UsageManager::~UsageManager() {
+    for (unsigned int i = 0; i < * get_argc(); i++) delete [] (* get_argv())[i];
+    delete get_argc();
+    delete get_argv();
     delete sharedInstance;
 }
 

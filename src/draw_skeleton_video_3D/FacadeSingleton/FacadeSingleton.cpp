@@ -17,16 +17,32 @@ std::mutex FacadeSingleton::singletonMutex;
 FacadeSingleton::FacadeSingleton (const int expected_argc, const char * expectedUsageMessage) {
     std::ifstream inputFile(CONF_FILE_PATH);
     std::string singleLineConfigurationFile;
-    int * fileArgc = (int *) calloc(1, sizeof(int));
+
+//    int * fileArgc = (int *) calloc(1, sizeof(int));
+//    * fileArgc = (int) totalFileParameters;
+//    char *** fileArgv = (char ***) calloc(1, sizeof(char **));
+//    * fileArgv = (char **) calloc(totalFileParameters, sizeof(char **));
+//    unsigned char rowCounter = 0;
+//    if (!fileArgc || !fileArgv || ! * fileArgv) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
+//    // read usage's configuration parameters from file
+//    while (inputFile >> singleLineConfigurationFile) {
+//        (* fileArgv)[rowCounter] = (char *) calloc((unsigned int) singleLineConfigurationFile.size(), sizeof(char));
+//        if (!(* fileArgv)[rowCounter]) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
+//        strcpy((* fileArgv)[rowCounter], singleLineConfigurationFile.c_str());
+//        rowCounter++;
+//    }
+    
+    int * fileArgc = new (std::nothrow) int;
     * fileArgc = (int) totalFileParameters;
-    char *** fileArgv = (char ***) calloc(1, sizeof(char **));
-    * fileArgv = (char **) calloc(totalFileParameters, sizeof(char **));
+    char *** fileArgv = new (std::nothrow) char **;
+    * fileArgv = new (std::nothrow) char *[totalFileParameters];
     unsigned char rowCounter = 0;
-    if (!fileArgc || !fileArgv || ! * fileArgv) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
+    
+    if (!fileArgc || !fileArgv || ! * fileArgv) CV_Error(NEW_ALLOC_ERROR, NEW_ALLOC_SCOPE);
     // read usage's configuration parameters from file
     while (inputFile >> singleLineConfigurationFile) {
-        (* fileArgv)[rowCounter] = (char *) calloc((unsigned int) singleLineConfigurationFile.size(), sizeof(char));
-        if (!(* fileArgv)[rowCounter]) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
+        (* fileArgv)[rowCounter] = new (std::nothrow) char [(unsigned int) singleLineConfigurationFile.size()];
+        if (!(* fileArgv)[rowCounter]) CV_Error(NEW_ALLOC_ERROR, NEW_ALLOC_SCOPE);
         strcpy((* fileArgv)[rowCounter], singleLineConfigurationFile.c_str());
         rowCounter++;
     }
@@ -123,10 +139,7 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     FacadeSingleton::setImageManager(new ImageManager());
 //    FacadeSingleton::setKafkaManager(new KafkaManager(destinationKafkaTopic));
     FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY, FIRST_BOOT);
-    
-    SystemCommand * cleanCommand = new CleanCommand();
-    cleanCommand->executeCommand(getUsageManager()->get_argc(), getUsageManager()->get_argv());
-    delete cleanCommand;
+    cleanBuildFolder();
 }
 
 void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) {
@@ -158,7 +171,9 @@ void FacadeSingleton::sendData (unsigned int user_nFrame) {
 //            FacadeSingleton::getKafkaManager()->sendData(key.c_str(), currentJSON);
 //        }
 //    }
+}
 
+void FacadeSingleton::cleanBuildFolder (void) {
     SystemCommand * cleanCommand = new CleanCommand();
     cleanCommand->executeCommand(getUsageManager()->get_argc(), getUsageManager()->get_argv());
     delete cleanCommand;
