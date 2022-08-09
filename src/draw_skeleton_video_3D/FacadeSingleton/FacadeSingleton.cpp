@@ -17,21 +17,7 @@ std::mutex FacadeSingleton::singletonMutex;
 FacadeSingleton::FacadeSingleton (const int expected_argc, const char * expectedUsageMessage) {
     std::ifstream inputFile(CONF_FILE_PATH);
     std::string singleLineConfigurationFile;
-
-//    int * fileArgc = (int *) calloc(1, sizeof(int));
-//    * fileArgc = (int) totalFileParameters;
-//    char *** fileArgv = (char ***) calloc(1, sizeof(char **));
-//    * fileArgv = (char **) calloc(totalFileParameters, sizeof(char **));
-//    unsigned char rowCounter = 0;
-//    if (!fileArgc || !fileArgv || ! * fileArgv) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
-//    // read usage's configuration parameters from file
-//    while (inputFile >> singleLineConfigurationFile) {
-//        (* fileArgv)[rowCounter] = (char *) calloc((unsigned int) singleLineConfigurationFile.size(), sizeof(char));
-//        if (!(* fileArgv)[rowCounter]) CV_Error(CALLOC_ERROR, CALLOC_SCOPE);
-//        strcpy((* fileArgv)[rowCounter], singleLineConfigurationFile.c_str());
-//        rowCounter++;
-//    }
-
+    
     int * fileArgc = new (std::nothrow) int;
     * fileArgc = (int) totalFileParameters;
     char *** fileArgv = new (std::nothrow) char **;
