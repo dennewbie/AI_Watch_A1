@@ -1,6 +1,6 @@
 <div align="center">
     <h1> AI Watch A1 </h1>
-    <img src="blob/main/design/eye_small_white%402x.png" width="400">
+    <img src="https://github.com/dennewbie/AI_Watch_A1/blob/main/design/eye_small_white%402x.png" width="400">
 </div>
 
 
