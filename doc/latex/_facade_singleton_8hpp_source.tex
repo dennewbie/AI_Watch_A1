@@ -1,0 +1,96 @@
+\hypertarget{_facade_singleton_8hpp_source}{}\doxysection{Facade\+Singleton.\+hpp}
+\label{_facade_singleton_8hpp_source}\index{FacadeSingleton/FacadeSingleton.hpp@{FacadeSingleton/FacadeSingleton.hpp}}
+\mbox{\hyperlink{_facade_singleton_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00002}00002 \textcolor{comment}{//  FacadeSingleton.hpp}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00003}00003 \textcolor{comment}{//  librealsensetest}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00004}00004 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 20/07/22.}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00008}00008 \textcolor{preprocessor}{\#ifndef FacadeSingleton\_hpp}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00009}00009 \textcolor{preprocessor}{\#define FacadeSingleton\_hpp}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00011}00011 \textcolor{preprocessor}{\#include "{}../Command/SystemCommand.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00012}00012 \textcolor{preprocessor}{\#include "{}../Managers/RealSenseManagers/RealSenseManager.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00013}00013 \textcolor{preprocessor}{\#include "{}../Managers/OutputManagers/OutputManager.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00014}00014 \textcolor{preprocessor}{\#include "{}../Managers/OpenCV\_Manager.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00015}00015 \textcolor{preprocessor}{\#include "{}../Managers/UsageManager.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00016}00016 \textcolor{preprocessor}{\#include "{}../Managers/CoordinateManagers/CoordinateMappingManager.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00017}00017 \textcolor{preprocessor}{\#include "{}../Managers/ImageManager.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00018}00018 \textcolor{preprocessor}{\#include "{}../Managers/KafkaManager.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00019}00019 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00023}00023 \textcolor{keyword}{class }\mbox{\hyperlink{class_real_sense_manager}{RealSenseManager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00024}00024 \textcolor{keyword}{class }\mbox{\hyperlink{class_output_manager}{OutputManager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00025}00025 \textcolor{keyword}{class }\mbox{\hyperlink{class_open_c_v___manager}{OpenCV\_Manager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00026}00026 \textcolor{keyword}{class }\mbox{\hyperlink{class_usage_manager}{UsageManager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00027}00027 \textcolor{keyword}{class }\mbox{\hyperlink{class_coordinate_mapping_manager}{CoordinateMappingManager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00028}00028 \textcolor{keyword}{class }\mbox{\hyperlink{class_image_manager}{ImageManager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00029}00029 \textcolor{keyword}{class }\mbox{\hyperlink{class_kafka_manager}{KafkaManager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00041}\mbox{\hyperlink{class_facade_singleton}{00041}} \textcolor{keyword}{class }\mbox{\hyperlink{class_facade_singleton}{FacadeSingleton}} \{}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00042}00042 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00046}\mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{00046}}     \textcolor{keyword}{static} \mbox{\hyperlink{class_facade_singleton}{FacadeSingleton}} *    \mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00050}\mbox{\hyperlink{class_facade_singleton_a601a03cd89c64afb6dbf2ccfc36f43fb}{00050}}     \textcolor{keyword}{static} std::mutex           \mbox{\hyperlink{class_facade_singleton_a601a03cd89c64afb6dbf2ccfc36f43fb}{singletonMutex}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00051}00051     }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00059}\mbox{\hyperlink{class_facade_singleton_a00aca9d472d299f60347f122ec80de2f}{00059}}     \mbox{\hyperlink{class_real_sense_manager}{RealSenseManager}} *          \mbox{\hyperlink{class_facade_singleton_a00aca9d472d299f60347f122ec80de2f}{cameraManager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00065}\mbox{\hyperlink{class_facade_singleton_a62876d41a8d6295460665ab7fe8257d4}{00065}}     \mbox{\hyperlink{class_output_manager}{OutputManager}} *             \mbox{\hyperlink{class_facade_singleton_a62876d41a8d6295460665ab7fe8257d4}{outputManager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00071}\mbox{\hyperlink{class_facade_singleton_a8d07ab4572a74e9ba332ff19c9f45671}{00071}}     \mbox{\hyperlink{class_open_c_v___manager}{OpenCV\_Manager}} *            \mbox{\hyperlink{class_facade_singleton_a8d07ab4572a74e9ba332ff19c9f45671}{openCV\_Manager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00078}\mbox{\hyperlink{class_facade_singleton_a6eb06ed04c4fd57714f6efe44aa755d7}{00078}}     \mbox{\hyperlink{class_usage_manager}{UsageManager}} *              \mbox{\hyperlink{class_facade_singleton_a6eb06ed04c4fd57714f6efe44aa755d7}{usageManager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00087}\mbox{\hyperlink{class_facade_singleton_a21b9379face73a60c0328c2132f77940}{00087}}     \mbox{\hyperlink{class_coordinate_mapping_manager}{CoordinateMappingManager}} *  \mbox{\hyperlink{class_facade_singleton_a21b9379face73a60c0328c2132f77940}{coordinateMappingManager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00094}\mbox{\hyperlink{class_facade_singleton_a5e9eba3756b14c6af6889c83e045e67e}{00094}}     \mbox{\hyperlink{class_image_manager}{ImageManager}} *              \mbox{\hyperlink{class_facade_singleton_a5e9eba3756b14c6af6889c83e045e67e}{imageManager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00100}\mbox{\hyperlink{class_facade_singleton_a518cef95e5cbc04e1810826eff2a060f}{00100}}     \mbox{\hyperlink{class_kafka_manager}{KafkaManager}} *              \mbox{\hyperlink{class_facade_singleton_a518cef95e5cbc04e1810826eff2a060f}{kafkaManager}};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00101}00101     }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00110}00110     \mbox{\hyperlink{class_facade_singleton_ac4ee3b0a6efcb32cce88d819718ddf3f}{FacadeSingleton}} (\textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}} = 0, \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}} = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00114}00114     \mbox{\hyperlink{class_facade_singleton_a8788be36172d2129f58361f7774e5072}{\string~FacadeSingleton}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00115}00115 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00121}00121     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_a9583d8ca7077bd0e89bf4ab83f0b7535}{setCameraManager}}               (\mbox{\hyperlink{class_real_sense_manager}{RealSenseManager}} * \mbox{\hyperlink{class_facade_singleton_a00aca9d472d299f60347f122ec80de2f}{cameraManager}});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00127}00127     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_a07ddf5d33365e939fe1af6a82dfcbee1}{setOutputManager}}               (\mbox{\hyperlink{class_output_manager}{OutputManager}} * \mbox{\hyperlink{class_facade_singleton_a62876d41a8d6295460665ab7fe8257d4}{outputManager}});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00133}00133     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_a67c6b17081009693ab23f13720e13420}{setOpenCV\_Manager}}              (\mbox{\hyperlink{class_open_c_v___manager}{OpenCV\_Manager}} * \mbox{\hyperlink{class_facade_singleton_a8d07ab4572a74e9ba332ff19c9f45671}{openCV\_Manager}});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00139}00139     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_a0f1dc94d476d37d4d8b50ea1cfadee79}{setUsageManager}}                (\mbox{\hyperlink{class_usage_manager}{UsageManager}} * \mbox{\hyperlink{class_facade_singleton_a6eb06ed04c4fd57714f6efe44aa755d7}{usageManager}});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00145}00145     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_a60e394e259984fce5c7388f4050fe1f8}{setCoordinateMappingManager}}    (\mbox{\hyperlink{class_coordinate_mapping_manager}{CoordinateMappingManager}} * \mbox{\hyperlink{class_facade_singleton_a21b9379face73a60c0328c2132f77940}{coordinateMappingManager}});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00151}00151     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_a30385b27b8d5bbeb95879bdfe94e20d5}{setImageManager}}                (\mbox{\hyperlink{class_image_manager}{ImageManager}} * \mbox{\hyperlink{class_facade_singleton_a5e9eba3756b14c6af6889c83e045e67e}{imageManager}});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00157}00157     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_a6eae17430632954f6627dcd55fe6e8e1}{setKafkaManager}}                (\mbox{\hyperlink{class_kafka_manager}{KafkaManager}} * \mbox{\hyperlink{class_facade_singleton_a518cef95e5cbc04e1810826eff2a060f}{kafkaManager}});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00158}00158 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00164}\mbox{\hyperlink{class_facade_singleton_a416ba6b37ce7d66d72ac502837a35268}{00164}}     \mbox{\hyperlink{class_facade_singleton_a416ba6b37ce7d66d72ac502837a35268}{FacadeSingleton}} (\mbox{\hyperlink{class_facade_singleton}{FacadeSingleton}} \& other) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00169}\mbox{\hyperlink{class_facade_singleton_ae5e73ada437689240904db89f67e587d}{00169}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_ae5e73ada437689240904db89f67e587d}{operator=  }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_facade_singleton}{FacadeSingleton}} \&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00170}00170     }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00172}00172 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00181}00181     \textcolor{keyword}{static} \mbox{\hyperlink{class_facade_singleton}{FacadeSingleton}} * \mbox{\hyperlink{class_facade_singleton_aeac68956d001824b9ecb75d385687535}{getInstance}} (\textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00187}00187     \textcolor{keyword}{static} \mbox{\hyperlink{class_facade_singleton}{FacadeSingleton}} * \mbox{\hyperlink{class_facade_singleton_aeac68956d001824b9ecb75d385687535}{getInstance}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00188}00188 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00189}00189 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00190}00190 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00196}00196     \mbox{\hyperlink{class_real_sense_manager}{RealSenseManager}} * \mbox{\hyperlink{class_facade_singleton_aa365ece7ecb2ba2d4a6d160e3698275a}{getCameraManager}}                     (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00202}00202     \mbox{\hyperlink{class_output_manager}{OutputManager}} * \mbox{\hyperlink{class_facade_singleton_a91e11305b99378bd6c7e8d6bfb5b1ca4}{getOutputManager}}                        (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00208}00208     \mbox{\hyperlink{class_open_c_v___manager}{OpenCV\_Manager}} * \mbox{\hyperlink{class_facade_singleton_a389756e6e8ebf946576a06ea0fe9d927}{getOpenCV\_Manager}}                      (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00214}00214     \mbox{\hyperlink{class_usage_manager}{UsageManager}} * \mbox{\hyperlink{class_facade_singleton_a96d0bcfe088620c1dca604a92a3bbe44}{getUsageManager}}                          (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00221}00221     \mbox{\hyperlink{class_coordinate_mapping_manager}{CoordinateMappingManager}} * \mbox{\hyperlink{class_facade_singleton_a06a51b5942524c62681b032f8aa163f3}{getCoordinateMappingManager}}  (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00227}00227     \mbox{\hyperlink{class_image_manager}{ImageManager}} * \mbox{\hyperlink{class_facade_singleton_a3bcded05b467db6b295d7958d31434d9}{getImageManager}}                          (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00233}00233     \mbox{\hyperlink{class_kafka_manager}{KafkaManager}} * \mbox{\hyperlink{class_facade_singleton_aeee0c1d582402e6b7663297ff1f0a634}{getKafkaManager}}                          (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00234}00234 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00235}00235 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00236}00236     }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00254}00254     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_ac376a8315efd79a450eaba26608cefa0}{startEnvironment}}       (rs2::pipeline \& pipelineStream, \textcolor{keyword}{struct} rs2\_intrinsics \& color\_intrin, \textcolor{keywordtype}{float} * scale,}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00255}00255                                  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} resX, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} resY, \textcolor{keyword}{const} \textcolor{keywordtype}{char} * destinationKafkaTopic);}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00269}00269     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_a1392ddba1262d54d00c0a5d84a21e874}{getVideoFrames}}         (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} user\_nFrame, rs2::pipeline \& pipelineStream, \textcolor{keywordtype}{float} scale);}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00276}00276     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_a7aaaa5771df6a9e3b8367f611b9c126d}{getVideoBodyKeyPoints}}  (\textcolor{keywordtype}{int} * argc, \textcolor{keywordtype}{char} *** argv);}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00282}00282     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_a34d70508a6bddd6f9f04b21fcd43adc8}{showSkeletons}}          (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} user\_nFrame);}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00289}00289     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_ad27a9b955b74b4e549fc84650580bc15}{sendData}}               (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} user\_nFrame);}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00294}00294     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_facade_singleton_abc5f2b337bf77ee67ea25f62220c261f}{cleanBuildFolder}}       (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00295}00295 \};}
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00296}00296 }
+\DoxyCodeLine{\Hypertarget{_facade_singleton_8hpp_source_l00297}00297 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* FacadeSingleton\_hpp */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,160 @@
+\hypertarget{class_output_manager}{}\doxysection{Output\+Manager Class Reference}
+\label{class_output_manager}\index{OutputManager@{OutputManager}}
+
+
+\mbox{\hyperlink{class_output_manager}{Output\+Manager}} class is a class that abstracts final output-\/producing operations. An output format inherits from this class, such as \mbox{\hyperlink{class_output_manager_j_s_o_n}{Output\+Manager\+JSON}}.  
+
+
+
+
+{\ttfamily \#include $<$Output\+Manager.\+hpp$>$}
+
+Inheritance diagram for Output\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_output_manager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_output_manager_a27d8e1eed98c01b2114a4b7085503d8c}{$\sim$\+Output\+Manager}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the Output Manager object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_output_manager_a2335cc8b2252dbed78b728452deced26}{set\+String\+Output\+Data}} (std\+::string \mbox{\hyperlink{class_output_manager_adfaaff6bee6024d79c80174a9240cbf3}{string\+Output\+Data}})
+\begin{DoxyCompactList}\small\item\em Set the output file\textquotesingle{}s content. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_output_manager_a66991ea844cee883d6538a8a3aedb731}{get\+String\+Output\+Data}} (void)
+\begin{DoxyCompactList}\small\item\em Get the output file\textquotesingle{}s content. \end{DoxyCompactList}\item 
+virtual Json\+::\+Value \mbox{\hyperlink{class_output_manager_a8629330834046ce2080d54adccfafe87}{make\+Output\+String}} (std\+::vector$<$ \mbox{\hyperlink{class_point3_d}{Point3D}} $\ast$ $>$ skeleton\+Points3D, std\+::vector$<$ bool $>$ body\+Key\+Points\+Map, unsigned int frame\+ID, unsigned int person\+ID)=0
+\begin{DoxyCompactList}\small\item\em This method has to be overridden from \mbox{\hyperlink{class_output_manager}{Output\+Manager}}\textquotesingle{}s subclasses to fill the \char`\"{}string\+Output\+Data\char`\"{} string with a certain value which will be saved later. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_output_manager_adfaaff6bee6024d79c80174a9240cbf3}{string\+Output\+Data}}
+\begin{DoxyCompactList}\small\item\em Output file\textquotesingle{}s content. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_output_manager}{Output\+Manager}} class is a class that abstracts final output-\/producing operations. An output format inherits from this class, such as \mbox{\hyperlink{class_output_manager_j_s_o_n}{Output\+Manager\+JSON}}. 
+
+Definition at line \mbox{\hyperlink{_output_manager_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{_output_manager_8hpp_source}{Output\+Manager.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_output_manager_a27d8e1eed98c01b2114a4b7085503d8c}\label{class_output_manager_a27d8e1eed98c01b2114a4b7085503d8c}} 
+\index{OutputManager@{OutputManager}!````~OutputManager@{$\sim$OutputManager}}
+\index{````~OutputManager@{$\sim$OutputManager}!OutputManager@{OutputManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$OutputManager()}{~OutputManager()}}
+{\footnotesize\ttfamily virtual Output\+Manager\+::$\sim$\+Output\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destroy the Output Manager object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_output_manager_a66991ea844cee883d6538a8a3aedb731}\label{class_output_manager_a66991ea844cee883d6538a8a3aedb731}} 
+\index{OutputManager@{OutputManager}!getStringOutputData@{getStringOutputData}}
+\index{getStringOutputData@{getStringOutputData}!OutputManager@{OutputManager}}
+\doxysubsubsection{\texorpdfstring{getStringOutputData()}{getStringOutputData()}}
+{\footnotesize\ttfamily std\+::string Output\+Manager\+::get\+String\+Output\+Data (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Get the output file\textquotesingle{}s content. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_output_manager_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_output_manager_8cpp_source}{Output\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016                                                   \{}
+\DoxyCodeLine{00017     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_output_manager_adfaaff6bee6024d79c80174a9240cbf3}{stringOutputData}};}
+\DoxyCodeLine{00018 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_output_manager_a8629330834046ce2080d54adccfafe87}\label{class_output_manager_a8629330834046ce2080d54adccfafe87}} 
+\index{OutputManager@{OutputManager}!makeOutputString@{makeOutputString}}
+\index{makeOutputString@{makeOutputString}!OutputManager@{OutputManager}}
+\doxysubsubsection{\texorpdfstring{makeOutputString()}{makeOutputString()}}
+{\footnotesize\ttfamily virtual Json\+::\+Value Output\+Manager\+::make\+Output\+String (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_point3_d}{Point3D}} $\ast$ $>$}]{skeleton\+Points3D,  }\item[{std\+::vector$<$ bool $>$}]{body\+Key\+Points\+Map,  }\item[{unsigned int}]{frame\+ID,  }\item[{unsigned int}]{person\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+This method has to be overridden from \mbox{\hyperlink{class_output_manager}{Output\+Manager}}\textquotesingle{}s subclasses to fill the \char`\"{}string\+Output\+Data\char`\"{} string with a certain value which will be saved later. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em skeleton\+Points3D} & A vector that contains pointers to Points3D whose coordinates represent the skeleton\textquotesingle{}s junctions in certain space coordinates. \\
+\hline
+{\em body\+Key\+Points\+Map} & A vector that contains for each body joint retrieved from Open\+Pose a corresponding boolean that means if that body joint is a valuable and effective body joint or not. \\
+\hline
+{\em frame\+ID} & current frame ID \\
+\hline
+{\em person\+ID} & current person ID within the current frame \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Json\+::\+Value 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_output_manager_j_s_o_n_a63603930f5b39d9b1f10e5b667e60ab8}{Output\+Manager\+JSON}}.
+
+\mbox{\Hypertarget{class_output_manager_a2335cc8b2252dbed78b728452deced26}\label{class_output_manager_a2335cc8b2252dbed78b728452deced26}} 
+\index{OutputManager@{OutputManager}!setStringOutputData@{setStringOutputData}}
+\index{setStringOutputData@{setStringOutputData}!OutputManager@{OutputManager}}
+\doxysubsubsection{\texorpdfstring{setStringOutputData()}{setStringOutputData()}}
+{\footnotesize\ttfamily void Output\+Manager\+::set\+String\+Output\+Data (\begin{DoxyParamCaption}\item[{std\+::string}]{string\+Output\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Set the output file\textquotesingle{}s content. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+Output\+Data} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_output_manager_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_output_manager_8cpp_source}{Output\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012                                                                    \{}
+\DoxyCodeLine{00013     this-\/>\mbox{\hyperlink{class_output_manager_adfaaff6bee6024d79c80174a9240cbf3}{stringOutputData}} = \mbox{\hyperlink{class_output_manager_adfaaff6bee6024d79c80174a9240cbf3}{stringOutputData}};}
+\DoxyCodeLine{00014 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_output_manager_adfaaff6bee6024d79c80174a9240cbf3}\label{class_output_manager_adfaaff6bee6024d79c80174a9240cbf3}} 
+\index{OutputManager@{OutputManager}!stringOutputData@{stringOutputData}}
+\index{stringOutputData@{stringOutputData}!OutputManager@{OutputManager}}
+\doxysubsubsection{\texorpdfstring{stringOutputData}{stringOutputData}}
+{\footnotesize\ttfamily std\+::string Output\+Manager\+::string\+Output\+Data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Output file\textquotesingle{}s content. 
+
+
+
+Definition at line \mbox{\hyperlink{_output_manager_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{_output_manager_8hpp_source}{Output\+Manager.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Managers/\+Output\+Managers/\mbox{\hyperlink{_output_manager_8hpp}{Output\+Manager.\+hpp}}\item 
+Managers/\+Output\+Managers/\mbox{\hyperlink{_output_manager_8cpp}{Output\+Manager.\+cpp}}\end{DoxyCompactItemize}

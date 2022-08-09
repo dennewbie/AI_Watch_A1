@@ -1,0 +1,186 @@
+\hypertarget{class_system_command}{}\doxysection{System\+Command Class Reference}
+\label{class_system_command}\index{SystemCommand@{SystemCommand}}
+
+
+\mbox{\hyperlink{class_system_command}{System\+Command}} class is a class that represents a command given by the program to the system.  
+
+
+
+
+{\ttfamily \#include $<$System\+Command.\+hpp$>$}
+
+Inheritance diagram for System\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_system_command}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_system_command_aa6d16650c42a0545ec3589bbeadb36f4}{$\sim$\+System\+Command}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_system_command}{System\+Command}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_system_command_aa402638083047a972e143064f1d5e8cb}{execute\+Command}} (int $\ast$argc, char $\ast$$\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em This method is responsible for executing commands on the system based on the filled command string. If the string is empty, then no command is executed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_system_command_a447d02e641bb26dbdf9332fa9e55485d}{set\+Command}} (int $\ast$argc, char $\ast$$\ast$$\ast$argv)=0
+\begin{DoxyCompactList}\small\item\em Set the string command. The method is inherited from the subclasses and overridden in order to express a specific behavior. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_system_command_ae066c4c5cf8b00c16e9ddf54dd936c47}{set\+Command}} (std\+::string \mbox{\hyperlink{class_system_command_abdc4fb0d069e0815759941dc72b5736d}{command}})
+\begin{DoxyCompactList}\small\item\em Set the string command with a particularly given string passed as a parameter. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_system_command_a4265db3249d1f004fe534b13d954e709}{get\+Command}} (void)
+\begin{DoxyCompactList}\small\item\em Get the string command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_system_command_abdc4fb0d069e0815759941dc72b5736d}{command}}
+\begin{DoxyCompactList}\small\item\em The final command given to the system by the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_system_command}{System\+Command}} class is a class that represents a command given by the program to the system. 
+
+\mbox{\hyperlink{class_system_command}{System\+Command}} class is a class that represents a command given by the program to the system. Examples of commands are the following\+: start and run Open\+Pose, move files, and clean the build folder by deleting old files. \mbox{\hyperlink{class_system_command}{System\+Command}} implements a variant of the Command design pattern. Each concrete command is realized by a specific subclass that implements the parent abstract method. 
+
+Definition at line \mbox{\hyperlink{_system_command_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{_system_command_8hpp_source}{System\+Command.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_system_command_aa6d16650c42a0545ec3589bbeadb36f4}\label{class_system_command_aa6d16650c42a0545ec3589bbeadb36f4}} 
+\index{SystemCommand@{SystemCommand}!````~SystemCommand@{$\sim$SystemCommand}}
+\index{````~SystemCommand@{$\sim$SystemCommand}!SystemCommand@{SystemCommand}}
+\doxysubsubsection{\texorpdfstring{$\sim$SystemCommand()}{~SystemCommand()}}
+{\footnotesize\ttfamily virtual System\+Command\+::$\sim$\+System\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{class_system_command}{System\+Command}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_system_command_aa402638083047a972e143064f1d5e8cb}\label{class_system_command_aa402638083047a972e143064f1d5e8cb}} 
+\index{SystemCommand@{SystemCommand}!executeCommand@{executeCommand}}
+\index{executeCommand@{executeCommand}!SystemCommand@{SystemCommand}}
+\doxysubsubsection{\texorpdfstring{executeCommand()}{executeCommand()}}
+{\footnotesize\ttfamily void System\+Command\+::execute\+Command (\begin{DoxyParamCaption}\item[{int $\ast$}]{argc,  }\item[{char $\ast$$\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+This method is responsible for executing commands on the system based on the filled command string. If the string is empty, then no command is executed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & pointer to argc from the main function or based on what the program reads from the configuration file. \\
+\hline
+{\em argv} & pointer to argv from the main function or based on what the program reads from the configuration file. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_system_command_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_system_command_8cpp_source}{System\+Command.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020                                                              \{}
+\DoxyCodeLine{00021     \mbox{\hyperlink{class_system_command_a447d02e641bb26dbdf9332fa9e55485d}{setCommand}}(argc, argv);}
+\DoxyCodeLine{00022     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_system_command_a4265db3249d1f004fe534b13d954e709}{getCommand}}().size() > 0 \&\& \mbox{\hyperlink{class_system_command_a4265db3249d1f004fe534b13d954e709}{getCommand}}() != \textcolor{stringliteral}{"{}OP"{}}) std::system(\mbox{\hyperlink{class_system_command_a4265db3249d1f004fe534b13d954e709}{getCommand}}().c\_str());}
+\DoxyCodeLine{00023 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_system_command_a4265db3249d1f004fe534b13d954e709}\label{class_system_command_a4265db3249d1f004fe534b13d954e709}} 
+\index{SystemCommand@{SystemCommand}!getCommand@{getCommand}}
+\index{getCommand@{getCommand}!SystemCommand@{SystemCommand}}
+\doxysubsubsection{\texorpdfstring{getCommand()}{getCommand()}}
+{\footnotesize\ttfamily std\+::string System\+Command\+::get\+Command (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Get the string command. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_system_command_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_system_command_8cpp_source}{System\+Command.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016                                          \{}
+\DoxyCodeLine{00017     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_system_command_abdc4fb0d069e0815759941dc72b5736d}{command}};}
+\DoxyCodeLine{00018 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_system_command_a447d02e641bb26dbdf9332fa9e55485d}\label{class_system_command_a447d02e641bb26dbdf9332fa9e55485d}} 
+\index{SystemCommand@{SystemCommand}!setCommand@{setCommand}}
+\index{setCommand@{setCommand}!SystemCommand@{SystemCommand}}
+\doxysubsubsection{\texorpdfstring{setCommand()}{setCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void System\+Command\+::set\+Command (\begin{DoxyParamCaption}\item[{int $\ast$}]{argc,  }\item[{char $\ast$$\ast$$\ast$}]{argv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Set the string command. The method is inherited from the subclasses and overridden in order to express a specific behavior. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & pointer to argc based on what program reads from configuration file. \\
+\hline
+{\em argv} & pointer to argv based on what program reads from configuration file. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_clean_command_a2703e2431abfb5175121310594462174}{Clean\+Command}}, \mbox{\hyperlink{class_open_pose_command_a239d0350ccef397f907d8adc286cc136}{Open\+Pose\+Command}}, and \mbox{\hyperlink{class_move_command_aaeef9929e51f2bff4b4a8c652c49fc8d}{Move\+Command}}.
+
+\mbox{\Hypertarget{class_system_command_ae066c4c5cf8b00c16e9ddf54dd936c47}\label{class_system_command_ae066c4c5cf8b00c16e9ddf54dd936c47}} 
+\index{SystemCommand@{SystemCommand}!setCommand@{setCommand}}
+\index{setCommand@{setCommand}!SystemCommand@{SystemCommand}}
+\doxysubsubsection{\texorpdfstring{setCommand()}{setCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void System\+Command\+::set\+Command (\begin{DoxyParamCaption}\item[{std\+::string}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Set the string command with a particularly given string passed as a parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_system_command_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_system_command_8cpp_source}{System\+Command.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012                                                  \{}
+\DoxyCodeLine{00013     this-\/>\mbox{\hyperlink{class_system_command_abdc4fb0d069e0815759941dc72b5736d}{command}} = \mbox{\hyperlink{class_system_command_abdc4fb0d069e0815759941dc72b5736d}{command}};}
+\DoxyCodeLine{00014 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_system_command_abdc4fb0d069e0815759941dc72b5736d}\label{class_system_command_abdc4fb0d069e0815759941dc72b5736d}} 
+\index{SystemCommand@{SystemCommand}!command@{command}}
+\index{command@{command}!SystemCommand@{SystemCommand}}
+\doxysubsubsection{\texorpdfstring{command}{command}}
+{\footnotesize\ttfamily std\+::string System\+Command\+::command\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The final command given to the system by the program. 
+
+
+
+Definition at line \mbox{\hyperlink{_system_command_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{_system_command_8hpp_source}{System\+Command.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Command/\mbox{\hyperlink{_system_command_8hpp}{System\+Command.\+hpp}}\item 
+Command/\mbox{\hyperlink{_system_command_8cpp}{System\+Command.\+cpp}}\end{DoxyCompactItemize}

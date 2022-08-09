@@ -1,0 +1,104 @@
+\hypertarget{hello__librealsense2_8cpp}{}\doxysection{hello\+\_\+librealsense2.\+cpp File Reference}
+\label{hello__librealsense2_8cpp}\index{hello\_librealsense2.cpp@{hello\_librealsense2.cpp}}
+{\ttfamily \#include \char`\"{}Facade\+Singleton.\+hpp\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{hello__librealsense2_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Main. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\+\_\+argc}} = 5
+\item 
+const char $\ast$ \mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expected\+Usage\+Message}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{hello__librealsense2_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{hello__librealsense2_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{hello\_librealsense2.cpp@{hello\_librealsense2.cpp}!main@{main}}
+\index{main@{main}!hello\_librealsense2.cpp@{hello\_librealsense2.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Main. 
+
+The main function contains a sample code to launch the program.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Main argument count \\
+\hline
+{\em argv} & Main argument values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The return value for main indicates how the program exited. Normal exit is represented by a 0 return value from main. Abnormal exit is signaled by a non-\/zero return, but there is no standard for how non-\/zero codes are interpreted. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{hello__librealsense2_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{hello__librealsense2_8cpp_source}{hello\+\_\+librealsense2.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070                                   \{}
+\DoxyCodeLine{00071     rs2::pipeline pipelineStream;}
+\DoxyCodeLine{00072     \textcolor{comment}{// Scaling factor for distance frame and topic name for kafka connection.}}
+\DoxyCodeLine{00073     \textcolor{keywordtype}{float} scale;}
+\DoxyCodeLine{00074     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * destinationKafkaTopic = \textcolor{stringliteral}{"{}t1"{}};}
+\DoxyCodeLine{00075     \textcolor{comment}{// Optimal resolution for D435: 848x480.}}
+\DoxyCodeLine{00076     \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} user\_nFrame = 30, resX = 848, resY = 480;}
+\DoxyCodeLine{00077     \textcolor{keyword}{struct }rs2\_intrinsics color\_intrin;}
+\DoxyCodeLine{00078     }
+\DoxyCodeLine{00079     \textcolor{comment}{// Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.}}
+\DoxyCodeLine{00080     \mbox{\hyperlink{class_facade_singleton}{FacadeSingleton}} * myUtility = \mbox{\hyperlink{class_facade_singleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}(\mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
+\DoxyCodeLine{00081     myUtility-\/>startEnvironment(pipelineStream, color\_intrin, \& scale, resX, resY, destinationKafkaTopic);}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083     \textcolor{comment}{/*}}
+\DoxyCodeLine{00084 \textcolor{comment}{        An infinite loop that captures the frames seen from the camera, gives them to OpenPose, gets the output, and builds skeletons.}}
+\DoxyCodeLine{00085 \textcolor{comment}{        After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.}}
+\DoxyCodeLine{00086 \textcolor{comment}{    */}}
+\DoxyCodeLine{00087     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{00088         myUtility-\/>getVideoFrames(user\_nFrame, pipelineStream, scale);}
+\DoxyCodeLine{00089         myUtility-\/>getVideoBodyKeyPoints(\& argc, \& argv);}
+\DoxyCodeLine{00090         myUtility-\/>showSkeletons(user\_nFrame);}
+\DoxyCodeLine{00091 \textcolor{comment}{//        myUtility-\/>sendData(user\_nFrame);}}
+\DoxyCodeLine{00092         myUtility-\/>cleanBuildFolder();}
+\DoxyCodeLine{00093 \textcolor{comment}{//        break;}}
+\DoxyCodeLine{00094     \}}
+\DoxyCodeLine{00095     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{00096 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}\label{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}} 
+\index{hello\_librealsense2.cpp@{hello\_librealsense2.cpp}!expected\_argc@{expected\_argc}}
+\index{expected\_argc@{expected\_argc}!hello\_librealsense2.cpp@{hello\_librealsense2.cpp}}
+\doxysubsubsection{\texorpdfstring{expected\_argc}{expected\_argc}}
+{\footnotesize\ttfamily const int expected\+\_\+argc = 5}
+
+
+
+Definition at line \mbox{\hyperlink{hello__librealsense2_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{hello__librealsense2_8cpp_source}{hello\+\_\+librealsense2.\+cpp}}.
+
+\mbox{\Hypertarget{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}\label{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}} 
+\index{hello\_librealsense2.cpp@{hello\_librealsense2.cpp}!expectedUsageMessage@{expectedUsageMessage}}
+\index{expectedUsageMessage@{expectedUsageMessage}!hello\_librealsense2.cpp@{hello\_librealsense2.cpp}}
+\doxysubsubsection{\texorpdfstring{expectedUsageMessage}{expectedUsageMessage}}
+{\footnotesize\ttfamily const char$\ast$ expected\+Usage\+Message}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{stringliteral}{"{}Usage: sudo ./hello\_librealsense2.bin <path/openpose folder/> <./path/openpose.bin> "{}}}
+\DoxyCodeLine{                                    \textcolor{stringliteral}{"{}<path/images folder/> <path/JSON output folder/>"{}}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{hello__librealsense2_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{hello__librealsense2_8cpp_source}{hello\+\_\+librealsense2.\+cpp}}.
+

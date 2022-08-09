@@ -1,0 +1,70 @@
+\hypertarget{_real_sense_manager_8cpp_source}{}\doxysection{Real\+Sense\+Manager.\+cpp}
+\label{_real_sense_manager_8cpp_source}\index{Managers/RealSenseManagers/RealSenseManager.cpp@{Managers/RealSenseManagers/RealSenseManager.cpp}}
+\mbox{\hyperlink{_real_sense_manager_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00002}00002 \textcolor{comment}{//  RealSenseManager.cpp}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00003}00003 \textcolor{comment}{//  librealsensetest}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00004}00004 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 23/07/22.}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_real_sense_manager_8hpp}{RealSenseManager.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00012}\mbox{\hyperlink{class_real_sense_manager_a024d711ab0bfee1d954f7bd3a83b197f}{00012}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_real_sense_manager_a024d711ab0bfee1d954f7bd3a83b197f}{RealSenseManager::setFrameID}} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} frameID) \{}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00013}00013     this-\/>frameID = \mbox{\hyperlink{class_real_sense_manager_ac0bcf70a9567a1710d07a66aa5bf9587}{frameID}};}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00014}00014 \}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00016}\mbox{\hyperlink{class_real_sense_manager_a66ccf804742763a2bf2d3b6d9342f191}{00016}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_real_sense_manager_a66ccf804742763a2bf2d3b6d9342f191}{RealSenseManager::set\_align}} (rs2::align align) \{}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00017}00017     this-\/>align = \mbox{\hyperlink{class_real_sense_manager_a8501c8bab42b7160eddd453266763a2f}{align}};}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00018}00018 \}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00020}\mbox{\hyperlink{class_real_sense_manager_a1fef8da6adb415bc157d5ca2931fda7e}{00020}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_real_sense_manager_a1fef8da6adb415bc157d5ca2931fda7e}{RealSenseManager::set\_depth\_intrin}} (\textcolor{keyword}{struct} rs2\_intrinsics depth\_intrin) \{}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00021}00021     this-\/>depth\_intrin = \mbox{\hyperlink{class_real_sense_manager_adad205399e7077b25c2c0650d31759c8}{depth\_intrin}};}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00022}00022 \}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00024}\mbox{\hyperlink{class_real_sense_manager_a1fcc8be70e92a51f9dcc82fdfe1b795e}{00024}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_real_sense_manager_a1fcc8be70e92a51f9dcc82fdfe1b795e}{RealSenseManager::set\_color\_intrin}} (\textcolor{keyword}{struct} rs2\_intrinsics \& color\_intrin) \{}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00025}00025     this-\/>color\_intrin = \mbox{\hyperlink{class_real_sense_manager_ab876bfaffd8a23924ff182573e900cda}{color\_intrin}};}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00026}00026 \}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00028}\mbox{\hyperlink{class_real_sense_manager_a0e6df6bd8c81bd32022c18d06a272307}{00028}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_real_sense_manager_a0e6df6bd8c81bd32022c18d06a272307}{RealSenseManager::set\_depth\_to\_color}} (\textcolor{keyword}{struct} rs2\_extrinsics depth\_to\_color) \{}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00029}00029     this-\/>depth\_to\_color = \mbox{\hyperlink{class_real_sense_manager_a116cc28e2d0b59b5cf946822a3d5dca4}{depth\_to\_color}};}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00030}00030 \}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00032}\mbox{\hyperlink{class_real_sense_manager_a821b3c038564cd28a4efd764e85e3656}{00032}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_real_sense_manager_a821b3c038564cd28a4efd764e85e3656}{RealSenseManager::set\_color\_to\_depth}} (\textcolor{keyword}{struct} rs2\_extrinsics color\_to\_depth) \{}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00033}00033     this-\/>color\_to\_depth = \mbox{\hyperlink{class_real_sense_manager_aea4cc5c31f53bd1f30dfcd10bcca9ff0}{color\_to\_depth}};}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00034}00034 \}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00036}\mbox{\hyperlink{class_real_sense_manager_acff6020a0a3efe31b637d6dc5b341dd7}{00036}} rs2::align \mbox{\hyperlink{class_real_sense_manager_acff6020a0a3efe31b637d6dc5b341dd7}{RealSenseManager::get\_align}} (\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00037}00037     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_real_sense_manager_a8501c8bab42b7160eddd453266763a2f}{align}};}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00038}00038 \}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00040}\mbox{\hyperlink{class_real_sense_manager_a5ebace7ab4e60e5e31e6e33318c87990}{00040}} \textcolor{keyword}{struct }rs2\_intrinsics \mbox{\hyperlink{class_real_sense_manager}{RealSenseManager}}::get\_depth\_intrin (void) \{}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00041}00041     \textcolor{keywordflow}{return} this-\/>depth\_intrin;}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00042}00042 \}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00044}\mbox{\hyperlink{class_real_sense_manager_a5d1fe0f7b27ee4d137ef1aed5eea0b6e}{00044}} \textcolor{keyword}{struct }rs2\_extrinsics \mbox{\hyperlink{class_real_sense_manager}{RealSenseManager}}::get\_depth\_to\_color (void) \{}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00045}00045     \textcolor{keywordflow}{return} this-\/>depth\_to\_color;}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00046}00046 \}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00048}\mbox{\hyperlink{class_real_sense_manager_a2ea17b74112e13cc79fdb7cbe74947c4}{00048}} \textcolor{keyword}{struct }rs2\_extrinsics \mbox{\hyperlink{class_real_sense_manager}{RealSenseManager}}::get\_color\_to\_depth (void) \{}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00049}00049     \textcolor{keywordflow}{return} this-\/>color\_to\_depth;}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00050}00050 \}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00054}\mbox{\hyperlink{class_real_sense_manager_ad8a8e23ad0136c97ddc64f8e7fdcabcf}{00054}} \mbox{\hyperlink{class_real_sense_manager_ad8a8e23ad0136c97ddc64f8e7fdcabcf}{RealSenseManager::RealSenseManager}} (\textcolor{keywordtype}{void}) : align(RS2\_STREAM\_COLOR) \{}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00055}00055     \mbox{\hyperlink{class_real_sense_manager_a024d711ab0bfee1d954f7bd3a83b197f}{setFrameID}}(0);}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00056}00056 \}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00058}\mbox{\hyperlink{class_real_sense_manager_aac01bf5b0fe977a03ff6ab9fa2bbf06f}{00058}} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_real_sense_manager_aac01bf5b0fe977a03ff6ab9fa2bbf06f}{RealSenseManager::getFrameID}} (\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00059}00059     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_real_sense_manager_ac0bcf70a9567a1710d07a66aa5bf9587}{frameID}};}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00060}00060 \}}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00062}\mbox{\hyperlink{class_real_sense_manager_a27f762a96b6b883a0304b084e225de32}{00062}} \textcolor{keyword}{struct }rs2\_intrinsics \& \mbox{\hyperlink{class_real_sense_manager_a27f762a96b6b883a0304b084e225de32}{RealSenseManager::get\_color\_intrin}} (\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00063}00063     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_real_sense_manager_ab876bfaffd8a23924ff182573e900cda}{color\_intrin}};}
+\DoxyCodeLine{\Hypertarget{_real_sense_manager_8cpp_source_l00064}00064 \}}
+
+\end{DoxyCode}

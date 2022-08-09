@@ -1,0 +1,55 @@
+\hypertarget{_image_manager_8cpp_source}{}\doxysection{Image\+Manager.\+cpp}
+\label{_image_manager_8cpp_source}\index{Managers/ImageManager.cpp@{Managers/ImageManager.cpp}}
+\mbox{\hyperlink{_image_manager_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00002}00002 \textcolor{comment}{//  ImageManager.cpp}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00003}00003 \textcolor{comment}{//  librealsensetest}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00004}00004 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 30/07/22.}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_image_manager_8hpp}{ImageManager.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00012}\mbox{\hyperlink{class_image_manager_ae2c821d9593569270222d88f30674a10}{00012}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_manager_ae2c821d9593569270222d88f30674a10}{ImageManager::saveImage}} (std::string imageSavePath, \textcolor{keyword}{const} cv::Mat \& imageToSave) \{}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00013}00013     \textcolor{keywordflow}{if} (!(cv::imwrite(imageSavePath, imageToSave))) CV\_Error(\mbox{\hyperlink{constants_8hpp_a65c4f95999974551f7bb4463c5fd60b2}{SAVE\_IMAGE\_ERROR}}, \mbox{\hyperlink{constants_8hpp_af777565d645137243e629c22eec8398c}{SAVE\_IMAGE\_SCOPE}});}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00014}00014 \}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00018}\mbox{\hyperlink{class_image_manager_aee3ff89c8031117cac540670fb8c09fe}{00018}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_manager_aee3ff89c8031117cac540670fb8c09fe}{ImageManager::loadImage}}(std::string imagePath, \textcolor{keywordtype}{int} loadType, cv::Mat \& inputImage) \{}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00019}00019     inputImage = cv::imread(imagePath, loadType);}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00020}00020     \textcolor{keywordflow}{if} (inputImage.empty()) \{}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00021}00021         std::cout << \textcolor{stringliteral}{"{}IMAGE NOT FOUND: "{}} << imagePath << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00022}00022         CV\_Error(\mbox{\hyperlink{constants_8hpp_acf6078e85204f48a7575ea45d5268ab1}{LOAD\_IMAGE\_ERROR}}, \mbox{\hyperlink{constants_8hpp_a16192e81b081d4a4eb13123a7b5ef08b}{LOAD\_IMAGE\_SCOPE}});}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00023}00023     \}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00024}00024 \}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00026}\mbox{\hyperlink{class_image_manager_aeae03d66a4a45347804c4c927fa55b42}{00026}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_manager_aeae03d66a4a45347804c4c927fa55b42}{ImageManager::saveImages}} (\textcolor{keyword}{const} std::initializer\_list <cv::Mat> \& images, \textcolor{keyword}{const} std::initializer\_list <std::string> \& imagePaths) \{}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00027}00027     \textcolor{keyword}{auto} imagesIterator = images.begin();}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00028}00028     \textcolor{keyword}{auto} imagePathsIterator = imagePaths.begin();}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00029}00029     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < images.size(); i++) \{}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00030}00030         \mbox{\hyperlink{class_image_manager_ae2c821d9593569270222d88f30674a10}{saveImage}}(* imagePathsIterator, * imagesIterator);}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00031}00031         imagePathsIterator++;}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00032}00032         imagesIterator++;}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00033}00033     \}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00034}00034 \}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00036}\mbox{\hyperlink{class_image_manager_a0d1b8bf95333d94fe2842937e5ef818c}{00036}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_manager_a0d1b8bf95333d94fe2842937e5ef818c}{ImageManager::showImages}} (\textcolor{keyword}{const} std::initializer\_list <cv::Mat> \& images, \textcolor{keyword}{const} std::initializer\_list <std::string> \& windowNames) \{}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00037}00037     \textcolor{keyword}{auto} imagesIterator = images.begin();}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00038}00038     \textcolor{keyword}{auto} windowNamesIterator = windowNames.begin();}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00039}00039     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < images.size(); i++) \{}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00040}00040         cv::imshow(* windowNamesIterator, * imagesIterator);}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00041}00041         windowNamesIterator++;}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00042}00042         imagesIterator++;}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00043}00043     \}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00044}00044     cv::waitKey(1);}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00045}00045 \}}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00047}\mbox{\hyperlink{class_image_manager_a6b448d93b315c6479590fa5afd278674}{00047}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_manager_a6b448d93b315c6479590fa5afd278674}{ImageManager::releaseImages}} (\textcolor{keyword}{const} std::initializer\_list <cv::Mat> \& images) \{}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00048}00048     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} singleImage : images) singleImage.release();}
+\DoxyCodeLine{\Hypertarget{_image_manager_8cpp_source_l00049}00049 \}}
+
+\end{DoxyCode}

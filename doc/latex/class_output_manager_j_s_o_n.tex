@@ -1,0 +1,334 @@
+\hypertarget{class_output_manager_j_s_o_n}{}\doxysection{Output\+Manager\+JSON Class Reference}
+\label{class_output_manager_j_s_o_n}\index{OutputManagerJSON@{OutputManagerJSON}}
+
+
+\mbox{\hyperlink{class_output_manager_j_s_o_n}{Output\+Manager\+JSON}} class is a class that abstracts final JSON output-\/producing operations.  
+
+
+
+
+{\ttfamily \#include $<$Output\+Manager.\+hpp$>$}
+
+Inheritance diagram for Output\+Manager\+JSON\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_output_manager_j_s_o_n}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_output_manager_j_s_o_n_ae664a1f8616d4876501710849c1c59d2}{load\+JSON}} (std\+::string file\+Path\+JSON, Json\+::\+Value \&current\+JSON)
+\begin{DoxyCompactList}\small\item\em Loads a JSON file and returns it as a reference. The JSON file path on disk is given. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_output_manager_j_s_o_n_a720baaccfe9269bb18f3548b9dde0f52}{save\+JSON}} (std\+::string file\+Path)
+\begin{DoxyCompactList}\small\item\em Saves content present in the \char`\"{}string\+Output\+Data\char`\"{} in a JSON file. The file path where to save the file is given. \end{DoxyCompactList}\item 
+Json\+::\+Value \mbox{\hyperlink{class_output_manager_j_s_o_n_ab8f239a05495e63d99ef7e783b566587}{get\+Value\+At}} (std\+::string key, Json\+::\+Value current\+JSON)
+\begin{DoxyCompactList}\small\item\em Utility method to get the value at a given key in a given JSON node. \end{DoxyCompactList}\item 
+Json\+::\+Value \mbox{\hyperlink{class_output_manager_j_s_o_n_a556acfc598ddd6b525d465026c873845}{get\+Value\+At}} (unsigned int i, Json\+::\+Value current\+JSON)
+\begin{DoxyCompactList}\small\item\em Utility method to get i-\/th value in a given JSON node. \end{DoxyCompactList}\item 
+Json\+::\+Value \mbox{\hyperlink{class_output_manager_j_s_o_n_aa4bf1a257f2e3454485efd5f454dd38b}{get\+Value\+At}} (std\+::string key, unsigned int i, Json\+::\+Value current\+JSON)
+\begin{DoxyCompactList}\small\item\em Utility method to get the value at a given key of the i-\/th value in a given JSON node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_output_manager_j_s_o_n_ae7e940b50eb318e883b0844bece04dc7}{create\+JSON}} (Json\+::\+Value \&people, cv\+::\+Mat \&color\+Image, cv\+::\+Mat \&distance\+Image, cv\+::\+Mat \&skeleton\+Only\+Image, unsigned int n\+Frame, const char $\ast$output\+Folder)
+\begin{DoxyCompactList}\small\item\em This methods take a reference to a JSON node that represents all the people\textquotesingle{}s information within the frame, color, depth, distance, and skeleton-\/only frame, the current frame ID, and the output folder\textquotesingle{}s path on disk and for each person in the people\textquotesingle{}s JSON node, the method extracts, generates, and appends a single \mbox{\hyperlink{class_skeleton}{Skeleton}} to the current JSON node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Json\+::\+Value \mbox{\hyperlink{class_output_manager_j_s_o_n_a63603930f5b39d9b1f10e5b667e60ab8}{make\+Output\+String}} (std\+::vector$<$ \mbox{\hyperlink{class_point3_d}{Point3D}} $\ast$ $>$ skeleton\+Points3D, std\+::vector$<$ bool $>$ body\+Key\+Points\+Map, unsigned int frame\+ID, unsigned int person\+ID) override
+\begin{DoxyCompactList}\small\item\em This method is specific for saving the output in JSON format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_output_manager_j_s_o_n}{Output\+Manager\+JSON}} class is a class that abstracts final JSON output-\/producing operations. 
+
+Definition at line \mbox{\hyperlink{_output_manager_8hpp_source_l00070}{70}} of file \mbox{\hyperlink{_output_manager_8hpp_source}{Output\+Manager.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_output_manager_j_s_o_n_ae7e940b50eb318e883b0844bece04dc7}\label{class_output_manager_j_s_o_n_ae7e940b50eb318e883b0844bece04dc7}} 
+\index{OutputManagerJSON@{OutputManagerJSON}!createJSON@{createJSON}}
+\index{createJSON@{createJSON}!OutputManagerJSON@{OutputManagerJSON}}
+\doxysubsubsection{\texorpdfstring{createJSON()}{createJSON()}}
+{\footnotesize\ttfamily void Output\+Manager\+JSON\+::create\+JSON (\begin{DoxyParamCaption}\item[{Json\+::\+Value \&}]{people,  }\item[{cv\+::\+Mat \&}]{color\+Image,  }\item[{cv\+::\+Mat \&}]{distance\+Image,  }\item[{cv\+::\+Mat \&}]{skeleton\+Only\+Image,  }\item[{unsigned int}]{n\+Frame,  }\item[{const char $\ast$}]{output\+Folder }\end{DoxyParamCaption})}
+
+
+
+This methods take a reference to a JSON node that represents all the people\textquotesingle{}s information within the frame, color, depth, distance, and skeleton-\/only frame, the current frame ID, and the output folder\textquotesingle{}s path on disk and for each person in the people\textquotesingle{}s JSON node, the method extracts, generates, and appends a single \mbox{\hyperlink{class_skeleton}{Skeleton}} to the current JSON node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em people} & JSON node containing people\textquotesingle{}s information detected within the frame. \\
+\hline
+{\em color\+Image} & color frame \\
+\hline
+{\em distance\+Image} & distance frame \\
+\hline
+{\em skeleton\+Only\+Image} & skeleton-\/only frame \\
+\hline
+{\em n\+Frame} & current image ID \\
+\hline
+{\em output\+Folder} & output folder\textquotesingle{}s path on disk \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_skeleton_8hpp}{Skeleton.\+hpp}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source}{Output\+Manager\+JSON.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065                                                                                                                                                                             \{}
+\DoxyCodeLine{00066     Json::Value root, peopleArray(Json::arrayValue);}
+\DoxyCodeLine{00067     std::stringstream outputJsonFilePath;}
+\DoxyCodeLine{00068     root[\textcolor{stringliteral}{"{}ID\_Frame"{}}] = nFrame;}
+\DoxyCodeLine{00069 }
+\DoxyCodeLine{00070     \textcolor{comment}{// For each OpenPose's detected skeleton }}
+\DoxyCodeLine{00071     \textcolor{keywordflow}{for} (Json::Value::ArrayIndex i = 0; i < people.size(); i++) \{}
+\DoxyCodeLine{00072         Json::Value singlePerson = \mbox{\hyperlink{class_output_manager_j_s_o_n_ab8f239a05495e63d99ef7e783b566587}{getValueAt}}(\textcolor{stringliteral}{"{}pose\_keypoints\_2d"{}}, i, people);}
+\DoxyCodeLine{00073         \mbox{\hyperlink{class_skeleton}{Skeleton}} singlePersonSkeleton = \mbox{\hyperlink{class_skeleton}{Skeleton}}(colorImage, distanceImage, skeletonOnlyImage, singlePerson);}
+\DoxyCodeLine{00074         singlePersonSkeleton.\mbox{\hyperlink{class_skeleton_ae0c3e5472eccf5a1781b609f51679bcb}{generateSkeleton}}();}
+\DoxyCodeLine{00075         \textcolor{comment}{// Discard Skeleton with low consistency value}}
+\DoxyCodeLine{00076         \textcolor{keywordflow}{if} (singlePersonSkeleton.\mbox{\hyperlink{class_skeleton_a1770444f4e0b5dc042216ea11eb140b9}{getConsistency}}() > \mbox{\hyperlink{constants_8hpp_a8f377d27eed600066beca29aafa1acb3}{skeletonThreshold}}) \{}
+\DoxyCodeLine{00077             peopleArray.append(\mbox{\hyperlink{class_output_manager_j_s_o_n_a63603930f5b39d9b1f10e5b667e60ab8}{makeOutputString}}(* singlePersonSkeleton.\mbox{\hyperlink{class_skeleton_a4661b8b588d471563909ee49823536db}{getSkeletonPoints3D}}(), singlePersonSkeleton.\mbox{\hyperlink{class_skeleton_a79798d4999379bc7063a9fc2dabad55e}{getBodyKeyPointsMap}}(), nFrame, (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}) i));}
+\DoxyCodeLine{00078         \}}
+\DoxyCodeLine{00079     \}}
+\DoxyCodeLine{00080     }
+\DoxyCodeLine{00081     root[\textcolor{stringliteral}{"{}People"{}}] = peopleArray;}
+\DoxyCodeLine{00082     \mbox{\hyperlink{class_output_manager_a2335cc8b2252dbed78b728452deced26}{OutputManager::setStringOutputData}}(root.toStyledString());}
+\DoxyCodeLine{00083     outputJsonFilePath << outputFolder << \textcolor{stringliteral}{"{}movement/frame"{}} << nFrame << \textcolor{stringliteral}{"{}\_"{}} << \mbox{\hyperlink{constants_8hpp_ad17edf12bbd3c466264f620690fda028}{JSON\_FILE\_PATH}};}
+\DoxyCodeLine{00084     \mbox{\hyperlink{class_output_manager_j_s_o_n_a720baaccfe9269bb18f3548b9dde0f52}{saveJSON}}(std::string(outputJsonFilePath.str()));}
+\DoxyCodeLine{00085     outputJsonFilePath.str(std::string());}
+\DoxyCodeLine{00086     outputJsonFilePath.clear();}
+\DoxyCodeLine{00087 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_output_manager_j_s_o_n_ab8f239a05495e63d99ef7e783b566587}\label{class_output_manager_j_s_o_n_ab8f239a05495e63d99ef7e783b566587}} 
+\index{OutputManagerJSON@{OutputManagerJSON}!getValueAt@{getValueAt}}
+\index{getValueAt@{getValueAt}!OutputManagerJSON@{OutputManagerJSON}}
+\doxysubsubsection{\texorpdfstring{getValueAt()}{getValueAt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Json\+::\+Value Output\+Manager\+JSON\+::get\+Value\+At (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{Json\+::\+Value}]{current\+JSON }\end{DoxyParamCaption})}
+
+
+
+Utility method to get the value at a given key in a given JSON node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Key at which the value in the JSON node will be found. \\
+\hline
+{\em current\+JSON} & Reference to JSON node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Json\+::\+Value 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source}{Output\+Manager\+JSON.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053                                                                              \{}
+\DoxyCodeLine{00054     \textcolor{keywordflow}{return} currentJSON[key];}
+\DoxyCodeLine{00055 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_output_manager_j_s_o_n_aa4bf1a257f2e3454485efd5f454dd38b}\label{class_output_manager_j_s_o_n_aa4bf1a257f2e3454485efd5f454dd38b}} 
+\index{OutputManagerJSON@{OutputManagerJSON}!getValueAt@{getValueAt}}
+\index{getValueAt@{getValueAt}!OutputManagerJSON@{OutputManagerJSON}}
+\doxysubsubsection{\texorpdfstring{getValueAt()}{getValueAt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Json\+::\+Value Output\+Manager\+JSON\+::get\+Value\+At (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{unsigned int}]{i,  }\item[{Json\+::\+Value}]{current\+JSON }\end{DoxyParamCaption})}
+
+
+
+Utility method to get the value at a given key of the i-\/th value in a given JSON node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Key at which the value in the JSON node will be found. \\
+\hline
+{\em i} & Index at which the value in the JSON node will be found. \\
+\hline
+{\em current\+JSON} & Reference to JSON node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Json\+::\+Value 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source}{Output\+Manager\+JSON.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061                                                                                              \{}
+\DoxyCodeLine{00062     \textcolor{keywordflow}{return} (currentJSON[i])[key];}
+\DoxyCodeLine{00063 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_output_manager_j_s_o_n_a556acfc598ddd6b525d465026c873845}\label{class_output_manager_j_s_o_n_a556acfc598ddd6b525d465026c873845}} 
+\index{OutputManagerJSON@{OutputManagerJSON}!getValueAt@{getValueAt}}
+\index{getValueAt@{getValueAt}!OutputManagerJSON@{OutputManagerJSON}}
+\doxysubsubsection{\texorpdfstring{getValueAt()}{getValueAt()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Json\+::\+Value Output\+Manager\+JSON\+::get\+Value\+At (\begin{DoxyParamCaption}\item[{unsigned int}]{i,  }\item[{Json\+::\+Value}]{current\+JSON }\end{DoxyParamCaption})}
+
+
+
+Utility method to get i-\/th value in a given JSON node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index at which the value in the JSON node will be found. \\
+\hline
+{\em current\+JSON} & Reference to JSON node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Json\+::\+Value 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source}{Output\+Manager\+JSON.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057                                                                               \{}
+\DoxyCodeLine{00058     \textcolor{keywordflow}{return} currentJSON[i];}
+\DoxyCodeLine{00059 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_output_manager_j_s_o_n_ae664a1f8616d4876501710849c1c59d2}\label{class_output_manager_j_s_o_n_ae664a1f8616d4876501710849c1c59d2}} 
+\index{OutputManagerJSON@{OutputManagerJSON}!loadJSON@{loadJSON}}
+\index{loadJSON@{loadJSON}!OutputManagerJSON@{OutputManagerJSON}}
+\doxysubsubsection{\texorpdfstring{loadJSON()}{loadJSON()}}
+{\footnotesize\ttfamily bool Output\+Manager\+JSON\+::load\+JSON (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Path\+JSON,  }\item[{Json\+::\+Value \&}]{current\+JSON }\end{DoxyParamCaption})}
+
+
+
+Loads a JSON file and returns it as a reference. The JSON file path on disk is given. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path\+JSON} & JSON file path on disk. \\
+\hline
+{\em current\+JSON} & JSON reference where the JSON file will be load. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the file-\/loading ends correctly 
+
+false if the file-\/loading does not end correctly 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source}{Output\+Manager\+JSON.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040                                                                                  \{}
+\DoxyCodeLine{00041     Json::Reader readerJSON;}
+\DoxyCodeLine{00042     std::ifstream streamJSON(filePathJSON.c\_str(), std::ifstream::binary);}
+\DoxyCodeLine{00043     \textcolor{keywordflow}{return} readerJSON.parse(streamJSON, currentJSON, \textcolor{keyword}{false});}
+\DoxyCodeLine{00044 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_output_manager_j_s_o_n_a63603930f5b39d9b1f10e5b667e60ab8}\label{class_output_manager_j_s_o_n_a63603930f5b39d9b1f10e5b667e60ab8}} 
+\index{OutputManagerJSON@{OutputManagerJSON}!makeOutputString@{makeOutputString}}
+\index{makeOutputString@{makeOutputString}!OutputManagerJSON@{OutputManagerJSON}}
+\doxysubsubsection{\texorpdfstring{makeOutputString()}{makeOutputString()}}
+{\footnotesize\ttfamily Json\+::\+Value Output\+Manager\+JSON\+::make\+Output\+String (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_point3_d}{Point3D}} $\ast$ $>$}]{skeleton\+Points3D,  }\item[{std\+::vector$<$ bool $>$}]{body\+Key\+Points\+Map,  }\item[{unsigned int}]{frame\+ID,  }\item[{unsigned int}]{person\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+This method is specific for saving the output in JSON format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em skeleton\+Points3D} & A vector that contains pointers to Points3D whose coordinates represent the skeleton\textquotesingle{}s junctions in certain space coordinates. \\
+\hline
+{\em body\+Key\+Points\+Map} & A vector that contains for each body joint retrieved from Open\+Pose a corresponding boolean that means if that body joint is a valuable and effective body joint or not. \\
+\hline
+{\em frame\+ID} & current frame ID \\
+\hline
+{\em person\+ID} & current person ID within the current frame \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Json\+::\+Value 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_output_manager_a8629330834046ce2080d54adccfafe87}{Output\+Manager}}.
+
+
+
+Definition at line \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source}{Output\+Manager\+JSON.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012                                                                                                                                                                      \{}
+\DoxyCodeLine{00013     Json::Value root, arraySkeletonPoints3D(Json::arrayValue);}
+\DoxyCodeLine{00014     Json::StyledStreamWriter writer;}
+\DoxyCodeLine{00015     }
+\DoxyCodeLine{00016     \textcolor{comment}{// For each OpenPose's skeleton body joint point}}
+\DoxyCodeLine{00017     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < skeletonPoints3D.size(); i++) \{}
+\DoxyCodeLine{00018         \textcolor{keywordflow}{if} (i >= 24) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00019         Json::Value singlePoint3D\_JSON;}
+\DoxyCodeLine{00020         \textcolor{comment}{// Build JSON node for i-\/th body joint point}}
+\DoxyCodeLine{00021         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}pointID"{}}] = Json::Value((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}) i);}
+\DoxyCodeLine{00022         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}confidence"{}}] = Json::Value(((\mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}} *) skeletonPoints3D.at(i)-\/>getDecorated())-\/>getConfidence());}
+\DoxyCodeLine{00023         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}x"{}}] = Json::Value((\textcolor{keywordtype}{double}) skeletonPoints3D.at(i)-\/>getZ());}
+\DoxyCodeLine{00024         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}y"{}}] = Json::Value((\textcolor{keywordtype}{double}) skeletonPoints3D.at(i)-\/>getY());}
+\DoxyCodeLine{00025         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}z"{}}] = Json::Value((\textcolor{keywordtype}{double}) skeletonPoints3D.at(i)-\/>getX());}
+\DoxyCodeLine{00026         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}x\_rotation"{}}] = Json::Value(0.0);}
+\DoxyCodeLine{00027         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}y\_rotation"{}}] = Json::Value(0.0);}
+\DoxyCodeLine{00028         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}z\_rotation"{}}] = Json::Value(0.0);}
+\DoxyCodeLine{00029         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}w\_rotation"{}}] = Json::Value(1.0);}
+\DoxyCodeLine{00030         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}thingId"{}}] = Json::Value(std::string(\textcolor{stringliteral}{"{}org.eclipse.ditto:camera01"{}}));}
+\DoxyCodeLine{00031         arraySkeletonPoints3D.append(singlePoint3D\_JSON);}
+\DoxyCodeLine{00032     \}}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034     root[\textcolor{stringliteral}{"{}personID"{}}] = Json::Value((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}) personID);}
+\DoxyCodeLine{00035     root[\textcolor{stringliteral}{"{}skeleton"{}}] = arraySkeletonPoints3D;}
+\DoxyCodeLine{00036     \mbox{\hyperlink{class_output_manager_a2335cc8b2252dbed78b728452deced26}{OutputManager::setStringOutputData}}(root.toStyledString());}
+\DoxyCodeLine{00037     \textcolor{keywordflow}{return} root;}
+\DoxyCodeLine{00038 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_output_manager_j_s_o_n_a720baaccfe9269bb18f3548b9dde0f52}\label{class_output_manager_j_s_o_n_a720baaccfe9269bb18f3548b9dde0f52}} 
+\index{OutputManagerJSON@{OutputManagerJSON}!saveJSON@{saveJSON}}
+\index{saveJSON@{saveJSON}!OutputManagerJSON@{OutputManagerJSON}}
+\doxysubsubsection{\texorpdfstring{saveJSON()}{saveJSON()}}
+{\footnotesize\ttfamily void Output\+Manager\+JSON\+::save\+JSON (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+Saves content present in the \char`\"{}string\+Output\+Data\char`\"{} in a JSON file. The file path where to save the file is given. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & The file path where to save the JSON file. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_output_manager_j_s_o_n_8cpp_source}{Output\+Manager\+JSON.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046                                                     \{}
+\DoxyCodeLine{00047     Json::StyledStreamWriter writer;}
+\DoxyCodeLine{00048     std::ofstream outputFile(filePath);}
+\DoxyCodeLine{00049     outputFile << \mbox{\hyperlink{class_output_manager_a66991ea844cee883d6538a8a3aedb731}{OutputManager::getStringOutputData}}();}
+\DoxyCodeLine{00050     outputFile.close();}
+\DoxyCodeLine{00051 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Managers/\+Output\+Managers/\mbox{\hyperlink{_output_manager_8hpp}{Output\+Manager.\+hpp}}\item 
+Managers/\+Output\+Managers/\mbox{\hyperlink{_output_manager_j_s_o_n_8cpp}{Output\+Manager\+JSON.\+cpp}}\end{DoxyCompactItemize}

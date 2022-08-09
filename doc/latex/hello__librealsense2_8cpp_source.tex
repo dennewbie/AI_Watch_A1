@@ -1,0 +1,51 @@
+\hypertarget{hello__librealsense2_8cpp_source}{}\doxysection{hello\+\_\+librealsense2.\+cpp}
+\mbox{\hyperlink{hello__librealsense2_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00002}00002 \textcolor{comment}{//  main.cpp}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00003}00003 \textcolor{comment}{//  librealsensetest}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00004}00004 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 06/07/22.}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00050}00050 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_facade_singleton_8hpp}{FacadeSingleton.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00054}\mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{00054}} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}} = 5;}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00055}\mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{00055}} \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}} = \textcolor{stringliteral}{"{}Usage: sudo ./hello\_librealsense2.bin <path/openpose folder/> <./path/openpose.bin> "{}}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00056}00056                                     \textcolor{stringliteral}{"{}<path/images folder/> <path/JSON output folder/>"{}};}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00070}\mbox{\hyperlink{hello__librealsense2_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{00070}} \textcolor{keywordtype}{int} \mbox{\hyperlink{hello__librealsense2_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} ** argv) \{}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00071}00071     rs2::pipeline pipelineStream;}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00072}00072     \textcolor{comment}{// Scaling factor for distance frame and topic name for kafka connection.}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00073}00073     \textcolor{keywordtype}{float} scale;}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00074}00074     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * destinationKafkaTopic = \textcolor{stringliteral}{"{}t1"{}};}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00075}00075     \textcolor{comment}{// Optimal resolution for D435: 848x480.}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00076}00076     \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} user\_nFrame = 30, resX = 848, resY = 480;}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00077}00077     \textcolor{keyword}{struct }rs2\_intrinsics color\_intrin;}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00078}00078     }
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00079}00079     \textcolor{comment}{// Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00080}00080     \mbox{\hyperlink{class_facade_singleton}{FacadeSingleton}} * myUtility = \mbox{\hyperlink{class_facade_singleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}(\mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00081}00081     myUtility-\/>startEnvironment(pipelineStream, color\_intrin, \& scale, resX, resY, destinationKafkaTopic);}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00083}00083     \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00084}00084 \textcolor{comment}{        An infinite loop that captures the frames seen from the camera, gives them to OpenPose, gets the output, and builds skeletons.}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00085}00085 \textcolor{comment}{        After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00086}00086 \textcolor{comment}{    */}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00087}00087     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00088}00088         myUtility-\/>getVideoFrames(user\_nFrame, pipelineStream, scale);}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00089}00089         myUtility-\/>getVideoBodyKeyPoints(\& argc, \& argv);}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00090}00090         myUtility-\/>showSkeletons(user\_nFrame);}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00091}00091 \textcolor{comment}{//        myUtility-\/>sendData(user\_nFrame);}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00092}00092         myUtility-\/>cleanBuildFolder();}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00093}00093 \textcolor{comment}{//        break;}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00094}00094     \}}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00095}00095     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{hello__librealsense2_8cpp_source_l00096}00096 \}}
+
+\end{DoxyCode}

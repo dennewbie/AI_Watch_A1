@@ -1,0 +1,158 @@
+\hypertarget{class_body_key_point}{}\doxysection{Body\+Key\+Point Class Reference}
+\label{class_body_key_point}\index{BodyKeyPoint@{BodyKeyPoint}}
+
+
+\mbox{\hyperlink{class_body_key_point}{Body\+Key\+Point}} class is used for body keypoint creations and manipulations.  
+
+
+
+
+{\ttfamily \#include $<$Body\+Key\+Point.\+hpp$>$}
+
+Inheritance diagram for Body\+Key\+Point\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_body_key_point}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_body_key_point_ae7a6999ee82ef3a51278effedd50ded1}{Body\+Key\+Point}} (float \mbox{\hyperlink{class_point_a05dfe2dfbde813ad234b514f30e662f1}{x}}, float \mbox{\hyperlink{class_point_a6101960c8d2d4e8ea1d32c9234bbeb8d}{y}}, float \mbox{\hyperlink{class_body_key_point_aa64af4346a29d6190ef05654bc2e0d0c}{confidence}}, \mbox{\hyperlink{class_point}{Point}} $\ast$\mbox{\hyperlink{class_point_a0485a214ecf7495bd71cf6ca2a042ad4}{decorated}}=nullptr)
+\begin{DoxyCompactList}\small\item\em Construct a new Body Key \mbox{\hyperlink{class_point}{Point}} object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_body_key_point_a5da39faeacd183992f88f9953cf56dfc}{get\+Confidence}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Confidence value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_body_key_point_a593d2b0ae18f3161a8f11d8701d1f2ac}{set\+Confidence}} (float \mbox{\hyperlink{class_body_key_point_aa64af4346a29d6190ef05654bc2e0d0c}{confidence}})
+\begin{DoxyCompactList}\small\item\em Set the Confidence value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_body_key_point_aa64af4346a29d6190ef05654bc2e0d0c}{confidence}}
+\begin{DoxyCompactList}\small\item\em The confidence value is an Open\+Pose parameter to evaluate how accurate the process was while determining this joint point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_body_key_point}{Body\+Key\+Point}} class is used for body keypoint creations and manipulations. 
+
+\mbox{\hyperlink{class_body_key_point}{Body\+Key\+Point}} class is a class that represents a Body Keypoint with its own x coordinate and y coordinate. This class inherits from \mbox{\hyperlink{class_point}{Point}} and adds the \char`\"{}confidence\char`\"{} detail in order to keep track of the Open\+Pose confidence on this particular point. 
+
+Definition at line \mbox{\hyperlink{_body_key_point_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{_body_key_point_8hpp_source}{Body\+Key\+Point.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_body_key_point_ae7a6999ee82ef3a51278effedd50ded1}\label{class_body_key_point_ae7a6999ee82ef3a51278effedd50ded1}} 
+\index{BodyKeyPoint@{BodyKeyPoint}!BodyKeyPoint@{BodyKeyPoint}}
+\index{BodyKeyPoint@{BodyKeyPoint}!BodyKeyPoint@{BodyKeyPoint}}
+\doxysubsubsection{\texorpdfstring{BodyKeyPoint()}{BodyKeyPoint()}}
+{\footnotesize\ttfamily Body\+Key\+Point\+::\+Body\+Key\+Point (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{confidence,  }\item[{\mbox{\hyperlink{class_point}{Point}} $\ast$}]{decorated = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Construct a new Body Key \mbox{\hyperlink{class_point}{Point}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em confidence} & \\
+\hline
+{\em decorated} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_point}{Point}} (float \mbox{\hyperlink{class_point_a05dfe2dfbde813ad234b514f30e662f1}{x}}, float \mbox{\hyperlink{class_point_a6101960c8d2d4e8ea1d32c9234bbeb8d}{y}}, \mbox{\hyperlink{class_point}{Point}} $\ast$ \mbox{\hyperlink{class_point_a0485a214ecf7495bd71cf6ca2a042ad4}{decorated}} = nullptr) \+: decorated(decorated) 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{_body_key_point_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{_body_key_point_8cpp_source}{Body\+Key\+Point.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018                                                                                  : \mbox{\hyperlink{class_point_a0dceeae03ab207ab97639d843d43ad46}{Point}}(\mbox{\hyperlink{class_point_a05dfe2dfbde813ad234b514f30e662f1}{x}}, \mbox{\hyperlink{class_point_a6101960c8d2d4e8ea1d32c9234bbeb8d}{y}}, \mbox{\hyperlink{class_point_a0485a214ecf7495bd71cf6ca2a042ad4}{decorated}}) \{}
+\DoxyCodeLine{00019     \mbox{\hyperlink{class_body_key_point_a593d2b0ae18f3161a8f11d8701d1f2ac}{setConfidence}}(\mbox{\hyperlink{class_body_key_point_aa64af4346a29d6190ef05654bc2e0d0c}{confidence}});}
+\DoxyCodeLine{00020 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_body_key_point_a5da39faeacd183992f88f9953cf56dfc}\label{class_body_key_point_a5da39faeacd183992f88f9953cf56dfc}} 
+\index{BodyKeyPoint@{BodyKeyPoint}!getConfidence@{getConfidence}}
+\index{getConfidence@{getConfidence}!BodyKeyPoint@{BodyKeyPoint}}
+\doxysubsubsection{\texorpdfstring{getConfidence()}{getConfidence()}}
+{\footnotesize\ttfamily float Body\+Key\+Point\+::get\+Confidence (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Confidence value. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_body_key_point_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{_body_key_point_8cpp_source}{Body\+Key\+Point.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022                                        \{}
+\DoxyCodeLine{00023     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_body_key_point_aa64af4346a29d6190ef05654bc2e0d0c}{confidence}};}
+\DoxyCodeLine{00024 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_body_key_point_a593d2b0ae18f3161a8f11d8701d1f2ac}\label{class_body_key_point_a593d2b0ae18f3161a8f11d8701d1f2ac}} 
+\index{BodyKeyPoint@{BodyKeyPoint}!setConfidence@{setConfidence}}
+\index{setConfidence@{setConfidence}!BodyKeyPoint@{BodyKeyPoint}}
+\doxysubsubsection{\texorpdfstring{setConfidence()}{setConfidence()}}
+{\footnotesize\ttfamily void Body\+Key\+Point\+::set\+Confidence (\begin{DoxyParamCaption}\item[{float}]{confidence }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Set the Confidence value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em confidence} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_body_key_point_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_body_key_point_8cpp_source}{Body\+Key\+Point.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012                                                   \{}
+\DoxyCodeLine{00013     this-\/>\mbox{\hyperlink{class_body_key_point_aa64af4346a29d6190ef05654bc2e0d0c}{confidence}} = \mbox{\hyperlink{class_body_key_point_aa64af4346a29d6190ef05654bc2e0d0c}{confidence}};}
+\DoxyCodeLine{00014 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_body_key_point_aa64af4346a29d6190ef05654bc2e0d0c}\label{class_body_key_point_aa64af4346a29d6190ef05654bc2e0d0c}} 
+\index{BodyKeyPoint@{BodyKeyPoint}!confidence@{confidence}}
+\index{confidence@{confidence}!BodyKeyPoint@{BodyKeyPoint}}
+\doxysubsubsection{\texorpdfstring{confidence}{confidence}}
+{\footnotesize\ttfamily float Body\+Key\+Point\+::confidence\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The confidence value is an Open\+Pose parameter to evaluate how accurate the process was while determining this joint point. 
+
+
+
+Definition at line \mbox{\hyperlink{_body_key_point_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{_body_key_point_8hpp_source}{Body\+Key\+Point.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Points/\mbox{\hyperlink{_body_key_point_8hpp}{Body\+Key\+Point.\+hpp}}\item 
+Points/\mbox{\hyperlink{_body_key_point_8cpp}{Body\+Key\+Point.\+cpp}}\end{DoxyCompactItemize}

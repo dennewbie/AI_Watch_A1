@@ -1,0 +1,200 @@
+\hypertarget{class_image_manager}{}\doxysection{Image\+Manager Class Reference}
+\label{class_image_manager}\index{ImageManager@{ImageManager}}
+
+
+\mbox{\hyperlink{class_image_manager}{Image\+Manager}} class is a general-\/purpose class useful for operations on images such as loading, saving, showing and releasing attached memory.  
+
+
+
+
+{\ttfamily \#include $<$Image\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_image_manager_aee3ff89c8031117cac540670fb8c09fe}{load\+Image}} (std\+::string image\+Path, int load\+Type, cv\+::\+Mat \&input\+Image)
+\begin{DoxyCompactList}\small\item\em Loads a single image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_image_manager_aeae03d66a4a45347804c4c927fa55b42}{save\+Images}} (const std\+::initializer\+\_\+list$<$ cv\+::\+Mat $>$ \&images, const std\+::initializer\+\_\+list$<$ std\+::string $>$ \&image\+Paths)
+\begin{DoxyCompactList}\small\item\em Saves multiple images. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_image_manager_a0d1b8bf95333d94fe2842937e5ef818c}{show\+Images}} (const std\+::initializer\+\_\+list$<$ cv\+::\+Mat $>$ \&images, const std\+::initializer\+\_\+list$<$ std\+::string $>$ \&window\+Names)
+\begin{DoxyCompactList}\small\item\em Shows multiple images. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_image_manager_a6b448d93b315c6479590fa5afd278674}{release\+Images}} (const std\+::initializer\+\_\+list$<$ cv\+::\+Mat $>$ \&images)
+\begin{DoxyCompactList}\small\item\em Releases multiple images. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_image_manager_ae2c821d9593569270222d88f30674a10}{save\+Image}} (std\+::string image\+Save\+Path, const cv\+::\+Mat \&image\+To\+Save)
+\begin{DoxyCompactList}\small\item\em Saves a single image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_image_manager}{Image\+Manager}} class is a general-\/purpose class useful for operations on images such as loading, saving, showing and releasing attached memory. 
+
+Definition at line \mbox{\hyperlink{_image_manager_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{_image_manager_8hpp_source}{Image\+Manager.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_image_manager_aee3ff89c8031117cac540670fb8c09fe}\label{class_image_manager_aee3ff89c8031117cac540670fb8c09fe}} 
+\index{ImageManager@{ImageManager}!loadImage@{loadImage}}
+\index{loadImage@{loadImage}!ImageManager@{ImageManager}}
+\doxysubsubsection{\texorpdfstring{loadImage()}{loadImage()}}
+{\footnotesize\ttfamily void Image\+Manager\+::load\+Image (\begin{DoxyParamCaption}\item[{std\+::string}]{image\+Path,  }\item[{int}]{load\+Type,  }\item[{cv\+::\+Mat \&}]{input\+Image }\end{DoxyParamCaption})}
+
+
+
+Loads a single image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image\+Path} & The path where the image has been saved on disk. \\
+\hline
+{\em load\+Type} & How to load the image. \\
+\hline
+{\em input\+Image} & A reference to a cv\+::\+Mat object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_image_manager_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{_image_manager_8cpp_source}{Image\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018                                                                                   \{}
+\DoxyCodeLine{00019     inputImage = cv::imread(imagePath, loadType);}
+\DoxyCodeLine{00020     \textcolor{keywordflow}{if} (inputImage.empty()) \{}
+\DoxyCodeLine{00021         std::cout << \textcolor{stringliteral}{"{}IMAGE NOT FOUND: "{}} << imagePath << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00022         CV\_Error(\mbox{\hyperlink{constants_8hpp_acf6078e85204f48a7575ea45d5268ab1}{LOAD\_IMAGE\_ERROR}}, \mbox{\hyperlink{constants_8hpp_a16192e81b081d4a4eb13123a7b5ef08b}{LOAD\_IMAGE\_SCOPE}});}
+\DoxyCodeLine{00023     \}}
+\DoxyCodeLine{00024 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_image_manager_a6b448d93b315c6479590fa5afd278674}\label{class_image_manager_a6b448d93b315c6479590fa5afd278674}} 
+\index{ImageManager@{ImageManager}!releaseImages@{releaseImages}}
+\index{releaseImages@{releaseImages}!ImageManager@{ImageManager}}
+\doxysubsubsection{\texorpdfstring{releaseImages()}{releaseImages()}}
+{\footnotesize\ttfamily void Image\+Manager\+::release\+Images (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ cv\+::\+Mat $>$ \&}]{images }\end{DoxyParamCaption})}
+
+
+
+Releases multiple images. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em images} & The images to release. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_image_manager_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{_image_manager_8cpp_source}{Image\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047                                                                             \{}
+\DoxyCodeLine{00048     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} singleImage : images) singleImage.release();}
+\DoxyCodeLine{00049 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_image_manager_ae2c821d9593569270222d88f30674a10}\label{class_image_manager_ae2c821d9593569270222d88f30674a10}} 
+\index{ImageManager@{ImageManager}!saveImage@{saveImage}}
+\index{saveImage@{saveImage}!ImageManager@{ImageManager}}
+\doxysubsubsection{\texorpdfstring{saveImage()}{saveImage()}}
+{\footnotesize\ttfamily void Image\+Manager\+::save\+Image (\begin{DoxyParamCaption}\item[{std\+::string}]{image\+Save\+Path,  }\item[{const cv\+::\+Mat \&}]{image\+To\+Save }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Saves a single image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image\+Save\+Path} & The path where to save the image. \\
+\hline
+{\em image\+To\+Save} & The image to save. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_image_manager_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_image_manager_8cpp_source}{Image\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012                                                                                 \{}
+\DoxyCodeLine{00013     \textcolor{keywordflow}{if} (!(cv::imwrite(imageSavePath, imageToSave))) CV\_Error(\mbox{\hyperlink{constants_8hpp_a65c4f95999974551f7bb4463c5fd60b2}{SAVE\_IMAGE\_ERROR}}, \mbox{\hyperlink{constants_8hpp_af777565d645137243e629c22eec8398c}{SAVE\_IMAGE\_SCOPE}});}
+\DoxyCodeLine{00014 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_image_manager_aeae03d66a4a45347804c4c927fa55b42}\label{class_image_manager_aeae03d66a4a45347804c4c927fa55b42}} 
+\index{ImageManager@{ImageManager}!saveImages@{saveImages}}
+\index{saveImages@{saveImages}!ImageManager@{ImageManager}}
+\doxysubsubsection{\texorpdfstring{saveImages()}{saveImages()}}
+{\footnotesize\ttfamily void Image\+Manager\+::save\+Images (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ cv\+::\+Mat $>$ \&}]{images,  }\item[{const std\+::initializer\+\_\+list$<$ std\+::string $>$ \&}]{image\+Paths }\end{DoxyParamCaption})}
+
+
+
+Saves multiple images. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em images} & The images to save. \\
+\hline
+{\em image\+Paths} & The paths where to save the images. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_image_manager_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{_image_manager_8cpp_source}{Image\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026                                                                                                                              \{}
+\DoxyCodeLine{00027     \textcolor{keyword}{auto} imagesIterator = images.begin();}
+\DoxyCodeLine{00028     \textcolor{keyword}{auto} imagePathsIterator = imagePaths.begin();}
+\DoxyCodeLine{00029     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < images.size(); i++) \{}
+\DoxyCodeLine{00030         \mbox{\hyperlink{class_image_manager_ae2c821d9593569270222d88f30674a10}{saveImage}}(* imagePathsIterator, * imagesIterator);}
+\DoxyCodeLine{00031         imagePathsIterator++;}
+\DoxyCodeLine{00032         imagesIterator++;}
+\DoxyCodeLine{00033     \}}
+\DoxyCodeLine{00034 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_image_manager_a0d1b8bf95333d94fe2842937e5ef818c}\label{class_image_manager_a0d1b8bf95333d94fe2842937e5ef818c}} 
+\index{ImageManager@{ImageManager}!showImages@{showImages}}
+\index{showImages@{showImages}!ImageManager@{ImageManager}}
+\doxysubsubsection{\texorpdfstring{showImages()}{showImages()}}
+{\footnotesize\ttfamily void Image\+Manager\+::show\+Images (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ cv\+::\+Mat $>$ \&}]{images,  }\item[{const std\+::initializer\+\_\+list$<$ std\+::string $>$ \&}]{window\+Names }\end{DoxyParamCaption})}
+
+
+
+Shows multiple images. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em images} & The images to show. \\
+\hline
+{\em window\+Names} & The window names in which images will be shown. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_image_manager_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{_image_manager_8cpp_source}{Image\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036                                                                                                                               \{}
+\DoxyCodeLine{00037     \textcolor{keyword}{auto} imagesIterator = images.begin();}
+\DoxyCodeLine{00038     \textcolor{keyword}{auto} windowNamesIterator = windowNames.begin();}
+\DoxyCodeLine{00039     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < images.size(); i++) \{}
+\DoxyCodeLine{00040         cv::imshow(* windowNamesIterator, * imagesIterator);}
+\DoxyCodeLine{00041         windowNamesIterator++;}
+\DoxyCodeLine{00042         imagesIterator++;}
+\DoxyCodeLine{00043     \}}
+\DoxyCodeLine{00044     cv::waitKey(1);}
+\DoxyCodeLine{00045 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Managers/\mbox{\hyperlink{_image_manager_8hpp}{Image\+Manager.\+hpp}}\item 
+Managers/\mbox{\hyperlink{_image_manager_8cpp}{Image\+Manager.\+cpp}}\end{DoxyCompactItemize}

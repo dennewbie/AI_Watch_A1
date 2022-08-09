@@ -1,0 +1,120 @@
+\hypertarget{_kafka_manager_8cpp_source}{}\doxysection{Kafka\+Manager.\+cpp}
+\label{_kafka_manager_8cpp_source}\index{Managers/KafkaManager.cpp@{Managers/KafkaManager.cpp}}
+\mbox{\hyperlink{_kafka_manager_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00002}00002 \textcolor{comment}{//  KafkaManager.cpp}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00003}00003 \textcolor{comment}{//  librealsensetest}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00004}00004 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 27/07/22.}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_kafka_manager_8hpp}{KafkaManager.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00012}\mbox{\hyperlink{class_kafka_manager_ad6099678d7438f7b96d7f8eb6e79784c}{00012}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_ad6099678d7438f7b96d7f8eb6e79784c}{KafkaManager::setProducer}} (rd\_kafka\_t * producer) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00013}00013     this-\/>producer = \mbox{\hyperlink{class_kafka_manager_ab83428889cb7ba9aad62f95657ab5091}{producer}};}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00014}00014 \}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00016}\mbox{\hyperlink{class_kafka_manager_ac4a825ea74c714ae344fdaad52edf195}{00016}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_ac4a825ea74c714ae344fdaad52edf195}{KafkaManager::setConfiguration}} (rd\_kafka\_conf\_t * configuration) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00017}00017     this-\/>configuration = \mbox{\hyperlink{class_kafka_manager_a9d4dd8b03a3623edb445d60c906854e1}{configuration}};}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00018}00018 \}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00020}\mbox{\hyperlink{class_kafka_manager_a84f751836602eba4de36ddc7207bd4ba}{00020}} rd\_kafka\_t * \mbox{\hyperlink{class_kafka_manager_a84f751836602eba4de36ddc7207bd4ba}{KafkaManager::getProducer}} (\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00021}00021     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_kafka_manager_ab83428889cb7ba9aad62f95657ab5091}{producer}};}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00022}00022 \}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00024}\mbox{\hyperlink{class_kafka_manager_ab8cb8ce9fe469476883deac6c5c64def}{00024}} rd\_kafka\_conf\_t * \mbox{\hyperlink{class_kafka_manager_ab8cb8ce9fe469476883deac6c5c64def}{KafkaManager::getConfiguration}} (\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00025}00025     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_kafka_manager_a9d4dd8b03a3623edb445d60c906854e1}{configuration}};}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00026}00026 \}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00028}\mbox{\hyperlink{class_kafka_manager_a0ce5c5d2b9553121b354693c3e643feb}{00028}} \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{class_kafka_manager_a0ce5c5d2b9553121b354693c3e643feb}{KafkaManager::getTopic}} (\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00029}00029     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_kafka_manager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}};}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00030}00030 \}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00032}\mbox{\hyperlink{class_kafka_manager_aaaf9b95ef4029e1dfe0e0c38dc8ecbef}{00032}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_aaaf9b95ef4029e1dfe0e0c38dc8ecbef}{KafkaManager::loadConfigurationGroup}}(rd\_kafka\_conf\_t * conf, GKeyFile * key\_file, \textcolor{keyword}{const} \textcolor{keywordtype}{char} * group) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00033}00033     \textcolor{keywordtype}{char} errstr[512];}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00034}00034     g\_autoptr(GError) error = NULL;}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00035}00035     }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00036}00036     gchar ** ptr = g\_key\_file\_get\_keys(key\_file, group, NULL, \& error);}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00037}00037     \textcolor{keywordflow}{if} (error) CV\_Error(\mbox{\hyperlink{constants_8hpp_a58e3b3b2c84e881f2322ec03a924e388}{RDKAFKA\_GET\_KEYS\_FROM\_JSON\_ERROR}}, \mbox{\hyperlink{constants_8hpp_a4cbe902463b8fb53b7a4a053735dd04e}{RDKAFKA\_GET\_KEYS\_FROM\_JSON\_SCOPE}});}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00038}00038     }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00039}00039     \textcolor{keywordflow}{while} (* ptr) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00040}00040         \textcolor{keyword}{const} \textcolor{keywordtype}{char} * key = * ptr;}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00041}00041         g\_autofree gchar * value = g\_key\_file\_get\_string(key\_file, group, key, \& error);}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00042}00042         \textcolor{keywordflow}{if} (error) CV\_Error(\mbox{\hyperlink{constants_8hpp_abe6787c8524fba1f6378e3f12ddc050f}{RDKAFKA\_GET\_KEY\_FROM\_JSON\_ERROR}}, \mbox{\hyperlink{constants_8hpp_a5645407cbc79924da21611e6a76ffdac}{RDKAFKA\_GET\_KEY\_FROM\_JSON\_SCOPE}});}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00043}00043         }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00044}00044         \textcolor{keywordflow}{if} (rd\_kafka\_conf\_set(conf, key, value, errstr, \textcolor{keyword}{sizeof}(errstr)) != RD\_KAFKA\_CONF\_OK) CV\_Error(\mbox{\hyperlink{constants_8hpp_a4ff19df3fab4fe0bbf046398e23b656d}{RDKAFKA\_CONF\_SET\_ERROR}}, \mbox{\hyperlink{constants_8hpp_add4dc79bfdabf1941bd9f98494457065}{RDKAFKA\_CONF\_SET\_SCOPE}});}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00045}00045         ptr++;}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00046}00046     \}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00047}00047 \}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00049}\mbox{\hyperlink{class_kafka_manager_a1657e743b8c0f3d9d7d369cc22e1ae7c}{00049}} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_kafka_manager_a1657e743b8c0f3d9d7d369cc22e1ae7c}{KafkaManager::getArraySize}} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} ** array) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00050}00050     \textcolor{keywordflow}{return} (array == \textcolor{keyword}{nullptr} || * array == \textcolor{keyword}{nullptr}) ? 0 : (\textcolor{keyword}{sizeof}(array) / \textcolor{keyword}{sizeof}(array[0]));}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00051}00051 \}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00053}\mbox{\hyperlink{class_kafka_manager_a713480164aa94d6e24f88c62c4082e8c}{00053}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_a713480164aa94d6e24f88c62c4082e8c}{KafkaManager::dr\_msg\_cb}} (rd\_kafka\_t * kafka\_handle, \textcolor{keyword}{const} rd\_kafka\_message\_t * rkmessage, \textcolor{keywordtype}{void} * opaque) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00054}00054     \textcolor{keywordflow}{if} (rkmessage-\/>err) g\_error(\textcolor{stringliteral}{"{}Message delivery failed: \%s"{}}, rd\_kafka\_err2str(rkmessage-\/>err));}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00055}00055 \}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00057}\mbox{\hyperlink{class_kafka_manager_a5c3a7caaf5ec042f0074fbea516a44b1}{00057}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_a5c3a7caaf5ec042f0074fbea516a44b1}{KafkaManager::setupProducer}} (\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00058}00058     \textcolor{keywordtype}{char} errorString[512];}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00059}00059     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * configurationFile = \textcolor{stringliteral}{"{}../configuration\_file.ini"{}};}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00060}00060     }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00061}00061     g\_autoptr(GError) error = NULL;}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00062}00062     g\_autoptr(GKeyFile) key\_file = g\_key\_file\_new();}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00063}00063     \textcolor{keywordflow}{if} (!g\_key\_file\_load\_from\_file (key\_file, configurationFile, G\_KEY\_FILE\_NONE, \& error)) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00064}00064         g\_error (\textcolor{stringliteral}{"{}Error loading config file: \%s"{}}, error-\/>message);}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00065}00065     \}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00066}00066     }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00067}00067     \textcolor{comment}{// Load the relevant configuration sections.}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00068}00068     \mbox{\hyperlink{class_kafka_manager_ac4a825ea74c714ae344fdaad52edf195}{setConfiguration}}(rd\_kafka\_conf\_new());}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00069}00069     \mbox{\hyperlink{class_kafka_manager_aaaf9b95ef4029e1dfe0e0c38dc8ecbef}{loadConfigurationGroup}}(\mbox{\hyperlink{class_kafka_manager_ab8cb8ce9fe469476883deac6c5c64def}{getConfiguration}}(), key\_file, \textcolor{stringliteral}{"{}default"{}});}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00070}00070     }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00071}00071     \textcolor{comment}{// Install a delivery-\/error callback.}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00072}00072     rd\_kafka\_conf\_set\_dr\_msg\_cb(\mbox{\hyperlink{class_kafka_manager_ab8cb8ce9fe469476883deac6c5c64def}{getConfiguration}}(), \mbox{\hyperlink{class_kafka_manager_a713480164aa94d6e24f88c62c4082e8c}{dr\_msg\_cb}});}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00073}00073     }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00074}00074     \textcolor{comment}{// Create the Producer instance.}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00075}00075     \mbox{\hyperlink{class_kafka_manager_ad6099678d7438f7b96d7f8eb6e79784c}{setProducer}}(rd\_kafka\_new(RD\_KAFKA\_PRODUCER, \mbox{\hyperlink{class_kafka_manager_ab8cb8ce9fe469476883deac6c5c64def}{getConfiguration}}(), errorString, \textcolor{keyword}{sizeof}(errorString)));}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00076}00076     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_kafka_manager_a84f751836602eba4de36ddc7207bd4ba}{getProducer}}()) g\_error(\textcolor{stringliteral}{"{}Failed to create new producer: \%s"{}}, errorString);}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00077}00077     }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00078}00078     \textcolor{comment}{// Configuration object is now owned, and freed, by the rd\_kafka\_t instance.}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00079}00079     \mbox{\hyperlink{class_kafka_manager_ac4a825ea74c714ae344fdaad52edf195}{setConfiguration}}(NULL);}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00080}00080 \}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00084}\mbox{\hyperlink{class_kafka_manager_a854de8f42508a273cbe1efd295209ce0}{00084}} \mbox{\hyperlink{class_kafka_manager_a854de8f42508a273cbe1efd295209ce0}{KafkaManager::\string~KafkaManager}} (\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00085}00085     \mbox{\hyperlink{class_kafka_manager_ac4a825ea74c714ae344fdaad52edf195}{setConfiguration}}(NULL);}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00086}00086     rd\_kafka\_destroy(\mbox{\hyperlink{class_kafka_manager_a84f751836602eba4de36ddc7207bd4ba}{getProducer}}());}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00087}00087 \}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00089}\mbox{\hyperlink{class_kafka_manager_a5dca4ae409b1f9c21402bf68a7607315}{00089}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_a5dca4ae409b1f9c21402bf68a7607315}{KafkaManager::sendData}} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} * key, Json::Value root) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00090}00090     \textcolor{comment}{// Produce data}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00091}00091     std::string keyString = root.toStyledString();}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00092}00092     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * value = keyString.c\_str();}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00093}00093     \textcolor{keywordtype}{size\_t} messageSize = (size\_t) keyString.size();}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00094}00094     rd\_kafka\_resp\_err\_t err = rd\_kafka\_producev(\mbox{\hyperlink{class_kafka_manager_a84f751836602eba4de36ddc7207bd4ba}{getProducer}}(),}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00095}00095                                                 RD\_KAFKA\_V\_TOPIC(\mbox{\hyperlink{class_kafka_manager_a0ce5c5d2b9553121b354693c3e643feb}{getTopic}}()),}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00096}00096                                                 RD\_KAFKA\_V\_MSGFLAGS(RD\_KAFKA\_MSG\_F\_COPY),}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00097}00097                                                 RD\_KAFKA\_V\_KEY((\textcolor{keywordtype}{void} *) key, strlen(key) * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})),}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00098}00098                                                 RD\_KAFKA\_V\_VALUE((\textcolor{keywordtype}{void} *) value, messageSize),}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00099}00099                                                 RD\_KAFKA\_V\_OPAQUE(NULL), RD\_KAFKA\_V\_END);}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00100}00100                       }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00101}00101     \textcolor{keywordflow}{if} (err) g\_error(\textcolor{stringliteral}{"{}Failed to produce to topic \%s: \%s"{}}, \mbox{\hyperlink{class_kafka_manager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}}, rd\_kafka\_err2str(err));}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00102}00102     \textcolor{comment}{/* \} else \{}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00103}00103 \textcolor{comment}{           g\_message("{}Produced event to topic \%s: key = \%12s value = \%12s"{}, topic, key, value);}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00104}00104 \textcolor{comment}{       \}}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00105}00105 \textcolor{comment}{    */}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00106}00106     }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00107}00107     rd\_kafka\_poll(\mbox{\hyperlink{class_kafka_manager_ab83428889cb7ba9aad62f95657ab5091}{producer}}, 0);}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00108}00108     \textcolor{comment}{// Block until the messages are all sent.}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00109}00109     \textcolor{comment}{// g\_message("{}Flushing final messages.."{});}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00110}00110     rd\_kafka\_flush(\mbox{\hyperlink{class_kafka_manager_ab83428889cb7ba9aad62f95657ab5091}{producer}}, 10 * 1000);}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00111}00111     }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00112}00112     \textcolor{keywordflow}{if} (rd\_kafka\_outq\_len(\mbox{\hyperlink{class_kafka_manager_ab83428889cb7ba9aad62f95657ab5091}{producer}}) > 0) g\_error(\textcolor{stringliteral}{"{}\%d message(s) were not delivered"{}}, rd\_kafka\_outq\_len(\mbox{\hyperlink{class_kafka_manager_ab83428889cb7ba9aad62f95657ab5091}{producer}}));}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00113}00113 \textcolor{comment}{//    g\_message("{}\%d events were produced to topic \%s."{}, message\_count, topic);}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8cpp_source_l00114}00114 \}}
+
+\end{DoxyCode}
