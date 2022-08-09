@@ -2,10 +2,16 @@
 
 ![projectLogo](https://github.com/dennewbie/AI_Watch_A1/blob/main/design/eye_small_white%402x.png)
 
+
+
 AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve 3D human-skeleton tracking.
+
+
 
 ### Keynote
 [Keynote](...)
+
+
 
 ### Demo
 ...
@@ -31,14 +37,17 @@ AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achiev
 
 8. Run the following commands in your terminal:
    
-   cmake .. && make -j`sysctl -n hw.logicalcpu`
+   cmake .. && make -j \`sysctl -n hw.logicalcpu\`
    
-9.1. If internal OpenPose execution is chosen, then run the following command in your terminal:
+9. 
+    - If internal OpenPose execution is chosen, then run the following command in your terminal:
    
-   sudo ./hello_librealsense2.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255
+        sudo ./hello_librealsense2.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255
    
-9.2. If external OpenPose execution is chosen, then set up your OpenPose parameters 
+   - If external OpenPose execution is chosen, then set up your OpenPose parameters 
    within the "conf.conf" file, run the following command in your terminal:
+
+        sudo ./hello_librealsense2.bin
    
 
 
