@@ -31,15 +31,15 @@ FacadeSingleton::FacadeSingleton (const int expected_argc, const char * expected
 //        strcpy((* fileArgv)[rowCounter], singleLineConfigurationFile.c_str());
 //        rowCounter++;
 //    }
-    
+
     int * fileArgc = new (std::nothrow) int;
     * fileArgc = (int) totalFileParameters;
     char *** fileArgv = new (std::nothrow) char **;
     * fileArgv = new (std::nothrow) char *[totalFileParameters];
     unsigned char rowCounter = 0;
-    
+
     if (!fileArgc || !fileArgv || ! * fileArgv) CV_Error(NEW_ALLOC_ERROR, NEW_ALLOC_SCOPE);
-    // read usage's configuration parameters from file
+    // Read usage's configuration parameters from file
     while (inputFile >> singleLineConfigurationFile) {
         (* fileArgv)[rowCounter] = new (std::nothrow) char [(unsigned int) singleLineConfigurationFile.size()];
         if (!(* fileArgv)[rowCounter]) CV_Error(NEW_ALLOC_ERROR, NEW_ALLOC_SCOPE);
@@ -57,7 +57,7 @@ FacadeSingleton::~FacadeSingleton (void) {
     delete getUsageManager();
     delete getCoordinateMappingManager();
     delete getImageManager();
-    delete getKafkaManager();
+//    delete getKafkaManager();
     delete sharedInstance;
 }
 

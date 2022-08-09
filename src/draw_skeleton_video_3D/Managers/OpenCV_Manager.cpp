@@ -84,7 +84,10 @@ void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame) {
     for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         std::stringstream inputJsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath, outputJsonFilePath;
         currentImageID = frameID - user_nFrame + nFrame;
-        inputJsonFilePath << outputFolder << "op/" << nFrame << "_keypoints.json";
+        // Internal Approach OpenPose
+//        inputJsonFilePath << outputFolder << "op/" << nFrame << "_keypoints.json";
+        // External Approach OpenPose
+        inputJsonFilePath << outputFolder << "op/" << currentImageID << "_Color_keypoints.json";
         
         // Try to load OpenPose's output JSON file
         if (outputManagerJSON->loadJSON(inputJsonFilePath.str(), currentJSON)) {

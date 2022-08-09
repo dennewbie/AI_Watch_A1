@@ -10,7 +10,7 @@
 #include <openpose/headers.hpp>
 
 
-
+// Internal Version
 void configureWrapper (op::Wrapper & opWrapper) {
     try {
         // logging_level
@@ -35,7 +35,7 @@ void configureWrapper (op::Wrapper & opWrapper) {
         const auto poseModel = op::flagsToPoseModel(op::String(FLAGS_model_pose));
         // JSON saving
         if (!FLAGS_write_keypoint.empty()) {
-            op::opLog("Flag `write_keypoint` is deprecated and will eventually be removed. Please, use `write_json`"
+            op::opLog("Flag 'write_keypoint' is deprecated and will eventually be removed. Please, use 'write_json'"
                 " instead.", op::Priority::Max);
         }
         // keypointScaleMode
@@ -117,6 +117,26 @@ void saveOpenPoseOutput (int * argc, char *** argv) {
     }
 }
 
+//void OpenPoseCommand::setCommand (int * argc, char *** argv) {
+//    saveOpenPoseOutput(argc, argv);
+//    SystemCommand::setCommand(std::string("OP"));
+//}
+
+
+// External Version (segmentation fault safe)
 void OpenPoseCommand::setCommand (int * argc, char *** argv) {
-    saveOpenPoseOutput(argc, argv);
+    UsageManager * usageManagerInstance = UsageManager::getInstance();
+    if (usageManagerInstance == nullptr) CV_Error(USAGE_MANAGER_NULLPTR_ERROR, USAGE_MANAGER_NULLPTR_SCOPE);
+    char *** localArgv = usageManagerInstance->get_argv();
+    std::stringstream openPoseTerminalCommand;
+    const char * openPoseFolder = (* localArgv)[openPoseFolderOffset];
+    const char * openPoseExecuteCommand = (* localArgv)[openPoseExecuteCommandOffset];
+    const char * imagesFolder = (* localArgv)[imagesFolderOffset];
+    const char * outputFolder = (* localArgv)[outputFolderOffset];
+    
+    openPoseTerminalCommand << "cd " << openPoseFolder << " && " << openPoseExecuteCommand
+                            << " --net_resolution -1x128 --num_gpu 1 --num_gpu_start 2 --display 0 --render_pose 0 --image_dir "
+                            << imagesFolder << "rgb/" << " --write_json " << outputFolder << "op/"
+                            << " --logging_level 255 > /dev/null";
+    SystemCommand::setCommand(std::string(openPoseTerminalCommand.str()));
 }

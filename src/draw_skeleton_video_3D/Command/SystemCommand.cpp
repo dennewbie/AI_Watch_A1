@@ -19,5 +19,5 @@ std::string SystemCommand::getCommand (void) {
 
 void SystemCommand::executeCommand (int * argc, char *** argv) {
     setCommand(argc, argv);
-    if (getCommand().size() > 0) std::system(getCommand().c_str());
+    if (getCommand().size() > 0 && getCommand() != "OP") std::system(getCommand().c_str());
 }
