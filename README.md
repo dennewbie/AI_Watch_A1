@@ -4,9 +4,9 @@
 </div>
 
 
-
+<div>
 AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve 3D human-skeleton tracking.
-
+</div>
 
 
 ### Keynote
