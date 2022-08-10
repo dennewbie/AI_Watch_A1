@@ -87,7 +87,7 @@ Installation 🚀</h1>
 </div><!-- fragment --><p >6) Copy OpenPose's <code>models</code> folder to the project's build folder.</p>
 <p >7) Copy OpenPose's <code>BoostConfig.cmake</code>, <code>FindGFlags.cmake</code> and <code>FindGlog.cmake</code> files to the <code>build/cmake/modules/</code> folder</p>
 <p >8) Run the following commands in your terminal:</p>
-<div class="fragment"><div class="line">cmake .. &amp;&amp; make -j \`sysctl -n hw.logicalcpu\`</div>
+<div class="fragment"><div class="line">cmake .. &amp;&amp; make -j `sysctl -n hw.logicalcpu`</div>
 </div><!-- fragment --><p >9) Now let's tart the Kafka environment. Run the following commands in a new terminal session. Set the environment variable for the Confluent Platform home directory: </p><div class="fragment"><div class="line">export CONFLUENT_HOME=confluent-7.2.1</div>
 </div><!-- fragment --><p> Add the Confluent Platform bin directory to your PATH:</p>
 <div class="fragment"><div class="line">export PATH=$PATH:$CONFLUENT_HOME/bin</div>

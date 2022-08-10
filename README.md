@@ -55,7 +55,7 @@
 8. Run the following commands in your terminal:
    
    ```
-   cmake .. && make -j \`sysctl -n hw.logicalcpu\`
+   cmake .. && make -j `sysctl -n hw.logicalcpu`
    ```
 
 9. Now let's tart the Kafka environment. Run the following commands in a new terminal session. Set the environment variable for the Confluent Platform home directory:
