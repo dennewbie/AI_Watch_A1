@@ -13,22 +13,22 @@
 
 <p><div></div></p>
 
-### Keynote
-[Keynote](...)
-
-
-
-### Demo
+## Keynote
 ...
 
 
 
-### Docs
-[Doxygen Documentation](https://dennewbie.github.io/AI_Watch_A1/doc/index.html)
+## Demo
+...
 
 
 
-### Installation
+## Docs
+[AI Watch A1 documentation](https://dennewbie.github.io/AI_Watch_A1/doc/index.html) is generated using [Doxygen](https://doxygen.nl/).
+
+
+
+## Installation
 1. Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies.
 
 2. Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies.
@@ -65,28 +65,29 @@
 
 
 
-### Tools
+## Tools
 - [Intel RealSense SDK](https://github.com/IntelRealSense/librealsense)
 - [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
 - [Kafka](https://kafka.apache.org/)
 - [Kafka C/C++ library](https://github.com/edenhill/librdkafka)
 - [jsoncpp](https://github.com/open-source-parsers/jsoncpp)
+- [Doxygen](https://doxygen.nl/)
 - [StarUML](https://staruml.io/)
 - [Sketch](https://www.sketch.com/)
 
 
 
-### Contributing
+## Contributing
 In order to contribute to AI Watch A1, please follow the [contribution guidelines](https://github.com/dennewbie/AI_Watch_A1/blob/main/CONTRIBUTING.md).
 
 
 
-### License
-AI Watch A1 is freely available for free non-commercial use and may be redistributed under these conditions. Please, see the [license](https://github.com/dennewbie/AI_Watch_A1/blob/main/LICENSE) for further details and the `/licenses` folder for the used libraries' licenses details.
+## License
+AI Watch A1 is licensed under the Apache License, Version 2.0. Copyright 2022. Please, see the [license](https://github.com/dennewbie/AI_Watch_A1/blob/main/LICENSE) for further details and the `/licenses` folder for the used libraries' licenses details.
 
 
 
-### Contacts
+## Contacts
 - [LinkedIn](https://www.linkedin.com/in/denny-caruso/)
 
 a.a. 2021/2022
