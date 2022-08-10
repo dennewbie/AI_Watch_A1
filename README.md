@@ -144,4 +144,9 @@ AI Watch A1 is licensed under the Apache License, Version 2.0. Copyright 2022. P
 
 
 
+## Supervisor
+- Dr. Alessio Ferone, CS Assistant Professor at the University of Naples Parthenope
+
+
+
 a.a. 2021/2022

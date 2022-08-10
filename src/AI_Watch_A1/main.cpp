@@ -131,6 +131,9 @@
  * @section contacts_sec Contacts 🪪
  * - [LinkedIn](https://www.linkedin.com/in/denny-caruso/)
  * 
+ * @section supervisor_sec Supervisor 
+ * - Dr. Alessio Ferone, CS Assistant Professor at the University of Naples Parthenope
+ * 
  * a.a. 2021/2022
  */
 

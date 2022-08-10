@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['realsensed435manager_2ecpp_0',['RealSenseD435Manager.cpp',['../_real_sense_d435_manager_8cpp.html',1,'']]],
-  ['realsensemanager_2ecpp_1',['RealSenseManager.cpp',['../_real_sense_manager_8cpp.html',1,'']]],
-  ['realsensemanager_2ehpp_2',['RealSenseManager.hpp',['../_real_sense_manager_8hpp.html',1,'']]]
+  ['skeleton_2ecpp_0',['Skeleton.cpp',['../_skeleton_8cpp.html',1,'']]],
+  ['skeleton_2ehpp_1',['Skeleton.hpp',['../_skeleton_8hpp.html',1,'']]],
+  ['systemcommand_2ecpp_2',['SystemCommand.cpp',['../_system_command_8cpp.html',1,'']]],
+  ['systemcommand_2ehpp_3',['SystemCommand.hpp',['../_system_command_8hpp.html',1,'']]]
 ];

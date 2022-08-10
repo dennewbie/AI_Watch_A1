@@ -11,41 +11,41 @@
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00008}00008 \textcolor{comment}{// License: Apache 2.0. See LICENSE file in root directory.}}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}00009 \textcolor{comment}{// Copyright(c) 2022. All Rights Reserved.}}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00010}00010 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00139}00139 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_facade_singleton_8hpp}{FacadeSingleton.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00140}00140 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00141}00141 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00142}00142 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00143}\mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{00143}} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}} = 5;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00144}\mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{00144}} \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}} = \textcolor{stringliteral}{"{}Usage: sudo ./hello\_librealsense2.bin <path/openpose folder/> <./path/openpose.bin> "{}}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00145}00145                                     \textcolor{stringliteral}{"{}<path/images folder/> <path/JSON output folder/>"{}};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00146}00146 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00147}00147 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00148}00148 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00159}\mbox{\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{00159}} \textcolor{keywordtype}{int} \mbox{\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} ** argv) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00160}00160     rs2::pipeline pipelineStream;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00161}00161     \textcolor{comment}{// Scaling factor for distance frame and topic name for kafka connection.}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00162}00162     \textcolor{keywordtype}{float} scale;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00163}00163     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * destinationKafkaTopic = \textcolor{stringliteral}{"{}t1"{}};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00164}00164     \textcolor{comment}{// Optimal resolution for D435: 848x480.}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00165}00165     \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} user\_nFrame = 30, resX = 848, resY = 480;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00166}00166     \textcolor{keyword}{struct }rs2\_intrinsics color\_intrin;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00167}00167     }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00168}00168     \textcolor{comment}{// Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00169}00169     \mbox{\hyperlink{class_facade_singleton}{FacadeSingleton}} * myUtility = \mbox{\hyperlink{class_facade_singleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}(\mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00170}00170     myUtility-\/>startEnvironment(pipelineStream, color\_intrin, \& scale, resX, resY, destinationKafkaTopic);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00171}00171 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00172}00172     \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00173}00173 \textcolor{comment}{        An infinite loop that captures the frames seen from the camera, gives them to OpenPose, gets the output, and builds skeletons.}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00174}00174 \textcolor{comment}{        After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00175}00175 \textcolor{comment}{    */}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00176}00176     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00177}00177         myUtility-\/>getVideoFrames(user\_nFrame, pipelineStream, scale);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00178}00178         myUtility-\/>getVideoBodyKeyPoints(\& argc, \& argv);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00179}00179         myUtility-\/>showSkeletons(user\_nFrame);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00180}00180         myUtility-\/>sendData(user\_nFrame);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00181}00181         myUtility-\/>cleanBuildFolder();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00182}00182     \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00183}00183     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00184}00184 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00142}00142 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_facade_singleton_8hpp}{FacadeSingleton.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00145}00145 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00146}\mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{00146}} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}} = 5;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00147}\mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{00147}} \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}} = \textcolor{stringliteral}{"{}Usage: sudo ./hello\_librealsense2.bin <path/openpose folder/> <./path/openpose.bin> "{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00148}00148                                     \textcolor{stringliteral}{"{}<path/images folder/> <path/JSON output folder/>"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00149}00149 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00150}00150 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00151}00151 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00162}\mbox{\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{00162}} \textcolor{keywordtype}{int} \mbox{\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} ** argv) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00163}00163     rs2::pipeline pipelineStream;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00164}00164     \textcolor{comment}{// Scaling factor for distance frame and topic name for kafka connection.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00165}00165     \textcolor{keywordtype}{float} scale;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00166}00166     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * destinationKafkaTopic = \textcolor{stringliteral}{"{}t1"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00167}00167     \textcolor{comment}{// Optimal resolution for D435: 848x480.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00168}00168     \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} user\_nFrame = 30, resX = 848, resY = 480;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00169}00169     \textcolor{keyword}{struct }rs2\_intrinsics color\_intrin;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00170}00170     }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00171}00171     \textcolor{comment}{// Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00172}00172     \mbox{\hyperlink{class_facade_singleton}{FacadeSingleton}} * myUtility = \mbox{\hyperlink{class_facade_singleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}(\mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00173}00173     myUtility-\/>startEnvironment(pipelineStream, color\_intrin, \& scale, resX, resY, destinationKafkaTopic);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00174}00174 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00175}00175     \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00176}00176 \textcolor{comment}{        An infinite loop that captures the frames seen from the camera, gives them to OpenPose, gets the output, and builds skeletons.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00177}00177 \textcolor{comment}{        After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00178}00178 \textcolor{comment}{    */}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00179}00179     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00180}00180         myUtility-\/>getVideoFrames(user\_nFrame, pipelineStream, scale);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00181}00181         myUtility-\/>getVideoBodyKeyPoints(\& argc, \& argv);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00182}00182         myUtility-\/>showSkeletons(user\_nFrame);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00183}00183         myUtility-\/>sendData(user\_nFrame);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00184}00184         myUtility-\/>cleanBuildFolder();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00185}00185     \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00186}00186     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00187}00187 \}}
 
 \end{DoxyCode}

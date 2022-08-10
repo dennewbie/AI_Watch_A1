@@ -152,7 +152,7 @@ Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00020}{20}} o
 \DoxyCodeLine{00036         rowCounter++;}
 \DoxyCodeLine{00037     \}}
 \DoxyCodeLine{00038     }
-\DoxyCodeLine{00039     \mbox{\hyperlink{class_facade_singleton_a0f1dc94d476d37d4d8b50ea1cfadee79}{setUsageManager}}(\mbox{\hyperlink{class_usage_manager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}(fileArgc, fileArgv, \mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}}));}
+\DoxyCodeLine{00039     \mbox{\hyperlink{class_facade_singleton_a0f1dc94d476d37d4d8b50ea1cfadee79}{setUsageManager}}(\mbox{\hyperlink{class_usage_manager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}(fileArgc, fileArgv, \mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}}));}
 \DoxyCodeLine{00040 \}}
 
 \end{DoxyCode}
@@ -336,7 +336,7 @@ Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00083}{83}} o
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00083                                                                                                           \{}
 \DoxyCodeLine{00084     std::lock\_guard <std::mutex> lock(\mbox{\hyperlink{class_facade_singleton_a601a03cd89c64afb6dbf2ccfc36f43fb}{singletonMutex}});}
-\DoxyCodeLine{00085     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}} == \textcolor{keyword}{nullptr}) \mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_facade_singleton_ac4ee3b0a6efcb32cce88d819718ddf3f}{FacadeSingleton}}(\mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
+\DoxyCodeLine{00085     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}} == \textcolor{keyword}{nullptr}) \mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_facade_singleton_ac4ee3b0a6efcb32cce88d819718ddf3f}{FacadeSingleton}}(\mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
 \DoxyCodeLine{00086     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}};}
 \DoxyCodeLine{00087 \}}
 
