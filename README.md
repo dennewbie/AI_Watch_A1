@@ -106,12 +106,12 @@
     - if internal OpenPose execution is chosen, then run the following command in your terminal:
    
         ```
-        sudo ./hello_librealsense2.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255
+        sudo ././AI_Watch_A1.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255
         ```
     - if external OpenPose execution is chosen, then set up your OpenPose parameters within the "conf.conf" file, run the following command in your terminal:
 
         ```
-        sudo ./hello_librealsense2.bin
+        sudo ././AI_Watch_A1.bin
         ```
 
 

@@ -102,12 +102,12 @@
  *   - if internal OpenPose execution is chosen, then run the following command in your terminal:
  *  
  * ```
- * sudo ./hello_librealsense2.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255
+ * sudo ./AI_Watch_A1.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255
  * ```
  *   - if external OpenPose execution is chosen, then set up your OpenPose parameters within the "conf.conf" file, run the following command in your terminal:
  *
  * ```
- * sudo ./hello_librealsense2.bin
+ * sudo ./AI_Watch_A1.bin
  * ```
  * 
  * @section tools_sec Tools 🛠
@@ -144,7 +144,7 @@
 
 
 const int expected_argc = 5;
-const char * expectedUsageMessage = "Usage: sudo ./hello_librealsense2.bin <path/openpose folder/> <./path/openpose.bin> "
+const char * expectedUsageMessage = "Usage: sudo ./AI_Watch_A1.bin <path/openpose folder/> <./path/openpose.bin> "
                                     "<path/images folder/> <path/JSON output folder/>";
 
 
