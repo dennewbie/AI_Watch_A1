@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AI Watch: Managers/CoordinateManagers/UnityCoordinateMappingManager.cpp Source File</title>
+<title>AI Watch A1: Managers/CoordinateManagers/UnityCoordinateMappingManager.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="eye_small_white.png"/></td>
   <td id="projectalign">
-   <div id="projectname">AI Watch<span id="projectnumber">&#160;A1</span>
+   <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">3D Skeleton tracking</div>
+   <div id="projectbrief">Multi-person 3D skeleton tracking using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -78,34 +78,37 @@ $(function() {
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//  Created by Denny Caruso on 30/07/22.</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_coordinate_mapping_manager_8hpp.html">CoordinateMappingManager.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// License: Apache 2.0. See LICENSE file in root directory.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// Copyright(c) 2022. All Rights Reserved.</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_unity_coordinate_mapping_manager.html#a5ee8f7517bb82a03e6a201fd7635d552">   12</a></span>std::vector &lt;Point3D *&gt; * <a class="code hl_function" href="class_unity_coordinate_mapping_manager.html#a5ee8f7517bb82a03e6a201fd7635d552">UnityCoordinateMappingManager::mapToMeters</a> (std::vector &lt;Point3D *&gt; pointsToMap, std::vector &lt;bool&gt; bodyKeyPointsMap, <span class="keywordtype">float</span> xOrigin, <span class="keywordtype">float</span> zOrigin) {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    std::vector &lt;Point3D *&gt; * newPoints = <span class="keyword">new</span> std::vector &lt;Point3D *&gt;;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> i = 0; i &lt; bodyKeyPointsMap.size(); i++) {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keywordflow">if</span> (!bodyKeyPointsMap.at(i)) {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            newPoints-&gt;push_back(<span class="keyword">new</span> <a class="code hl_class" href="class_point3_d.html">Point3D</a>(0, 0, 0, <span class="keyword">new</span> <a class="code hl_class" href="class_body_key_point.html">BodyKeyPoint</a>(0, 0, 0)));</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            newPoints-&gt;push_back(<span class="keyword">new</span> <a class="code hl_class" href="class_point3_d.html">Point3D</a>(</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>                <a class="code hl_function" href="class_coordinate_mapping_manager.html#a5c3664f4ec7cc22b99dba97df60d5bd3">transformWidthCoordinate</a>(pointsToMap.at(i)-&gt;getX()) - std::abs(xOrigin),</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                <a class="code hl_function" href="class_coordinate_mapping_manager.html#ab1189918e3477395629122540574512c">transformHeightCoordinate</a>(pointsToMap.at(i)-&gt;getY()),</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                - (pointsToMap.at(i)-&gt;getZ() + std::abs(zOrigin) + <a class="code hl_variable" href="_coordinate_mapping_manager_8hpp.html#a00219f81f56add6161ea4fe55851c988">distanceCameraFromBackWall</a>),</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                <span class="keyword">new</span> <a class="code hl_class" href="class_body_key_point.html">BodyKeyPoint</a>(0, 0, ((<a class="code hl_class" href="class_body_key_point.html">BodyKeyPoint</a> *) pointsToMap.at(i)-&gt;getDecorated())-&gt;getConfidence()))</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            );</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        }</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">return</span> newPoints;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_coordinate_mapping_manager_8hpp.html">CoordinateMappingManager.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_unity_coordinate_mapping_manager.html#a5ee8f7517bb82a03e6a201fd7635d552">   15</a></span>std::vector &lt;Point3D *&gt; * <a class="code hl_function" href="class_unity_coordinate_mapping_manager.html#a5ee8f7517bb82a03e6a201fd7635d552">UnityCoordinateMappingManager::mapToMeters</a> (std::vector &lt;Point3D *&gt; pointsToMap, std::vector &lt;bool&gt; bodyKeyPointsMap, <span class="keywordtype">float</span> xOrigin, <span class="keywordtype">float</span> zOrigin) {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    std::vector &lt;Point3D *&gt; * newPoints = <span class="keyword">new</span> std::vector &lt;Point3D *&gt;;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> i = 0; i &lt; bodyKeyPointsMap.size(); i++) {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordflow">if</span> (!bodyKeyPointsMap.at(i)) {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            newPoints-&gt;push_back(<span class="keyword">new</span> <a class="code hl_class" href="class_point3_d.html">Point3D</a>(0, 0, 0, <span class="keyword">new</span> <a class="code hl_class" href="class_body_key_point.html">BodyKeyPoint</a>(0, 0, 0)));</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            newPoints-&gt;push_back(<span class="keyword">new</span> <a class="code hl_class" href="class_point3_d.html">Point3D</a>(</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                <a class="code hl_function" href="class_coordinate_mapping_manager.html#a5c3664f4ec7cc22b99dba97df60d5bd3">transformWidthCoordinate</a>(pointsToMap.at(i)-&gt;getX()) - std::abs(xOrigin),</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                <a class="code hl_function" href="class_coordinate_mapping_manager.html#ab1189918e3477395629122540574512c">transformHeightCoordinate</a>(pointsToMap.at(i)-&gt;getY()),</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                - (pointsToMap.at(i)-&gt;getZ() + std::abs(zOrigin) + <a class="code hl_variable" href="_coordinate_mapping_manager_8hpp.html#a00219f81f56add6161ea4fe55851c988">distanceCameraFromBackWall</a>),</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                <span class="keyword">new</span> <a class="code hl_class" href="class_body_key_point.html">BodyKeyPoint</a>(0, 0, ((<a class="code hl_class" href="class_body_key_point.html">BodyKeyPoint</a> *) pointsToMap.at(i)-&gt;getDecorated())-&gt;getConfidence()))</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            );</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">return</span> newPoints;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
 <div class="ttc" id="a_coordinate_mapping_manager_8hpp_html"><div class="ttname"><a href="_coordinate_mapping_manager_8hpp.html">CoordinateMappingManager.hpp</a></div></div>
-<div class="ttc" id="a_coordinate_mapping_manager_8hpp_html_a00219f81f56add6161ea4fe55851c988"><div class="ttname"><a href="_coordinate_mapping_manager_8hpp.html#a00219f81f56add6161ea4fe55851c988">distanceCameraFromBackWall</a></div><div class="ttdeci">static const float distanceCameraFromBackWall</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_mapping_manager_8hpp_source.html#l00031">CoordinateMappingManager.hpp:31</a></div></div>
-<div class="ttc" id="aclass_body_key_point_html"><div class="ttname"><a href="class_body_key_point.html">BodyKeyPoint</a></div><div class="ttdoc">BodyKeyPoint class is used for body keypoint creations and manipulations.</div><div class="ttdef"><b>Definition:</b> <a href="_body_key_point_8hpp_source.html#l00021">BodyKeyPoint.hpp:21</a></div></div>
-<div class="ttc" id="aclass_coordinate_mapping_manager_html_a5c3664f4ec7cc22b99dba97df60d5bd3"><div class="ttname"><a href="class_coordinate_mapping_manager.html#a5c3664f4ec7cc22b99dba97df60d5bd3">CoordinateMappingManager::transformWidthCoordinate</a></div><div class="ttdeci">float transformWidthCoordinate(float widthCoordinate)</div><div class="ttdoc">Converts width value.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_mapping_manager_8cpp_source.html#l00012">CoordinateMappingManager.cpp:12</a></div></div>
-<div class="ttc" id="aclass_coordinate_mapping_manager_html_ab1189918e3477395629122540574512c"><div class="ttname"><a href="class_coordinate_mapping_manager.html#ab1189918e3477395629122540574512c">CoordinateMappingManager::transformHeightCoordinate</a></div><div class="ttdeci">float transformHeightCoordinate(float heightCoordinate)</div><div class="ttdoc">Converts height value.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_mapping_manager_8cpp_source.html#l00018">CoordinateMappingManager.cpp:18</a></div></div>
-<div class="ttc" id="aclass_point3_d_html"><div class="ttname"><a href="class_point3_d.html">Point3D</a></div><div class="ttdoc">Point3D class is used for Point3D creations and manipulations.</div><div class="ttdef"><b>Definition:</b> <a href="_point3_d_8hpp_source.html#l00020">Point3D.hpp:20</a></div></div>
-<div class="ttc" id="aclass_unity_coordinate_mapping_manager_html_a5ee8f7517bb82a03e6a201fd7635d552"><div class="ttname"><a href="class_unity_coordinate_mapping_manager.html#a5ee8f7517bb82a03e6a201fd7635d552">UnityCoordinateMappingManager::mapToMeters</a></div><div class="ttdeci">std::vector&lt; Point3D * &gt; * mapToMeters(std::vector&lt; Point3D * &gt; pointsToMap, std::vector&lt; bool &gt; bodyKeyPointsMap, float xOrigin, float zOrigin) override</div><div class="ttdoc">This method requires pointers' Point3D's vector, the related vector map, and the original coordinates...</div><div class="ttdef"><b>Definition:</b> <a href="_unity_coordinate_mapping_manager_8cpp_source.html#l00012">UnityCoordinateMappingManager.cpp:12</a></div></div>
+<div class="ttc" id="a_coordinate_mapping_manager_8hpp_html_a00219f81f56add6161ea4fe55851c988"><div class="ttname"><a href="_coordinate_mapping_manager_8hpp.html#a00219f81f56add6161ea4fe55851c988">distanceCameraFromBackWall</a></div><div class="ttdeci">static const float distanceCameraFromBackWall</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_mapping_manager_8hpp_source.html#l00034">CoordinateMappingManager.hpp:34</a></div></div>
+<div class="ttc" id="aclass_body_key_point_html"><div class="ttname"><a href="class_body_key_point.html">BodyKeyPoint</a></div><div class="ttdoc">BodyKeyPoint class is used for body keypoint creations and manipulations.</div><div class="ttdef"><b>Definition:</b> <a href="_body_key_point_8hpp_source.html#l00024">BodyKeyPoint.hpp:24</a></div></div>
+<div class="ttc" id="aclass_coordinate_mapping_manager_html_a5c3664f4ec7cc22b99dba97df60d5bd3"><div class="ttname"><a href="class_coordinate_mapping_manager.html#a5c3664f4ec7cc22b99dba97df60d5bd3">CoordinateMappingManager::transformWidthCoordinate</a></div><div class="ttdeci">float transformWidthCoordinate(float widthCoordinate)</div><div class="ttdoc">Converts width value.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_mapping_manager_8cpp_source.html#l00015">CoordinateMappingManager.cpp:15</a></div></div>
+<div class="ttc" id="aclass_coordinate_mapping_manager_html_ab1189918e3477395629122540574512c"><div class="ttname"><a href="class_coordinate_mapping_manager.html#ab1189918e3477395629122540574512c">CoordinateMappingManager::transformHeightCoordinate</a></div><div class="ttdeci">float transformHeightCoordinate(float heightCoordinate)</div><div class="ttdoc">Converts height value.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_mapping_manager_8cpp_source.html#l00021">CoordinateMappingManager.cpp:21</a></div></div>
+<div class="ttc" id="aclass_point3_d_html"><div class="ttname"><a href="class_point3_d.html">Point3D</a></div><div class="ttdoc">Point3D class is used for Point3D creations and manipulations.</div><div class="ttdef"><b>Definition:</b> <a href="_point3_d_8hpp_source.html#l00023">Point3D.hpp:23</a></div></div>
+<div class="ttc" id="aclass_unity_coordinate_mapping_manager_html_a5ee8f7517bb82a03e6a201fd7635d552"><div class="ttname"><a href="class_unity_coordinate_mapping_manager.html#a5ee8f7517bb82a03e6a201fd7635d552">UnityCoordinateMappingManager::mapToMeters</a></div><div class="ttdeci">std::vector&lt; Point3D * &gt; * mapToMeters(std::vector&lt; Point3D * &gt; pointsToMap, std::vector&lt; bool &gt; bodyKeyPointsMap, float xOrigin, float zOrigin) override</div><div class="ttdoc">This method requires pointers' Point3D's vector, the related vector map, and the original coordinates...</div><div class="ttdef"><b>Definition:</b> <a href="_unity_coordinate_mapping_manager_8cpp_source.html#l00015">UnityCoordinateMappingManager.cpp:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AI Watch: ImageManager Class Reference</title>
+<title>AI Watch A1: ImageManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="eye_small_white.png"/></td>
   <td id="projectalign">
-   <div id="projectname">AI Watch<span id="projectnumber">&#160;A1</span>
+   <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">3D Skeleton tracking</div>
+   <div id="projectbrief">Multi-person 3D skeleton tracking using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -101,7 +101,7 @@ Private Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><a class="el" href="class_image_manager.html" title="ImageManager class is a general-purpose class useful for operations on images such as loading,...">ImageManager</a> class is a general-purpose class useful for operations on images such as loading, saving, showing and releasing attached memory. </p>
 
-<p class="definition">Definition at line <a class="el" href="_image_manager_8hpp_source.html#l00026">26</a> of file <a class="el" href="_image_manager_8hpp_source.html">ImageManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_image_manager_8hpp_source.html#l00029">29</a> of file <a class="el" href="_image_manager_8hpp_source.html">ImageManager.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aee3ff89c8031117cac540670fb8c09fe" name="aee3ff89c8031117cac540670fb8c09fe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aee3ff89c8031117cac540670fb8c09fe">&#9670;&nbsp;</a></span>loadImage()</h2>
@@ -145,16 +145,16 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_image_manager_8cpp_source.html#l00018">18</a> of file <a class="el" href="_image_manager_8cpp_source.html">ImageManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   18</span>                                                                                  {</div>
-<div class="line"><span class="lineno">   19</span>    inputImage = cv::imread(imagePath, loadType);</div>
-<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">if</span> (inputImage.empty()) {</div>
-<div class="line"><span class="lineno">   21</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;IMAGE NOT FOUND: &quot;</span> &lt;&lt; imagePath &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><span class="lineno">   22</span>        CV_Error(<a class="code hl_variable" href="constants_8hpp.html#acf6078e85204f48a7575ea45d5268ab1">LOAD_IMAGE_ERROR</a>, <a class="code hl_variable" href="constants_8hpp.html#a16192e81b081d4a4eb13123a7b5ef08b">LOAD_IMAGE_SCOPE</a>);</div>
-<div class="line"><span class="lineno">   23</span>    }</div>
-<div class="line"><span class="lineno">   24</span>}</div>
-<div class="ttc" id="aconstants_8hpp_html_a16192e81b081d4a4eb13123a7b5ef08b"><div class="ttname"><a href="constants_8hpp.html#a16192e81b081d4a4eb13123a7b5ef08b">LOAD_IMAGE_SCOPE</a></div><div class="ttdeci">static const char * LOAD_IMAGE_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00018">constants.hpp:18</a></div></div>
-<div class="ttc" id="aconstants_8hpp_html_acf6078e85204f48a7575ea45d5268ab1"><div class="ttname"><a href="constants_8hpp.html#acf6078e85204f48a7575ea45d5268ab1">LOAD_IMAGE_ERROR</a></div><div class="ttdeci">static const short int LOAD_IMAGE_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00017">constants.hpp:17</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_image_manager_8cpp_source.html#l00021">21</a> of file <a class="el" href="_image_manager_8cpp_source.html">ImageManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>                                                                                  {</div>
+<div class="line"><span class="lineno">   22</span>    inputImage = cv::imread(imagePath, loadType);</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">if</span> (inputImage.empty()) {</div>
+<div class="line"><span class="lineno">   24</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;IMAGE NOT FOUND: &quot;</span> &lt;&lt; imagePath &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><span class="lineno">   25</span>        CV_Error(<a class="code hl_variable" href="constants_8hpp.html#acf6078e85204f48a7575ea45d5268ab1">LOAD_IMAGE_ERROR</a>, <a class="code hl_variable" href="constants_8hpp.html#a16192e81b081d4a4eb13123a7b5ef08b">LOAD_IMAGE_SCOPE</a>);</div>
+<div class="line"><span class="lineno">   26</span>    }</div>
+<div class="line"><span class="lineno">   27</span>}</div>
+<div class="ttc" id="aconstants_8hpp_html_a16192e81b081d4a4eb13123a7b5ef08b"><div class="ttname"><a href="constants_8hpp.html#a16192e81b081d4a4eb13123a7b5ef08b">LOAD_IMAGE_SCOPE</a></div><div class="ttdeci">static const char * LOAD_IMAGE_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00021">constants.hpp:21</a></div></div>
+<div class="ttc" id="aconstants_8hpp_html_acf6078e85204f48a7575ea45d5268ab1"><div class="ttname"><a href="constants_8hpp.html#acf6078e85204f48a7575ea45d5268ab1">LOAD_IMAGE_ERROR</a></div><div class="ttdeci">static const short int LOAD_IMAGE_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00020">constants.hpp:20</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -182,10 +182,10 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_image_manager_8cpp_source.html#l00047">47</a> of file <a class="el" href="_image_manager_8cpp_source.html">ImageManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   47</span>                                                                            {</div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> singleImage : images) singleImage.release();</div>
-<div class="line"><span class="lineno">   49</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_image_manager_8cpp_source.html#l00050">50</a> of file <a class="el" href="_image_manager_8cpp_source.html">ImageManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>                                                                            {</div>
+<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> singleImage : images) singleImage.release();</div>
+<div class="line"><span class="lineno">   52</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -232,12 +232,12 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_image_manager_8cpp_source.html#l00012">12</a> of file <a class="el" href="_image_manager_8cpp_source.html">ImageManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   12</span>                                                                                {</div>
-<div class="line"><span class="lineno">   13</span>    <span class="keywordflow">if</span> (!(cv::imwrite(imageSavePath, imageToSave))) CV_Error(<a class="code hl_variable" href="constants_8hpp.html#a65c4f95999974551f7bb4463c5fd60b2">SAVE_IMAGE_ERROR</a>, <a class="code hl_variable" href="constants_8hpp.html#af777565d645137243e629c22eec8398c">SAVE_IMAGE_SCOPE</a>);</div>
-<div class="line"><span class="lineno">   14</span>}</div>
-<div class="ttc" id="aconstants_8hpp_html_a65c4f95999974551f7bb4463c5fd60b2"><div class="ttname"><a href="constants_8hpp.html#a65c4f95999974551f7bb4463c5fd60b2">SAVE_IMAGE_ERROR</a></div><div class="ttdeci">static const short int SAVE_IMAGE_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00020">constants.hpp:20</a></div></div>
-<div class="ttc" id="aconstants_8hpp_html_af777565d645137243e629c22eec8398c"><div class="ttname"><a href="constants_8hpp.html#af777565d645137243e629c22eec8398c">SAVE_IMAGE_SCOPE</a></div><div class="ttdeci">static const char * SAVE_IMAGE_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00021">constants.hpp:21</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_image_manager_8cpp_source.html#l00015">15</a> of file <a class="el" href="_image_manager_8cpp_source.html">ImageManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>                                                                                {</div>
+<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">if</span> (!(cv::imwrite(imageSavePath, imageToSave))) CV_Error(<a class="code hl_variable" href="constants_8hpp.html#a65c4f95999974551f7bb4463c5fd60b2">SAVE_IMAGE_ERROR</a>, <a class="code hl_variable" href="constants_8hpp.html#af777565d645137243e629c22eec8398c">SAVE_IMAGE_SCOPE</a>);</div>
+<div class="line"><span class="lineno">   17</span>}</div>
+<div class="ttc" id="aconstants_8hpp_html_a65c4f95999974551f7bb4463c5fd60b2"><div class="ttname"><a href="constants_8hpp.html#a65c4f95999974551f7bb4463c5fd60b2">SAVE_IMAGE_ERROR</a></div><div class="ttdeci">static const short int SAVE_IMAGE_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00023">constants.hpp:23</a></div></div>
+<div class="ttc" id="aconstants_8hpp_html_af777565d645137243e629c22eec8398c"><div class="ttname"><a href="constants_8hpp.html#af777565d645137243e629c22eec8398c">SAVE_IMAGE_SCOPE</a></div><div class="ttdeci">static const char * SAVE_IMAGE_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00024">constants.hpp:24</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -276,17 +276,17 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_image_manager_8cpp_source.html#l00026">26</a> of file <a class="el" href="_image_manager_8cpp_source.html">ImageManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   26</span>                                                                                                                             {</div>
-<div class="line"><span class="lineno">   27</span>    <span class="keyword">auto</span> imagesIterator = images.begin();</div>
-<div class="line"><span class="lineno">   28</span>    <span class="keyword">auto</span> imagePathsIterator = imagePaths.begin();</div>
-<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> i = 0; i &lt; images.size(); i++) {</div>
-<div class="line"><span class="lineno">   30</span>        <a class="code hl_function" href="class_image_manager.html#ae2c821d9593569270222d88f30674a10">saveImage</a>(* imagePathsIterator, * imagesIterator);</div>
-<div class="line"><span class="lineno">   31</span>        imagePathsIterator++;</div>
-<div class="line"><span class="lineno">   32</span>        imagesIterator++;</div>
-<div class="line"><span class="lineno">   33</span>    }</div>
-<div class="line"><span class="lineno">   34</span>}</div>
-<div class="ttc" id="aclass_image_manager_html_ae2c821d9593569270222d88f30674a10"><div class="ttname"><a href="class_image_manager.html#ae2c821d9593569270222d88f30674a10">ImageManager::saveImage</a></div><div class="ttdeci">void saveImage(std::string imageSavePath, const cv::Mat &amp;imageToSave)</div><div class="ttdoc">Saves a single image.</div><div class="ttdef"><b>Definition:</b> <a href="_image_manager_8cpp_source.html#l00012">ImageManager.cpp:12</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_image_manager_8cpp_source.html#l00029">29</a> of file <a class="el" href="_image_manager_8cpp_source.html">ImageManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>                                                                                                                             {</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keyword">auto</span> imagesIterator = images.begin();</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keyword">auto</span> imagePathsIterator = imagePaths.begin();</div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> i = 0; i &lt; images.size(); i++) {</div>
+<div class="line"><span class="lineno">   33</span>        <a class="code hl_function" href="class_image_manager.html#ae2c821d9593569270222d88f30674a10">saveImage</a>(* imagePathsIterator, * imagesIterator);</div>
+<div class="line"><span class="lineno">   34</span>        imagePathsIterator++;</div>
+<div class="line"><span class="lineno">   35</span>        imagesIterator++;</div>
+<div class="line"><span class="lineno">   36</span>    }</div>
+<div class="line"><span class="lineno">   37</span>}</div>
+<div class="ttc" id="aclass_image_manager_html_ae2c821d9593569270222d88f30674a10"><div class="ttname"><a href="class_image_manager.html#ae2c821d9593569270222d88f30674a10">ImageManager::saveImage</a></div><div class="ttdeci">void saveImage(std::string imageSavePath, const cv::Mat &amp;imageToSave)</div><div class="ttdoc">Saves a single image.</div><div class="ttdef"><b>Definition:</b> <a href="_image_manager_8cpp_source.html#l00015">ImageManager.cpp:15</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -325,17 +325,17 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_image_manager_8cpp_source.html#l00036">36</a> of file <a class="el" href="_image_manager_8cpp_source.html">ImageManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   36</span>                                                                                                                              {</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keyword">auto</span> imagesIterator = images.begin();</div>
-<div class="line"><span class="lineno">   38</span>    <span class="keyword">auto</span> windowNamesIterator = windowNames.begin();</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> i = 0; i &lt; images.size(); i++) {</div>
-<div class="line"><span class="lineno">   40</span>        cv::imshow(* windowNamesIterator, * imagesIterator);</div>
-<div class="line"><span class="lineno">   41</span>        windowNamesIterator++;</div>
-<div class="line"><span class="lineno">   42</span>        imagesIterator++;</div>
-<div class="line"><span class="lineno">   43</span>    }</div>
-<div class="line"><span class="lineno">   44</span>    cv::waitKey(1);</div>
-<div class="line"><span class="lineno">   45</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_image_manager_8cpp_source.html#l00039">39</a> of file <a class="el" href="_image_manager_8cpp_source.html">ImageManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>                                                                                                                              {</div>
+<div class="line"><span class="lineno">   40</span>    <span class="keyword">auto</span> imagesIterator = images.begin();</div>
+<div class="line"><span class="lineno">   41</span>    <span class="keyword">auto</span> windowNamesIterator = windowNames.begin();</div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> i = 0; i &lt; images.size(); i++) {</div>
+<div class="line"><span class="lineno">   43</span>        cv::imshow(* windowNamesIterator, * imagesIterator);</div>
+<div class="line"><span class="lineno">   44</span>        windowNamesIterator++;</div>
+<div class="line"><span class="lineno">   45</span>        imagesIterator++;</div>
+<div class="line"><span class="lineno">   46</span>    }</div>
+<div class="line"><span class="lineno">   47</span>    cv::waitKey(1);</div>
+<div class="line"><span class="lineno">   48</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

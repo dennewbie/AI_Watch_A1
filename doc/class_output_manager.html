@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AI Watch: OutputManager Class Reference</title>
+<title>AI Watch A1: OutputManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="eye_small_white.png"/></td>
   <td id="projectalign">
-   <div id="projectname">AI Watch<span id="projectnumber">&#160;A1</span>
+   <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">3D Skeleton tracking</div>
+   <div id="projectbrief">Multi-person 3D skeleton tracking using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -114,7 +114,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><a class="el" href="class_output_manager.html" title="OutputManager class is a class that abstracts final output-producing operations. An output format inh...">OutputManager</a> class is a class that abstracts final output-producing operations. An output format inherits from this class, such as <a class="el" href="class_output_manager_j_s_o_n.html" title="OutputManagerJSON class is a class that abstracts final JSON output-producing operations.">OutputManagerJSON</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_output_manager_8hpp_source.html#l00029">29</a> of file <a class="el" href="_output_manager_8hpp_source.html">OutputManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_output_manager_8hpp_source.html#l00032">32</a> of file <a class="el" href="_output_manager_8hpp_source.html">OutputManager.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a27d8e1eed98c01b2114a4b7085503d8c" name="a27d8e1eed98c01b2114a4b7085503d8c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a27d8e1eed98c01b2114a4b7085503d8c">&#9670;&nbsp;</a></span>~OutputManager()</h2>
@@ -171,11 +171,11 @@ Private Attributes</h2></td></tr>
 <p>Get the output file's content. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_output_manager_8cpp_source.html#l00016">16</a> of file <a class="el" href="_output_manager_8cpp_source.html">OutputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   16</span>                                                  {</div>
-<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="class_output_manager.html#adfaaff6bee6024d79c80174a9240cbf3">stringOutputData</a>;</div>
-<div class="line"><span class="lineno">   18</span>}</div>
-<div class="ttc" id="aclass_output_manager_html_adfaaff6bee6024d79c80174a9240cbf3"><div class="ttname"><a href="class_output_manager.html#adfaaff6bee6024d79c80174a9240cbf3">OutputManager::stringOutputData</a></div><div class="ttdeci">std::string stringOutputData</div><div class="ttdoc">Output file's content.</div><div class="ttdef"><b>Definition:</b> <a href="_output_manager_8hpp_source.html#l00034">OutputManager.hpp:34</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_output_manager_8cpp_source.html#l00019">19</a> of file <a class="el" href="_output_manager_8cpp_source.html">OutputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   19</span>                                                  {</div>
+<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="class_output_manager.html#adfaaff6bee6024d79c80174a9240cbf3">stringOutputData</a>;</div>
+<div class="line"><span class="lineno">   21</span>}</div>
+<div class="ttc" id="aclass_output_manager_html_adfaaff6bee6024d79c80174a9240cbf3"><div class="ttname"><a href="class_output_manager.html#adfaaff6bee6024d79c80174a9240cbf3">OutputManager::stringOutputData</a></div><div class="ttdeci">std::string stringOutputData</div><div class="ttdoc">Output file's content.</div><div class="ttdef"><b>Definition:</b> <a href="_output_manager_8hpp_source.html#l00037">OutputManager.hpp:37</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -273,10 +273,10 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_output_manager_8cpp_source.html#l00012">12</a> of file <a class="el" href="_output_manager_8cpp_source.html">OutputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   12</span>                                                                   {</div>
-<div class="line"><span class="lineno">   13</span>    this-&gt;<a class="code hl_variable" href="class_output_manager.html#adfaaff6bee6024d79c80174a9240cbf3">stringOutputData</a> = <a class="code hl_variable" href="class_output_manager.html#adfaaff6bee6024d79c80174a9240cbf3">stringOutputData</a>;</div>
-<div class="line"><span class="lineno">   14</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_output_manager_8cpp_source.html#l00015">15</a> of file <a class="el" href="_output_manager_8cpp_source.html">OutputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>                                                                   {</div>
+<div class="line"><span class="lineno">   16</span>    this-&gt;<a class="code hl_variable" href="class_output_manager.html#adfaaff6bee6024d79c80174a9240cbf3">stringOutputData</a> = <a class="code hl_variable" href="class_output_manager.html#adfaaff6bee6024d79c80174a9240cbf3">stringOutputData</a>;</div>
+<div class="line"><span class="lineno">   17</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -303,7 +303,7 @@ Private Attributes</h2></td></tr>
 
 <p>Output file's content. </p>
 
-<p class="definition">Definition at line <a class="el" href="_output_manager_8hpp_source.html#l00034">34</a> of file <a class="el" href="_output_manager_8hpp_source.html">OutputManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_output_manager_8hpp_source.html#l00037">37</a> of file <a class="el" href="_output_manager_8hpp_source.html">OutputManager.hpp</a>.</p>
 
 </div>
 </div>
