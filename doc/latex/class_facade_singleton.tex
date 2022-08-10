@@ -45,7 +45,7 @@ void \mbox{\hyperlink{class_facade_singleton_abc5f2b337bf77ee67ea25f62220c261f}{
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{class_facade_singleton}{Facade\+Singleton}} $\ast$ \mbox{\hyperlink{class_facade_singleton_aa02599e4e7ff79c5a12012c6005bdf83}{get\+Instance}} (const int \mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\+\_\+argc}}, const char $\ast$\mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expected\+Usage\+Message}})
+static \mbox{\hyperlink{class_facade_singleton}{Facade\+Singleton}} $\ast$ \mbox{\hyperlink{class_facade_singleton_aa02599e4e7ff79c5a12012c6005bdf83}{get\+Instance}} (const int \mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\+\_\+argc}}, const char $\ast$\mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expected\+Usage\+Message}})
 \begin{DoxyCompactList}\small\item\em Get the unique class instance, given input parameters. This method should be called the first time when we want to create a reference to the object of this class. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{class_facade_singleton}{Facade\+Singleton}} $\ast$ \mbox{\hyperlink{class_facade_singleton_aeac68956d001824b9ecb75d385687535}{get\+Instance}} (void)
 \begin{DoxyCompactList}\small\item\em Get the unique class instance. This methods should be called in the following scenario\+: when we just want to retrieve the reference to the object of this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -69,7 +69,7 @@ void \mbox{\hyperlink{class_facade_singleton_a6eae17430632954f6627dcd55fe6e8e1}{
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_facade_singleton_ac4ee3b0a6efcb32cce88d819718ddf3f}{Facade\+Singleton}} (const int \mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\+\_\+argc}}=0, const char $\ast$\mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expected\+Usage\+Message}}=nullptr)
+\mbox{\hyperlink{class_facade_singleton_ac4ee3b0a6efcb32cce88d819718ddf3f}{Facade\+Singleton}} (const int \mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\+\_\+argc}}=0, const char $\ast$\mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expected\+Usage\+Message}}=nullptr)
 \begin{DoxyCompactList}\small\item\em Construct a new Facade Singleton object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_facade_singleton_a8788be36172d2129f58361f7774e5072}{$\sim$\+Facade\+Singleton}} (void)
 \begin{DoxyCompactList}\small\item\em Destroy the Facade Singleton object. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -105,7 +105,7 @@ static std\+::mutex \mbox{\hyperlink{class_facade_singleton_a601a03cd89c64afb6db
 A facade is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes. A Facade class can often be transformed into a Singleton since a single facade object is sufficient in most cases. Since we need just one access point to this class and since the internal submodules are complex, a class \mbox{\hyperlink{class_facade_singleton}{Facade\+Singleton}} implements both behaviors. ~\newline
  
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
 
 
 
@@ -129,31 +129,31 @@ Construct a new Facade Singleton object.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00017                                                                                             \{}
-\DoxyCodeLine{00018     std::ifstream inputFile(\mbox{\hyperlink{constants_8hpp_a5aa49a27b0acba734928cbc530041586}{CONF\_FILE\_PATH}});}
-\DoxyCodeLine{00019     std::string singleLineConfigurationFile;}
-\DoxyCodeLine{00020     }
-\DoxyCodeLine{00021     \textcolor{keywordtype}{int} * fileArgc = \textcolor{keyword}{new} (std::nothrow) \textcolor{keywordtype}{int};}
-\DoxyCodeLine{00022     * fileArgc = (int) \mbox{\hyperlink{constants_8hpp_aa2c3576e26c9e710cd2877d639fad9ae}{totalFileParameters}};}
-\DoxyCodeLine{00023     \textcolor{keywordtype}{char} *** fileArgv = \textcolor{keyword}{new} (std::nothrow) \textcolor{keywordtype}{char} **;}
-\DoxyCodeLine{00024     * fileArgv = \textcolor{keyword}{new} (std::nothrow) \textcolor{keywordtype}{char} *[\mbox{\hyperlink{constants_8hpp_aa2c3576e26c9e710cd2877d639fad9ae}{totalFileParameters}}];}
-\DoxyCodeLine{00025     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} rowCounter = 0;}
-\DoxyCodeLine{00026 }
-\DoxyCodeLine{00027     \textcolor{keywordflow}{if} (!fileArgc || !fileArgv || ! * fileArgv) CV\_Error(\mbox{\hyperlink{constants_8hpp_abe13aa9752d0f72992db79c160c29499}{NEW\_ALLOC\_ERROR}}, \mbox{\hyperlink{constants_8hpp_afd7c8e624c9011a9fd3fef6568815ba2}{NEW\_ALLOC\_SCOPE}});}
-\DoxyCodeLine{00028     \textcolor{comment}{// Read usage's configuration parameters from file}}
-\DoxyCodeLine{00029     \textcolor{keywordflow}{while} (inputFile >> singleLineConfigurationFile) \{}
-\DoxyCodeLine{00030         (* fileArgv)[rowCounter] = \textcolor{keyword}{new} (std::nothrow) \textcolor{keywordtype}{char} [(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}) singleLineConfigurationFile.size()];}
-\DoxyCodeLine{00031         \textcolor{keywordflow}{if} (!(* fileArgv)[rowCounter]) CV\_Error(\mbox{\hyperlink{constants_8hpp_abe13aa9752d0f72992db79c160c29499}{NEW\_ALLOC\_ERROR}}, \mbox{\hyperlink{constants_8hpp_afd7c8e624c9011a9fd3fef6568815ba2}{NEW\_ALLOC\_SCOPE}});}
-\DoxyCodeLine{00032         strcpy((* fileArgv)[rowCounter], singleLineConfigurationFile.c\_str());}
-\DoxyCodeLine{00033         rowCounter++;}
-\DoxyCodeLine{00034     \}}
-\DoxyCodeLine{00035     }
-\DoxyCodeLine{00036     \mbox{\hyperlink{class_facade_singleton_a0f1dc94d476d37d4d8b50ea1cfadee79}{setUsageManager}}(\mbox{\hyperlink{class_usage_manager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}(fileArgc, fileArgv, \mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}}));}
-\DoxyCodeLine{00037 \}}
+\DoxyCodeLine{00020                                                                                             \{}
+\DoxyCodeLine{00021     std::ifstream inputFile(\mbox{\hyperlink{constants_8hpp_a5aa49a27b0acba734928cbc530041586}{CONF\_FILE\_PATH}});}
+\DoxyCodeLine{00022     std::string singleLineConfigurationFile;}
+\DoxyCodeLine{00023     }
+\DoxyCodeLine{00024     \textcolor{keywordtype}{int} * fileArgc = \textcolor{keyword}{new} (std::nothrow) \textcolor{keywordtype}{int};}
+\DoxyCodeLine{00025     * fileArgc = (int) \mbox{\hyperlink{constants_8hpp_aa2c3576e26c9e710cd2877d639fad9ae}{totalFileParameters}};}
+\DoxyCodeLine{00026     \textcolor{keywordtype}{char} *** fileArgv = \textcolor{keyword}{new} (std::nothrow) \textcolor{keywordtype}{char} **;}
+\DoxyCodeLine{00027     * fileArgv = \textcolor{keyword}{new} (std::nothrow) \textcolor{keywordtype}{char} *[\mbox{\hyperlink{constants_8hpp_aa2c3576e26c9e710cd2877d639fad9ae}{totalFileParameters}}];}
+\DoxyCodeLine{00028     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} rowCounter = 0;}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030     \textcolor{keywordflow}{if} (!fileArgc || !fileArgv || ! * fileArgv) CV\_Error(\mbox{\hyperlink{constants_8hpp_abe13aa9752d0f72992db79c160c29499}{NEW\_ALLOC\_ERROR}}, \mbox{\hyperlink{constants_8hpp_afd7c8e624c9011a9fd3fef6568815ba2}{NEW\_ALLOC\_SCOPE}});}
+\DoxyCodeLine{00031     \textcolor{comment}{// Read usage's configuration parameters from file}}
+\DoxyCodeLine{00032     \textcolor{keywordflow}{while} (inputFile >> singleLineConfigurationFile) \{}
+\DoxyCodeLine{00033         (* fileArgv)[rowCounter] = \textcolor{keyword}{new} (std::nothrow) \textcolor{keywordtype}{char} [(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}) singleLineConfigurationFile.size()];}
+\DoxyCodeLine{00034         \textcolor{keywordflow}{if} (!(* fileArgv)[rowCounter]) CV\_Error(\mbox{\hyperlink{constants_8hpp_abe13aa9752d0f72992db79c160c29499}{NEW\_ALLOC\_ERROR}}, \mbox{\hyperlink{constants_8hpp_afd7c8e624c9011a9fd3fef6568815ba2}{NEW\_ALLOC\_SCOPE}});}
+\DoxyCodeLine{00035         strcpy((* fileArgv)[rowCounter], singleLineConfigurationFile.c\_str());}
+\DoxyCodeLine{00036         rowCounter++;}
+\DoxyCodeLine{00037     \}}
+\DoxyCodeLine{00038     }
+\DoxyCodeLine{00039     \mbox{\hyperlink{class_facade_singleton_a0f1dc94d476d37d4d8b50ea1cfadee79}{setUsageManager}}(\mbox{\hyperlink{class_usage_manager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}(fileArgc, fileArgv, \mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}}));}
+\DoxyCodeLine{00040 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a8788be36172d2129f58361f7774e5072}\label{class_facade_singleton_a8788be36172d2129f58361f7774e5072}} 
@@ -168,20 +168,20 @@ Destroy the Facade Singleton object.
 
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00039                                        \{}
-\DoxyCodeLine{00040     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_aa365ece7ecb2ba2d4a6d160e3698275a}{getCameraManager}}();}
-\DoxyCodeLine{00041     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_a91e11305b99378bd6c7e8d6bfb5b1ca4}{getOutputManager}}();}
-\DoxyCodeLine{00042     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_a389756e6e8ebf946576a06ea0fe9d927}{getOpenCV\_Manager}}();}
-\DoxyCodeLine{00043     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_a96d0bcfe088620c1dca604a92a3bbe44}{getUsageManager}}();}
-\DoxyCodeLine{00044     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_a06a51b5942524c62681b032f8aa163f3}{getCoordinateMappingManager}}();}
-\DoxyCodeLine{00045     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_a3bcded05b467db6b295d7958d31434d9}{getImageManager}}();}
-\DoxyCodeLine{00046 \textcolor{comment}{//    delete getKafkaManager();}}
-\DoxyCodeLine{00047     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}};}
-\DoxyCodeLine{00048 \}}
+\DoxyCodeLine{00042                                        \{}
+\DoxyCodeLine{00043     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_aa365ece7ecb2ba2d4a6d160e3698275a}{getCameraManager}}();}
+\DoxyCodeLine{00044     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_a91e11305b99378bd6c7e8d6bfb5b1ca4}{getOutputManager}}();}
+\DoxyCodeLine{00045     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_a389756e6e8ebf946576a06ea0fe9d927}{getOpenCV\_Manager}}();}
+\DoxyCodeLine{00046     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_a96d0bcfe088620c1dca604a92a3bbe44}{getUsageManager}}();}
+\DoxyCodeLine{00047     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_a06a51b5942524c62681b032f8aa163f3}{getCoordinateMappingManager}}();}
+\DoxyCodeLine{00048     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_a3bcded05b467db6b295d7958d31434d9}{getImageManager}}();}
+\DoxyCodeLine{00049     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_aeee0c1d582402e6b7663297ff1f0a634}{getKafkaManager}}();}
+\DoxyCodeLine{00050     \textcolor{keyword}{delete} \mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}};}
+\DoxyCodeLine{00051 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a416ba6b37ce7d66d72ac502837a35268}\label{class_facade_singleton_a416ba6b37ce7d66d72ac502837a35268}} 
@@ -214,15 +214,15 @@ This method cleans the build folder, in order to prepare the environment for the
 
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00162}{162}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00165}{165}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00162                                             \{}
-\DoxyCodeLine{00163     \mbox{\hyperlink{class_system_command}{SystemCommand}} * cleanCommand = \textcolor{keyword}{new} \mbox{\hyperlink{class_clean_command}{CleanCommand}}();}
-\DoxyCodeLine{00164     cleanCommand-\/>\mbox{\hyperlink{class_system_command_aa402638083047a972e143064f1d5e8cb}{executeCommand}}(\mbox{\hyperlink{class_facade_singleton_a96d0bcfe088620c1dca604a92a3bbe44}{getUsageManager}}()-\/>get\_argc(), \mbox{\hyperlink{class_facade_singleton_a96d0bcfe088620c1dca604a92a3bbe44}{getUsageManager}}()-\/>get\_argv());}
-\DoxyCodeLine{00165     \textcolor{keyword}{delete} cleanCommand;}
-\DoxyCodeLine{00166 \}}
+\DoxyCodeLine{00165                                             \{}
+\DoxyCodeLine{00166     \mbox{\hyperlink{class_system_command}{SystemCommand}} * cleanCommand = \textcolor{keyword}{new} \mbox{\hyperlink{class_clean_command}{CleanCommand}}();}
+\DoxyCodeLine{00167     cleanCommand-\/>\mbox{\hyperlink{class_system_command_aa402638083047a972e143064f1d5e8cb}{executeCommand}}(\mbox{\hyperlink{class_facade_singleton_a96d0bcfe088620c1dca604a92a3bbe44}{getUsageManager}}()-\/>get\_argc(), \mbox{\hyperlink{class_facade_singleton_a96d0bcfe088620c1dca604a92a3bbe44}{getUsageManager}}()-\/>get\_argv());}
+\DoxyCodeLine{00168     \textcolor{keyword}{delete} cleanCommand;}
+\DoxyCodeLine{00169 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_aa365ece7ecb2ba2d4a6d160e3698275a}\label{class_facade_singleton_aa365ece7ecb2ba2d4a6d160e3698275a}} 
@@ -243,13 +243,13 @@ Get the \mbox{\hyperlink{class_real_sense_manager}{Real\+Sense\+Manager}} pointe
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00095}{95}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00092                                                           \{}
-\DoxyCodeLine{00093     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a00aca9d472d299f60347f122ec80de2f}{cameraManager}};}
-\DoxyCodeLine{00094 \}}
+\DoxyCodeLine{00095                                                           \{}
+\DoxyCodeLine{00096     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a00aca9d472d299f60347f122ec80de2f}{cameraManager}};}
+\DoxyCodeLine{00097 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a06a51b5942524c62681b032f8aa163f3}\label{class_facade_singleton_a06a51b5942524c62681b032f8aa163f3}} 
@@ -272,13 +272,13 @@ Get the \mbox{\hyperlink{class_coordinate_mapping_manager}{Coordinate\+Mapping\+
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00108}{108}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00111}{111}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00108                                                                              \{}
-\DoxyCodeLine{00109     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a21b9379face73a60c0328c2132f77940}{coordinateMappingManager}};}
-\DoxyCodeLine{00110 \}}
+\DoxyCodeLine{00111                                                                              \{}
+\DoxyCodeLine{00112     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a21b9379face73a60c0328c2132f77940}{coordinateMappingManager}};}
+\DoxyCodeLine{00113 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a3bcded05b467db6b295d7958d31434d9}\label{class_facade_singleton_a3bcded05b467db6b295d7958d31434d9}} 
@@ -299,13 +299,13 @@ Get the \mbox{\hyperlink{class_image_manager}{Image\+Manager}} pointer.
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00112}{112}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00115}{115}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00112                                                      \{}
-\DoxyCodeLine{00113     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a5e9eba3756b14c6af6889c83e045e67e}{imageManager}};}
-\DoxyCodeLine{00114 \}}
+\DoxyCodeLine{00115                                                      \{}
+\DoxyCodeLine{00116     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a5e9eba3756b14c6af6889c83e045e67e}{imageManager}};}
+\DoxyCodeLine{00117 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_aa02599e4e7ff79c5a12012c6005bdf83}\label{class_facade_singleton_aa02599e4e7ff79c5a12012c6005bdf83}} 
@@ -330,15 +330,15 @@ Get the unique class instance, given input parameters. This method should be cal
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00080                                                                                                           \{}
-\DoxyCodeLine{00081     std::lock\_guard <std::mutex> lock(\mbox{\hyperlink{class_facade_singleton_a601a03cd89c64afb6dbf2ccfc36f43fb}{singletonMutex}});}
-\DoxyCodeLine{00082     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}} == \textcolor{keyword}{nullptr}) \mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_facade_singleton_ac4ee3b0a6efcb32cce88d819718ddf3f}{FacadeSingleton}}(\mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
-\DoxyCodeLine{00083     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}};}
-\DoxyCodeLine{00084 \}}
+\DoxyCodeLine{00083                                                                                                           \{}
+\DoxyCodeLine{00084     std::lock\_guard <std::mutex> lock(\mbox{\hyperlink{class_facade_singleton_a601a03cd89c64afb6dbf2ccfc36f43fb}{singletonMutex}});}
+\DoxyCodeLine{00085     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}} == \textcolor{keyword}{nullptr}) \mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_facade_singleton_ac4ee3b0a6efcb32cce88d819718ddf3f}{FacadeSingleton}}(\mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
+\DoxyCodeLine{00086     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}};}
+\DoxyCodeLine{00087 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_aeac68956d001824b9ecb75d385687535}\label{class_facade_singleton_aeac68956d001824b9ecb75d385687535}} 
@@ -356,15 +356,15 @@ Get the unique class instance. This methods should be called in the following sc
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00089}{89}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00086                                                     \{}
-\DoxyCodeLine{00087     std::lock\_guard <std::mutex> lock(\mbox{\hyperlink{class_facade_singleton_a601a03cd89c64afb6dbf2ccfc36f43fb}{singletonMutex}});}
-\DoxyCodeLine{00088     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}} == \textcolor{keyword}{nullptr}) \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00089     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}};}
-\DoxyCodeLine{00090 \}}
+\DoxyCodeLine{00089                                                     \{}
+\DoxyCodeLine{00090     std::lock\_guard <std::mutex> lock(\mbox{\hyperlink{class_facade_singleton_a601a03cd89c64afb6dbf2ccfc36f43fb}{singletonMutex}});}
+\DoxyCodeLine{00091     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}} == \textcolor{keyword}{nullptr}) \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00092     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}{sharedInstance}};}
+\DoxyCodeLine{00093 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_aeee0c1d582402e6b7663297ff1f0a634}\label{class_facade_singleton_aeee0c1d582402e6b7663297ff1f0a634}} 
@@ -385,13 +385,13 @@ Get the \mbox{\hyperlink{class_kafka_manager}{Kafka\+Manager}} pointer.
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00116}{116}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00119}{119}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00116                                                      \{}
-\DoxyCodeLine{00117     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a518cef95e5cbc04e1810826eff2a060f}{kafkaManager}};}
-\DoxyCodeLine{00118 \}}
+\DoxyCodeLine{00119                                                      \{}
+\DoxyCodeLine{00120     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a518cef95e5cbc04e1810826eff2a060f}{kafkaManager}};}
+\DoxyCodeLine{00121 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a389756e6e8ebf946576a06ea0fe9d927}\label{class_facade_singleton_a389756e6e8ebf946576a06ea0fe9d927}} 
@@ -412,13 +412,13 @@ Get the \mbox{\hyperlink{class_open_c_v___manager}{Open\+CV\+\_\+\+Manager}} poi
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00103}{103}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00100                                                          \{}
-\DoxyCodeLine{00101     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a8d07ab4572a74e9ba332ff19c9f45671}{openCV\_Manager}};}
-\DoxyCodeLine{00102 \}}
+\DoxyCodeLine{00103                                                          \{}
+\DoxyCodeLine{00104     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a8d07ab4572a74e9ba332ff19c9f45671}{openCV\_Manager}};}
+\DoxyCodeLine{00105 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a91e11305b99378bd6c7e8d6bfb5b1ca4}\label{class_facade_singleton_a91e11305b99378bd6c7e8d6bfb5b1ca4}} 
@@ -439,13 +439,13 @@ Get the \mbox{\hyperlink{class_output_manager}{Output\+Manager}} pointer.
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00096                                                        \{}
-\DoxyCodeLine{00097     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a62876d41a8d6295460665ab7fe8257d4}{outputManager}};}
-\DoxyCodeLine{00098 \}}
+\DoxyCodeLine{00099                                                        \{}
+\DoxyCodeLine{00100     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a62876d41a8d6295460665ab7fe8257d4}{outputManager}};}
+\DoxyCodeLine{00101 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a96d0bcfe088620c1dca604a92a3bbe44}\label{class_facade_singleton_a96d0bcfe088620c1dca604a92a3bbe44}} 
@@ -466,13 +466,13 @@ Get the \mbox{\hyperlink{class_usage_manager}{Usage\+Manager}} pointer.
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00107}{107}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00104                                                      \{}
-\DoxyCodeLine{00105     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a6eb06ed04c4fd57714f6efe44aa755d7}{usageManager}};}
-\DoxyCodeLine{00106 \}}
+\DoxyCodeLine{00107                                                      \{}
+\DoxyCodeLine{00108     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_facade_singleton_a6eb06ed04c4fd57714f6efe44aa755d7}{usageManager}};}
+\DoxyCodeLine{00109 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a7aaaa5771df6a9e3b8367f611b9c126d}\label{class_facade_singleton_a7aaaa5771df6a9e3b8367f611b9c126d}} 
@@ -497,15 +497,15 @@ Start and execute Open\+Pose submodule.
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00135}{135}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00135                                                                       \{}
-\DoxyCodeLine{00136     \mbox{\hyperlink{class_system_command}{SystemCommand}} * openPoseCommand = \textcolor{keyword}{new} \mbox{\hyperlink{class_open_pose_command}{OpenPoseCommand}}();}
-\DoxyCodeLine{00137     openPoseCommand-\/>\mbox{\hyperlink{class_system_command_aa402638083047a972e143064f1d5e8cb}{executeCommand}}(argc, argv);}
-\DoxyCodeLine{00138     \textcolor{keyword}{delete} openPoseCommand;}
-\DoxyCodeLine{00139 \}}
+\DoxyCodeLine{00138                                                                       \{}
+\DoxyCodeLine{00139     \mbox{\hyperlink{class_system_command}{SystemCommand}} * openPoseCommand = \textcolor{keyword}{new} \mbox{\hyperlink{class_open_pose_command}{OpenPoseCommand}}();}
+\DoxyCodeLine{00140     openPoseCommand-\/>\mbox{\hyperlink{class_system_command_aa402638083047a972e143064f1d5e8cb}{executeCommand}}(argc, argv);}
+\DoxyCodeLine{00141     \textcolor{keyword}{delete} openPoseCommand;}
+\DoxyCodeLine{00142 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a1392ddba1262d54d00c0a5d84a21e874}\label{class_facade_singleton_a1392ddba1262d54d00c0a5d84a21e874}} 
@@ -536,13 +536,13 @@ get\+Video\+Frames\+RS(unsigned int user\+\_\+n\+Frame, rs2\+::pipeline \& pipel
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00131}{131}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00134}{134}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00131                                                                                                          \{}
-\DoxyCodeLine{00132     \mbox{\hyperlink{class_facade_singleton_a389756e6e8ebf946576a06ea0fe9d927}{getOpenCV\_Manager}}()-\/>\mbox{\hyperlink{class_open_c_v___manager_ab2b14f68d14fb05e15cf22f8184a651c}{getVideoFramesCV}}(user\_nFrame, pipelineStream, scale);}
-\DoxyCodeLine{00133 \}}
+\DoxyCodeLine{00134                                                                                                          \{}
+\DoxyCodeLine{00135     \mbox{\hyperlink{class_facade_singleton_a389756e6e8ebf946576a06ea0fe9d927}{getOpenCV\_Manager}}()-\/>\mbox{\hyperlink{class_open_c_v___manager_ab2b14f68d14fb05e15cf22f8184a651c}{getVideoFramesCV}}(user\_nFrame, pipelineStream, scale);}
+\DoxyCodeLine{00136 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_ae5e73ada437689240904db89f67e587d}\label{class_facade_singleton_ae5e73ada437689240904db89f67e587d}} 
@@ -577,26 +577,26 @@ send\+Data(const char $\ast$ key, Json\+::\+Value root)
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00145}{145}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00148}{148}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00145                                                         \{}
-\DoxyCodeLine{00146     \textcolor{keywordtype}{char} ** argv = * \mbox{\hyperlink{class_facade_singleton_a96d0bcfe088620c1dca604a92a3bbe44}{FacadeSingleton::getUsageManager}}()-\/>\mbox{\hyperlink{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}(), * outputFolder = argv[\mbox{\hyperlink{constants_8hpp_abbff93ab9bac10646d7ca187c30470ad}{outputFolderOffset}}];}
-\DoxyCodeLine{00147     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} frameID = \mbox{\hyperlink{class_facade_singleton_aa365ece7ecb2ba2d4a6d160e3698275a}{FacadeSingleton::getCameraManager}}()-\/>\mbox{\hyperlink{class_real_sense_manager_aac01bf5b0fe977a03ff6ab9fa2bbf06f}{getFrameID}}(), currentImageID;}
-\DoxyCodeLine{00148     \mbox{\hyperlink{class_output_manager_j_s_o_n}{OutputManagerJSON}} * myOutputManagerJSON = (\mbox{\hyperlink{class_output_manager_j_s_o_n}{OutputManagerJSON}} *) \mbox{\hyperlink{class_facade_singleton_a91e11305b99378bd6c7e8d6bfb5b1ca4}{FacadeSingleton::getOutputManager}}();}
-\DoxyCodeLine{00149     }
-\DoxyCodeLine{00150 \textcolor{comment}{//    for (unsigned int nFrame = 0; nFrame < user\_nFrame; nFrame++) \{}}
-\DoxyCodeLine{00151 \textcolor{comment}{//        Json::Value currentJSON;}}
-\DoxyCodeLine{00152 \textcolor{comment}{//        std::stringstream outputJsonFilePath;}}
-\DoxyCodeLine{00153 \textcolor{comment}{//        currentImageID = frameID -\/ user\_nFrame + nFrame;}}
-\DoxyCodeLine{00154 \textcolor{comment}{//        outputJsonFilePath << outputFolder << "{}movement/frame"{} << currentImageID << "{}\_skeletonsPoints3D.json"{};}}
-\DoxyCodeLine{00155 \textcolor{comment}{//        if (myOutputManagerJSON-\/>loadJSON(outputJsonFilePath.str(), currentJSON)) \{}}
-\DoxyCodeLine{00156 \textcolor{comment}{//            std::string key = std::to\_string(currentImageID);}}
-\DoxyCodeLine{00157 \textcolor{comment}{//            FacadeSingleton::getKafkaManager()-\/>sendData(key.c\_str(), currentJSON);}}
-\DoxyCodeLine{00158 \textcolor{comment}{//        \}}}
-\DoxyCodeLine{00159 \textcolor{comment}{//    \}}}
-\DoxyCodeLine{00160 \}}
+\DoxyCodeLine{00148                                                         \{}
+\DoxyCodeLine{00149     \textcolor{keywordtype}{char} ** argv = * \mbox{\hyperlink{class_facade_singleton_a96d0bcfe088620c1dca604a92a3bbe44}{FacadeSingleton::getUsageManager}}()-\/>\mbox{\hyperlink{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}(), * outputFolder = argv[\mbox{\hyperlink{constants_8hpp_abbff93ab9bac10646d7ca187c30470ad}{outputFolderOffset}}];}
+\DoxyCodeLine{00150     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} frameID = \mbox{\hyperlink{class_facade_singleton_aa365ece7ecb2ba2d4a6d160e3698275a}{FacadeSingleton::getCameraManager}}()-\/>\mbox{\hyperlink{class_real_sense_manager_aac01bf5b0fe977a03ff6ab9fa2bbf06f}{getFrameID}}(), currentImageID;}
+\DoxyCodeLine{00151     \mbox{\hyperlink{class_output_manager_j_s_o_n}{OutputManagerJSON}} * myOutputManagerJSON = (\mbox{\hyperlink{class_output_manager_j_s_o_n}{OutputManagerJSON}} *) \mbox{\hyperlink{class_facade_singleton_a91e11305b99378bd6c7e8d6bfb5b1ca4}{FacadeSingleton::getOutputManager}}();}
+\DoxyCodeLine{00152     }
+\DoxyCodeLine{00153     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} nFrame = 0; nFrame < user\_nFrame; nFrame++) \{}
+\DoxyCodeLine{00154         Json::Value currentJSON;}
+\DoxyCodeLine{00155         std::stringstream outputJsonFilePath;}
+\DoxyCodeLine{00156         currentImageID = frameID -\/ user\_nFrame + nFrame;}
+\DoxyCodeLine{00157         outputJsonFilePath << outputFolder << \textcolor{stringliteral}{"{}movement/frame"{}} << currentImageID << \textcolor{stringliteral}{"{}\_skeletonsPoints3D.json"{}};}
+\DoxyCodeLine{00158         \textcolor{keywordflow}{if} (myOutputManagerJSON-\/>\mbox{\hyperlink{class_output_manager_j_s_o_n_ae664a1f8616d4876501710849c1c59d2}{loadJSON}}(outputJsonFilePath.str(), currentJSON)) \{}
+\DoxyCodeLine{00159             std::string key = std::to\_string(currentImageID);}
+\DoxyCodeLine{00160             \mbox{\hyperlink{class_facade_singleton_aeee0c1d582402e6b7663297ff1f0a634}{FacadeSingleton::getKafkaManager}}()-\/>\mbox{\hyperlink{class_kafka_manager_a5dca4ae409b1f9c21402bf68a7607315}{sendData}}(key.c\_str(), currentJSON);}
+\DoxyCodeLine{00161         \}}
+\DoxyCodeLine{00162     \}}
+\DoxyCodeLine{00163 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a9583d8ca7077bd0e89bf4ab83f0b7535}\label{class_facade_singleton_a9583d8ca7077bd0e89bf4ab83f0b7535}} 
@@ -619,13 +619,13 @@ Set the Real\+Sene\+Manager pointer.
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00050                                                                         \{}
-\DoxyCodeLine{00051     this-\/>cameraManager = \mbox{\hyperlink{class_facade_singleton_a00aca9d472d299f60347f122ec80de2f}{cameraManager}};}
-\DoxyCodeLine{00052 \}}
+\DoxyCodeLine{00053                                                                         \{}
+\DoxyCodeLine{00054     this-\/>cameraManager = \mbox{\hyperlink{class_facade_singleton_a00aca9d472d299f60347f122ec80de2f}{cameraManager}};}
+\DoxyCodeLine{00055 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a60e394e259984fce5c7388f4050fe1f8}\label{class_facade_singleton_a60e394e259984fce5c7388f4050fe1f8}} 
@@ -648,13 +648,13 @@ Set the \mbox{\hyperlink{class_coordinate_mapping_manager}{Coordinate\+Mapping\+
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00066                                                                                                       \{}
-\DoxyCodeLine{00067     this-\/>coordinateMappingManager = \mbox{\hyperlink{class_facade_singleton_a21b9379face73a60c0328c2132f77940}{coordinateMappingManager}};}
-\DoxyCodeLine{00068 \}}
+\DoxyCodeLine{00069                                                                                                       \{}
+\DoxyCodeLine{00070     this-\/>coordinateMappingManager = \mbox{\hyperlink{class_facade_singleton_a21b9379face73a60c0328c2132f77940}{coordinateMappingManager}};}
+\DoxyCodeLine{00071 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a30385b27b8d5bbeb95879bdfe94e20d5}\label{class_facade_singleton_a30385b27b8d5bbeb95879bdfe94e20d5}} 
@@ -677,13 +677,13 @@ Set the \mbox{\hyperlink{class_image_manager}{Image\+Manager}} pointer.
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00073}{73}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00070                                                                   \{}
-\DoxyCodeLine{00071     this-\/>imageManager = \mbox{\hyperlink{class_facade_singleton_a5e9eba3756b14c6af6889c83e045e67e}{imageManager}};}
-\DoxyCodeLine{00072 \}}
+\DoxyCodeLine{00073                                                                   \{}
+\DoxyCodeLine{00074     this-\/>imageManager = \mbox{\hyperlink{class_facade_singleton_a5e9eba3756b14c6af6889c83e045e67e}{imageManager}};}
+\DoxyCodeLine{00075 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a6eae17430632954f6627dcd55fe6e8e1}\label{class_facade_singleton_a6eae17430632954f6627dcd55fe6e8e1}} 
@@ -706,13 +706,13 @@ Set the \mbox{\hyperlink{class_kafka_manager}{Kafka\+Manager}} pointer.
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00074}{74}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00074                                                                   \{}
-\DoxyCodeLine{00075     this-\/>kafkaManager = \mbox{\hyperlink{class_facade_singleton_a518cef95e5cbc04e1810826eff2a060f}{kafkaManager}};}
-\DoxyCodeLine{00076 \}}
+\DoxyCodeLine{00077                                                                   \{}
+\DoxyCodeLine{00078     this-\/>kafkaManager = \mbox{\hyperlink{class_facade_singleton_a518cef95e5cbc04e1810826eff2a060f}{kafkaManager}};}
+\DoxyCodeLine{00079 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a67c6b17081009693ab23f13720e13420}\label{class_facade_singleton_a67c6b17081009693ab23f13720e13420}} 
@@ -735,13 +735,13 @@ Set the \mbox{\hyperlink{class_open_c_v___manager}{Open\+CV\+\_\+\+Manager}} poi
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00058                                                                        \{}
-\DoxyCodeLine{00059     this-\/>openCV\_Manager = \mbox{\hyperlink{class_facade_singleton_a8d07ab4572a74e9ba332ff19c9f45671}{openCV\_Manager}};}
-\DoxyCodeLine{00060 \}}
+\DoxyCodeLine{00061                                                                        \{}
+\DoxyCodeLine{00062     this-\/>openCV\_Manager = \mbox{\hyperlink{class_facade_singleton_a8d07ab4572a74e9ba332ff19c9f45671}{openCV\_Manager}};}
+\DoxyCodeLine{00063 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a07ddf5d33365e939fe1af6a82dfcbee1}\label{class_facade_singleton_a07ddf5d33365e939fe1af6a82dfcbee1}} 
@@ -764,13 +764,13 @@ Set the \mbox{\hyperlink{class_output_manager}{Output\+Manager}} pointer.
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00054                                                                      \{}
-\DoxyCodeLine{00055     this-\/>outputManager = \mbox{\hyperlink{class_facade_singleton_a62876d41a8d6295460665ab7fe8257d4}{outputManager}};}
-\DoxyCodeLine{00056 \}}
+\DoxyCodeLine{00057                                                                      \{}
+\DoxyCodeLine{00058     this-\/>outputManager = \mbox{\hyperlink{class_facade_singleton_a62876d41a8d6295460665ab7fe8257d4}{outputManager}};}
+\DoxyCodeLine{00059 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a0f1dc94d476d37d4d8b50ea1cfadee79}\label{class_facade_singleton_a0f1dc94d476d37d4d8b50ea1cfadee79}} 
@@ -793,13 +793,13 @@ Set the \mbox{\hyperlink{class_usage_manager}{Usage\+Manager}} pointer.
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00062                                                                  \{}
-\DoxyCodeLine{00063     this-\/>usageManager = \mbox{\hyperlink{class_facade_singleton_a6eb06ed04c4fd57714f6efe44aa755d7}{usageManager}};}
-\DoxyCodeLine{00064 \}}
+\DoxyCodeLine{00065                                                                  \{}
+\DoxyCodeLine{00066     this-\/>usageManager = \mbox{\hyperlink{class_facade_singleton_a6eb06ed04c4fd57714f6efe44aa755d7}{usageManager}};}
+\DoxyCodeLine{00067 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_a34d70508a6bddd6f9f04b21fcd43adc8}\label{class_facade_singleton_a34d70508a6bddd6f9f04b21fcd43adc8}} 
@@ -822,13 +822,13 @@ show\+Skeletons\+CV(unsigned int user\+\_\+n\+Frame)
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00141}{141}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00144}{144}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00141                                                              \{}
-\DoxyCodeLine{00142     \mbox{\hyperlink{class_facade_singleton_a389756e6e8ebf946576a06ea0fe9d927}{getOpenCV\_Manager}}()-\/>\mbox{\hyperlink{class_open_c_v___manager_ae821406a67a6e69c4229f31e3e84f031}{showSkeletonsCV}}(user\_nFrame);}
-\DoxyCodeLine{00143 \}}
+\DoxyCodeLine{00144                                                              \{}
+\DoxyCodeLine{00145     \mbox{\hyperlink{class_facade_singleton_a389756e6e8ebf946576a06ea0fe9d927}{getOpenCV\_Manager}}()-\/>\mbox{\hyperlink{class_open_c_v___manager_ae821406a67a6e69c4229f31e3e84f031}{showSkeletonsCV}}(user\_nFrame);}
+\DoxyCodeLine{00146 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_facade_singleton_ac376a8315efd79a450eaba26608cefa0}\label{class_facade_singleton_ac376a8315efd79a450eaba26608cefa0}} 
@@ -863,20 +863,20 @@ start\+Environment(rs2\+::pipeline \& pipeline\+Stream, struct rs2\+\_\+intrinsi
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00120}{120}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8cpp_source_l00123}{123}} of file \mbox{\hyperlink{_facade_singleton_8cpp_source}{Facade\+Singleton.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00120                                                                                                                                                                                                                \{}
-\DoxyCodeLine{00121     \mbox{\hyperlink{class_facade_singleton_a9583d8ca7077bd0e89bf4ab83f0b7535}{FacadeSingleton::setCameraManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_real_sense_d435_manager}{RealSenseD435Manager}}());}
-\DoxyCodeLine{00122     \mbox{\hyperlink{class_facade_singleton_a07ddf5d33365e939fe1af6a82dfcbee1}{FacadeSingleton::setOutputManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_output_manager_j_s_o_n}{OutputManagerJSON}}());}
-\DoxyCodeLine{00123     \mbox{\hyperlink{class_facade_singleton_a67c6b17081009693ab23f13720e13420}{FacadeSingleton::setOpenCV\_Manager}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_open_c_v___manager}{OpenCV\_Manager}}());}
-\DoxyCodeLine{00124     \mbox{\hyperlink{class_facade_singleton_a60e394e259984fce5c7388f4050fe1f8}{FacadeSingleton::setCoordinateMappingManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_unity_coordinate_mapping_manager}{UnityCoordinateMappingManager}}());}
-\DoxyCodeLine{00125     \mbox{\hyperlink{class_facade_singleton_a30385b27b8d5bbeb95879bdfe94e20d5}{FacadeSingleton::setImageManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_image_manager}{ImageManager}}());}
-\DoxyCodeLine{00126 \textcolor{comment}{//    FacadeSingleton::setKafkaManager(new KafkaManager(destinationKafkaTopic));}}
-\DoxyCodeLine{00127     \mbox{\hyperlink{class_facade_singleton_aa365ece7ecb2ba2d4a6d160e3698275a}{FacadeSingleton::getCameraManager}}()-\/>\mbox{\hyperlink{class_real_sense_manager_a7cc9374e6575681b05db3e0592d10944}{startEnvironment}}(pipelineStream, color\_intrin, scale, resX, resY, \mbox{\hyperlink{constants_8hpp_a81a02baada85d2e7a44ac803f1e0aba4}{FIRST\_BOOT}});}
-\DoxyCodeLine{00128     \mbox{\hyperlink{class_facade_singleton_abc5f2b337bf77ee67ea25f62220c261f}{cleanBuildFolder}}();}
-\DoxyCodeLine{00129 \}}
+\DoxyCodeLine{00123                                                                                                                                                                                                                \{}
+\DoxyCodeLine{00124     \mbox{\hyperlink{class_facade_singleton_a9583d8ca7077bd0e89bf4ab83f0b7535}{FacadeSingleton::setCameraManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_real_sense_d435_manager}{RealSenseD435Manager}}());}
+\DoxyCodeLine{00125     \mbox{\hyperlink{class_facade_singleton_a07ddf5d33365e939fe1af6a82dfcbee1}{FacadeSingleton::setOutputManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_output_manager_j_s_o_n}{OutputManagerJSON}}());}
+\DoxyCodeLine{00126     \mbox{\hyperlink{class_facade_singleton_a67c6b17081009693ab23f13720e13420}{FacadeSingleton::setOpenCV\_Manager}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_open_c_v___manager}{OpenCV\_Manager}}());}
+\DoxyCodeLine{00127     \mbox{\hyperlink{class_facade_singleton_a60e394e259984fce5c7388f4050fe1f8}{FacadeSingleton::setCoordinateMappingManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_unity_coordinate_mapping_manager}{UnityCoordinateMappingManager}}());}
+\DoxyCodeLine{00128     \mbox{\hyperlink{class_facade_singleton_a30385b27b8d5bbeb95879bdfe94e20d5}{FacadeSingleton::setImageManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_image_manager}{ImageManager}}());}
+\DoxyCodeLine{00129     \mbox{\hyperlink{class_facade_singleton_a6eae17430632954f6627dcd55fe6e8e1}{FacadeSingleton::setKafkaManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_kafka_manager}{KafkaManager}}(destinationKafkaTopic));}
+\DoxyCodeLine{00130     \mbox{\hyperlink{class_facade_singleton_aa365ece7ecb2ba2d4a6d160e3698275a}{FacadeSingleton::getCameraManager}}()-\/>\mbox{\hyperlink{class_real_sense_manager_a7cc9374e6575681b05db3e0592d10944}{startEnvironment}}(pipelineStream, color\_intrin, scale, resX, resY, \mbox{\hyperlink{constants_8hpp_a81a02baada85d2e7a44ac803f1e0aba4}{FIRST\_BOOT}});}
+\DoxyCodeLine{00131     \mbox{\hyperlink{class_facade_singleton_abc5f2b337bf77ee67ea25f62220c261f}{cleanBuildFolder}}();}
+\DoxyCodeLine{00132 \}}
 
 \end{DoxyCode}
 
@@ -897,7 +897,7 @@ A pointer to \mbox{\hyperlink{class_real_sense_manager}{Real\+Sense\+Manager}} o
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00059}{59}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00062}{62}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
 
 \mbox{\Hypertarget{class_facade_singleton_a21b9379face73a60c0328c2132f77940}\label{class_facade_singleton_a21b9379face73a60c0328c2132f77940}} 
 \index{FacadeSingleton@{FacadeSingleton}!coordinateMappingManager@{coordinateMappingManager}}
@@ -916,7 +916,7 @@ A pointer to \mbox{\hyperlink{class_coordinate_mapping_manager}{Coordinate\+Mapp
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00087}{87}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00090}{90}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
 
 \mbox{\Hypertarget{class_facade_singleton_a5e9eba3756b14c6af6889c83e045e67e}\label{class_facade_singleton_a5e9eba3756b14c6af6889c83e045e67e}} 
 \index{FacadeSingleton@{FacadeSingleton}!imageManager@{imageManager}}
@@ -933,7 +933,7 @@ A pointer to \mbox{\hyperlink{class_coordinate_mapping_manager}{Coordinate\+Mapp
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00094}{94}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00097}{97}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
 
 \mbox{\Hypertarget{class_facade_singleton_a518cef95e5cbc04e1810826eff2a060f}\label{class_facade_singleton_a518cef95e5cbc04e1810826eff2a060f}} 
 \index{FacadeSingleton@{FacadeSingleton}!kafkaManager@{kafkaManager}}
@@ -950,7 +950,7 @@ A pointer to \mbox{\hyperlink{class_kafka_manager}{Kafka\+Manager}} object. A \m
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00100}{100}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00103}{103}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
 
 \mbox{\Hypertarget{class_facade_singleton_a8d07ab4572a74e9ba332ff19c9f45671}\label{class_facade_singleton_a8d07ab4572a74e9ba332ff19c9f45671}} 
 \index{FacadeSingleton@{FacadeSingleton}!openCV\_Manager@{openCV\_Manager}}
@@ -967,7 +967,7 @@ A pointer to \mbox{\hyperlink{class_open_c_v___manager}{Open\+CV\+\_\+\+Manager}
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
 
 \mbox{\Hypertarget{class_facade_singleton_a62876d41a8d6295460665ab7fe8257d4}\label{class_facade_singleton_a62876d41a8d6295460665ab7fe8257d4}} 
 \index{FacadeSingleton@{FacadeSingleton}!outputManager@{outputManager}}
@@ -984,7 +984,7 @@ A pointer to \mbox{\hyperlink{class_output_manager}{Output\+Manager}} object. An
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00065}{65}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00068}{68}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
 
 \mbox{\Hypertarget{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}\label{class_facade_singleton_a825135d0979423818c5124fbe1637dc0}} 
 \index{FacadeSingleton@{FacadeSingleton}!sharedInstance@{sharedInstance}}
@@ -998,7 +998,7 @@ The field for storing the singleton instance.
 
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
 
 \mbox{\Hypertarget{class_facade_singleton_a601a03cd89c64afb6dbf2ccfc36f43fb}\label{class_facade_singleton_a601a03cd89c64afb6dbf2ccfc36f43fb}} 
 \index{FacadeSingleton@{FacadeSingleton}!singletonMutex@{singletonMutex}}
@@ -1012,7 +1012,7 @@ Mutex for thread-\/safe access.
 
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
 
 \mbox{\Hypertarget{class_facade_singleton_a6eb06ed04c4fd57714f6efe44aa755d7}\label{class_facade_singleton_a6eb06ed04c4fd57714f6efe44aa755d7}} 
 \index{FacadeSingleton@{FacadeSingleton}!usageManager@{usageManager}}
@@ -1029,7 +1029,7 @@ A pointer to \mbox{\hyperlink{class_usage_manager}{Usage\+Manager}} object. An \
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00078}{78}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
+Definition at line \mbox{\hyperlink{_facade_singleton_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{_facade_singleton_8hpp_source}{Facade\+Singleton.\+hpp}}.
 
 
 

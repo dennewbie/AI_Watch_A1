@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['imagemanager_2ecpp_0',['ImageManager.cpp',['../_image_manager_8cpp.html',1,'']]],
-  ['imagemanager_2ehpp_1',['ImageManager.hpp',['../_image_manager_8hpp.html',1,'']]]
+  ['kafkamanager_2ecpp_0',['KafkaManager.cpp',['../_kafka_manager_8cpp.html',1,'']]],
+  ['kafkamanager_2ehpp_1',['KafkaManager.hpp',['../_kafka_manager_8hpp.html',1,'']]]
 ];

@@ -4,31 +4,34 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00001}00001 \textcolor{comment}{//}}
 \DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00002}00002 \textcolor{comment}{//  UnityCoordinateMappingManager.cpp}}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00003}00003 \textcolor{comment}{//  librealsensetest}}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00003}00003 \textcolor{comment}{//  AI Watch A1}}
 \DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00004}00004 \textcolor{comment}{//}}
 \DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 30/07/22.}}
 \DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00006}00006 \textcolor{comment}{//}}
 \DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00007}00007 }
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_coordinate_mapping_manager_8hpp}{CoordinateMappingManager.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00008}00008 \textcolor{comment}{// License: Apache 2.0. See LICENSE file in root directory.}}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00009}00009 \textcolor{comment}{// Copyright(c) 2022. All Rights Reserved.}}
 \DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00010}00010 }
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00011}00011 }
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00012}\mbox{\hyperlink{class_unity_coordinate_mapping_manager_a5ee8f7517bb82a03e6a201fd7635d552}{00012}} std::vector <Point3D *> * \mbox{\hyperlink{class_unity_coordinate_mapping_manager_a5ee8f7517bb82a03e6a201fd7635d552}{UnityCoordinateMappingManager::mapToMeters}} (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap, \textcolor{keywordtype}{float} xOrigin, \textcolor{keywordtype}{float} zOrigin) \{}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00013}00013     std::vector <Point3D *> * newPoints = \textcolor{keyword}{new} std::vector <Point3D *>;}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00014}00014     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < bodyKeyPointsMap.size(); i++) \{}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00015}00015         \textcolor{keywordflow}{if} (!bodyKeyPointsMap.at(i)) \{}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00016}00016             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_point3_d}{Point3D}}(0, 0, 0, \textcolor{keyword}{new} \mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}}(0, 0, 0)));}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00017}00017         \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00018}00018             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_point3_d}{Point3D}}(}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00019}00019                 \mbox{\hyperlink{class_coordinate_mapping_manager_a5c3664f4ec7cc22b99dba97df60d5bd3}{transformWidthCoordinate}}(pointsToMap.at(i)-\/>getX()) -\/ std::abs(xOrigin),}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00020}00020                 \mbox{\hyperlink{class_coordinate_mapping_manager_ab1189918e3477395629122540574512c}{transformHeightCoordinate}}(pointsToMap.at(i)-\/>getY()),}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00021}00021                 -\/ (pointsToMap.at(i)-\/>getZ() + std::abs(zOrigin) + \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}}),}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00022}00022                 \textcolor{keyword}{new} \mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}}(0, 0, ((\mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}} *) pointsToMap.at(i)-\/>getDecorated())-\/>getConfidence()))}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00023}00023             );}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00024}00024         \}}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00025}00025     \}}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00026}00026     }
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00027}00027     \textcolor{keywordflow}{return} newPoints;}
-\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00028}00028 \}}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_coordinate_mapping_manager_8hpp}{CoordinateMappingManager.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00015}\mbox{\hyperlink{class_unity_coordinate_mapping_manager_a5ee8f7517bb82a03e6a201fd7635d552}{00015}} std::vector <Point3D *> * \mbox{\hyperlink{class_unity_coordinate_mapping_manager_a5ee8f7517bb82a03e6a201fd7635d552}{UnityCoordinateMappingManager::mapToMeters}} (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap, \textcolor{keywordtype}{float} xOrigin, \textcolor{keywordtype}{float} zOrigin) \{}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00016}00016     std::vector <Point3D *> * newPoints = \textcolor{keyword}{new} std::vector <Point3D *>;}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00017}00017     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < bodyKeyPointsMap.size(); i++) \{}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00018}00018         \textcolor{keywordflow}{if} (!bodyKeyPointsMap.at(i)) \{}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00019}00019             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_point3_d}{Point3D}}(0, 0, 0, \textcolor{keyword}{new} \mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}}(0, 0, 0)));}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00020}00020         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00021}00021             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_point3_d}{Point3D}}(}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00022}00022                 \mbox{\hyperlink{class_coordinate_mapping_manager_a5c3664f4ec7cc22b99dba97df60d5bd3}{transformWidthCoordinate}}(pointsToMap.at(i)-\/>getX()) -\/ std::abs(xOrigin),}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00023}00023                 \mbox{\hyperlink{class_coordinate_mapping_manager_ab1189918e3477395629122540574512c}{transformHeightCoordinate}}(pointsToMap.at(i)-\/>getY()),}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00024}00024                 -\/ (pointsToMap.at(i)-\/>getZ() + std::abs(zOrigin) + \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}}),}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00025}00025                 \textcolor{keyword}{new} \mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}}(0, 0, ((\mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}} *) pointsToMap.at(i)-\/>getDecorated())-\/>getConfidence()))}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00026}00026             );}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00027}00027         \}}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00028}00028     \}}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00029}00029     }
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00030}00030     \textcolor{keywordflow}{return} newPoints;}
+\DoxyCodeLine{\Hypertarget{_unity_coordinate_mapping_manager_8cpp_source_l00031}00031 \}}
 
 \end{DoxyCode}

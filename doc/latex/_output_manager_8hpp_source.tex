@@ -4,59 +4,62 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00001}00001 \textcolor{comment}{//}}
 \DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00002}00002 \textcolor{comment}{//  OutputManager.hpp}}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00003}00003 \textcolor{comment}{//  librealsensetest}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00003}00003 \textcolor{comment}{//  AI Watch A1}}
 \DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00004}00004 \textcolor{comment}{//}}
 \DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 23/07/22.}}
 \DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00006}00006 \textcolor{comment}{//}}
 \DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00007}00007 }
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00008}00008 \textcolor{preprocessor}{\#ifndef OutputManager\_hpp}}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00009}00009 \textcolor{preprocessor}{\#define OutputManager\_hpp}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00008}00008 \textcolor{comment}{// License: Apache 2.0. See LICENSE file in root directory.}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00009}00009 \textcolor{comment}{// Copyright(c) 2022. All Rights Reserved.}}
 \DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00010}00010 }
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00011}00011 \textcolor{preprocessor}{\#include <iostream>}}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00012}00012 \textcolor{preprocessor}{\#include <sstream>}}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00013}00013 \textcolor{preprocessor}{\#include <fstream>}}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00014}00014 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00015}00015 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00016}00016 \textcolor{preprocessor}{\#include <json/json.h>}}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00017}00017 \textcolor{preprocessor}{\#include <json/value.h>}}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00018}00018 \textcolor{preprocessor}{\#include <opencv2/core.hpp>}}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00019}00019 \textcolor{preprocessor}{\#include "{}../../Points/Point3D.hpp"{}}}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00020}00020 \textcolor{preprocessor}{\#include "{}../../Points/BodyKeyPoint.hpp"{}}}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00021}00021 \textcolor{preprocessor}{\#include "{}../../Skeleton.hpp"{}}}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00022}00022 }
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00023}00023 }
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00024}00024 }
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00029}\mbox{\hyperlink{class_output_manager}{00029}} \textcolor{keyword}{class }\mbox{\hyperlink{class_output_manager}{OutputManager}} \{}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00030}00030 \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00034}\mbox{\hyperlink{class_output_manager_adfaaff6bee6024d79c80174a9240cbf3}{00034}}     std::string \mbox{\hyperlink{class_output_manager_adfaaff6bee6024d79c80174a9240cbf3}{stringOutputData}};}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00035}00035 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00040}00040     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_manager_a2335cc8b2252dbed78b728452deced26}{setStringOutputData}}                    (std::string \mbox{\hyperlink{class_output_manager_adfaaff6bee6024d79c80174a9240cbf3}{stringOutputData}});}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00045}00045     std::string \mbox{\hyperlink{class_output_manager_a66991ea844cee883d6538a8a3aedb731}{getStringOutputData}}             (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00056}\mbox{\hyperlink{class_output_manager_a8629330834046ce2080d54adccfafe87}{00056}}     \textcolor{keyword}{virtual} Json::Value \mbox{\hyperlink{class_output_manager_a8629330834046ce2080d54adccfafe87}{makeOutputString}}        (std::vector <Point3D *> skeletonPoints3D, std::vector <bool> bodyKeyPointsMap,}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00057}00057                                                  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} frameID, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} personID) = 0;}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00058}00058 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00062}\mbox{\hyperlink{class_output_manager_a27d8e1eed98c01b2114a4b7085503d8c}{00062}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_output_manager_a27d8e1eed98c01b2114a4b7085503d8c}{\string~OutputManager}}() = \textcolor{keywordflow}{default};}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00063}00063 \};}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00064}00064 }
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00065}00065 }
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00066}00066 }
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00070}\mbox{\hyperlink{class_output_manager_j_s_o_n}{00070}} \textcolor{keyword}{class }\mbox{\hyperlink{class_output_manager_j_s_o_n}{OutputManagerJSON}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_output_manager}{OutputManager}} \{    }
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00071}00071 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00081}00081     Json::Value \mbox{\hyperlink{class_output_manager_j_s_o_n_a63603930f5b39d9b1f10e5b667e60ab8}{makeOutputString}}                 (std::vector <Point3D *> skeletonPoints3D, std::vector <bool> bodyKeyPointsMap,}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00082}00082                                                   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} frameID, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} personID) \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00083}00083 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00091}00091     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_output_manager_j_s_o_n_ae664a1f8616d4876501710849c1c59d2}{loadJSON}}                                (std::string filePathJSON, Json::Value \& currentJSON);}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00096}00096     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_manager_j_s_o_n_a720baaccfe9269bb18f3548b9dde0f52}{saveJSON}}                                (std::string filePath);}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00097}00097     }
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00098}00098 }
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00099}00099 }
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00106}00106     Json::Value \mbox{\hyperlink{class_output_manager_j_s_o_n_ab8f239a05495e63d99ef7e783b566587}{getValueAt}}                       (std::string key, Json::Value currentJSON);}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00113}00113     Json::Value \mbox{\hyperlink{class_output_manager_j_s_o_n_ab8f239a05495e63d99ef7e783b566587}{getValueAt}}                       (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i, Json::Value currentJSON);}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00121}00121     Json::Value \mbox{\hyperlink{class_output_manager_j_s_o_n_ab8f239a05495e63d99ef7e783b566587}{getValueAt}}                       (std::string key, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i, Json::Value currentJSON);}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00134}00134     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_manager_j_s_o_n_ae7e940b50eb318e883b0844bece04dc7}{createJSON}}                              (Json::Value \& people, cv::Mat \& colorImage, cv::Mat \& distanceImage, cv::Mat \& skeletonOnlyImage,}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00135}00135                                                   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} nFrame, \textcolor{keyword}{const} \textcolor{keywordtype}{char} * outputFolder);}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00136}00136 \};}
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00137}00137 }
-\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00138}00138 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* OutputManager\_hpp */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00011}00011 \textcolor{preprocessor}{\#ifndef OutputManager\_hpp}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00012}00012 \textcolor{preprocessor}{\#define OutputManager\_hpp}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00014}00014 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00015}00015 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00016}00016 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00017}00017 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00018}00018 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00019}00019 \textcolor{preprocessor}{\#include <json/json.h>}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00020}00020 \textcolor{preprocessor}{\#include <json/value.h>}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00021}00021 \textcolor{preprocessor}{\#include <opencv2/core.hpp>}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00022}00022 \textcolor{preprocessor}{\#include "{}../../Points/Point3D.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00023}00023 \textcolor{preprocessor}{\#include "{}../../Points/BodyKeyPoint.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00024}00024 \textcolor{preprocessor}{\#include "{}../../Skeleton.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00032}\mbox{\hyperlink{class_output_manager}{00032}} \textcolor{keyword}{class }\mbox{\hyperlink{class_output_manager}{OutputManager}} \{}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00033}00033 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00037}\mbox{\hyperlink{class_output_manager_adfaaff6bee6024d79c80174a9240cbf3}{00037}}     std::string \mbox{\hyperlink{class_output_manager_adfaaff6bee6024d79c80174a9240cbf3}{stringOutputData}};}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00038}00038 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00043}00043     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_manager_a2335cc8b2252dbed78b728452deced26}{setStringOutputData}}                    (std::string \mbox{\hyperlink{class_output_manager_adfaaff6bee6024d79c80174a9240cbf3}{stringOutputData}});}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00048}00048     std::string \mbox{\hyperlink{class_output_manager_a66991ea844cee883d6538a8a3aedb731}{getStringOutputData}}             (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00059}\mbox{\hyperlink{class_output_manager_a8629330834046ce2080d54adccfafe87}{00059}}     \textcolor{keyword}{virtual} Json::Value \mbox{\hyperlink{class_output_manager_a8629330834046ce2080d54adccfafe87}{makeOutputString}}        (std::vector <Point3D *> skeletonPoints3D, std::vector <bool> bodyKeyPointsMap,}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00060}00060                                                  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} frameID, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} personID) = 0;}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00061}00061 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00065}\mbox{\hyperlink{class_output_manager_a27d8e1eed98c01b2114a4b7085503d8c}{00065}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_output_manager_a27d8e1eed98c01b2114a4b7085503d8c}{\string~OutputManager}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00066}00066 \};}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00073}\mbox{\hyperlink{class_output_manager_j_s_o_n}{00073}} \textcolor{keyword}{class }\mbox{\hyperlink{class_output_manager_j_s_o_n}{OutputManagerJSON}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_output_manager}{OutputManager}} \{    }
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00074}00074 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00084}00084     Json::Value \mbox{\hyperlink{class_output_manager_j_s_o_n_a63603930f5b39d9b1f10e5b667e60ab8}{makeOutputString}}                 (std::vector <Point3D *> skeletonPoints3D, std::vector <bool> bodyKeyPointsMap,}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00085}00085                                                   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} frameID, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} personID) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00086}00086 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00094}00094     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_output_manager_j_s_o_n_ae664a1f8616d4876501710849c1c59d2}{loadJSON}}                                (std::string filePathJSON, Json::Value \& currentJSON);}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00099}00099     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_manager_j_s_o_n_a720baaccfe9269bb18f3548b9dde0f52}{saveJSON}}                                (std::string filePath);}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00100}00100     }
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00109}00109     Json::Value \mbox{\hyperlink{class_output_manager_j_s_o_n_ab8f239a05495e63d99ef7e783b566587}{getValueAt}}                       (std::string key, Json::Value currentJSON);}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00116}00116     Json::Value \mbox{\hyperlink{class_output_manager_j_s_o_n_ab8f239a05495e63d99ef7e783b566587}{getValueAt}}                       (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i, Json::Value currentJSON);}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00124}00124     Json::Value \mbox{\hyperlink{class_output_manager_j_s_o_n_ab8f239a05495e63d99ef7e783b566587}{getValueAt}}                       (std::string key, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i, Json::Value currentJSON);}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00137}00137     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_manager_j_s_o_n_ae7e940b50eb318e883b0844bece04dc7}{createJSON}}                              (Json::Value \& people, cv::Mat \& colorImage, cv::Mat \& distanceImage, cv::Mat \& skeletonOnlyImage,}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00138}00138                                                   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} nFrame, \textcolor{keyword}{const} \textcolor{keywordtype}{char} * outputFolder);}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00139}00139 \};}
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00140}00140 }
+\DoxyCodeLine{\Hypertarget{_output_manager_8hpp_source_l00141}00141 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* OutputManager\_hpp */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

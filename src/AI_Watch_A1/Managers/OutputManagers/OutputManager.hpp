@@ -1,9 +1,12 @@
 //
 //  OutputManager.hpp
-//  librealsensetest
+//  AI Watch A1
 //
 //  Created by Denny Caruso on 23/07/22.
 //
+
+// License: Apache 2.0. See LICENSE file in root directory.
+// Copyright(c) 2022. All Rights Reserved.
 
 #ifndef OutputManager_hpp
 #define OutputManager_hpp

@@ -39,7 +39,7 @@ The \mbox{\hyperlink{class_coordinate_mapping_manager}{Coordinate\+Mapping\+Mana
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_source}{Coordinate\+Mapping\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_source}{Coordinate\+Mapping\+Manager.\+hpp}}.
 
 
 
@@ -64,22 +64,22 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source}{Coordinate\+Mapping\+Manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source}{Coordinate\+Mapping\+Manager.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00029                                                                    \{}
-\DoxyCodeLine{00030     \textcolor{keywordtype}{float} outputNumber = 0.0;}
-\DoxyCodeLine{00031     \textcolor{keywordflow}{if} (inputNumber >= 1) \{}
-\DoxyCodeLine{00032         outputNumber = (1 -\/ 2 * inputNumber);}
-\DoxyCodeLine{00033     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (inputNumber <= -\/1) \{}
-\DoxyCodeLine{00034         outputNumber = (-\/(1 + 2 * inputNumber));}
-\DoxyCodeLine{00035     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{00036         outputNumber = (1 -\/ std::abs(inputNumber) + 0.25);}
-\DoxyCodeLine{00037     \}}
-\DoxyCodeLine{00038     }
-\DoxyCodeLine{00039     \textcolor{keywordflow}{return} outputNumber;}
-\DoxyCodeLine{00040 \}}
+\DoxyCodeLine{00032                                                                    \{}
+\DoxyCodeLine{00033     \textcolor{keywordtype}{float} outputNumber = 0.0;}
+\DoxyCodeLine{00034     \textcolor{keywordflow}{if} (inputNumber >= 1) \{}
+\DoxyCodeLine{00035         outputNumber = (1 -\/ 2 * inputNumber);}
+\DoxyCodeLine{00036     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (inputNumber <= -\/1) \{}
+\DoxyCodeLine{00037         outputNumber = (-\/(1 + 2 * inputNumber));}
+\DoxyCodeLine{00038     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00039         outputNumber = (1 -\/ std::abs(inputNumber) + 0.25);}
+\DoxyCodeLine{00040     \}}
+\DoxyCodeLine{00041     }
+\DoxyCodeLine{00042     \textcolor{keywordflow}{return} outputNumber;}
+\DoxyCodeLine{00043 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_coordinate_mapping_manager_a53059f45e764e26353439bc495074e86}\label{class_coordinate_mapping_manager_a53059f45e764e26353439bc495074e86}} 
@@ -112,28 +112,28 @@ Reimplemented in \mbox{\hyperlink{class_unity_coordinate_mapping_manager_a5ee8f7
 
 
 
-Definition at line \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source}{Coordinate\+Mapping\+Manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source}{Coordinate\+Mapping\+Manager.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00044                                                                                                                                                                  \{}
-\DoxyCodeLine{00045     std::vector <Point3D *> * newPoints = \textcolor{keyword}{new} std::vector <Point3D *>;}
-\DoxyCodeLine{00046     }
-\DoxyCodeLine{00047     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < bodyKeyPointsMap.size(); i++) \{}
-\DoxyCodeLine{00048         \textcolor{keywordflow}{if} (!bodyKeyPointsMap.at(i)) \{}
-\DoxyCodeLine{00049             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_point3_d}{Point3D}}(0, 0, 0, \textcolor{keyword}{new} \mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}}(0, 0, 0)));}
-\DoxyCodeLine{00050         \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{00051             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_point3_d}{Point3D}}(}
-\DoxyCodeLine{00052                 \mbox{\hyperlink{class_coordinate_mapping_manager_a5c3664f4ec7cc22b99dba97df60d5bd3}{transformWidthCoordinate}}(pointsToMap.at(i)-\/>getX()),}
-\DoxyCodeLine{00053                 \mbox{\hyperlink{class_coordinate_mapping_manager_ab1189918e3477395629122540574512c}{transformHeightCoordinate}}(pointsToMap.at(i)-\/>getY()),}
-\DoxyCodeLine{00054                 pointsToMap.at(i)-\/>getZ(),}
-\DoxyCodeLine{00055                 \textcolor{keyword}{new} \mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}}(0, 0, ((\mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}} *) pointsToMap.at(i)-\/>getDecorated())-\/>getConfidence()))}
-\DoxyCodeLine{00056             );}
-\DoxyCodeLine{00057         \}}
-\DoxyCodeLine{00058     \}}
-\DoxyCodeLine{00059     }
-\DoxyCodeLine{00060     \textcolor{keywordflow}{return} newPoints;}
-\DoxyCodeLine{00061 \}}
+\DoxyCodeLine{00047                                                                                                                                                                  \{}
+\DoxyCodeLine{00048     std::vector <Point3D *> * newPoints = \textcolor{keyword}{new} std::vector <Point3D *>;}
+\DoxyCodeLine{00049     }
+\DoxyCodeLine{00050     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < bodyKeyPointsMap.size(); i++) \{}
+\DoxyCodeLine{00051         \textcolor{keywordflow}{if} (!bodyKeyPointsMap.at(i)) \{}
+\DoxyCodeLine{00052             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_point3_d}{Point3D}}(0, 0, 0, \textcolor{keyword}{new} \mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}}(0, 0, 0)));}
+\DoxyCodeLine{00053         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00054             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_point3_d}{Point3D}}(}
+\DoxyCodeLine{00055                 \mbox{\hyperlink{class_coordinate_mapping_manager_a5c3664f4ec7cc22b99dba97df60d5bd3}{transformWidthCoordinate}}(pointsToMap.at(i)-\/>getX()),}
+\DoxyCodeLine{00056                 \mbox{\hyperlink{class_coordinate_mapping_manager_ab1189918e3477395629122540574512c}{transformHeightCoordinate}}(pointsToMap.at(i)-\/>getY()),}
+\DoxyCodeLine{00057                 pointsToMap.at(i)-\/>getZ(),}
+\DoxyCodeLine{00058                 \textcolor{keyword}{new} \mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}}(0, 0, ((\mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}} *) pointsToMap.at(i)-\/>getDecorated())-\/>getConfidence()))}
+\DoxyCodeLine{00059             );}
+\DoxyCodeLine{00060         \}}
+\DoxyCodeLine{00061     \}}
+\DoxyCodeLine{00062     }
+\DoxyCodeLine{00063     \textcolor{keywordflow}{return} newPoints;}
+\DoxyCodeLine{00064 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_coordinate_mapping_manager_ab1189918e3477395629122540574512c}\label{class_coordinate_mapping_manager_ab1189918e3477395629122540574512c}} 
@@ -156,20 +156,20 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source}{Coordinate\+Mapping\+Manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source}{Coordinate\+Mapping\+Manager.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00018                                                                                  \{}
-\DoxyCodeLine{00019     \textcolor{keywordtype}{float} newHeightCoordinate = -\/heightCoordinate + \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{maxHeightRS}};}
-\DoxyCodeLine{00020     \textcolor{keywordflow}{if} (newHeightCoordinate >= 2) \{}
-\DoxyCodeLine{00021         \textcolor{keywordflow}{return} 3;}
-\DoxyCodeLine{00022     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (newHeightCoordinate <= 0) \{}
-\DoxyCodeLine{00023         \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{00024     \}}
-\DoxyCodeLine{00025     }
-\DoxyCodeLine{00026     \textcolor{keywordflow}{return} newHeightCoordinate + 0.15;}
-\DoxyCodeLine{00027 \}}
+\DoxyCodeLine{00021                                                                                  \{}
+\DoxyCodeLine{00022     \textcolor{keywordtype}{float} newHeightCoordinate = -\/heightCoordinate + \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{maxHeightRS}};}
+\DoxyCodeLine{00023     \textcolor{keywordflow}{if} (newHeightCoordinate >= 2) \{}
+\DoxyCodeLine{00024         \textcolor{keywordflow}{return} 3;}
+\DoxyCodeLine{00025     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (newHeightCoordinate <= 0) \{}
+\DoxyCodeLine{00026         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00027     \}}
+\DoxyCodeLine{00028     }
+\DoxyCodeLine{00029     \textcolor{keywordflow}{return} newHeightCoordinate + 0.15;}
+\DoxyCodeLine{00030 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_coordinate_mapping_manager_a5c3664f4ec7cc22b99dba97df60d5bd3}\label{class_coordinate_mapping_manager_a5c3664f4ec7cc22b99dba97df60d5bd3}} 
@@ -192,15 +192,15 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source}{Coordinate\+Mapping\+Manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_coordinate_mapping_manager_8cpp_source}{Coordinate\+Mapping\+Manager.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00012                                                                                \{}
-\DoxyCodeLine{00013     \textcolor{keywordtype}{float} environmentWidth = std::abs(\mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{minWidth}}) + std::abs(\mbox{\hyperlink{_coordinate_mapping_manager_8hpp_aa8ec0caafe499a74f4989eae1b243a21}{maxWidth}});}
-\DoxyCodeLine{00014     \textcolor{keywordtype}{float} environmentWidthRS = std::abs(\mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}}) + std::abs(\mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a1454c0812b7f5ea224708b049da3b923}{maxWidthRS}});}
-\DoxyCodeLine{00015     \textcolor{keywordflow}{return} (((widthCoordinate -\/ \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}}) / environmentWidthRS) * environmentWidth) + \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{minWidth}};}
-\DoxyCodeLine{00016 \}}
+\DoxyCodeLine{00015                                                                                \{}
+\DoxyCodeLine{00016     \textcolor{keywordtype}{float} environmentWidth = std::abs(\mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{minWidth}}) + std::abs(\mbox{\hyperlink{_coordinate_mapping_manager_8hpp_aa8ec0caafe499a74f4989eae1b243a21}{maxWidth}});}
+\DoxyCodeLine{00017     \textcolor{keywordtype}{float} environmentWidthRS = std::abs(\mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}}) + std::abs(\mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a1454c0812b7f5ea224708b049da3b923}{maxWidthRS}});}
+\DoxyCodeLine{00018     \textcolor{keywordflow}{return} (((widthCoordinate -\/ \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}}) / environmentWidthRS) * environmentWidth) + \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{minWidth}};}
+\DoxyCodeLine{00019 \}}
 
 \end{DoxyCode}
 

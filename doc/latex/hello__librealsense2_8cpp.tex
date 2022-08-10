@@ -40,37 +40,36 @@ int The return value for main indicates how the program exited. Normal exit is r
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{hello__librealsense2_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{hello__librealsense2_8cpp_source}{hello\+\_\+librealsense2.\+cpp}}.
+Definition at line \mbox{\hyperlink{hello__librealsense2_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{hello__librealsense2_8cpp_source}{hello\+\_\+librealsense2.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00070                                   \{}
-\DoxyCodeLine{00071     rs2::pipeline pipelineStream;}
-\DoxyCodeLine{00072     \textcolor{comment}{// Scaling factor for distance frame and topic name for kafka connection.}}
-\DoxyCodeLine{00073     \textcolor{keywordtype}{float} scale;}
-\DoxyCodeLine{00074     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * destinationKafkaTopic = \textcolor{stringliteral}{"{}t1"{}};}
-\DoxyCodeLine{00075     \textcolor{comment}{// Optimal resolution for D435: 848x480.}}
-\DoxyCodeLine{00076     \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} user\_nFrame = 30, resX = 848, resY = 480;}
-\DoxyCodeLine{00077     \textcolor{keyword}{struct }rs2\_intrinsics color\_intrin;}
-\DoxyCodeLine{00078     }
-\DoxyCodeLine{00079     \textcolor{comment}{// Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.}}
-\DoxyCodeLine{00080     \mbox{\hyperlink{class_facade_singleton}{FacadeSingleton}} * myUtility = \mbox{\hyperlink{class_facade_singleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}(\mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
-\DoxyCodeLine{00081     myUtility-\/>startEnvironment(pipelineStream, color\_intrin, \& scale, resX, resY, destinationKafkaTopic);}
-\DoxyCodeLine{00082 }
-\DoxyCodeLine{00083     \textcolor{comment}{/*}}
-\DoxyCodeLine{00084 \textcolor{comment}{        An infinite loop that captures the frames seen from the camera, gives them to OpenPose, gets the output, and builds skeletons.}}
-\DoxyCodeLine{00085 \textcolor{comment}{        After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.}}
-\DoxyCodeLine{00086 \textcolor{comment}{    */}}
-\DoxyCodeLine{00087     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
-\DoxyCodeLine{00088         myUtility-\/>getVideoFrames(user\_nFrame, pipelineStream, scale);}
-\DoxyCodeLine{00089         myUtility-\/>getVideoBodyKeyPoints(\& argc, \& argv);}
-\DoxyCodeLine{00090         myUtility-\/>showSkeletons(user\_nFrame);}
-\DoxyCodeLine{00091 \textcolor{comment}{//        myUtility-\/>sendData(user\_nFrame);}}
-\DoxyCodeLine{00092         myUtility-\/>cleanBuildFolder();}
-\DoxyCodeLine{00093 \textcolor{comment}{//        break;}}
-\DoxyCodeLine{00094     \}}
-\DoxyCodeLine{00095     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
-\DoxyCodeLine{00096 \}}
+\DoxyCodeLine{00159                                   \{}
+\DoxyCodeLine{00160     rs2::pipeline pipelineStream;}
+\DoxyCodeLine{00161     \textcolor{comment}{// Scaling factor for distance frame and topic name for kafka connection.}}
+\DoxyCodeLine{00162     \textcolor{keywordtype}{float} scale;}
+\DoxyCodeLine{00163     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * destinationKafkaTopic = \textcolor{stringliteral}{"{}t1"{}};}
+\DoxyCodeLine{00164     \textcolor{comment}{// Optimal resolution for D435: 848x480.}}
+\DoxyCodeLine{00165     \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} user\_nFrame = 30, resX = 848, resY = 480;}
+\DoxyCodeLine{00166     \textcolor{keyword}{struct }rs2\_intrinsics color\_intrin;}
+\DoxyCodeLine{00167     }
+\DoxyCodeLine{00168     \textcolor{comment}{// Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.}}
+\DoxyCodeLine{00169     \mbox{\hyperlink{class_facade_singleton}{FacadeSingleton}} * myUtility = \mbox{\hyperlink{class_facade_singleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}(\mbox{\hyperlink{hello__librealsense2_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
+\DoxyCodeLine{00170     myUtility-\/>startEnvironment(pipelineStream, color\_intrin, \& scale, resX, resY, destinationKafkaTopic);}
+\DoxyCodeLine{00171 }
+\DoxyCodeLine{00172     \textcolor{comment}{/*}}
+\DoxyCodeLine{00173 \textcolor{comment}{        An infinite loop that captures the frames seen from the camera, gives them to OpenPose, gets the output, and builds skeletons.}}
+\DoxyCodeLine{00174 \textcolor{comment}{        After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.}}
+\DoxyCodeLine{00175 \textcolor{comment}{    */}}
+\DoxyCodeLine{00176     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{00177         myUtility-\/>getVideoFrames(user\_nFrame, pipelineStream, scale);}
+\DoxyCodeLine{00178         myUtility-\/>getVideoBodyKeyPoints(\& argc, \& argv);}
+\DoxyCodeLine{00179         myUtility-\/>showSkeletons(user\_nFrame);}
+\DoxyCodeLine{00180         myUtility-\/>sendData(user\_nFrame);}
+\DoxyCodeLine{00181         myUtility-\/>cleanBuildFolder();}
+\DoxyCodeLine{00182     \}}
+\DoxyCodeLine{00183     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{00184 \}}
 
 \end{DoxyCode}
 
@@ -84,7 +83,7 @@ Definition at line \mbox{\hyperlink{hello__librealsense2_8cpp_source_l00070}{70}
 
 
 
-Definition at line \mbox{\hyperlink{hello__librealsense2_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{hello__librealsense2_8cpp_source}{hello\+\_\+librealsense2.\+cpp}}.
+Definition at line \mbox{\hyperlink{hello__librealsense2_8cpp_source_l00143}{143}} of file \mbox{\hyperlink{hello__librealsense2_8cpp_source}{hello\+\_\+librealsense2.\+cpp}}.
 
 \mbox{\Hypertarget{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}\label{hello__librealsense2_8cpp_a447cec8ebf4927b96cdae3a54f92c840}} 
 \index{hello\_librealsense2.cpp@{hello\_librealsense2.cpp}!expectedUsageMessage@{expectedUsageMessage}}
@@ -100,5 +99,5 @@ Definition at line \mbox{\hyperlink{hello__librealsense2_8cpp_source_l00054}{54}
 \end{DoxyCode}
 
 
-Definition at line \mbox{\hyperlink{hello__librealsense2_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{hello__librealsense2_8cpp_source}{hello\+\_\+librealsense2.\+cpp}}.
+Definition at line \mbox{\hyperlink{hello__librealsense2_8cpp_source_l00144}{144}} of file \mbox{\hyperlink{hello__librealsense2_8cpp_source}{hello\+\_\+librealsense2.\+cpp}}.
 

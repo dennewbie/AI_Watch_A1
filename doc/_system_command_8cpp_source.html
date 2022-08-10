@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AI Watch: Command/SystemCommand.cpp Source File</title>
+<title>AI Watch A1: Command/SystemCommand.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="eye_small_white.png"/></td>
   <td id="projectalign">
-   <div id="projectname">AI Watch<span id="projectnumber">&#160;A1</span>
+   <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">3D Skeleton tracking</div>
+   <div id="projectbrief">Multi-person 3D skeleton tracking using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -73,32 +73,35 @@ $(function() {
 <div class="contents">
 <a href="_system_command_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//  SystemCommand.cpp</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//  librealsensetest</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//  AI Watch A1</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//  Created by Denny Caruso on 23/07/22.</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_system_command_8hpp.html">SystemCommand.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// License: Apache 2.0. See LICENSE file in root directory.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// Copyright(c) 2022. All Rights Reserved.</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_system_command.html#ae066c4c5cf8b00c16e9ddf54dd936c47">   12</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_system_command.html#a447d02e641bb26dbdf9332fa9e55485d">SystemCommand::setCommand</a> (std::string command) {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    this-&gt;command = <a class="code hl_variable" href="class_system_command.html#abdc4fb0d069e0815759941dc72b5736d">command</a>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>}</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_system_command.html#a4265db3249d1f004fe534b13d954e709">   16</a></span>std::string <a class="code hl_function" href="class_system_command.html#a4265db3249d1f004fe534b13d954e709">SystemCommand::getCommand</a> (<span class="keywordtype">void</span>) {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="class_system_command.html#abdc4fb0d069e0815759941dc72b5736d">command</a>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_system_command.html#aa402638083047a972e143064f1d5e8cb">   20</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_system_command.html#aa402638083047a972e143064f1d5e8cb">SystemCommand::executeCommand</a> (<span class="keywordtype">int</span> * argc, <span class="keywordtype">char</span> *** argv) {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_function" href="class_system_command.html#a447d02e641bb26dbdf9332fa9e55485d">setCommand</a>(argc, argv);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_system_command.html#a4265db3249d1f004fe534b13d954e709">getCommand</a>().size() &gt; 0 &amp;&amp; <a class="code hl_function" href="class_system_command.html#a4265db3249d1f004fe534b13d954e709">getCommand</a>() != <span class="stringliteral">&quot;OP&quot;</span>) std::system(<a class="code hl_function" href="class_system_command.html#a4265db3249d1f004fe534b13d954e709">getCommand</a>().c_str());</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_system_command_8hpp.html">SystemCommand.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_system_command.html#ae066c4c5cf8b00c16e9ddf54dd936c47">   15</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_system_command.html#a447d02e641bb26dbdf9332fa9e55485d">SystemCommand::setCommand</a> (std::string command) {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    this-&gt;command = <a class="code hl_variable" href="class_system_command.html#abdc4fb0d069e0815759941dc72b5736d">command</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_system_command.html#a4265db3249d1f004fe534b13d954e709">   19</a></span>std::string <a class="code hl_function" href="class_system_command.html#a4265db3249d1f004fe534b13d954e709">SystemCommand::getCommand</a> (<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="class_system_command.html#abdc4fb0d069e0815759941dc72b5736d">command</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_system_command.html#aa402638083047a972e143064f1d5e8cb">   23</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_system_command.html#aa402638083047a972e143064f1d5e8cb">SystemCommand::executeCommand</a> (<span class="keywordtype">int</span> * argc, <span class="keywordtype">char</span> *** argv) {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_function" href="class_system_command.html#a447d02e641bb26dbdf9332fa9e55485d">setCommand</a>(argc, argv);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_system_command.html#a4265db3249d1f004fe534b13d954e709">getCommand</a>().size() &gt; 0 &amp;&amp; <a class="code hl_function" href="class_system_command.html#a4265db3249d1f004fe534b13d954e709">getCommand</a>() != <span class="stringliteral">&quot;OP&quot;</span>) std::system(<a class="code hl_function" href="class_system_command.html#a4265db3249d1f004fe534b13d954e709">getCommand</a>().c_str());</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
 <div class="ttc" id="a_system_command_8hpp_html"><div class="ttname"><a href="_system_command_8hpp.html">SystemCommand.hpp</a></div></div>
-<div class="ttc" id="aclass_system_command_html_a4265db3249d1f004fe534b13d954e709"><div class="ttname"><a href="class_system_command.html#a4265db3249d1f004fe534b13d954e709">SystemCommand::getCommand</a></div><div class="ttdeci">std::string getCommand(void)</div><div class="ttdoc">Get the string command.</div><div class="ttdef"><b>Definition:</b> <a href="_system_command_8cpp_source.html#l00016">SystemCommand.cpp:16</a></div></div>
+<div class="ttc" id="aclass_system_command_html_a4265db3249d1f004fe534b13d954e709"><div class="ttname"><a href="class_system_command.html#a4265db3249d1f004fe534b13d954e709">SystemCommand::getCommand</a></div><div class="ttdeci">std::string getCommand(void)</div><div class="ttdoc">Get the string command.</div><div class="ttdef"><b>Definition:</b> <a href="_system_command_8cpp_source.html#l00019">SystemCommand.cpp:19</a></div></div>
 <div class="ttc" id="aclass_system_command_html_a447d02e641bb26dbdf9332fa9e55485d"><div class="ttname"><a href="class_system_command.html#a447d02e641bb26dbdf9332fa9e55485d">SystemCommand::setCommand</a></div><div class="ttdeci">virtual void setCommand(int *argc, char ***argv)=0</div><div class="ttdoc">Set the string command. The method is inherited from the subclasses and overridden in order to expres...</div></div>
-<div class="ttc" id="aclass_system_command_html_aa402638083047a972e143064f1d5e8cb"><div class="ttname"><a href="class_system_command.html#aa402638083047a972e143064f1d5e8cb">SystemCommand::executeCommand</a></div><div class="ttdeci">void executeCommand(int *argc, char ***argv)</div><div class="ttdoc">This method is responsible for executing commands on the system based on the filled command string....</div><div class="ttdef"><b>Definition:</b> <a href="_system_command_8cpp_source.html#l00020">SystemCommand.cpp:20</a></div></div>
-<div class="ttc" id="aclass_system_command_html_abdc4fb0d069e0815759941dc72b5736d"><div class="ttname"><a href="class_system_command.html#abdc4fb0d069e0815759941dc72b5736d">SystemCommand::command</a></div><div class="ttdeci">std::string command</div><div class="ttdoc">The final command given to the system by the program.</div><div class="ttdef"><b>Definition:</b> <a href="_system_command_8hpp_source.html#l00030">SystemCommand.hpp:30</a></div></div>
+<div class="ttc" id="aclass_system_command_html_aa402638083047a972e143064f1d5e8cb"><div class="ttname"><a href="class_system_command.html#aa402638083047a972e143064f1d5e8cb">SystemCommand::executeCommand</a></div><div class="ttdeci">void executeCommand(int *argc, char ***argv)</div><div class="ttdoc">This method is responsible for executing commands on the system based on the filled command string....</div><div class="ttdef"><b>Definition:</b> <a href="_system_command_8cpp_source.html#l00023">SystemCommand.cpp:23</a></div></div>
+<div class="ttc" id="aclass_system_command_html_abdc4fb0d069e0815759941dc72b5736d"><div class="ttname"><a href="class_system_command.html#abdc4fb0d069e0815759941dc72b5736d">SystemCommand::command</a></div><div class="ttdeci">std::string command</div><div class="ttdoc">The final command given to the system by the program.</div><div class="ttdef"><b>Definition:</b> <a href="_system_command_8hpp_source.html#l00033">SystemCommand.hpp:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

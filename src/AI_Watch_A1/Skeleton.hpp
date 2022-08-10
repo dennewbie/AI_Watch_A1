@@ -1,9 +1,12 @@
 //
 //  Skeleton.hpp
-//  librealsensetest
+//  AI Watch A1
 //
 //  Created by Denny Caruso on 17/07/22.
 //
+
+// License: Apache 2.0. See LICENSE file in root directory.
+// Copyright(c) 2022. All Rights Reserved.
 
 #ifndef Skeleton_h
 #define Skeleton_h

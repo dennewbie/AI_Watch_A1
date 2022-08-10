@@ -1,9 +1,12 @@
 //
 //  FacadeSingleton.cpp
-//  librealsensetest
+//  AI Watch A1
 //
 //  Created by Denny Caruso on 20/07/22.
 //
+
+// License: Apache 2.0. See LICENSE file in root directory.
+// Copyright(c) 2022. All Rights Reserved.
 
 #include "FacadeSingleton.hpp"
 
@@ -43,7 +46,7 @@ FacadeSingleton::~FacadeSingleton (void) {
     delete getUsageManager();
     delete getCoordinateMappingManager();
     delete getImageManager();
-//    delete getKafkaManager();
+    delete getKafkaManager();
     delete sharedInstance;
 }
 
@@ -123,7 +126,7 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     FacadeSingleton::setOpenCV_Manager(new OpenCV_Manager());
     FacadeSingleton::setCoordinateMappingManager(new UnityCoordinateMappingManager());
     FacadeSingleton::setImageManager(new ImageManager());
-//    FacadeSingleton::setKafkaManager(new KafkaManager(destinationKafkaTopic));
+    FacadeSingleton::setKafkaManager(new KafkaManager(destinationKafkaTopic));
     FacadeSingleton::getCameraManager()->startEnvironment(pipelineStream, color_intrin, scale, resX, resY, FIRST_BOOT);
     cleanBuildFolder();
 }
@@ -147,16 +150,16 @@ void FacadeSingleton::sendData (unsigned int user_nFrame) {
     unsigned int frameID = FacadeSingleton::getCameraManager()->getFrameID(), currentImageID;
     OutputManagerJSON * myOutputManagerJSON = (OutputManagerJSON *) FacadeSingleton::getOutputManager();
     
-//    for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
-//        Json::Value currentJSON;
-//        std::stringstream outputJsonFilePath;
-//        currentImageID = frameID - user_nFrame + nFrame;
-//        outputJsonFilePath << outputFolder << "movement/frame" << currentImageID << "_skeletonsPoints3D.json";
-//        if (myOutputManagerJSON->loadJSON(outputJsonFilePath.str(), currentJSON)) {
-//            std::string key = std::to_string(currentImageID);
-//            FacadeSingleton::getKafkaManager()->sendData(key.c_str(), currentJSON);
-//        }
-//    }
+    for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
+        Json::Value currentJSON;
+        std::stringstream outputJsonFilePath;
+        currentImageID = frameID - user_nFrame + nFrame;
+        outputJsonFilePath << outputFolder << "movement/frame" << currentImageID << "_skeletonsPoints3D.json";
+        if (myOutputManagerJSON->loadJSON(outputJsonFilePath.str(), currentJSON)) {
+            std::string key = std::to_string(currentImageID);
+            FacadeSingleton::getKafkaManager()->sendData(key.c_str(), currentJSON);
+        }
+    }
 }
 
 void FacadeSingleton::cleanBuildFolder (void) {

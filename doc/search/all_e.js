@@ -1,20 +1,11 @@
 var searchData=
 [
-  ['opencv_5fmanager_0',['OpenCV_Manager',['../class_open_c_v___manager.html',1,'']]],
-  ['opencv_5fmanager_1',['openCV_Manager',['../class_facade_singleton.html#a8d07ab4572a74e9ba332ff19c9f45671',1,'FacadeSingleton']]],
-  ['opencv_5fmanager_2ecpp_2',['OpenCV_Manager.cpp',['../_open_c_v___manager_8cpp.html',1,'']]],
-  ['opencv_5fmanager_2ehpp_3',['OpenCV_Manager.hpp',['../_open_c_v___manager_8hpp.html',1,'']]],
-  ['openposebodykeypointsnumber_4',['openPoseBodyKeyPointsNumber',['../constants_8hpp.html#af63f5982d924abff2ec60f905036d8c8',1,'constants.hpp']]],
-  ['openposecommand_5',['OpenPoseCommand',['../class_open_pose_command.html',1,'']]],
-  ['openposecommand_2ecpp_6',['OpenPoseCommand.cpp',['../_open_pose_command_8cpp.html',1,'']]],
-  ['openposeexecutecommandoffset_7',['openPoseExecuteCommandOffset',['../constants_8hpp.html#a89310ce273b277157c4c12d1ba801eac',1,'constants.hpp']]],
-  ['openposefolderoffset_8',['openPoseFolderOffset',['../constants_8hpp.html#a33cdd7e3f86baacf6ae9b3ee9bbe4ad7',1,'constants.hpp']]],
-  ['operator_3d_9',['operator=',['../class_facade_singleton.html#ae5e73ada437689240904db89f67e587d',1,'FacadeSingleton::operator=()'],['../class_usage_manager.html#ab07ecb1bf5f9e52847243955913d6839',1,'UsageManager::operator=()']]],
-  ['outputfolderoffset_10',['outputFolderOffset',['../constants_8hpp.html#abbff93ab9bac10646d7ca187c30470ad',1,'constants.hpp']]],
-  ['outputmanager_11',['OutputManager',['../class_output_manager.html',1,'']]],
-  ['outputmanager_12',['outputManager',['../class_facade_singleton.html#a62876d41a8d6295460665ab7fe8257d4',1,'FacadeSingleton']]],
-  ['outputmanager_2ecpp_13',['OutputManager.cpp',['../_output_manager_8cpp.html',1,'']]],
-  ['outputmanager_2ehpp_14',['OutputManager.hpp',['../_output_manager_8hpp.html',1,'']]],
-  ['outputmanagerjson_15',['OutputManagerJSON',['../class_output_manager_j_s_o_n.html',1,'']]],
-  ['outputmanagerjson_2ecpp_16',['OutputManagerJSON.cpp',['../_output_manager_j_s_o_n_8cpp.html',1,'']]]
+  ['point_0',['Point',['../class_point.html',1,'Point'],['../class_point.html#a0dceeae03ab207ab97639d843d43ad46',1,'Point::Point()']]],
+  ['point_2ecpp_1',['Point.cpp',['../_point_8cpp.html',1,'']]],
+  ['point_2ehpp_2',['Point.hpp',['../_point_8hpp.html',1,'']]],
+  ['point3d_3',['Point3D',['../class_point3_d.html',1,'Point3D'],['../class_point3_d.html#a177dcefe37be2a94d7376d7cf0215786',1,'Point3D::Point3D()']]],
+  ['point3d_2ecpp_4',['Point3D.cpp',['../_point3_d_8cpp.html',1,'']]],
+  ['point3d_2ehpp_5',['Point3D.hpp',['../_point3_d_8hpp.html',1,'']]],
+  ['producer_6',['producer',['../class_kafka_manager.html#ab83428889cb7ba9aad62f95657ab5091',1,'KafkaManager']]],
+  ['programnameoffset_7',['programNameOffset',['../constants_8hpp.html#ad4888214d23dda1d28d72563ed4f5f11',1,'constants.hpp']]]
 ];

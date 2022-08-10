@@ -65,7 +65,7 @@ static std\+::mutex \mbox{\hyperlink{class_usage_manager_a60b3e8b98388c96de3b829
 
 \mbox{\hyperlink{class_usage_manager}{Usage\+Manager}} class is a class that keeps track of configuration parameters read from a configuration file, checks if these parameters are valid, and if they are equal to the number of the expected parameters. Furthermore, it offers an on-\/demand service by returning the parameters read from the file to the callers. 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
 
 
 
@@ -93,13 +93,13 @@ Construct a new \mbox{\hyperlink{class_usage_manager}{Usage\+Manager}} object.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00084}{84}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00081                                                                                                                                            : \mbox{\hyperlink{class_usage_manager_ad2f9dc91560a8dd4498ed869df79a613}{argc}}(\mbox{\hyperlink{class_usage_manager_ad2f9dc91560a8dd4498ed869df79a613}{argc}}), \mbox{\hyperlink{class_usage_manager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}}(\mbox{\hyperlink{class_usage_manager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}}), \mbox{\hyperlink{class_usage_manager_af7802bf5ae34a3b58318144ebc8c8052}{expected\_argc}}(\mbox{\hyperlink{class_usage_manager_af7802bf5ae34a3b58318144ebc8c8052}{expected\_argc}}), \mbox{\hyperlink{class_usage_manager_aab4e2da282d83139124a0b95de74cd1d}{expectedUsageMessage}}(\mbox{\hyperlink{class_usage_manager_aab4e2da282d83139124a0b95de74cd1d}{expectedUsageMessage}}) \{}
-\DoxyCodeLine{00082         \mbox{\hyperlink{class_usage_manager_a345e7bb03c752be3258c59fd8ba7004f}{checkUsage}}();}
-\DoxyCodeLine{00083     \}}
+\DoxyCodeLine{00084                                                                                                                                            : \mbox{\hyperlink{class_usage_manager_ad2f9dc91560a8dd4498ed869df79a613}{argc}}(\mbox{\hyperlink{class_usage_manager_ad2f9dc91560a8dd4498ed869df79a613}{argc}}), \mbox{\hyperlink{class_usage_manager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}}(\mbox{\hyperlink{class_usage_manager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}}), \mbox{\hyperlink{class_usage_manager_af7802bf5ae34a3b58318144ebc8c8052}{expected\_argc}}(\mbox{\hyperlink{class_usage_manager_af7802bf5ae34a3b58318144ebc8c8052}{expected\_argc}}), \mbox{\hyperlink{class_usage_manager_aab4e2da282d83139124a0b95de74cd1d}{expectedUsageMessage}}(\mbox{\hyperlink{class_usage_manager_aab4e2da282d83139124a0b95de74cd1d}{expectedUsageMessage}}) \{}
+\DoxyCodeLine{00085         \mbox{\hyperlink{class_usage_manager_a345e7bb03c752be3258c59fd8ba7004f}{checkUsage}}();}
+\DoxyCodeLine{00086     \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_usage_manager_ab42b151fe02294bb3c28c824a6bf6cb7}\label{class_usage_manager_ab42b151fe02294bb3c28c824a6bf6cb7}} 
@@ -129,16 +129,16 @@ Destroy the Usage Manager object.
 
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00034                             \{}
-\DoxyCodeLine{00035     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < * \mbox{\hyperlink{class_usage_manager_a6773644ed5e5c15f5694f39c5f76cfd9}{get\_argc}}(); i++) \textcolor{keyword}{delete} [] (* \mbox{\hyperlink{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}())[i];}
-\DoxyCodeLine{00036     \textcolor{keyword}{delete} \mbox{\hyperlink{class_usage_manager_a6773644ed5e5c15f5694f39c5f76cfd9}{get\_argc}}();}
-\DoxyCodeLine{00037     \textcolor{keyword}{delete} \mbox{\hyperlink{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}();}
-\DoxyCodeLine{00038     \textcolor{keyword}{delete} \mbox{\hyperlink{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}};}
-\DoxyCodeLine{00039 \}}
+\DoxyCodeLine{00037                             \{}
+\DoxyCodeLine{00038     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < * \mbox{\hyperlink{class_usage_manager_a6773644ed5e5c15f5694f39c5f76cfd9}{get\_argc}}(); i++) \textcolor{keyword}{delete} [] (* \mbox{\hyperlink{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}())[i];}
+\DoxyCodeLine{00039     \textcolor{keyword}{delete} \mbox{\hyperlink{class_usage_manager_a6773644ed5e5c15f5694f39c5f76cfd9}{get\_argc}}();}
+\DoxyCodeLine{00040     \textcolor{keyword}{delete} \mbox{\hyperlink{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}();}
+\DoxyCodeLine{00041     \textcolor{keyword}{delete} \mbox{\hyperlink{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}};}
+\DoxyCodeLine{00042 \}}
 
 \end{DoxyCode}
 
@@ -156,16 +156,16 @@ Checks if the configuration parameters are valid and if they are equal to the nu
 
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00017                                    \{}
-\DoxyCodeLine{00018     \textcolor{keywordflow}{if} (* \mbox{\hyperlink{class_usage_manager_a6773644ed5e5c15f5694f39c5f76cfd9}{get\_argc}}() != \mbox{\hyperlink{class_usage_manager_ae2a85a52df993fd0a3969bb0a93d5f74}{get\_expected\_argc}}()) \{}
-\DoxyCodeLine{00019         std::string buffer = \textcolor{stringliteral}{"{}Usage: ./"{}} + std::string((* \mbox{\hyperlink{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}())[\mbox{\hyperlink{constants_8hpp_ad4888214d23dda1d28d72563ed4f5f11}{programNameOffset}}]) + std::string(\mbox{\hyperlink{class_usage_manager_a6a79fcaa289441de1a65870d30b15f8f}{get\_expectedUsageMessage}}()) + \textcolor{stringliteral}{"{} -\/-\/ "{}} + std::string(\mbox{\hyperlink{constants_8hpp_a94e3a7bc53c0fff54460fa4210e9dee2}{CHECK\_USAGE\_SCOPE}});}
-\DoxyCodeLine{00020         CV\_Error(\mbox{\hyperlink{constants_8hpp_af1b6329efa478baea3e7725a31f12e91}{CHECK\_USAGE\_ERROR}}, buffer);}
-\DoxyCodeLine{00021     \}}
-\DoxyCodeLine{00022 \}}
+\DoxyCodeLine{00020                                    \{}
+\DoxyCodeLine{00021     \textcolor{keywordflow}{if} (* \mbox{\hyperlink{class_usage_manager_a6773644ed5e5c15f5694f39c5f76cfd9}{get\_argc}}() != \mbox{\hyperlink{class_usage_manager_ae2a85a52df993fd0a3969bb0a93d5f74}{get\_expected\_argc}}()) \{}
+\DoxyCodeLine{00022         std::string buffer = \textcolor{stringliteral}{"{}Usage: ./"{}} + std::string((* \mbox{\hyperlink{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}())[\mbox{\hyperlink{constants_8hpp_ad4888214d23dda1d28d72563ed4f5f11}{programNameOffset}}]) + std::string(\mbox{\hyperlink{class_usage_manager_a6a79fcaa289441de1a65870d30b15f8f}{get\_expectedUsageMessage}}()) + \textcolor{stringliteral}{"{} -\/-\/ "{}} + std::string(\mbox{\hyperlink{constants_8hpp_a94e3a7bc53c0fff54460fa4210e9dee2}{CHECK\_USAGE\_SCOPE}});}
+\DoxyCodeLine{00023         CV\_Error(\mbox{\hyperlink{constants_8hpp_af1b6329efa478baea3e7725a31f12e91}{CHECK\_USAGE\_ERROR}}, buffer);}
+\DoxyCodeLine{00024     \}}
+\DoxyCodeLine{00025 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_usage_manager_a6773644ed5e5c15f5694f39c5f76cfd9}\label{class_usage_manager_a6773644ed5e5c15f5694f39c5f76cfd9}} 
@@ -183,13 +183,13 @@ int$\ast$
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00053                                   \{}
-\DoxyCodeLine{00054     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_usage_manager_ad2f9dc91560a8dd4498ed869df79a613}{argc}};}
-\DoxyCodeLine{00055 \}}
+\DoxyCodeLine{00056                                   \{}
+\DoxyCodeLine{00057     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_usage_manager_ad2f9dc91560a8dd4498ed869df79a613}{argc}};}
+\DoxyCodeLine{00058 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}\label{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}} 
@@ -207,16 +207,16 @@ char $\ast$$\ast$$\ast$
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00057                                      \{}
-\DoxyCodeLine{00058     std::stringstream openPoseTerminalCommand;}
-\DoxyCodeLine{00059     \mbox{\hyperlink{class_usage_manager}{UsageManager}} * usageManagerInstance = \mbox{\hyperlink{class_usage_manager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}();}
-\DoxyCodeLine{00060     \textcolor{keywordflow}{if} (usageManagerInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_ab495e2525cf238bb390ca68277586bf4}{USAGE\_MANAGER\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ade33b45fd12b716d5e837609aa163416}{USAGE\_MANAGER\_NULLPTR\_SCOPE}});}
-\DoxyCodeLine{00061     \textcolor{keywordflow}{return} usageManagerInstance-\/>\mbox{\hyperlink{class_usage_manager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}};}
-\DoxyCodeLine{00062 \}}
+\DoxyCodeLine{00060                                      \{}
+\DoxyCodeLine{00061     std::stringstream openPoseTerminalCommand;}
+\DoxyCodeLine{00062     \mbox{\hyperlink{class_usage_manager}{UsageManager}} * usageManagerInstance = \mbox{\hyperlink{class_usage_manager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}();}
+\DoxyCodeLine{00063     \textcolor{keywordflow}{if} (usageManagerInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_ab495e2525cf238bb390ca68277586bf4}{USAGE\_MANAGER\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ade33b45fd12b716d5e837609aa163416}{USAGE\_MANAGER\_NULLPTR\_SCOPE}});}
+\DoxyCodeLine{00064     \textcolor{keywordflow}{return} usageManagerInstance-\/>\mbox{\hyperlink{class_usage_manager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}};}
+\DoxyCodeLine{00065 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_usage_manager_ae2a85a52df993fd0a3969bb0a93d5f74}\label{class_usage_manager_ae2a85a52df993fd0a3969bb0a93d5f74}} 
@@ -234,13 +234,13 @@ const int
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00024                                                \{}
-\DoxyCodeLine{00025     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_usage_manager_af7802bf5ae34a3b58318144ebc8c8052}{expected\_argc}};}
-\DoxyCodeLine{00026 \}}
+\DoxyCodeLine{00027                                                \{}
+\DoxyCodeLine{00028     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_usage_manager_af7802bf5ae34a3b58318144ebc8c8052}{expected\_argc}};}
+\DoxyCodeLine{00029 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_usage_manager_a6a79fcaa289441de1a65870d30b15f8f}\label{class_usage_manager_a6a79fcaa289441de1a65870d30b15f8f}} 
@@ -258,13 +258,13 @@ const char $\ast$
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00028                                                          \{}
-\DoxyCodeLine{00029     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_usage_manager_aab4e2da282d83139124a0b95de74cd1d}{expectedUsageMessage}};}
-\DoxyCodeLine{00030 \}}
+\DoxyCodeLine{00031                                                          \{}
+\DoxyCodeLine{00032     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_usage_manager_aab4e2da282d83139124a0b95de74cd1d}{expectedUsageMessage}};}
+\DoxyCodeLine{00033 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_usage_manager_a223b17baf96c6e172aa8da76a8215724}\label{class_usage_manager_a223b17baf96c6e172aa8da76a8215724}} 
@@ -293,15 +293,15 @@ Get the unique class instance, given input parameters. This method should be cal
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00041                                                                                                                                \{}
-\DoxyCodeLine{00042     std::lock\_guard <std::mutex> lock(\mbox{\hyperlink{class_usage_manager_a60b3e8b98388c96de3b829acf98eed69}{singletonMutex}});}
-\DoxyCodeLine{00043     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}} == \textcolor{keyword}{nullptr}) \mbox{\hyperlink{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_usage_manager_ad71bd8a659d1fa72578af1777b7c69b9}{UsageManager}}(\mbox{\hyperlink{class_usage_manager_ad2f9dc91560a8dd4498ed869df79a613}{argc}}, \mbox{\hyperlink{class_usage_manager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}}, \mbox{\hyperlink{class_usage_manager_af7802bf5ae34a3b58318144ebc8c8052}{expected\_argc}}, \mbox{\hyperlink{class_usage_manager_aab4e2da282d83139124a0b95de74cd1d}{expectedUsageMessage}});}
-\DoxyCodeLine{00044     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}};}
-\DoxyCodeLine{00045 \}}
+\DoxyCodeLine{00044                                                                                                                                \{}
+\DoxyCodeLine{00045     std::lock\_guard <std::mutex> lock(\mbox{\hyperlink{class_usage_manager_a60b3e8b98388c96de3b829acf98eed69}{singletonMutex}});}
+\DoxyCodeLine{00046     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}} == \textcolor{keyword}{nullptr}) \mbox{\hyperlink{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_usage_manager_ad71bd8a659d1fa72578af1777b7c69b9}{UsageManager}}(\mbox{\hyperlink{class_usage_manager_ad2f9dc91560a8dd4498ed869df79a613}{argc}}, \mbox{\hyperlink{class_usage_manager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}}, \mbox{\hyperlink{class_usage_manager_af7802bf5ae34a3b58318144ebc8c8052}{expected\_argc}}, \mbox{\hyperlink{class_usage_manager_aab4e2da282d83139124a0b95de74cd1d}{expectedUsageMessage}});}
+\DoxyCodeLine{00047     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}};}
+\DoxyCodeLine{00048 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_usage_manager_af047400a8bd50603cff4bbffe37ebea2}\label{class_usage_manager_af047400a8bd50603cff4bbffe37ebea2}} 
@@ -319,15 +319,15 @@ Usage\+Manager$\ast$
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{_usage_manager_8cpp_source}{Usage\+Manager.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00047                                               \{}
-\DoxyCodeLine{00048     std::lock\_guard <std::mutex> lock(\mbox{\hyperlink{class_usage_manager_a60b3e8b98388c96de3b829acf98eed69}{singletonMutex}});}
-\DoxyCodeLine{00049     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}} == \textcolor{keyword}{nullptr}) \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00050     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}};}
-\DoxyCodeLine{00051 \}}
+\DoxyCodeLine{00050                                               \{}
+\DoxyCodeLine{00051     std::lock\_guard <std::mutex> lock(\mbox{\hyperlink{class_usage_manager_a60b3e8b98388c96de3b829acf98eed69}{singletonMutex}});}
+\DoxyCodeLine{00052     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}} == \textcolor{keyword}{nullptr}) \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00053     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}};}
+\DoxyCodeLine{00054 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_usage_manager_ab07ecb1bf5f9e52847243955913d6839}\label{class_usage_manager_ab07ecb1bf5f9e52847243955913d6839}} 
@@ -355,7 +355,7 @@ configuration parameters\textquotesingle{} number.
 
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
 
 \mbox{\Hypertarget{class_usage_manager_ad6aa65b36661f52e7bfb6b8ffd7e3135}\label{class_usage_manager_ad6aa65b36661f52e7bfb6b8ffd7e3135}} 
 \index{UsageManager@{UsageManager}!argv@{argv}}
@@ -369,7 +369,7 @@ configuration parameters.
 
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
 
 \mbox{\Hypertarget{class_usage_manager_af7802bf5ae34a3b58318144ebc8c8052}\label{class_usage_manager_af7802bf5ae34a3b58318144ebc8c8052}} 
 \index{UsageManager@{UsageManager}!expected\_argc@{expected\_argc}}
@@ -383,7 +383,7 @@ expected configuration parameters\textquotesingle{} number.
 
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
 
 \mbox{\Hypertarget{class_usage_manager_aab4e2da282d83139124a0b95de74cd1d}\label{class_usage_manager_aab4e2da282d83139124a0b95de74cd1d}} 
 \index{UsageManager@{UsageManager}!expectedUsageMessage@{expectedUsageMessage}}
@@ -397,7 +397,7 @@ a simple message that lets the user understand how to properly run the executabl
 
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
 
 \mbox{\Hypertarget{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}\label{class_usage_manager_ae0a59e7727dff85dfdef79336d535498}} 
 \index{UsageManager@{UsageManager}!sharedInstance@{sharedInstance}}
@@ -411,7 +411,7 @@ The field for storing the singleton instance.
 
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
 
 \mbox{\Hypertarget{class_usage_manager_a60b3e8b98388c96de3b829acf98eed69}\label{class_usage_manager_a60b3e8b98388c96de3b829acf98eed69}} 
 \index{UsageManager@{UsageManager}!singletonMutex@{singletonMutex}}
@@ -425,7 +425,7 @@ Mutex for thread-\/safe access.
 
 
 
-Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_usage_manager_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{_usage_manager_8hpp_source}{Usage\+Manager.\+hpp}}.
 
 
 

@@ -1,9 +1,12 @@
 //
 //  ImageManager.hpp
-//  librealsensetest
+//  AI Watch A1
 //
 //  Created by Denny Caruso on 30/07/22.
 //
+
+// License: Apache 2.0. See LICENSE file in root directory.
+// Copyright(c) 2022. All Rights Reserved.
 
 #ifndef ImageManager_hpp
 #define ImageManager_hpp

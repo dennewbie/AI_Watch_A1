@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AI Watch: Command/MoveCommand.cpp Source File</title>
+<title>AI Watch A1: Command/MoveCommand.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="eye_small_white.png"/></td>
   <td id="projectalign">
-   <div id="projectname">AI Watch<span id="projectnumber">&#160;A1</span>
+   <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">3D Skeleton tracking</div>
+   <div id="projectbrief">Multi-person 3D skeleton tracking using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -73,33 +73,36 @@ $(function() {
 <div class="contents">
 <a href="_move_command_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//  MoveCommand.cpp</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//  librealsensetest</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//  AI Watch A1</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//  Created by Denny Caruso on 23/07/22.</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_system_command_8hpp.html">SystemCommand.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// License: Apache 2.0. See LICENSE file in root directory.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// Copyright(c) 2022. All Rights Reserved.</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_move_command.html#aaeef9929e51f2bff4b4a8c652c49fc8d">   12</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_move_command.html#aaeef9929e51f2bff4b4a8c652c49fc8d">MoveCommand::setCommand</a> (<span class="keywordtype">int</span> * fileArgc, <span class="keywordtype">char</span> *** argv) {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_class" href="class_usage_manager.html">UsageManager</a> * usageManagerInstance = <a class="code hl_function" href="class_usage_manager.html#af047400a8bd50603cff4bbffe37ebea2">UsageManager::getInstance</a>();</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">if</span> (usageManagerInstance == <span class="keyword">nullptr</span>) CV_Error(<a class="code hl_variable" href="constants_8hpp.html#ab495e2525cf238bb390ca68277586bf4">USAGE_MANAGER_NULLPTR_ERROR</a>, <a class="code hl_variable" href="constants_8hpp.html#ade33b45fd12b716d5e837609aa163416">USAGE_MANAGER_NULLPTR_SCOPE</a>);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">char</span> *** localArgv = usageManagerInstance-&gt;<a class="code hl_function" href="class_usage_manager.html#abf0d03e097025fc8d85133f6a0ff83ff">get_argv</a>();</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    std::stringstream moveTerminalCommand;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> * imagesFolder = (* localArgv)[<a class="code hl_variable" href="constants_8hpp.html#a660671264f8ea07781cd04446d83cbf6">imagesFolderOffset</a>];</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    moveTerminalCommand &lt;&lt; <span class="stringliteral">&quot;mv -v &quot;</span> &lt;&lt; imagesFolder &lt;&lt; <span class="stringliteral">&quot;rgb/ &quot;</span> &lt;&lt; imagesFolder &lt;&lt; <span class="stringliteral">&quot;videoframe/ &gt; /dev/null&quot;</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="class_system_command.html#a447d02e641bb26dbdf9332fa9e55485d">SystemCommand::setCommand</a>(std::string(moveTerminalCommand.str()));</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_system_command_8hpp.html">SystemCommand.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_move_command.html#aaeef9929e51f2bff4b4a8c652c49fc8d">   15</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_move_command.html#aaeef9929e51f2bff4b4a8c652c49fc8d">MoveCommand::setCommand</a> (<span class="keywordtype">int</span> * fileArgc, <span class="keywordtype">char</span> *** argv) {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_class" href="class_usage_manager.html">UsageManager</a> * usageManagerInstance = <a class="code hl_function" href="class_usage_manager.html#af047400a8bd50603cff4bbffe37ebea2">UsageManager::getInstance</a>();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">if</span> (usageManagerInstance == <span class="keyword">nullptr</span>) CV_Error(<a class="code hl_variable" href="constants_8hpp.html#ab495e2525cf238bb390ca68277586bf4">USAGE_MANAGER_NULLPTR_ERROR</a>, <a class="code hl_variable" href="constants_8hpp.html#ade33b45fd12b716d5e837609aa163416">USAGE_MANAGER_NULLPTR_SCOPE</a>);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">char</span> *** localArgv = usageManagerInstance-&gt;<a class="code hl_function" href="class_usage_manager.html#abf0d03e097025fc8d85133f6a0ff83ff">get_argv</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::stringstream moveTerminalCommand;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> * imagesFolder = (* localArgv)[<a class="code hl_variable" href="constants_8hpp.html#a660671264f8ea07781cd04446d83cbf6">imagesFolderOffset</a>];</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    moveTerminalCommand &lt;&lt; <span class="stringliteral">&quot;mv -v &quot;</span> &lt;&lt; imagesFolder &lt;&lt; <span class="stringliteral">&quot;rgb/ &quot;</span> &lt;&lt; imagesFolder &lt;&lt; <span class="stringliteral">&quot;videoframe/ &gt; /dev/null&quot;</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_function" href="class_system_command.html#a447d02e641bb26dbdf9332fa9e55485d">SystemCommand::setCommand</a>(std::string(moveTerminalCommand.str()));</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
 <div class="ttc" id="a_system_command_8hpp_html"><div class="ttname"><a href="_system_command_8hpp.html">SystemCommand.hpp</a></div></div>
-<div class="ttc" id="aclass_move_command_html_aaeef9929e51f2bff4b4a8c652c49fc8d"><div class="ttname"><a href="class_move_command.html#aaeef9929e51f2bff4b4a8c652c49fc8d">MoveCommand::setCommand</a></div><div class="ttdeci">void setCommand(int *argc, char ***argv) override</div><div class="ttdef"><b>Definition:</b> <a href="_move_command_8cpp_source.html#l00012">MoveCommand.cpp:12</a></div></div>
+<div class="ttc" id="aclass_move_command_html_aaeef9929e51f2bff4b4a8c652c49fc8d"><div class="ttname"><a href="class_move_command.html#aaeef9929e51f2bff4b4a8c652c49fc8d">MoveCommand::setCommand</a></div><div class="ttdeci">void setCommand(int *argc, char ***argv) override</div><div class="ttdef"><b>Definition:</b> <a href="_move_command_8cpp_source.html#l00015">MoveCommand.cpp:15</a></div></div>
 <div class="ttc" id="aclass_system_command_html_a447d02e641bb26dbdf9332fa9e55485d"><div class="ttname"><a href="class_system_command.html#a447d02e641bb26dbdf9332fa9e55485d">SystemCommand::setCommand</a></div><div class="ttdeci">virtual void setCommand(int *argc, char ***argv)=0</div><div class="ttdoc">Set the string command. The method is inherited from the subclasses and overridden in order to expres...</div></div>
-<div class="ttc" id="aclass_usage_manager_html"><div class="ttname"><a href="class_usage_manager.html">UsageManager</a></div><div class="ttdoc">UsageManager class is a utility class that helps with configuration parameters.</div><div class="ttdef"><b>Definition:</b> <a href="_usage_manager_8hpp_source.html#l00024">UsageManager.hpp:24</a></div></div>
-<div class="ttc" id="aclass_usage_manager_html_abf0d03e097025fc8d85133f6a0ff83ff"><div class="ttname"><a href="class_usage_manager.html#abf0d03e097025fc8d85133f6a0ff83ff">UsageManager::get_argv</a></div><div class="ttdeci">char *** get_argv(void)</div><div class="ttdoc">Get the argv's pointer.</div><div class="ttdef"><b>Definition:</b> <a href="_usage_manager_8cpp_source.html#l00057">UsageManager.cpp:57</a></div></div>
-<div class="ttc" id="aclass_usage_manager_html_af047400a8bd50603cff4bbffe37ebea2"><div class="ttname"><a href="class_usage_manager.html#af047400a8bd50603cff4bbffe37ebea2">UsageManager::getInstance</a></div><div class="ttdeci">static UsageManager * getInstance(void)</div><div class="ttdoc">Get the unique class instance. This methods should be called in the following scenario: when we just ...</div><div class="ttdef"><b>Definition:</b> <a href="_usage_manager_8cpp_source.html#l00047">UsageManager.cpp:47</a></div></div>
-<div class="ttc" id="aconstants_8hpp_html_a660671264f8ea07781cd04446d83cbf6"><div class="ttname"><a href="constants_8hpp.html#a660671264f8ea07781cd04446d83cbf6">imagesFolderOffset</a></div><div class="ttdeci">static const short int imagesFolderOffset</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00063">constants.hpp:63</a></div></div>
-<div class="ttc" id="aconstants_8hpp_html_ab495e2525cf238bb390ca68277586bf4"><div class="ttname"><a href="constants_8hpp.html#ab495e2525cf238bb390ca68277586bf4">USAGE_MANAGER_NULLPTR_ERROR</a></div><div class="ttdeci">static const short int USAGE_MANAGER_NULLPTR_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00032">constants.hpp:32</a></div></div>
-<div class="ttc" id="aconstants_8hpp_html_ade33b45fd12b716d5e837609aa163416"><div class="ttname"><a href="constants_8hpp.html#ade33b45fd12b716d5e837609aa163416">USAGE_MANAGER_NULLPTR_SCOPE</a></div><div class="ttdeci">static const char * USAGE_MANAGER_NULLPTR_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00033">constants.hpp:33</a></div></div>
+<div class="ttc" id="aclass_usage_manager_html"><div class="ttname"><a href="class_usage_manager.html">UsageManager</a></div><div class="ttdoc">UsageManager class is a utility class that helps with configuration parameters.</div><div class="ttdef"><b>Definition:</b> <a href="_usage_manager_8hpp_source.html#l00027">UsageManager.hpp:27</a></div></div>
+<div class="ttc" id="aclass_usage_manager_html_abf0d03e097025fc8d85133f6a0ff83ff"><div class="ttname"><a href="class_usage_manager.html#abf0d03e097025fc8d85133f6a0ff83ff">UsageManager::get_argv</a></div><div class="ttdeci">char *** get_argv(void)</div><div class="ttdoc">Get the argv's pointer.</div><div class="ttdef"><b>Definition:</b> <a href="_usage_manager_8cpp_source.html#l00060">UsageManager.cpp:60</a></div></div>
+<div class="ttc" id="aclass_usage_manager_html_af047400a8bd50603cff4bbffe37ebea2"><div class="ttname"><a href="class_usage_manager.html#af047400a8bd50603cff4bbffe37ebea2">UsageManager::getInstance</a></div><div class="ttdeci">static UsageManager * getInstance(void)</div><div class="ttdoc">Get the unique class instance. This methods should be called in the following scenario: when we just ...</div><div class="ttdef"><b>Definition:</b> <a href="_usage_manager_8cpp_source.html#l00050">UsageManager.cpp:50</a></div></div>
+<div class="ttc" id="aconstants_8hpp_html_a660671264f8ea07781cd04446d83cbf6"><div class="ttname"><a href="constants_8hpp.html#a660671264f8ea07781cd04446d83cbf6">imagesFolderOffset</a></div><div class="ttdeci">static const short int imagesFolderOffset</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00066">constants.hpp:66</a></div></div>
+<div class="ttc" id="aconstants_8hpp_html_ab495e2525cf238bb390ca68277586bf4"><div class="ttname"><a href="constants_8hpp.html#ab495e2525cf238bb390ca68277586bf4">USAGE_MANAGER_NULLPTR_ERROR</a></div><div class="ttdeci">static const short int USAGE_MANAGER_NULLPTR_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00035">constants.hpp:35</a></div></div>
+<div class="ttc" id="aconstants_8hpp_html_ade33b45fd12b716d5e837609aa163416"><div class="ttname"><a href="constants_8hpp.html#ade33b45fd12b716d5e837609aa163416">USAGE_MANAGER_NULLPTR_SCOPE</a></div><div class="ttdeci">static const char * USAGE_MANAGER_NULLPTR_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00036">constants.hpp:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
