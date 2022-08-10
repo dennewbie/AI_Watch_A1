@@ -36,7 +36,9 @@
 4. Go to `/AI_Watch_A1/src/AI_Watch_A1/` and set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file
 5. From `/AI_Watch_A1/src/AI_Watch_A1/` folder, run the following commands in your terminal:
    
-   `mkdir build && cd build`
+   ```
+   mkdir build && cd build
+   ```
    
 6. Copy OpenPose's `models` folder to the project's build folder.
 7. Copy OpenPose's `BoostConfig.cmake`, `FindGFlags.cmake` and `FindGlog.cmake` files  to the `build/cmake/modules/` folder
@@ -50,12 +52,16 @@
 9. 
     - If internal OpenPose execution is chosen, then run the following command in your terminal:
    
-        `sudo ./hello_librealsense2.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255`
+        ```
+        sudo ./hello_librealsense2.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255
+        ```
    
    - If external OpenPose execution is chosen, then set up your OpenPose parameters 
    within the "conf.conf" file, run the following command in your terminal:
 
-        `sudo ./hello_librealsense2.bin`
+        ```
+        sudo ./hello_librealsense2.bin
+        ```
 
 
 
