@@ -7,7 +7,7 @@
         </h3>
     </div>
     <div align="center">
-        <img src="https://github.com/dennewbie/AI_Watch_A1/blob/main/design/eye_big_white@3x.png" width="400">
+        <img src="https://github.com/dennewbie/AI_Watch_A1/blob/main/design/eye_big_white@2x.png" width="400">
     </div>
 </p>
 
