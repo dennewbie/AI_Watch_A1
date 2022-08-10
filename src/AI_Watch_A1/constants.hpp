@@ -1,6 +1,6 @@
 //
 //  constants.hpp
-//  librealsensetest
+//  AI Watch A1
 //
 //  Created by Denny Caruso on 20/07/22.
 //

@@ -1,6 +1,6 @@
 //
 //  OutputManagerJSON.cpp
-//  librealsensetest
+//  AI Watch A1
 //
 //  Created by Denny Caruso on 21/07/22.
 //

@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 2.8.7)
 set(Boost_USE_STATIC_LIBS       OFF)
 
 add_definitions(-std=c++11)
-project(hello_librealsense2)
+project(AI_Watch_A1)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules") 
 #link_directories(/usr/local/Cellar/caffe/1.0_39/lib)
 
@@ -63,7 +63,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 # Add the application sources to the target
 # add_executable(${PROJECT_NAME} hello_librealsense2.cpp)
-add_executable(hello_librealsense2.bin hello_librealsense2.cpp Skeleton.cpp Points/BodyKeyPoint.cpp Points/Point3D.cpp Points/Point.cpp 
+add_executable(AI_Watch_A1.bin main.cpp Skeleton.cpp Points/BodyKeyPoint.cpp Points/Point3D.cpp Points/Point.cpp 
 FacadeSingleton/FacadeSingleton.cpp Managers/OutputManagers/OutputManager.cpp Managers/OutputManagers/OutputManagerJSON.cpp 
 Managers/RealSenseManagers/RealSenseManager.cpp Managers/RealSenseManagers/RealSenseD435Manager.cpp Command/SystemCommand.cpp Command/CleanCommand.cpp 
 Command/MoveCommand.cpp Command/OpenPoseCommand.cpp Managers/OpenCV_Manager.cpp Managers/UsageManager.cpp Managers/CoordinateManagers/CoordinateMappingManager.cpp
@@ -71,4 +71,4 @@ Managers/CoordinateManagers/UnityCoordinateMappingManager.cpp Managers/KafkaMana
 
 # Link librealsense2 to the target
 link_libraries(${JSONCPP_LIBRARIES})
-target_link_libraries(hello_librealsense2.bin PkgConfig::deps ${BOOST_LIBS} Boost::filesystem ${OpenPose_LIBS} ${GFLAGS_LIBRARY} ${GLOG_LIBRARY} ${realsense2_LIBRARY} glfw OpenGL::GL ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} ${JSONCPP_LIBRARIES} ${GLIB_LIBRARIES} )
+target_link_libraries(AI_Watch_A1.bin PkgConfig::deps ${BOOST_LIBS} Boost::filesystem ${OpenPose_LIBS} ${GFLAGS_LIBRARY} ${GLOG_LIBRARY} ${realsense2_LIBRARY} glfw OpenGL::GL ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} ${JSONCPP_LIBRARIES} ${GLIB_LIBRARIES} )

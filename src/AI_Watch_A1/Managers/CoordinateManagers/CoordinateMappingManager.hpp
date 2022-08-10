@@ -1,6 +1,6 @@
 //
 //  CoordinateMappingManager.hpp
-//  librealsensetest
+//  AI Watch A1
 //
 //  Created by Denny Caruso on 26/07/22.
 //

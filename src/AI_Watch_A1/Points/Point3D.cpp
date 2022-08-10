@@ -1,6 +1,6 @@
 //
 //  Point3D.cpp
-//  librealsensetest
+//  AI Watch A1
 //
 //  Created by Denny Caruso on 20/07/22.
 //

@@ -1,6 +1,6 @@
 //
 //  UnityCoordinateMappingManager.cpp
-//  librealsensetest
+//  AI Watch A1
 //
 //  Created by Denny Caruso on 30/07/22.
 //

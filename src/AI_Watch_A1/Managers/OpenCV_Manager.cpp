@@ -1,6 +1,6 @@
 //
 //  OpenCV_Manager.cpp
-//  librealsensetest
+//  AI Watch A1
 //
 //  Created by Denny Caruso on 23/07/22.
 //
