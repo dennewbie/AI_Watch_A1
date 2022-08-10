@@ -74,4 +74,19 @@
 - [StarUML](https://staruml.io/)
 - [Sketch](https://www.sketch.com/)
 
+
+
+### Contributing
+In order to contribute to AI Watch A1, please follow the [contribution guidelines](https://github.com/dennewbie/AI_Watch_A1/blob/main/CONTRIBUTING.md).
+
+
+
+### License
+AI Watch A1 is freely available for free non-commercial use and may be redistributed under these conditions. Please, see the [license](https://github.com/dennewbie/AI_Watch_A1/blob/main/LICENSE) for further details and the `/licenses` folder for the used libraries' licenses details.
+
+
+
+### Contacts
+- [LinkedIn](https://www.linkedin.com/in/denny-caruso/)
+
 a.a. 2021/2022

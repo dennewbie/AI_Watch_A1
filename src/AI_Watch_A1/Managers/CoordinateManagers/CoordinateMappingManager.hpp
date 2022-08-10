@@ -5,6 +5,9 @@
 //  Created by Denny Caruso on 26/07/22.
 //
 
+// License: Apache 2.0. See LICENSE file in root directory.
+// Copyright(c) 2022. All Rights Reserved.
+
 #ifndef CoordinateMappingManager_hpp
 #define CoordinateMappingManager_hpp
 
