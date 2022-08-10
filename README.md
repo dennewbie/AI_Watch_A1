@@ -1,8 +1,12 @@
 <p>
-    <div align="center">
+    <div text-align="center">
         <h1> AI Watch A1 </h1>
+    </div>
+    <div text-align="justify">
         <h3> AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve Multi-person 3D skeleton tracking. Once this task is completed, AI Watch A1 provides support to send each detected skeleton and its joint points' 3D coordinates (room and D435's details have to be specified) via Kafka, in order to let further detached computation possible.
         </h3>
+    </div>
+    <div text-align="center>
         <img src="https://github.com/dennewbie/AI_Watch_A1/blob/main/design/eye_small_white%402x.png" width="400">
     </div>
 </p>
@@ -39,7 +43,9 @@
 
 8. Run the following commands in your terminal:
    
-   `cmake .. && make -j \`sysctl -n hw.logicalcpu\``
+   `
+   cmake .. && make -j \`sysctl -n hw.logicalcpu\`
+   `
    
 9. 
     - If internal OpenPose execution is chosen, then run the following command in your terminal:
