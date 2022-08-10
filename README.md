@@ -32,19 +32,21 @@
 1. Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies.
 
 2. Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies.
-3. git clone --recursive git@github.com:dennewbie/AI_Watch_A1.git
-4. Go to /AI_Watch_A1/src/AI_Watch_A1/ and set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the "configuration_file.ini" file
-5. From /AI_Watch_A1/src/AI_Watch_A1/ folder, run the following commands in your terminal:
+3. `git clone --recursive git@github.com:dennewbie/AI_Watch_A1.git`
+4. Go to `/AI_Watch_A1/src/AI_Watch_A1/` and set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file
+5. From `/AI_Watch_A1/src/AI_Watch_A1/` folder, run the following commands in your terminal:
    
    `mkdir build && cd build`
    
-6. Copy OpenPose's "models" folder to the project's build folder.
-7. Copy OpenPose's "BoostConfig.cmake", "FindGFlags.cmake" and "FindGlog.cmake" files  to the build/cmake/modules/ folder
+6. Copy OpenPose's `models` folder to the project's build folder.
+7. Copy OpenPose's `BoostConfig.cmake`, `FindGFlags.cmake` and `FindGlog.cmake` files  to the `build/cmake/modules/` folder
 
 8. Run the following commands in your terminal:
    
    `
+
    cmake .. && make -j \`sysctl -n hw.logicalcpu\`
+
    `
    
 9. 
