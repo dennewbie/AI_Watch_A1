@@ -73,15 +73,8 @@
     confluent local services start
     ```
 
-    ### Important #1 📌
-    The confluent local commands are intended for a single-node development environment and are not suitable for a production environment. The data that are produced are transient and are intended to be temporary. For production-ready workflows, see Install and Upgrade Confluent Platform.
-
-    ### Important #2 📌
-    The Confluent CLI requires Java version 1.8 or 1.11.
-    See [Confluent versions interoperability](https://docs.confluent.io/current/installation/versions-interoperability.html)
-
-    ```
     Your output should resemble:
+    ```
     Starting Zookeeper
     Zookeeper is [UP]
     Starting Kafka
@@ -97,6 +90,13 @@
     Starting Control Center
     Control Center is [UP]
     ```
+
+    ### Important #1 📌
+    The confluent local commands are intended for a single-node development environment and are not suitable for a production environment. The data that are produced are transient and are intended to be temporary. For production-ready workflows, see Install and Upgrade Confluent Platform.
+
+    ### Important #2 📌
+    The Confluent CLI requires Java version 1.8 or 1.11.
+    See [Confluent versions interoperability](https://docs.confluent.io/current/installation/versions-interoperability.html)
    
 10. Navigate to http://localhost:9021 and create a new topic `t1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file. At this point:
     - if internal OpenPose execution is chosen, then run the following command in your terminal:
@@ -104,9 +104,7 @@
         ```
         sudo ./hello_librealsense2.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255
         ```
-   
-   - if external OpenPose execution is chosen, then set up your OpenPose parameters 
-   within the "conf.conf" file, run the following command in your terminal:
+    - if external OpenPose execution is chosen, then set up your OpenPose parameters within the "conf.conf" file, run the following command in your terminal:
 
         ```
         sudo ./hello_librealsense2.bin
