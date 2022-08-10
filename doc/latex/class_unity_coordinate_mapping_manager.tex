@@ -31,7 +31,7 @@ The \mbox{\hyperlink{class_unity_coordinate_mapping_manager}{Unity\+Coordinate\+
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_source_l00084}{84}} of file \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_source}{Coordinate\+Mapping\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_source_l00087}{87}} of file \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_source}{Coordinate\+Mapping\+Manager.\+hpp}}.
 
 
 
@@ -66,27 +66,27 @@ Reimplemented from \mbox{\hyperlink{class_coordinate_mapping_manager_a53059f45e7
 
 
 
-Definition at line \mbox{\hyperlink{_unity_coordinate_mapping_manager_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_unity_coordinate_mapping_manager_8cpp_source}{Unity\+Coordinate\+Mapping\+Manager.\+cpp}}.
+Definition at line \mbox{\hyperlink{_unity_coordinate_mapping_manager_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_unity_coordinate_mapping_manager_8cpp_source}{Unity\+Coordinate\+Mapping\+Manager.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00012                                                                                                                                                                       \{}
-\DoxyCodeLine{00013     std::vector <Point3D *> * newPoints = \textcolor{keyword}{new} std::vector <Point3D *>;}
-\DoxyCodeLine{00014     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < bodyKeyPointsMap.size(); i++) \{}
-\DoxyCodeLine{00015         \textcolor{keywordflow}{if} (!bodyKeyPointsMap.at(i)) \{}
-\DoxyCodeLine{00016             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_point3_d}{Point3D}}(0, 0, 0, \textcolor{keyword}{new} \mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}}(0, 0, 0)));}
-\DoxyCodeLine{00017         \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{00018             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_point3_d}{Point3D}}(}
-\DoxyCodeLine{00019                 \mbox{\hyperlink{class_coordinate_mapping_manager_a5c3664f4ec7cc22b99dba97df60d5bd3}{transformWidthCoordinate}}(pointsToMap.at(i)-\/>getX()) -\/ std::abs(xOrigin),}
-\DoxyCodeLine{00020                 \mbox{\hyperlink{class_coordinate_mapping_manager_ab1189918e3477395629122540574512c}{transformHeightCoordinate}}(pointsToMap.at(i)-\/>getY()),}
-\DoxyCodeLine{00021                 -\/ (pointsToMap.at(i)-\/>getZ() + std::abs(zOrigin) + \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}}),}
-\DoxyCodeLine{00022                 \textcolor{keyword}{new} \mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}}(0, 0, ((\mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}} *) pointsToMap.at(i)-\/>getDecorated())-\/>getConfidence()))}
-\DoxyCodeLine{00023             );}
-\DoxyCodeLine{00024         \}}
-\DoxyCodeLine{00025     \}}
-\DoxyCodeLine{00026     }
-\DoxyCodeLine{00027     \textcolor{keywordflow}{return} newPoints;}
-\DoxyCodeLine{00028 \}}
+\DoxyCodeLine{00015                                                                                                                                                                       \{}
+\DoxyCodeLine{00016     std::vector <Point3D *> * newPoints = \textcolor{keyword}{new} std::vector <Point3D *>;}
+\DoxyCodeLine{00017     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < bodyKeyPointsMap.size(); i++) \{}
+\DoxyCodeLine{00018         \textcolor{keywordflow}{if} (!bodyKeyPointsMap.at(i)) \{}
+\DoxyCodeLine{00019             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_point3_d}{Point3D}}(0, 0, 0, \textcolor{keyword}{new} \mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}}(0, 0, 0)));}
+\DoxyCodeLine{00020         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00021             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_point3_d}{Point3D}}(}
+\DoxyCodeLine{00022                 \mbox{\hyperlink{class_coordinate_mapping_manager_a5c3664f4ec7cc22b99dba97df60d5bd3}{transformWidthCoordinate}}(pointsToMap.at(i)-\/>getX()) -\/ std::abs(xOrigin),}
+\DoxyCodeLine{00023                 \mbox{\hyperlink{class_coordinate_mapping_manager_ab1189918e3477395629122540574512c}{transformHeightCoordinate}}(pointsToMap.at(i)-\/>getY()),}
+\DoxyCodeLine{00024                 -\/ (pointsToMap.at(i)-\/>getZ() + std::abs(zOrigin) + \mbox{\hyperlink{_coordinate_mapping_manager_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}}),}
+\DoxyCodeLine{00025                 \textcolor{keyword}{new} \mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}}(0, 0, ((\mbox{\hyperlink{class_body_key_point}{BodyKeyPoint}} *) pointsToMap.at(i)-\/>getDecorated())-\/>getConfidence()))}
+\DoxyCodeLine{00026             );}
+\DoxyCodeLine{00027         \}}
+\DoxyCodeLine{00028     \}}
+\DoxyCodeLine{00029     }
+\DoxyCodeLine{00030     \textcolor{keywordflow}{return} newPoints;}
+\DoxyCodeLine{00031 \}}
 
 \end{DoxyCode}
 

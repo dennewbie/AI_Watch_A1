@@ -3,7 +3,7 @@
         <h1> AI Watch A1 </h1>
     </div>
     <div align="justify">
-        <h3> AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve Multi-person 3D skeleton tracking. Once this task is completed, AI Watch A1 provides support to send each detected skeleton and its joint points' 3D coordinates (room and D435's details have to be specified) via Kafka, in order to let further detached computation possible.
+        <h3> AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve multi-person 3D skeleton tracking. Once this task is completed, AI Watch A1 provides support to send each detected skeleton and its joint points' 3D coordinates (room and D435's details have to be specified) via Kafka, in order to let further detached computation possible.
         </h3>
     </div>
     <div align="center">
@@ -36,7 +36,10 @@
 
 3. Install [Confluent](https://www.confluent.io/) and its own dependencies.
 
-4. `git clone --recursive git@github.com:dennewbie/AI_Watch_A1.git`
+4. Run the following command in your terminal:
+   ```
+   git clone --recursive git@github.com:dennewbie/AI_Watch_A1.git
+   ```
 
 5. From `/AI_Watch_A1/src/AI_Watch_A1/` folder, run the following commands in your terminal:
    
@@ -46,7 +49,7 @@
    
 6. Copy OpenPose's `models` folder to the project's build folder.
 
-7. Copy OpenPose's `BoostConfig.cmake`, `FindGFlags.cmake` and `FindGlog.cmake` files  to the `build/cmake/modules/` folder
+7. Copy OpenPose's `BoostConfig.cmake`, `FindGFlags.cmake` and `FindGlog.cmake` files  to the `build/cmake/modules/` folder.
 
 8. Run the following commands in your terminal:
    

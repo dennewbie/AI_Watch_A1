@@ -9,49 +9,52 @@
 \DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 27/07/22.}}
 \DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00006}00006 \textcolor{comment}{//}}
 \DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00007}00007 }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00008}00008 \textcolor{preprocessor}{\#ifndef KafkaManager\_hpp}}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00009}00009 \textcolor{preprocessor}{\#define KafkaManager\_hpp}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00008}00008 \textcolor{comment}{// License: Apache 2.0. See LICENSE file in root directory.}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00009}00009 \textcolor{comment}{// Copyright(c) 2022. All Rights Reserved.}}
 \DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00010}00010 }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00011}00011 \textcolor{preprocessor}{\#include <librdkafka/rdkafka.h>}}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00012}00012 \textcolor{preprocessor}{\#include <glib.h>}}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00013}00013 \textcolor{preprocessor}{\#include <json/value.h>}}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00014}00014 \textcolor{preprocessor}{\#include <opencv2/core.hpp>}}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00015}00015 \textcolor{preprocessor}{\#include "{}../constants.hpp"{}}}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00016}00016 }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00018}00018 }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00024}\mbox{\hyperlink{class_kafka_manager}{00024}} \textcolor{keyword}{class }\mbox{\hyperlink{class_kafka_manager}{KafkaManager}} \{}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00025}00025 \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00029}\mbox{\hyperlink{class_kafka_manager_ab83428889cb7ba9aad62f95657ab5091}{00029}}     rd\_kafka\_t *        \mbox{\hyperlink{class_kafka_manager_ab83428889cb7ba9aad62f95657ab5091}{producer}};}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00033}\mbox{\hyperlink{class_kafka_manager_a9d4dd8b03a3623edb445d60c906854e1}{00033}}     rd\_kafka\_conf\_t *   \mbox{\hyperlink{class_kafka_manager_a9d4dd8b03a3623edb445d60c906854e1}{configuration}};}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00037}\mbox{\hyperlink{class_kafka_manager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{00037}}     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *        \mbox{\hyperlink{class_kafka_manager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}};}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00038}00038     }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00039}00039 }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00040}00040 }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00045}00045     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_ad6099678d7438f7b96d7f8eb6e79784c}{setProducer}}        (rd\_kafka\_t * \mbox{\hyperlink{class_kafka_manager_ab83428889cb7ba9aad62f95657ab5091}{producer}});}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00050}00050     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_ac4a825ea74c714ae344fdaad52edf195}{setConfiguration}}   (rd\_kafka\_conf\_t * \mbox{\hyperlink{class_kafka_manager_a9d4dd8b03a3623edb445d60c906854e1}{configuration}});}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00051}00051     }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00052}00052 }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00053}00053 }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00058}00058     rd\_kafka\_t * \mbox{\hyperlink{class_kafka_manager_a84f751836602eba4de36ddc7207bd4ba}{getProducer}}              (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00063}00063     rd\_kafka\_conf\_t * \mbox{\hyperlink{class_kafka_manager_ab8cb8ce9fe469476883deac6c5c64def}{getConfiguration}}    (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00068}00068     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{class_kafka_manager_a0ce5c5d2b9553121b354693c3e643feb}{getTopic}}                 (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00069}00069     }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00070}00070 }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00071}00071 }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00078}00078     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_aaaf9b95ef4029e1dfe0e0c38dc8ecbef}{loadConfigurationGroup}}     (rd\_kafka\_conf\_t * conf, GKeyFile * key\_file, \textcolor{keyword}{const} \textcolor{keywordtype}{char} * group);}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00085}00085     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_kafka_manager_a1657e743b8c0f3d9d7d369cc22e1ae7c}{getArraySize}}                (\textcolor{keyword}{const} \textcolor{keywordtype}{char} ** array);}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00094}00094     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_a713480164aa94d6e24f88c62c4082e8c}{dr\_msg\_cb}}           (rd\_kafka\_t * kafka\_handle, \textcolor{keyword}{const} rd\_kafka\_message\_t * rkmessage, \textcolor{keywordtype}{void} * opaque);}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00099}00099     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_a5c3a7caaf5ec042f0074fbea516a44b1}{setupProducer}}              (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00100}00100 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00105}\mbox{\hyperlink{class_kafka_manager_a5c02ecc72333fc96f658f116a727fbba}{00105}}     \mbox{\hyperlink{class_kafka_manager_a5c02ecc72333fc96f658f116a727fbba}{KafkaManager}}            (\textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{class_kafka_manager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}}) : \mbox{\hyperlink{class_kafka_manager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}}(\mbox{\hyperlink{class_kafka_manager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}}) \{}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00106}00106         \mbox{\hyperlink{class_kafka_manager_a5c3a7caaf5ec042f0074fbea516a44b1}{setupProducer}}();}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00107}00107     \}}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00111}00111     \mbox{\hyperlink{class_kafka_manager_a854de8f42508a273cbe1efd295209ce0}{\string~KafkaManager}}           (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00117}00117     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_a5dca4ae409b1f9c21402bf68a7607315}{sendData}}           (\textcolor{keyword}{const} \textcolor{keywordtype}{char} * key, Json::Value root);}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00118}00118 \};}
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00119}00119 }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00120}00120 }
-\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00121}00121 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* KafkaManager\_hpp */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00011}00011 \textcolor{preprocessor}{\#ifndef KafkaManager\_hpp}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00012}00012 \textcolor{preprocessor}{\#define KafkaManager\_hpp}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00014}00014 \textcolor{preprocessor}{\#include <librdkafka/rdkafka.h>}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00015}00015 \textcolor{preprocessor}{\#include <glib.h>}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00016}00016 \textcolor{preprocessor}{\#include <json/value.h>}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00017}00017 \textcolor{preprocessor}{\#include <opencv2/core.hpp>}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00018}00018 \textcolor{preprocessor}{\#include "{}../constants.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00027}\mbox{\hyperlink{class_kafka_manager}{00027}} \textcolor{keyword}{class }\mbox{\hyperlink{class_kafka_manager}{KafkaManager}} \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00028}00028 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00032}\mbox{\hyperlink{class_kafka_manager_ab83428889cb7ba9aad62f95657ab5091}{00032}}     rd\_kafka\_t *        \mbox{\hyperlink{class_kafka_manager_ab83428889cb7ba9aad62f95657ab5091}{producer}};}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00036}\mbox{\hyperlink{class_kafka_manager_a9d4dd8b03a3623edb445d60c906854e1}{00036}}     rd\_kafka\_conf\_t *   \mbox{\hyperlink{class_kafka_manager_a9d4dd8b03a3623edb445d60c906854e1}{configuration}};}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00040}\mbox{\hyperlink{class_kafka_manager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{00040}}     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *        \mbox{\hyperlink{class_kafka_manager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}};}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00041}00041     }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00048}00048     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_ad6099678d7438f7b96d7f8eb6e79784c}{setProducer}}        (rd\_kafka\_t * \mbox{\hyperlink{class_kafka_manager_ab83428889cb7ba9aad62f95657ab5091}{producer}});}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00053}00053     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_ac4a825ea74c714ae344fdaad52edf195}{setConfiguration}}   (rd\_kafka\_conf\_t * \mbox{\hyperlink{class_kafka_manager_a9d4dd8b03a3623edb445d60c906854e1}{configuration}});}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00054}00054     }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00061}00061     rd\_kafka\_t * \mbox{\hyperlink{class_kafka_manager_a84f751836602eba4de36ddc7207bd4ba}{getProducer}}              (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00066}00066     rd\_kafka\_conf\_t * \mbox{\hyperlink{class_kafka_manager_ab8cb8ce9fe469476883deac6c5c64def}{getConfiguration}}    (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00071}00071     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{class_kafka_manager_a0ce5c5d2b9553121b354693c3e643feb}{getTopic}}                 (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00072}00072     }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00081}00081     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_aaaf9b95ef4029e1dfe0e0c38dc8ecbef}{loadConfigurationGroup}}     (rd\_kafka\_conf\_t * conf, GKeyFile * key\_file, \textcolor{keyword}{const} \textcolor{keywordtype}{char} * group);}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00088}00088     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_kafka_manager_a1657e743b8c0f3d9d7d369cc22e1ae7c}{getArraySize}}                (\textcolor{keyword}{const} \textcolor{keywordtype}{char} ** array);}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00097}00097     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_a713480164aa94d6e24f88c62c4082e8c}{dr\_msg\_cb}}           (rd\_kafka\_t * kafka\_handle, \textcolor{keyword}{const} rd\_kafka\_message\_t * rkmessage, \textcolor{keywordtype}{void} * opaque);}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00102}00102     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_a5c3a7caaf5ec042f0074fbea516a44b1}{setupProducer}}              (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00103}00103 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00108}\mbox{\hyperlink{class_kafka_manager_a5c02ecc72333fc96f658f116a727fbba}{00108}}     \mbox{\hyperlink{class_kafka_manager_a5c02ecc72333fc96f658f116a727fbba}{KafkaManager}}            (\textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{class_kafka_manager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}}) : \mbox{\hyperlink{class_kafka_manager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}}(\mbox{\hyperlink{class_kafka_manager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}}) \{}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00109}00109         \mbox{\hyperlink{class_kafka_manager_a5c3a7caaf5ec042f0074fbea516a44b1}{setupProducer}}();}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00110}00110     \}}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00114}00114     \mbox{\hyperlink{class_kafka_manager_a854de8f42508a273cbe1efd295209ce0}{\string~KafkaManager}}           (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00120}00120     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_kafka_manager_a5dca4ae409b1f9c21402bf68a7607315}{sendData}}           (\textcolor{keyword}{const} \textcolor{keywordtype}{char} * key, Json::Value root);}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00121}00121 \};}
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{_kafka_manager_8hpp_source_l00124}00124 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* KafkaManager\_hpp */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

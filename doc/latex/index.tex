@@ -1,29 +1,128 @@
 \hypertarget{index_intro_sec}{}\doxysection{Introduction}\label{index_intro_sec}
-This is the AI Watch A1 Documentation for C++ \hypertarget{index_install_sec}{}\doxysection{Installation}\label{index_install_sec}
-1) Install Real\+Sense SDK 2.\+0 and its own dependencies.
+This is the AI Watch A1 Documentation for C++. AI Watch A1 uses one Intel Real\+Sense D435 camera and Open\+Pose in order to achieve multi-\/person 3D skeleton tracking. Once this task is completed, AI Watch A1 provides support to send each detected skeleton and its joint points\textquotesingle{} 3D coordinates (room and D435\textquotesingle{}s details have to be specified) via Kafka, in order to let further detached computation possible. \hypertarget{index_keynote_sec}{}\doxysection{Keynote 📋}\label{index_keynote_sec}
+... \hypertarget{index_otherdoc_sec}{}\doxysection{Other Docs 📜}\label{index_otherdoc_sec}
+... bsc cs thesis ... \hypertarget{index_install_sec}{}\doxysection{Installation 🚀}\label{index_install_sec}
+1) Install \href{https://github.com/IntelRealSense/librealsense}{\texttt{ Real\+Sense SDK 2.\+0}} and its own dependencies.
 
-2) Install Open\+Pose and its own dependencies.
+2) Install \href{https://github.com/CMU-Perceptual-Computing-Lab/openpose}{\texttt{ Open\+Pose}} and its own dependencies.
 
-3) Go to the downloaded project folder.
+3) Install \href{https://www.confluent.io/}{\texttt{ Confluent}} and its own dependencies.
 
-4) Set up your Kafka parameters within \char`\"{}configuration\+\_\+file.\+ini\char`\"{}
+4) Run the following command in your terminal\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone -\/-\/recursive git@github.com:dennewbie/AI\_Watch\_A1.git}
 
-5) Run the following commands in your terminal\+:
+\end{DoxyCode}
 
-mkdir build \&\& cd build
 
-6) Copy Open\+Pose\textquotesingle{}s \char`\"{}models\char`\"{} folder to the project\textquotesingle{}s build folder.
+5) From {\ttfamily /\+AI\+\_\+\+Watch\+\_\+\+A1/src/\+AI\+\_\+\+Watch\+\_\+\+A1/} folder, run the following commands in your terminal\+:
 
-7) Copy Open\+Pose\textquotesingle{}s \char`\"{}\+Boost\+Config.\+cmake\char`\"{}, \char`\"{}\+Find\+GFlags.\+cmake\char`\"{} and \char`\"{}\+Find\+Glog.\+cmake\char`\"{} files to the build/cmake/modules/ folder
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir build \&\& cd build}
+
+\end{DoxyCode}
+
+
+6) Copy Open\+Pose\textquotesingle{}s {\ttfamily models} folder to the project\textquotesingle{}s build folder.
+
+7) Copy Open\+Pose\textquotesingle{}s {\ttfamily Boost\+Config.\+cmake}, {\ttfamily Find\+GFlags.\+cmake} and {\ttfamily Find\+Glog.\+cmake} files to the {\ttfamily build/cmake/modules/} folder
 
 8) Run the following commands in your terminal\+:
 
-cmake .. \&\& make -\/j{\ttfamily sysctl -\/n hw.\+logicalcpu}
 
-9.\+1) If internal Open\+Pose execution is chosen, then run the following command in your terminal\+:
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake .. \&\& make -\/j \(\backslash\)`sysctl -\/n hw.logicalcpu\(\backslash\)`}
 
-sudo ./hello\+\_\+librealsense2.bin --num\+\_\+gpu 1 --num\+\_\+gpu\+\_\+start 2 --image\+\_\+dir rs\+\_\+images/rgb --write\+\_\+json op\+\_\+output/op --logging\+\_\+level 255
+\end{DoxyCode}
 
-9.\+2) If external Open\+Pose execution is chosen, then set up your Open\+Pose parameters within the \char`\"{}conf.\+conf\char`\"{} file, run the following command in your terminal\+:
 
-sudo ./hello\+\_\+librealsense2.bin 
+9) Now let\textquotesingle{}s tart the Kafka environment. Run the following commands in a new terminal session. Set the environment variable for the Confluent Platform home directory\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export CONFLUENT\_HOME=confluent-\/7.2.1}
+
+\end{DoxyCode}
+ Add the Confluent Platform bin directory to your PATH\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export PATH=\$PATH:\$CONFLUENT\_HOME/bin}
+
+\end{DoxyCode}
+ Test your installation by running the confluent command\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{confluent -\/-\/help}
+
+\end{DoxyCode}
+ Your output should show the available commands for managing Confluent Platform.
+
+Start Confluent Platform by using the Confluent CLI confluent local services start command. This command starts all of the Confluent Platform components, including Kafka, Zoo\+Keeper, Schema Registry, HTTP REST Proxy for Kafka, Kafka Connect, ksql\+DB, and Control Center. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{confluent local services start}
+
+\end{DoxyCode}
+
+
+Your output should resemble\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Starting Zookeeper}
+\DoxyCodeLine{Zookeeper is [UP]}
+\DoxyCodeLine{Starting Kafka}
+\DoxyCodeLine{Kafka is [UP]}
+\DoxyCodeLine{Starting Schema Registry}
+\DoxyCodeLine{Schema Registry is [UP]}
+\DoxyCodeLine{Starting Kafka REST}
+\DoxyCodeLine{Kafka REST is [UP]}
+\DoxyCodeLine{Starting Connect}
+\DoxyCodeLine{Connect is [UP]}
+\DoxyCodeLine{Starting KSQL Server}
+\DoxyCodeLine{KSQL Server is [UP]}
+\DoxyCodeLine{Starting Control Center}
+\DoxyCodeLine{Control Center is [UP]}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md0}{}\doxysubsubsection{Important \#1 📌}\label{index_autotoc_md0}
+The confluent local commands are intended for a single-\/node development environment and are not suitable for a production environment. The data that are produced are transient and are intended to be temporary. For production-\/ready workflows, see Install and Upgrade Confluent Platform.\hypertarget{index_autotoc_md1}{}\doxysubsubsection{Important \#2 📌}\label{index_autotoc_md1}
+The Confluent CLI requires Java version 1.\+8 or 1.\+11. See \href{https://docs.confluent.io/current/installation/versions-interoperability.html}{\texttt{ Confluent versions interoperability}}
+
+10) Navigate to {\ttfamily \href{http://localhost:9021}{\texttt{ http\+://localhost\+:9021}}} and create a new topic {\ttfamily t1} with default settings. Now go to {\ttfamily /\+AI\+\_\+\+Watch\+\_\+\+A1/src/\+AI\+\_\+\+Watch\+\_\+\+A1/} and set up your \href{https://github.com/edenhill/librdkafka}{\texttt{ Kafka}} parameters within the {\ttfamily configuration\+\_\+file.\+ini} file. At this point\+:
+\begin{DoxyItemize}
+\item if internal Open\+Pose execution is chosen, then run the following command in your terminal\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo ./hello\_librealsense2.bin -\/-\/num\_gpu 1 -\/-\/num\_gpu\_start 2 -\/-\/image\_dir rs\_images/rgb -\/-\/write\_json op\_output/op -\/-\/logging\_level 255}
+
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item if external Open\+Pose execution is chosen, then set up your Open\+Pose parameters within the \char`\"{}conf.\+conf\char`\"{} file, run the following command in your terminal\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo ./hello\_librealsense2.bin}
+
+\end{DoxyCode}
+\hypertarget{index_tools_sec}{}\doxysection{Tools 🛠}\label{index_tools_sec}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/IntelRealSense/librealsense}{\texttt{ Intel Real\+Sense SDK}}
+\item \href{https://github.com/CMU-Perceptual-Computing-Lab/openpose}{\texttt{ Open\+Pose}}
+\item \href{https://kafka.apache.org/}{\texttt{ Kafka}}
+\item \href{https://github.com/edenhill/librdkafka}{\texttt{ Kafka C/\+C++ library}}
+\item \href{https://www.confluent.io/}{\texttt{ Confluent}}
+\item \href{https://github.com/open-source-parsers/jsoncpp}{\texttt{ jsoncpp}}
+\item \href{https://doxygen.nl/}{\texttt{ Doxygen}}
+\item \href{https://staruml.io/}{\texttt{ Star\+UML}}
+\item \href{https://www.sketch.com/}{\texttt{ Sketch}}
+\end{DoxyItemize}\hypertarget{index_contributing_sec}{}\doxysection{Contributing 👨🏻👳🏾‍♂️👩🏼‍🦱👽}\label{index_contributing_sec}
+In order to contribute to AI Watch A1, please follow the \href{https://github.com/dennewbie/AI_Watch_A1/blob/main/CONTRIBUTING.md}{\texttt{ contribution guidelines}}.\hypertarget{index_license_sec}{}\doxysection{License ☢️}\label{index_license_sec}
+AI Watch A1 is licensed under the Apache License, Version 2.\+0. Copyright 2022. Please, see the \href{https://github.com/dennewbie/AI_Watch_A1/blob/main/LICENSE}{\texttt{ license}} for further details and the {\ttfamily /licenses} folder for the used libraries\textquotesingle{} licenses details.\hypertarget{index_contacts_sec}{}\doxysection{Contacts 🪪}\label{index_contacts_sec}
+
+\begin{DoxyItemize}
+\item \href{https://www.linkedin.com/in/denny-caruso/}{\texttt{ Linked\+In}}
+\end{DoxyItemize}
+
+a.\+a. 2021/2022 

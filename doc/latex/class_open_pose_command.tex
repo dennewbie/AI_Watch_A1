@@ -26,7 +26,7 @@ void \mbox{\hyperlink{class_open_pose_command_a239d0350ccef397f907d8adc286cc136}
 \doxysubsection{Detailed Description}
 The \mbox{\hyperlink{class_open_pose_command}{Open\+Pose\+Command}} class is a class that implements a command to start and run Open\+Pose. 
 
-Definition at line \mbox{\hyperlink{_system_command_8hpp_source_l00085}{85}} of file \mbox{\hyperlink{_system_command_8hpp_source}{System\+Command.\+hpp}}.
+Definition at line \mbox{\hyperlink{_system_command_8hpp_source_l00088}{88}} of file \mbox{\hyperlink{_system_command_8hpp_source}{System\+Command.\+hpp}}.
 
 
 
@@ -54,26 +54,26 @@ Implements \mbox{\hyperlink{class_system_command_a447d02e641bb26dbdf9332fa9e5548
 
 
 
-Definition at line \mbox{\hyperlink{_open_pose_command_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{_open_pose_command_8cpp_source}{Open\+Pose\+Command.\+cpp}}.
+Definition at line \mbox{\hyperlink{_open_pose_command_8cpp_source_l00130}{130}} of file \mbox{\hyperlink{_open_pose_command_8cpp_source}{Open\+Pose\+Command.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00127                                                            \{}
-\DoxyCodeLine{00128     \mbox{\hyperlink{class_usage_manager}{UsageManager}} * usageManagerInstance = \mbox{\hyperlink{class_usage_manager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}();}
-\DoxyCodeLine{00129     \textcolor{keywordflow}{if} (usageManagerInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_ab495e2525cf238bb390ca68277586bf4}{USAGE\_MANAGER\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ade33b45fd12b716d5e837609aa163416}{USAGE\_MANAGER\_NULLPTR\_SCOPE}});}
-\DoxyCodeLine{00130     \textcolor{keywordtype}{char} *** localArgv = usageManagerInstance-\/>\mbox{\hyperlink{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}();}
-\DoxyCodeLine{00131     std::stringstream openPoseTerminalCommand;}
-\DoxyCodeLine{00132     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * openPoseFolder = (* localArgv)[\mbox{\hyperlink{constants_8hpp_a33cdd7e3f86baacf6ae9b3ee9bbe4ad7}{openPoseFolderOffset}}];}
-\DoxyCodeLine{00133     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * openPoseExecuteCommand = (* localArgv)[\mbox{\hyperlink{constants_8hpp_a89310ce273b277157c4c12d1ba801eac}{openPoseExecuteCommandOffset}}];}
-\DoxyCodeLine{00134     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * imagesFolder = (* localArgv)[\mbox{\hyperlink{constants_8hpp_a660671264f8ea07781cd04446d83cbf6}{imagesFolderOffset}}];}
-\DoxyCodeLine{00135     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * outputFolder = (* localArgv)[\mbox{\hyperlink{constants_8hpp_abbff93ab9bac10646d7ca187c30470ad}{outputFolderOffset}}];}
-\DoxyCodeLine{00136     }
-\DoxyCodeLine{00137     openPoseTerminalCommand << \textcolor{stringliteral}{"{}cd "{}} << openPoseFolder << \textcolor{stringliteral}{"{} \&\& "{}} << openPoseExecuteCommand}
-\DoxyCodeLine{00138                             << \textcolor{stringliteral}{"{} -\/-\/net\_resolution -\/1x128 -\/-\/num\_gpu 1 -\/-\/num\_gpu\_start 2 -\/-\/display 0 -\/-\/render\_pose 0 -\/-\/image\_dir "{}}}
-\DoxyCodeLine{00139                             << imagesFolder << \textcolor{stringliteral}{"{}rgb/"{}} << \textcolor{stringliteral}{"{} -\/-\/write\_json "{}} << outputFolder << \textcolor{stringliteral}{"{}op/"{}}}
-\DoxyCodeLine{00140                             << \textcolor{stringliteral}{"{} -\/-\/logging\_level 255 > /dev/null"{}};}
-\DoxyCodeLine{00141     \mbox{\hyperlink{class_system_command_a447d02e641bb26dbdf9332fa9e55485d}{SystemCommand::setCommand}}(std::string(openPoseTerminalCommand.str()));}
-\DoxyCodeLine{00142 \}}
+\DoxyCodeLine{00130                                                            \{}
+\DoxyCodeLine{00131     \mbox{\hyperlink{class_usage_manager}{UsageManager}} * usageManagerInstance = \mbox{\hyperlink{class_usage_manager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}();}
+\DoxyCodeLine{00132     \textcolor{keywordflow}{if} (usageManagerInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_ab495e2525cf238bb390ca68277586bf4}{USAGE\_MANAGER\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ade33b45fd12b716d5e837609aa163416}{USAGE\_MANAGER\_NULLPTR\_SCOPE}});}
+\DoxyCodeLine{00133     \textcolor{keywordtype}{char} *** localArgv = usageManagerInstance-\/>\mbox{\hyperlink{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}();}
+\DoxyCodeLine{00134     std::stringstream openPoseTerminalCommand;}
+\DoxyCodeLine{00135     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * openPoseFolder = (* localArgv)[\mbox{\hyperlink{constants_8hpp_a33cdd7e3f86baacf6ae9b3ee9bbe4ad7}{openPoseFolderOffset}}];}
+\DoxyCodeLine{00136     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * openPoseExecuteCommand = (* localArgv)[\mbox{\hyperlink{constants_8hpp_a89310ce273b277157c4c12d1ba801eac}{openPoseExecuteCommandOffset}}];}
+\DoxyCodeLine{00137     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * imagesFolder = (* localArgv)[\mbox{\hyperlink{constants_8hpp_a660671264f8ea07781cd04446d83cbf6}{imagesFolderOffset}}];}
+\DoxyCodeLine{00138     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * outputFolder = (* localArgv)[\mbox{\hyperlink{constants_8hpp_abbff93ab9bac10646d7ca187c30470ad}{outputFolderOffset}}];}
+\DoxyCodeLine{00139     }
+\DoxyCodeLine{00140     openPoseTerminalCommand << \textcolor{stringliteral}{"{}cd "{}} << openPoseFolder << \textcolor{stringliteral}{"{} \&\& "{}} << openPoseExecuteCommand}
+\DoxyCodeLine{00141                             << \textcolor{stringliteral}{"{} -\/-\/net\_resolution -\/1x128 -\/-\/num\_gpu 1 -\/-\/num\_gpu\_start 2 -\/-\/display 0 -\/-\/render\_pose 0 -\/-\/image\_dir "{}}}
+\DoxyCodeLine{00142                             << imagesFolder << \textcolor{stringliteral}{"{}rgb/"{}} << \textcolor{stringliteral}{"{} -\/-\/write\_json "{}} << outputFolder << \textcolor{stringliteral}{"{}op/"{}}}
+\DoxyCodeLine{00143                             << \textcolor{stringliteral}{"{} -\/-\/logging\_level 255 > /dev/null"{}};}
+\DoxyCodeLine{00144     \mbox{\hyperlink{class_system_command_a447d02e641bb26dbdf9332fa9e55485d}{SystemCommand::setCommand}}(std::string(openPoseTerminalCommand.str()));}
+\DoxyCodeLine{00145 \}}
 
 \end{DoxyCode}
 

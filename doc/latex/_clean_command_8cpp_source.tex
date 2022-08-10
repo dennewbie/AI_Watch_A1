@@ -9,35 +9,38 @@
 \DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 23/07/22.}}
 \DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00006}00006 \textcolor{comment}{//}}
 \DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00007}00007 }
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_system_command_8hpp}{SystemCommand.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00008}00008 \textcolor{comment}{// License: Apache 2.0. See LICENSE file in root directory.}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00009}00009 \textcolor{comment}{// Copyright(c) 2022. All Rights Reserved.}}
 \DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00010}00010 }
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00011}00011 }
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00012}\mbox{\hyperlink{class_clean_command_a2703e2431abfb5175121310594462174}{00012}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clean_command_a2703e2431abfb5175121310594462174}{CleanCommand::setCommand}} (\textcolor{keywordtype}{int} * argc, \textcolor{keywordtype}{char} *** argv) \{}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00013}00013     std::stringstream cleanTerminalCommand;}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00014}00014     \mbox{\hyperlink{class_usage_manager}{UsageManager}} * usageManagerInstance = \mbox{\hyperlink{class_usage_manager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}();}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00015}00015     \textcolor{keywordflow}{if} (usageManagerInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_ab495e2525cf238bb390ca68277586bf4}{USAGE\_MANAGER\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ade33b45fd12b716d5e837609aa163416}{USAGE\_MANAGER\_NULLPTR\_SCOPE}});}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00016}00016     }
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00017}00017     \textcolor{keywordtype}{char} *** localArgv = usageManagerInstance-\/>\mbox{\hyperlink{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}();}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00018}00018     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * imagesFolder = (* localArgv)[\mbox{\hyperlink{constants_8hpp_a660671264f8ea07781cd04446d83cbf6}{imagesFolderOffset}}];}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00019}00019     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * outputFolder = (* localArgv)[\mbox{\hyperlink{constants_8hpp_abbff93ab9bac10646d7ca187c30470ad}{outputFolderOffset}}];}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00020}00020     cleanTerminalCommand << \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}rgb/ > /dev/null \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00021}00021                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}d/ > /dev/null \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00022}00022                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}skeleton/ > /dev/null \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00023}00023                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}videoframe/ > /dev/null \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00024}00024                             \textcolor{stringliteral}{"{}rm -\/r "{}} << outputFolder << \textcolor{stringliteral}{"{}op/ > /dev/null \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00025}00025                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}depth/ > /dev/null \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00026}00026                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}sk/ > /dev/null \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00027}00027                             \textcolor{stringliteral}{"{}rm -\/r "{}} << outputFolder << \textcolor{stringliteral}{"{}movement/ > /dev/null \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00028}00028                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}rgb \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00029}00029                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}d \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00030}00030                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}videoframe \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00031}00031                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}skeleton \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00032}00032                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}depth \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00033}00033                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}sk \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00034}00034                             \textcolor{stringliteral}{"{}mkdir "{}} << outputFolder << \textcolor{stringliteral}{"{}movement/ \&\& "{}}}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00035}00035                             \textcolor{stringliteral}{"{}mkdir "{}} << outputFolder << \textcolor{stringliteral}{"{}op/"{}};}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00036}00036     \mbox{\hyperlink{class_system_command_a447d02e641bb26dbdf9332fa9e55485d}{SystemCommand::setCommand}}(std::string(cleanTerminalCommand.str()));}
-\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00037}00037 \}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_system_command_8hpp}{SystemCommand.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00015}\mbox{\hyperlink{class_clean_command_a2703e2431abfb5175121310594462174}{00015}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clean_command_a2703e2431abfb5175121310594462174}{CleanCommand::setCommand}} (\textcolor{keywordtype}{int} * argc, \textcolor{keywordtype}{char} *** argv) \{}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00016}00016     std::stringstream cleanTerminalCommand;}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00017}00017     \mbox{\hyperlink{class_usage_manager}{UsageManager}} * usageManagerInstance = \mbox{\hyperlink{class_usage_manager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}();}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00018}00018     \textcolor{keywordflow}{if} (usageManagerInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_ab495e2525cf238bb390ca68277586bf4}{USAGE\_MANAGER\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ade33b45fd12b716d5e837609aa163416}{USAGE\_MANAGER\_NULLPTR\_SCOPE}});}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00019}00019     }
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00020}00020     \textcolor{keywordtype}{char} *** localArgv = usageManagerInstance-\/>\mbox{\hyperlink{class_usage_manager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}();}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00021}00021     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * imagesFolder = (* localArgv)[\mbox{\hyperlink{constants_8hpp_a660671264f8ea07781cd04446d83cbf6}{imagesFolderOffset}}];}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00022}00022     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * outputFolder = (* localArgv)[\mbox{\hyperlink{constants_8hpp_abbff93ab9bac10646d7ca187c30470ad}{outputFolderOffset}}];}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00023}00023     cleanTerminalCommand << \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}rgb/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00024}00024                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}d/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00025}00025                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}skeleton/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00026}00026                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}videoframe/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00027}00027                             \textcolor{stringliteral}{"{}rm -\/r "{}} << outputFolder << \textcolor{stringliteral}{"{}op/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00028}00028                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}depth/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00029}00029                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}sk/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00030}00030                             \textcolor{stringliteral}{"{}rm -\/r "{}} << outputFolder << \textcolor{stringliteral}{"{}movement/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00031}00031                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}rgb \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00032}00032                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}d \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00033}00033                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}videoframe \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00034}00034                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}skeleton \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00035}00035                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}depth \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00036}00036                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}sk \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00037}00037                             \textcolor{stringliteral}{"{}mkdir "{}} << outputFolder << \textcolor{stringliteral}{"{}movement/ \&\& "{}}}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00038}00038                             \textcolor{stringliteral}{"{}mkdir "{}} << outputFolder << \textcolor{stringliteral}{"{}op/"{}};}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00039}00039     \mbox{\hyperlink{class_system_command_a447d02e641bb26dbdf9332fa9e55485d}{SystemCommand::setCommand}}(std::string(cleanTerminalCommand.str()));}
+\DoxyCodeLine{\Hypertarget{_clean_command_8cpp_source_l00040}00040 \}}
 
 \end{DoxyCode}

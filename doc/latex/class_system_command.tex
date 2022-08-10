@@ -43,7 +43,7 @@ std\+::string \mbox{\hyperlink{class_system_command_abdc4fb0d069e0815759941dc72b
 
 \mbox{\hyperlink{class_system_command}{System\+Command}} class is a class that represents a command given by the program to the system. Examples of commands are the following\+: start and run Open\+Pose, move files, and clean the build folder by deleting old files. \mbox{\hyperlink{class_system_command}{System\+Command}} implements a variant of the Command design pattern. Each concrete command is realized by a specific subclass that implements the parent abstract method. 
 
-Definition at line \mbox{\hyperlink{_system_command_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{_system_command_8hpp_source}{System\+Command.\+hpp}}.
+Definition at line \mbox{\hyperlink{_system_command_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{_system_command_8hpp_source}{System\+Command.\+hpp}}.
 
 
 
@@ -80,14 +80,14 @@ This method is responsible for executing commands on the system based on the fil
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_system_command_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_system_command_8cpp_source}{System\+Command.\+cpp}}.
+Definition at line \mbox{\hyperlink{_system_command_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{_system_command_8cpp_source}{System\+Command.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00020                                                              \{}
-\DoxyCodeLine{00021     \mbox{\hyperlink{class_system_command_a447d02e641bb26dbdf9332fa9e55485d}{setCommand}}(argc, argv);}
-\DoxyCodeLine{00022     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_system_command_a4265db3249d1f004fe534b13d954e709}{getCommand}}().size() > 0 \&\& \mbox{\hyperlink{class_system_command_a4265db3249d1f004fe534b13d954e709}{getCommand}}() != \textcolor{stringliteral}{"{}OP"{}}) std::system(\mbox{\hyperlink{class_system_command_a4265db3249d1f004fe534b13d954e709}{getCommand}}().c\_str());}
-\DoxyCodeLine{00023 \}}
+\DoxyCodeLine{00023                                                              \{}
+\DoxyCodeLine{00024     \mbox{\hyperlink{class_system_command_a447d02e641bb26dbdf9332fa9e55485d}{setCommand}}(argc, argv);}
+\DoxyCodeLine{00025     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_system_command_a4265db3249d1f004fe534b13d954e709}{getCommand}}().size() > 0 \&\& \mbox{\hyperlink{class_system_command_a4265db3249d1f004fe534b13d954e709}{getCommand}}() != \textcolor{stringliteral}{"{}OP"{}}) std::system(\mbox{\hyperlink{class_system_command_a4265db3249d1f004fe534b13d954e709}{getCommand}}().c\_str());}
+\DoxyCodeLine{00026 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_system_command_a4265db3249d1f004fe534b13d954e709}\label{class_system_command_a4265db3249d1f004fe534b13d954e709}} 
@@ -105,13 +105,13 @@ std\+::string
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_system_command_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_system_command_8cpp_source}{System\+Command.\+cpp}}.
+Definition at line \mbox{\hyperlink{_system_command_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_system_command_8cpp_source}{System\+Command.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00016                                          \{}
-\DoxyCodeLine{00017     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_system_command_abdc4fb0d069e0815759941dc72b5736d}{command}};}
-\DoxyCodeLine{00018 \}}
+\DoxyCodeLine{00019                                          \{}
+\DoxyCodeLine{00020     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_system_command_abdc4fb0d069e0815759941dc72b5736d}{command}};}
+\DoxyCodeLine{00021 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_system_command_a447d02e641bb26dbdf9332fa9e55485d}\label{class_system_command_a447d02e641bb26dbdf9332fa9e55485d}} 
@@ -152,13 +152,13 @@ Set the string command with a particularly given string passed as a parameter.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_system_command_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_system_command_8cpp_source}{System\+Command.\+cpp}}.
+Definition at line \mbox{\hyperlink{_system_command_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_system_command_8cpp_source}{System\+Command.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00012                                                  \{}
-\DoxyCodeLine{00013     this-\/>\mbox{\hyperlink{class_system_command_abdc4fb0d069e0815759941dc72b5736d}{command}} = \mbox{\hyperlink{class_system_command_abdc4fb0d069e0815759941dc72b5736d}{command}};}
-\DoxyCodeLine{00014 \}}
+\DoxyCodeLine{00015                                                  \{}
+\DoxyCodeLine{00016     this-\/>\mbox{\hyperlink{class_system_command_abdc4fb0d069e0815759941dc72b5736d}{command}} = \mbox{\hyperlink{class_system_command_abdc4fb0d069e0815759941dc72b5736d}{command}};}
+\DoxyCodeLine{00017 \}}
 
 \end{DoxyCode}
 
@@ -176,7 +176,7 @@ The final command given to the system by the program.
 
 
 
-Definition at line \mbox{\hyperlink{_system_command_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{_system_command_8hpp_source}{System\+Command.\+hpp}}.
+Definition at line \mbox{\hyperlink{_system_command_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{_system_command_8hpp_source}{System\+Command.\+hpp}}.
 
 
 
