@@ -43,11 +43,9 @@
 
 8. Run the following commands in your terminal:
    
-   `
-
+   ```
    cmake .. && make -j \`sysctl -n hw.logicalcpu\`
-
-   `
+   ```
    
 9. 
     - If internal OpenPose execution is chosen, then run the following command in your terminal:
