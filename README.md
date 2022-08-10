@@ -70,6 +70,7 @@
 - [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
 - [Kafka](https://kafka.apache.org/)
 - [Kafka C/C++ library](https://github.com/edenhill/librdkafka)
+- [jsoncpp](https://github.com/open-source-parsers/jsoncpp)
 - [StarUML](https://staruml.io/)
 - [Sketch](https://www.sketch.com/)
 
