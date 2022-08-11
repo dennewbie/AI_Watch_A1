@@ -58,7 +58,7 @@
    cmake .. && make -j `sysctl -n hw.logicalcpu`
    ```
 
-9. Now let's tart the Kafka environment. Run the following commands in a new terminal session. Set the environment variable for the Confluent Platform home directory:
+9. Now let's start the Kafka environment. Run the following commands in a new terminal session located on the parent folder of the `confluent` folder. Set the environment variable for the Confluent Platform home directory:
     ```
     export CONFLUENT_HOME=confluent-7.2.1
     ```
