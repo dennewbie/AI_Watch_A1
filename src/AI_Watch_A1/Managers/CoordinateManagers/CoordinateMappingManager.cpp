@@ -19,13 +19,19 @@ float CoordinateMappingManager::transformWidthCoordinate (float widthCoordinate)
 }
 
 float CoordinateMappingManager::transformHeightCoordinate (float heightCoordinate) {
+//    float environmentHeight = std::abs(minHeight) + std::abs(maxHeight);
+//    float environmentHeightRS = std::abs(minHeightRS) + std::abs(maxHeightRS);
+//    float tempHeight = (((heightCoordinate - minHeightRS) / environmentHeightRS) * environmentHeight) + minHeight;
+//    tempHeight = (tempHeight * heightCoordinate) + 0.2;
+//    return tempHeight;
+    
     float newHeightCoordinate = -heightCoordinate + maxHeightRS;
     if (newHeightCoordinate >= 2) {
         return 3;
     } else if (newHeightCoordinate <= 0) {
         return 0;
     }
-    
+
     return newHeightCoordinate + 0.15;
 }
 

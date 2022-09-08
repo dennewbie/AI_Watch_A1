@@ -180,7 +180,7 @@ int main (int argc, char ** argv) {
         myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
         myUtility->getVideoBodyKeyPoints(& argc, & argv);
         myUtility->showSkeletons(user_nFrame);
-        myUtility->sendData(user_nFrame);
+//        myUtility->sendData(user_nFrame);
         myUtility->cleanBuildFolder();
     }
     return EXIT_SUCCESS;
