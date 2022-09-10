@@ -3,7 +3,7 @@
         <h1> AI Watch A1 </h1>
     </div>
     <div align="justify">
-        <h3> AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve multi-person 3D skeleton tracking. Once this task is completed, AI Watch A1 provides support to send each detected skeleton and its joint points' 3D coordinates (room and D435's details have to be specified) via Kafka, in order to let further detached computation possible.
+        <h3> AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve multi-person 3D skeleton detection. Once this task is completed, AI Watch A1 provides support to send each detected skeleton and its joint points' 3D coordinates (room and D435's details have to be specified) via Kafka, in order to let further detached computation possible.
         </h3>
     </div>
     <div align="center">
@@ -20,7 +20,7 @@
 
 ## Demo 💻
 - [Demo #1](https://youtu.be/Ac0V8Dj0FbI)
-- [Demo #2]()
+- [Demo #2](https://youtu.be/L69_9FtQmY8)
 
 
 
