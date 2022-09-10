@@ -9,6 +9,7 @@
 // Copyright(c) 2022. All Rights Reserved.
 
 #include "CoordinateMappingManager.hpp"
+#include <iostream>
 
 
 
@@ -21,18 +22,17 @@ float CoordinateMappingManager::transformWidthCoordinate (float widthCoordinate)
 float CoordinateMappingManager::transformHeightCoordinate (float heightCoordinate) {
 //    float environmentHeight = std::abs(minHeight) + std::abs(maxHeight);
 //    float environmentHeightRS = std::abs(minHeightRS) + std::abs(maxHeightRS);
-//    float tempHeight = (((heightCoordinate - minHeightRS) / environmentHeightRS) * environmentHeight) + minHeight;
-//    tempHeight = (tempHeight * heightCoordinate) + 0.2;
-//    return tempHeight;
+//    float tempHeight = -(((heightCoordinate - maxHeightRS) / environmentHeightRS) * environmentHeight) + minHeight;
+//    return std::abs(tempHeight) - 0.9;
     
-    float newHeightCoordinate = -heightCoordinate + maxHeightRS;
-    if (newHeightCoordinate >= 2) {
-        return 3;
+    float newHeightCoordinate = -heightCoordinate + maxHeightRS - heightOffset;
+    if (newHeightCoordinate >= maxHeight) {
+        return maxHeight;
     } else if (newHeightCoordinate <= 0) {
         return 0;
     }
 
-    return newHeightCoordinate + 0.15;
+    return newHeightCoordinate;
 }
 
 float CoordinateMappingManager::inverseTransform (float inputNumber) {
@@ -60,7 +60,7 @@ std::vector <Point3D *> * CoordinateMappingManager::mapToMeters (std::vector <Po
             newPoints->push_back(new Point3D(
                 transformWidthCoordinate(pointsToMap.at(i)->getX()),
                 transformHeightCoordinate(pointsToMap.at(i)->getY()),
-                pointsToMap.at(i)->getZ(),
+                pointsToMap.at(i)->getZ() - zOrigin + distanceCameraFromBackWall,
                 new BodyKeyPoint(0, 0, ((BodyKeyPoint *) pointsToMap.at(i)->getDecorated())->getConfidence()))
             );
         }

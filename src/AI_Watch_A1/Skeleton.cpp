@@ -174,12 +174,11 @@ void Skeleton::writeCoordinates (void) {
         labelTextZ << getSkeletonPoints3D()->at(i)->getZ();
         labelTextConfidence << ((BodyKeyPoint *) getSkeletonPoints3D()->at(i)->getDecorated())->getConfidence();
         
-        if (i == 0) {
+        if (i == 0 || i == 12 || i == 14) {
             cv::putText(getRGB_Image(), labelTextX.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 10), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
             cv::putText(getRGB_Image(), labelTextY.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 25), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
             cv::putText(getRGB_Image(), labelTextZ.str(), cv::Point(getBodyKeyPoints().at(i).getX() + 10, getBodyKeyPoints().at(i).getY() + 40), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 0, 0), 1, cv::LINE_8);
         }
-        
     }
 }
 
@@ -208,7 +207,8 @@ void Skeleton::generateSkeleton () {
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
     // xOrigin and zOrigin parameters are inverted as the built Unity world requires.
-    setSkeletonPoints3D(facadeSingletonInstance->getCoordinateMappingManager()->mapToMeters(getSkeletonPoints3D_RS(), getBodyKeyPointsMap(), zOriginUnity, xOriginUnity));
+//    setSkeletonPoints3D(facadeSingletonInstance->getCoordinateMappingManager()->mapToMeters(getSkeletonPoints3D_RS(), getBodyKeyPointsMap(), zOriginUnity, xOriginUnity));
+    setSkeletonPoints3D(facadeSingletonInstance->getCoordinateMappingManager()->mapToMeters(getSkeletonPoints3D_RS(), getBodyKeyPointsMap(), 0, 0));
     writeCoordinates();
 }
 

@@ -165,7 +165,7 @@ int main (int argc, char ** argv) {
     float scale;
     const char * destinationKafkaTopic = "t1";
     // Optimal resolution for D435: 848x480.
-    unsigned  int user_nFrame = 30, resX = 848, resY = 480;
+    unsigned  int user_nFrame = 38, resX = 848, resY = 480;
     struct rs2_intrinsics color_intrin;
     
     // Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.
@@ -181,7 +181,8 @@ int main (int argc, char ** argv) {
         myUtility->getVideoBodyKeyPoints(& argc, & argv);
         myUtility->showSkeletons(user_nFrame);
 //        myUtility->sendData(user_nFrame);
-        myUtility->cleanBuildFolder();
+//        myUtility->cleanBuildFolder();
+//        break;
     }
     return EXIT_SUCCESS;
 }

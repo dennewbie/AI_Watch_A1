@@ -71,7 +71,7 @@ static const short int openPoseBodyKeyPointsNumber = 24;
 
 static const float skeletonThreshold = 0.05;
 //static const short int framesToSkip = 30;
-static const short int framesToSkip = 3;
+static const short int framesToSkip = 5;
 static const bool NOT_FIRST_BOOT = false;
 static const bool FIRST_BOOT = true;
 

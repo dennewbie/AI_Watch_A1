@@ -48,6 +48,7 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
     for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         // Capture
         unsigned int frameID = cameraManager->getFrameID();
+//        unsigned int frameID = nFrame;
         rs2::depth_frame depthFrame = rs2::depth_frame(rs2::frame());
         rs2::frame colorFrame, colorizedDepthFrame;
         cameraManager->getVideoFramesRS(user_nFrame, pipelineStream, depthFrame, colorFrame, colorizedDepthFrame);
@@ -81,12 +82,14 @@ void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame) {
     ImageManager * imageManager = facadeSingletonInstance->getImageManager();
     char ** argv = * usageManagerInstance->get_argv(), * imagesFolder = argv[imagesFolderOffset], * outputFolder = argv[outputFolderOffset];
     unsigned int frameID = cameraManager->getFrameID(), currentImageID;
+//    unsigned int frameID = 365, currentImageID = 0;
     Json::Value currentJSON;
     
     // Do this until we don't iterate on user_nFrame frame
     for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         std::stringstream inputJsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath, outputJsonFilePath;
         currentImageID = frameID - user_nFrame + nFrame;
+//        currentImageID = nFrame;
         // Internal Approach OpenPose
 //        inputJsonFilePath << outputFolder << "op/" << nFrame << "_keypoints.json";
         // External Approach OpenPose
@@ -108,7 +111,7 @@ void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame) {
             imageManager->showImages( { colorImage, colorizedDepthImage }, { "Frame No Skeleton", "Frame Colorized Depth" } );
             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
             
-            // Produce a JSON output file for each person present in this frame
+            // Produce a JSON output file for people present in this frame
             outputManagerJSON->createJSON(people, colorImage, distanceImage, skeletonOnlyImage, currentImageID, outputFolder);
             
             // Show images and save them
