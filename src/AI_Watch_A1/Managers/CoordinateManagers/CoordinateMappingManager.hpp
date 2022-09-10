@@ -32,8 +32,8 @@
 //static const float xOriginUnity = -26.89;
 //static const float zOriginUnity = -3.842;
 //
-//static const float distanceCameraFromBackWall = 0.3;
-
+//static const float distanceCameraFromBackWall = 0.45;
+//static const float heightOffset = 0.15;
 
 
 // Misure Denny Caruso 09/22

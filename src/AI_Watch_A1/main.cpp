@@ -165,7 +165,7 @@ int main (int argc, char ** argv) {
     float scale;
     const char * destinationKafkaTopic = "t1";
     // Optimal resolution for D435: 848x480.
-    unsigned  int user_nFrame = 38, resX = 848, resY = 480;
+    unsigned  int user_nFrame = 1043, resX = 848, resY = 480;
     struct rs2_intrinsics color_intrin;
     
     // Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.
@@ -177,8 +177,8 @@ int main (int argc, char ** argv) {
         After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.
     */
     while (true) {
-        myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
-        myUtility->getVideoBodyKeyPoints(& argc, & argv);
+//        myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
+//        myUtility->getVideoBodyKeyPoints(& argc, & argv);
         myUtility->showSkeletons(user_nFrame);
 //        myUtility->sendData(user_nFrame);
 //        myUtility->cleanBuildFolder();

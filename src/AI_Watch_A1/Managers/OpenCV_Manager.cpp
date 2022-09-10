@@ -81,15 +81,15 @@ void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame) {
     if (usageManagerInstance == nullptr) CV_Error(USAGE_MANAGER_NULLPTR_ERROR, USAGE_MANAGER_NULLPTR_SCOPE);
     ImageManager * imageManager = facadeSingletonInstance->getImageManager();
     char ** argv = * usageManagerInstance->get_argv(), * imagesFolder = argv[imagesFolderOffset], * outputFolder = argv[outputFolderOffset];
-    unsigned int frameID = cameraManager->getFrameID(), currentImageID;
-//    unsigned int frameID = 365, currentImageID = 0;
+//    unsigned int frameID = cameraManager->getFrameID(), currentImageID;
+    unsigned int frameID = 1043, currentImageID = 0;
     Json::Value currentJSON;
     
     // Do this until we don't iterate on user_nFrame frame
     for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         std::stringstream inputJsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath, outputJsonFilePath;
-        currentImageID = frameID - user_nFrame + nFrame;
-//        currentImageID = nFrame;
+//        currentImageID = frameID - user_nFrame + nFrame;
+        currentImageID = nFrame;
         // Internal Approach OpenPose
 //        inputJsonFilePath << outputFolder << "op/" << nFrame << "_keypoints.json";
         // External Approach OpenPose
