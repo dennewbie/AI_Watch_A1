@@ -12,7 +12,7 @@
  * @mainpage AI Watch A1 Documentation
  * @section intro_sec Introduction
  * This is the AI Watch A1 Documentation for C++. AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve 
- * multi-person 3D skeleton tracking. Once this task is completed, AI Watch A1 provides support to send each detected skeleton and 
+ * multi-person 3D skeleton detection. Once this task is completed, AI Watch A1 provides support to send each detected skeleton and 
  * its joint points' 3D coordinates (room and D435's details have to be specified) via Kafka, in order to let further detached 
  * computation possible.
  * @section keynote_sec Keynote 📋
