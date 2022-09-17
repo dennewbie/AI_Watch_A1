@@ -14,7 +14,7 @@
 <p><div></div></p>
 
 ## Keynote 📋
-...
+- [Keynote](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.key)
 
 
 
@@ -25,7 +25,7 @@
 
 
 ## Docs 📜
-- [AI Watch A1 documentation](https://dennewbie.github.io/AI_Watch_A1/doc/index.html) is generated using [Doxygen](https://doxygen.nl/).
+- [AI Watch A1 documentation](https://dennewbie.github.io/AI_Watch_A1/doc/index.html) is generated using [Doxygen](https://doxygen.nl/)
 - [BSc Computer Science's Thesis](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.pdf)
 
 
@@ -35,7 +35,7 @@
 
 2. Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies.
 
-3. Install [Confluent](https://www.confluent.io/) and its own dependencies.
+3. Install [Confluent](https://www.confluent.io/) and its own dependencies. This step is not mandatory, but without Confluent, you will have to set up the Kafka environment.
 
 4. Run the following command in your terminal:
    ```
@@ -96,11 +96,11 @@
     ```
 
     ### Important #1 📌
-    The confluent local commands are intended for a single-node development environment and are not suitable for a production environment. The data that are produced are transient and are intended to be temporary. For production-ready workflows, see Install and Upgrade Confluent Platform.
+    The confluent local commands are intended for a single-node development environment and are not suitable for a production environment. The data that are produced are transient and are intended to be temporary. For production-ready workflows, check confluent.io.
 
     ### Important #2 📌
     The Confluent CLI requires Java version 1.8 or 1.11.
-    See [Confluent versions interoperability](https://docs.confluent.io/current/installation/versions-interoperability.html)
+    See [Confluent versions interoperability](https://docs.confluent.io/current/installation/versions-interoperability.html).
    
 10. Navigate to http://localhost:9021 and create a new topic `t1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file. At this point:
     - if internal OpenPose execution is chosen, then run the following command in your terminal:
@@ -119,6 +119,7 @@
 ## Tools 🛠
 - [Intel RealSense SDK](https://github.com/IntelRealSense/librealsense)
 - [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
+- [OpenCV](https://github.com/opencv/opencv)
 - [Kafka](https://kafka.apache.org/)
 - [Kafka C/C++ library](https://github.com/edenhill/librdkafka)
 - [Confluent](https://www.confluent.io/)
@@ -145,7 +146,7 @@ AI Watch A1 is licensed under the Apache License, Version 2.0. Copyright 2022. P
 
 
 ## Supervisor
-- Dr. Alessio Ferone, CS Assistant Professor at the University of Naples Parthenope
+- [Dr. Alessio Ferone](https://www.researchgate.net/profile/Alessio-Ferone), CS Assistant Professor at the [University of Naples Parthenope](https://www.uniparthenope.it/)
 
 
 
