@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['realsensed435manager_2ecpp_0',['RealSenseD435Manager.cpp',['../_real_sense_d435_manager_8cpp.html',1,'']]],
-  ['realsensemanager_2ecpp_1',['RealSenseManager.cpp',['../_real_sense_manager_8cpp.html',1,'']]],
-  ['realsensemanager_2ehpp_2',['RealSenseManager.hpp',['../_real_sense_manager_8hpp.html',1,'']]]
+  ['realsensed435manager_2ecpp_0',['RealSenseD435Manager.cpp',['../RealSenseD435Manager_8cpp.html',1,'']]],
+  ['realsensed435manager_2ecpp_2eo_2ed_1',['RealSenseD435Manager.cpp.o.d',['../RealSenseD435Manager_8cpp_8o_8d.html',1,'']]],
+  ['realsensemanager_2ecpp_2',['RealSenseManager.cpp',['../RealSenseManager_8cpp.html',1,'']]],
+  ['realsensemanager_2ecpp_2eo_2ed_3',['RealSenseManager.cpp.o.d',['../RealSenseManager_8cpp_8o_8d.html',1,'']]],
+  ['realsensemanager_2ehpp_4',['RealSenseManager.hpp',['../RealSenseManager_8hpp.html',1,'']]]
 ];

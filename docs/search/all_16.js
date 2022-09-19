@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['z_0',['z',['../class_point3_d.html#a6e72b27633aeb7ed2e6f4b98da554b39',1,'Point3D']]],
-  ['zoriginunity_1',['zOriginUnity',['../_coordinate_mapping_manager_8hpp.html#a1ba74a014193cc047f5d9c6d21ab8e04',1,'CoordinateMappingManager.hpp']]]
+  ['x_0',['x',['../classPoint.html#a05dfe2dfbde813ad234b514f30e662f1',1,'Point']]],
+  ['xoriginunity_1',['xOriginUnity',['../CoordinateMappingManager_8hpp.html#a22e05a7dd1691d5e0ff93d47bb2cb2e6',1,'CoordinateMappingManager.hpp']]]
 ];

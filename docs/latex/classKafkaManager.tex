@@ -1,0 +1,487 @@
+\hypertarget{classKafkaManager}{}\doxysection{Kafka\+Manager Class Reference}
+\label{classKafkaManager}\index{KafkaManager@{KafkaManager}}
+
+
+Kafka class is a class that is responsible to send all generated output data, via Apache Kafka technology to the next AI Watch module.  
+
+
+
+
+{\ttfamily \#include $<$Kafka\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classKafkaManager_a5c02ecc72333fc96f658f116a727fbba}{Kafka\+Manager}} (const char $\ast$\mbox{\hyperlink{classKafkaManager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}})
+\begin{DoxyCompactList}\small\item\em Construct a new Kafka Manager object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classKafkaManager_a854de8f42508a273cbe1efd295209ce0}{$\sim$\+Kafka\+Manager}} (void)
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classKafkaManager}{Kafka\+Manager}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classKafkaManager_a5dca4ae409b1f9c21402bf68a7607315}{send\+Data}} (const char $\ast$key, Json\+::\+Value root)
+\begin{DoxyCompactList}\small\item\em Send data contained in root via Kafka with ID equal to key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classKafkaManager_ad6099678d7438f7b96d7f8eb6e79784c}{set\+Producer}} (rd\+\_\+kafka\+\_\+t $\ast$\mbox{\hyperlink{classKafkaManager_ab83428889cb7ba9aad62f95657ab5091}{producer}})
+\begin{DoxyCompactList}\small\item\em Set the Kafka producer\textquotesingle{}s instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classKafkaManager_ac4a825ea74c714ae344fdaad52edf195}{set\+Configuration}} (rd\+\_\+kafka\+\_\+conf\+\_\+t $\ast$\mbox{\hyperlink{classKafkaManager_a9d4dd8b03a3623edb445d60c906854e1}{configuration}})
+\begin{DoxyCompactList}\small\item\em Set the Kafka\textquotesingle{}s configuration. \end{DoxyCompactList}\item 
+rd\+\_\+kafka\+\_\+t $\ast$ \mbox{\hyperlink{classKafkaManager_a84f751836602eba4de36ddc7207bd4ba}{get\+Producer}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Kafka producer\textquotesingle{}s instance. \end{DoxyCompactList}\item 
+rd\+\_\+kafka\+\_\+conf\+\_\+t $\ast$ \mbox{\hyperlink{classKafkaManager_ab8cb8ce9fe469476883deac6c5c64def}{get\+Configuration}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Kafka\textquotesingle{}s configuration. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{classKafkaManager_a0ce5c5d2b9553121b354693c3e643feb}{get\+Topic}} (void)
+\begin{DoxyCompactList}\small\item\em Get the destination Kafka\textquotesingle{}s topic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classKafkaManager_aaaf9b95ef4029e1dfe0e0c38dc8ecbef}{load\+Configuration\+Group}} (rd\+\_\+kafka\+\_\+conf\+\_\+t $\ast$conf, GKey\+File $\ast$key\+\_\+file, const char $\ast$group)
+\begin{DoxyCompactList}\small\item\em Loads the configuration from Kafka\textquotesingle{}s configuration file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classKafkaManager_a1657e743b8c0f3d9d7d369cc22e1ae7c}{get\+Array\+Size}} (const char $\ast$$\ast$array)
+\begin{DoxyCompactList}\small\item\em Get the \char`\"{}const char $\ast$\char`\"{} array size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classKafkaManager_a5c3a7caaf5ec042f0074fbea516a44b1}{setup\+Producer}} (void)
+\begin{DoxyCompactList}\small\item\em Launches configuration loading, once reads all the configuration parameters and later set the producer instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classKafkaManager_a713480164aa94d6e24f88c62c4082e8c}{dr\+\_\+msg\+\_\+cb}} (rd\+\_\+kafka\+\_\+t $\ast$kafka\+\_\+handle, const rd\+\_\+kafka\+\_\+message\+\_\+t $\ast$rkmessage, void $\ast$opaque)
+\begin{DoxyCompactList}\small\item\em Optional per-\/message delivery callback (triggered by poll() or flush()) when a message has been successfully delivered or permanently failed delivery (after retries). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+rd\+\_\+kafka\+\_\+t $\ast$ \mbox{\hyperlink{classKafkaManager_ab83428889cb7ba9aad62f95657ab5091}{producer}}
+\begin{DoxyCompactList}\small\item\em Kafka producer\textquotesingle{}s instance. \end{DoxyCompactList}\item 
+rd\+\_\+kafka\+\_\+conf\+\_\+t $\ast$ \mbox{\hyperlink{classKafkaManager_a9d4dd8b03a3623edb445d60c906854e1}{configuration}}
+\begin{DoxyCompactList}\small\item\em Kafka\textquotesingle{}s configuration. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{classKafkaManager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}}
+\begin{DoxyCompactList}\small\item\em Destination Kafka\textquotesingle{}s topic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Kafka class is a class that is responsible to send all generated output data, via Apache Kafka technology to the next AI Watch module. 
+
+Definition at line \mbox{\hyperlink{KafkaManager_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{KafkaManager_8hpp_source}{Kafka\+Manager.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classKafkaManager_a5c02ecc72333fc96f658f116a727fbba}\label{classKafkaManager_a5c02ecc72333fc96f658f116a727fbba}} 
+\index{KafkaManager@{KafkaManager}!KafkaManager@{KafkaManager}}
+\index{KafkaManager@{KafkaManager}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{KafkaManager()}{KafkaManager()}}
+{\footnotesize\ttfamily Kafka\+Manager\+::\+Kafka\+Manager (\begin{DoxyParamCaption}\item[{const char $\ast$}]{topic }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Kafka Manager object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em topic} & Destination Kafka\textquotesingle{}s topic. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8hpp_source_l00107}{107}} of file \mbox{\hyperlink{KafkaManager_8hpp_source}{Kafka\+Manager.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107                                                  : \mbox{\hyperlink{classKafkaManager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}}(\mbox{\hyperlink{classKafkaManager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}}) \{}
+\DoxyCodeLine{00108         \mbox{\hyperlink{classKafkaManager_a5c3a7caaf5ec042f0074fbea516a44b1}{setupProducer}}();}
+\DoxyCodeLine{00109     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classKafkaManager_a854de8f42508a273cbe1efd295209ce0}\label{classKafkaManager_a854de8f42508a273cbe1efd295209ce0}} 
+\index{KafkaManager@{KafkaManager}!````~KafkaManager@{$\sim$KafkaManager}}
+\index{````~KafkaManager@{$\sim$KafkaManager}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$KafkaManager()}{~KafkaManager()}}
+{\footnotesize\ttfamily Kafka\+Manager\+::$\sim$\+Kafka\+Manager (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{classKafkaManager}{Kafka\+Manager}} object. 
+
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{KafkaManager_8cpp_source}{Kafka\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087                                  \{}
+\DoxyCodeLine{00088     \mbox{\hyperlink{classKafkaManager_ac4a825ea74c714ae344fdaad52edf195}{setConfiguration}}(NULL);}
+\DoxyCodeLine{00089     rd\_kafka\_destroy(\mbox{\hyperlink{classKafkaManager_a84f751836602eba4de36ddc7207bd4ba}{getProducer}}());}
+\DoxyCodeLine{00090 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classKafkaManager_a713480164aa94d6e24f88c62c4082e8c}\label{classKafkaManager_a713480164aa94d6e24f88c62c4082e8c}} 
+\index{KafkaManager@{KafkaManager}!dr\_msg\_cb@{dr\_msg\_cb}}
+\index{dr\_msg\_cb@{dr\_msg\_cb}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{dr\_msg\_cb()}{dr\_msg\_cb()}}
+{\footnotesize\ttfamily void Kafka\+Manager\+::dr\+\_\+msg\+\_\+cb (\begin{DoxyParamCaption}\item[{rd\+\_\+kafka\+\_\+t $\ast$}]{kafka\+\_\+handle,  }\item[{const rd\+\_\+kafka\+\_\+message\+\_\+t $\ast$}]{rkmessage,  }\item[{void $\ast$}]{opaque }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Optional per-\/message delivery callback (triggered by poll() or flush()) when a message has been successfully delivered or permanently failed delivery (after retries). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kafka\+\_\+handle} & \\
+\hline
+{\em rkmessage} & \\
+\hline
+{\em opaque} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{KafkaManager_8cpp_source}{Kafka\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056                                                                                                             \{}
+\DoxyCodeLine{00057     \textcolor{keywordflow}{if} (rkmessage-\/>err) g\_error(\textcolor{stringliteral}{"{}Message delivery failed: \%s"{}}, rd\_kafka\_err2str(rkmessage-\/>err));}
+\DoxyCodeLine{00058 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classKafkaManager_a1657e743b8c0f3d9d7d369cc22e1ae7c}\label{classKafkaManager_a1657e743b8c0f3d9d7d369cc22e1ae7c}} 
+\index{KafkaManager@{KafkaManager}!getArraySize@{getArraySize}}
+\index{getArraySize@{getArraySize}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{getArraySize()}{getArraySize()}}
+{\footnotesize\ttfamily int Kafka\+Manager\+::get\+Array\+Size (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the \char`\"{}const char $\ast$\char`\"{} array size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\href{https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md}{\texttt{ https\+://github.\+com/edenhill/librdkafka/blob/master/\+CONFIGURATION.\+md}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{KafkaManager_8cpp_source}{Kafka\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052                                                    \{}
+\DoxyCodeLine{00053     \textcolor{keywordflow}{return} (array == \textcolor{keyword}{nullptr} || * array == \textcolor{keyword}{nullptr}) ? 0 : (\textcolor{keyword}{sizeof}(array) / \textcolor{keyword}{sizeof}(array[0]));}
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classKafkaManager_ab8cb8ce9fe469476883deac6c5c64def}\label{classKafkaManager_ab8cb8ce9fe469476883deac6c5c64def}} 
+\index{KafkaManager@{KafkaManager}!getConfiguration@{getConfiguration}}
+\index{getConfiguration@{getConfiguration}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{getConfiguration()}{getConfiguration()}}
+{\footnotesize\ttfamily rd\+\_\+kafka\+\_\+conf\+\_\+t $\ast$ Kafka\+Manager\+::get\+Configuration (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the Kafka\textquotesingle{}s configuration. 
+
+\begin{DoxyReturn}{Returns}
+rd\+\_\+kafka\+\_\+conf\+\_\+t $\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{KafkaManager_8cpp_source}{Kafka\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027                                                       \{}
+\DoxyCodeLine{00028     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classKafkaManager_a9d4dd8b03a3623edb445d60c906854e1}{configuration}};}
+\DoxyCodeLine{00029 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classKafkaManager_a84f751836602eba4de36ddc7207bd4ba}\label{classKafkaManager_a84f751836602eba4de36ddc7207bd4ba}} 
+\index{KafkaManager@{KafkaManager}!getProducer@{getProducer}}
+\index{getProducer@{getProducer}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{getProducer()}{getProducer()}}
+{\footnotesize\ttfamily rd\+\_\+kafka\+\_\+t $\ast$ Kafka\+Manager\+::get\+Producer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the Kafka producer\textquotesingle{}s instance. 
+
+\begin{DoxyReturn}{Returns}
+rd\+\_\+kafka\+\_\+t $\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{KafkaManager_8cpp_source}{Kafka\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023                                             \{}
+\DoxyCodeLine{00024     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classKafkaManager_ab83428889cb7ba9aad62f95657ab5091}{producer}};}
+\DoxyCodeLine{00025 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classKafkaManager_a0ce5c5d2b9553121b354693c3e643feb}\label{classKafkaManager_a0ce5c5d2b9553121b354693c3e643feb}} 
+\index{KafkaManager@{KafkaManager}!getTopic@{getTopic}}
+\index{getTopic@{getTopic}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{getTopic()}{getTopic()}}
+{\footnotesize\ttfamily const char $\ast$ Kafka\+Manager\+::get\+Topic (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the destination Kafka\textquotesingle{}s topic. 
+
+\begin{DoxyReturn}{Returns}
+const char $\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{KafkaManager_8cpp_source}{Kafka\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031                                          \{}
+\DoxyCodeLine{00032     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classKafkaManager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}};}
+\DoxyCodeLine{00033 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classKafkaManager_aaaf9b95ef4029e1dfe0e0c38dc8ecbef}\label{classKafkaManager_aaaf9b95ef4029e1dfe0e0c38dc8ecbef}} 
+\index{KafkaManager@{KafkaManager}!loadConfigurationGroup@{loadConfigurationGroup}}
+\index{loadConfigurationGroup@{loadConfigurationGroup}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{loadConfigurationGroup()}{loadConfigurationGroup()}}
+{\footnotesize\ttfamily void Kafka\+Manager\+::load\+Configuration\+Group (\begin{DoxyParamCaption}\item[{rd\+\_\+kafka\+\_\+conf\+\_\+t $\ast$}]{conf,  }\item[{GKey\+File $\ast$}]{key\+\_\+file,  }\item[{const char $\ast$}]{group }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Loads the configuration from Kafka\textquotesingle{}s configuration file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em conf} & \\
+\hline
+{\em key\+\_\+file} & \\
+\hline
+{\em group} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{KafkaManager_8cpp_source}{Kafka\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035                                                                                                          \{}
+\DoxyCodeLine{00036     \textcolor{keywordtype}{char} errstr[512];}
+\DoxyCodeLine{00037     g\_autoptr(GError) error = NULL;}
+\DoxyCodeLine{00038     }
+\DoxyCodeLine{00039     gchar ** ptr = g\_key\_file\_get\_keys(key\_file, group, NULL, \& error);}
+\DoxyCodeLine{00040     \textcolor{keywordflow}{if} (error) CV\_Error(\mbox{\hyperlink{constants_8hpp_a58e3b3b2c84e881f2322ec03a924e388}{RDKAFKA\_GET\_KEYS\_FROM\_JSON\_ERROR}}, \mbox{\hyperlink{constants_8hpp_a4cbe902463b8fb53b7a4a053735dd04e}{RDKAFKA\_GET\_KEYS\_FROM\_JSON\_SCOPE}});}
+\DoxyCodeLine{00041     }
+\DoxyCodeLine{00042     \textcolor{keywordflow}{while} (* ptr) \{}
+\DoxyCodeLine{00043         \textcolor{keyword}{const} \textcolor{keywordtype}{char} * key = * ptr;}
+\DoxyCodeLine{00044         g\_autofree gchar * value = g\_key\_file\_get\_string(key\_file, group, key, \& error);}
+\DoxyCodeLine{00045         \textcolor{keywordflow}{if} (error) CV\_Error(\mbox{\hyperlink{constants_8hpp_abe6787c8524fba1f6378e3f12ddc050f}{RDKAFKA\_GET\_KEY\_FROM\_JSON\_ERROR}}, \mbox{\hyperlink{constants_8hpp_a5645407cbc79924da21611e6a76ffdac}{RDKAFKA\_GET\_KEY\_FROM\_JSON\_SCOPE}});}
+\DoxyCodeLine{00046         }
+\DoxyCodeLine{00047         \textcolor{keywordflow}{if} (rd\_kafka\_conf\_set(conf, key, value, errstr, \textcolor{keyword}{sizeof}(errstr)) != RD\_KAFKA\_CONF\_OK) CV\_Error(\mbox{\hyperlink{constants_8hpp_a4ff19df3fab4fe0bbf046398e23b656d}{RDKAFKA\_CONF\_SET\_ERROR}}, \mbox{\hyperlink{constants_8hpp_add4dc79bfdabf1941bd9f98494457065}{RDKAFKA\_CONF\_SET\_SCOPE}});}
+\DoxyCodeLine{00048         ptr++;}
+\DoxyCodeLine{00049     \}}
+\DoxyCodeLine{00050 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classKafkaManager_a5dca4ae409b1f9c21402bf68a7607315}\label{classKafkaManager_a5dca4ae409b1f9c21402bf68a7607315}} 
+\index{KafkaManager@{KafkaManager}!sendData@{sendData}}
+\index{sendData@{sendData}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{sendData()}{sendData()}}
+{\footnotesize\ttfamily void Kafka\+Manager\+::send\+Data (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key,  }\item[{Json\+::\+Value}]{root }\end{DoxyParamCaption})}
+
+
+
+Send data contained in root via Kafka with ID equal to key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+{\em root} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{KafkaManager_8cpp_source}{Kafka\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092                                                              \{}
+\DoxyCodeLine{00093     \textcolor{comment}{// Produce data}}
+\DoxyCodeLine{00094     std::string keyString = root.toStyledString();}
+\DoxyCodeLine{00095     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * value = keyString.c\_str();}
+\DoxyCodeLine{00096     \textcolor{keywordtype}{size\_t} messageSize = (size\_t) keyString.size();}
+\DoxyCodeLine{00097     rd\_kafka\_resp\_err\_t err = rd\_kafka\_producev(\mbox{\hyperlink{classKafkaManager_a84f751836602eba4de36ddc7207bd4ba}{getProducer}}(),}
+\DoxyCodeLine{00098                                                 RD\_KAFKA\_V\_TOPIC(\mbox{\hyperlink{classKafkaManager_a0ce5c5d2b9553121b354693c3e643feb}{getTopic}}()),}
+\DoxyCodeLine{00099                                                 RD\_KAFKA\_V\_MSGFLAGS(RD\_KAFKA\_MSG\_F\_COPY),}
+\DoxyCodeLine{00100                                                 RD\_KAFKA\_V\_KEY((\textcolor{keywordtype}{void} *) key, strlen(key) * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})),}
+\DoxyCodeLine{00101                                                 RD\_KAFKA\_V\_VALUE((\textcolor{keywordtype}{void} *) value, messageSize),}
+\DoxyCodeLine{00102                                                 RD\_KAFKA\_V\_OPAQUE(NULL), RD\_KAFKA\_V\_END);}
+\DoxyCodeLine{00103                       }
+\DoxyCodeLine{00104     \textcolor{keywordflow}{if} (err) g\_error(\textcolor{stringliteral}{"{}Failed to produce to topic \%s: \%s"{}}, \mbox{\hyperlink{classKafkaManager_a0a3dbefd7ac2330ed8bb9650b50d2efb}{topic}}, rd\_kafka\_err2str(err));}
+\DoxyCodeLine{00105     \textcolor{comment}{/* \} else \{}}
+\DoxyCodeLine{00106 \textcolor{comment}{           g\_message("{}Produced event to topic \%s: key = \%12s value = \%12s"{}, topic, key, value);}}
+\DoxyCodeLine{00107 \textcolor{comment}{       \}}}
+\DoxyCodeLine{00108 \textcolor{comment}{    */}}
+\DoxyCodeLine{00109     }
+\DoxyCodeLine{00110     rd\_kafka\_poll(\mbox{\hyperlink{classKafkaManager_ab83428889cb7ba9aad62f95657ab5091}{producer}}, 0);}
+\DoxyCodeLine{00111     \textcolor{comment}{// Block until the messages are all sent.}}
+\DoxyCodeLine{00112     \textcolor{comment}{// g\_message("{}Flushing final messages.."{});}}
+\DoxyCodeLine{00113     rd\_kafka\_flush(\mbox{\hyperlink{classKafkaManager_ab83428889cb7ba9aad62f95657ab5091}{producer}}, 10 * 1000);}
+\DoxyCodeLine{00114     }
+\DoxyCodeLine{00115     \textcolor{keywordflow}{if} (rd\_kafka\_outq\_len(\mbox{\hyperlink{classKafkaManager_ab83428889cb7ba9aad62f95657ab5091}{producer}}) > 0) g\_error(\textcolor{stringliteral}{"{}\%d message(s) were not delivered"{}}, rd\_kafka\_outq\_len(\mbox{\hyperlink{classKafkaManager_ab83428889cb7ba9aad62f95657ab5091}{producer}}));}
+\DoxyCodeLine{00116 \textcolor{comment}{//    g\_message("{}\%d events were produced to topic \%s."{}, message\_count, topic);}}
+\DoxyCodeLine{00117 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classKafkaManager_ac4a825ea74c714ae344fdaad52edf195}\label{classKafkaManager_ac4a825ea74c714ae344fdaad52edf195}} 
+\index{KafkaManager@{KafkaManager}!setConfiguration@{setConfiguration}}
+\index{setConfiguration@{setConfiguration}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{setConfiguration()}{setConfiguration()}}
+{\footnotesize\ttfamily void Kafka\+Manager\+::set\+Configuration (\begin{DoxyParamCaption}\item[{rd\+\_\+kafka\+\_\+conf\+\_\+t $\ast$}]{configuration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Set the Kafka\textquotesingle{}s configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em configuration} & Kafka\textquotesingle{}s configuration. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{KafkaManager_8cpp_source}{Kafka\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019                                                                     \{}
+\DoxyCodeLine{00020     this-\/>\mbox{\hyperlink{classKafkaManager_a9d4dd8b03a3623edb445d60c906854e1}{configuration}} = \mbox{\hyperlink{classKafkaManager_a9d4dd8b03a3623edb445d60c906854e1}{configuration}};}
+\DoxyCodeLine{00021 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classKafkaManager_ad6099678d7438f7b96d7f8eb6e79784c}\label{classKafkaManager_ad6099678d7438f7b96d7f8eb6e79784c}} 
+\index{KafkaManager@{KafkaManager}!setProducer@{setProducer}}
+\index{setProducer@{setProducer}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{setProducer()}{setProducer()}}
+{\footnotesize\ttfamily void Kafka\+Manager\+::set\+Producer (\begin{DoxyParamCaption}\item[{rd\+\_\+kafka\+\_\+t $\ast$}]{producer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Set the Kafka producer\textquotesingle{}s instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em producer} & Kafka producer\textquotesingle{}s instance. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{KafkaManager_8cpp_source}{Kafka\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015                                                      \{}
+\DoxyCodeLine{00016     this-\/>\mbox{\hyperlink{classKafkaManager_ab83428889cb7ba9aad62f95657ab5091}{producer}} = \mbox{\hyperlink{classKafkaManager_ab83428889cb7ba9aad62f95657ab5091}{producer}};}
+\DoxyCodeLine{00017 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classKafkaManager_a5c3a7caaf5ec042f0074fbea516a44b1}\label{classKafkaManager_a5c3a7caaf5ec042f0074fbea516a44b1}} 
+\index{KafkaManager@{KafkaManager}!setupProducer@{setupProducer}}
+\index{setupProducer@{setupProducer}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{setupProducer()}{setupProducer()}}
+{\footnotesize\ttfamily void Kafka\+Manager\+::setup\+Producer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Launches configuration loading, once reads all the configuration parameters and later set the producer instance. 
+
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{KafkaManager_8cpp_source}{Kafka\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060                                       \{}
+\DoxyCodeLine{00061     \textcolor{keywordtype}{char} errorString[512];}
+\DoxyCodeLine{00062     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * configurationFile = \textcolor{stringliteral}{"{}../configuration\_file.ini"{}};}
+\DoxyCodeLine{00063     }
+\DoxyCodeLine{00064     g\_autoptr(GError) error = NULL;}
+\DoxyCodeLine{00065     g\_autoptr(GKeyFile) key\_file = g\_key\_file\_new();}
+\DoxyCodeLine{00066     \textcolor{keywordflow}{if} (!g\_key\_file\_load\_from\_file (key\_file, configurationFile, G\_KEY\_FILE\_NONE, \& error)) \{}
+\DoxyCodeLine{00067         g\_error (\textcolor{stringliteral}{"{}Error loading config file: \%s"{}}, error-\/>message);}
+\DoxyCodeLine{00068     \}}
+\DoxyCodeLine{00069     }
+\DoxyCodeLine{00070     \textcolor{comment}{// Load the relevant configuration sections.}}
+\DoxyCodeLine{00071     \mbox{\hyperlink{classKafkaManager_ac4a825ea74c714ae344fdaad52edf195}{setConfiguration}}(rd\_kafka\_conf\_new());}
+\DoxyCodeLine{00072     \mbox{\hyperlink{classKafkaManager_aaaf9b95ef4029e1dfe0e0c38dc8ecbef}{loadConfigurationGroup}}(\mbox{\hyperlink{classKafkaManager_ab8cb8ce9fe469476883deac6c5c64def}{getConfiguration}}(), key\_file, \textcolor{stringliteral}{"{}default"{}});}
+\DoxyCodeLine{00073     }
+\DoxyCodeLine{00074     \textcolor{comment}{// Install a delivery-\/error callback.}}
+\DoxyCodeLine{00075     rd\_kafka\_conf\_set\_dr\_msg\_cb(\mbox{\hyperlink{classKafkaManager_ab8cb8ce9fe469476883deac6c5c64def}{getConfiguration}}(), \mbox{\hyperlink{classKafkaManager_a713480164aa94d6e24f88c62c4082e8c}{dr\_msg\_cb}});}
+\DoxyCodeLine{00076     }
+\DoxyCodeLine{00077     \textcolor{comment}{// Create the Producer instance.}}
+\DoxyCodeLine{00078     \mbox{\hyperlink{classKafkaManager_ad6099678d7438f7b96d7f8eb6e79784c}{setProducer}}(rd\_kafka\_new(RD\_KAFKA\_PRODUCER, \mbox{\hyperlink{classKafkaManager_ab8cb8ce9fe469476883deac6c5c64def}{getConfiguration}}(), errorString, \textcolor{keyword}{sizeof}(errorString)));}
+\DoxyCodeLine{00079     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classKafkaManager_a84f751836602eba4de36ddc7207bd4ba}{getProducer}}()) g\_error(\textcolor{stringliteral}{"{}Failed to create new producer: \%s"{}}, errorString);}
+\DoxyCodeLine{00080     }
+\DoxyCodeLine{00081     \textcolor{comment}{// Configuration object is now owned, and freed, by the rd\_kafka\_t instance.}}
+\DoxyCodeLine{00082     \mbox{\hyperlink{classKafkaManager_ac4a825ea74c714ae344fdaad52edf195}{setConfiguration}}(NULL);}
+\DoxyCodeLine{00083 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classKafkaManager_a9d4dd8b03a3623edb445d60c906854e1}\label{classKafkaManager_a9d4dd8b03a3623edb445d60c906854e1}} 
+\index{KafkaManager@{KafkaManager}!configuration@{configuration}}
+\index{configuration@{configuration}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{configuration}{configuration}}
+{\footnotesize\ttfamily rd\+\_\+kafka\+\_\+conf\+\_\+t$\ast$ Kafka\+Manager\+::configuration\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Kafka\textquotesingle{}s configuration. 
+
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{KafkaManager_8hpp_source}{Kafka\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{classKafkaManager_ab83428889cb7ba9aad62f95657ab5091}\label{classKafkaManager_ab83428889cb7ba9aad62f95657ab5091}} 
+\index{KafkaManager@{KafkaManager}!producer@{producer}}
+\index{producer@{producer}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{producer}{producer}}
+{\footnotesize\ttfamily rd\+\_\+kafka\+\_\+t$\ast$ Kafka\+Manager\+::producer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Kafka producer\textquotesingle{}s instance. 
+
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{KafkaManager_8hpp_source}{Kafka\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{classKafkaManager_a0a3dbefd7ac2330ed8bb9650b50d2efb}\label{classKafkaManager_a0a3dbefd7ac2330ed8bb9650b50d2efb}} 
+\index{KafkaManager@{KafkaManager}!topic@{topic}}
+\index{topic@{topic}!KafkaManager@{KafkaManager}}
+\doxysubsubsection{\texorpdfstring{topic}{topic}}
+{\footnotesize\ttfamily const char$\ast$ Kafka\+Manager\+::topic\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Destination Kafka\textquotesingle{}s topic. 
+
+
+
+Definition at line \mbox{\hyperlink{KafkaManager_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{KafkaManager_8hpp_source}{Kafka\+Manager.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Managers/\mbox{\hyperlink{KafkaManager_8hpp}{Kafka\+Manager.\+hpp}}\item 
+Managers/\mbox{\hyperlink{KafkaManager_8cpp}{Kafka\+Manager.\+cpp}}\end{DoxyCompactItemize}

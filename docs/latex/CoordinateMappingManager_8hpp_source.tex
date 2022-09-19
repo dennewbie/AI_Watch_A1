@@ -1,0 +1,83 @@
+\hypertarget{CoordinateMappingManager_8hpp_source}{}\doxysection{Coordinate\+Mapping\+Manager.\+hpp}
+\label{CoordinateMappingManager_8hpp_source}\index{Managers/CoordinateManagers/CoordinateMappingManager.hpp@{Managers/CoordinateManagers/CoordinateMappingManager.hpp}}
+\mbox{\hyperlink{CoordinateMappingManager_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00002}00002 \textcolor{comment}{//  CoordinateMappingManager.hpp}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00003}00003 \textcolor{comment}{//  AI Watch A1}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00004}00004 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 26/07/22.}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00008}00008 \textcolor{comment}{// License: Apache 2.0. See LICENSE file in root directory.}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00009}00009 \textcolor{comment}{// Copyright(c) 2022. All Rights Reserved.}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00011}00011 \textcolor{preprocessor}{\#ifndef CoordinateMappingManager\_hpp}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00012}00012 \textcolor{preprocessor}{\#define CoordinateMappingManager\_hpp}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00014}00014 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00015}00015 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00016}00016 \textcolor{preprocessor}{\#include "{}../../Points/Point3D.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00017}00017 \textcolor{preprocessor}{\#include "{}../../Points/BodyKeyPoint.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00021}00021 \textcolor{comment}{// Misure Renato Esposito 06/22}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00022}00022 \textcolor{comment}{//static const float minWidth = 0; // |x<-\/-\/-\/-\/      |}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00023}00023 \textcolor{comment}{//static const float maxWidth = 5.271; //  |      -\/-\/-\/-\/>x|}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00024}00024 \textcolor{comment}{//static const float minHeight = 0.0;}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00025}00025 \textcolor{comment}{//static const float maxHeight = 3.0;}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00026}00026 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00027}00027 \textcolor{comment}{//static const float minWidthRS = -\/3.5; // |x<-\/-\/-\/-\/      |}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00028}00028 \textcolor{comment}{//static const float maxWidthRS = 3.5; //  |      -\/-\/-\/-\/>x|}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00029}00029 \textcolor{comment}{//static const float minHeightRS = -\/1.0;}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00030}00030 \textcolor{comment}{//static const float maxHeightRS = 1.0;}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00031}00031 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00032}00032 \textcolor{comment}{//static const float xOriginUnity = -\/26.89;}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00033}00033 \textcolor{comment}{//static const float zOriginUnity = -\/3.842;}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00034}00034 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00035}00035 \textcolor{comment}{//static const float distanceCameraFromBackWall = 0.45;}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00036}00036 \textcolor{comment}{//static const float heightOffset = 0.15;}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00039}00039 \textcolor{comment}{// Misure Denny Caruso 09/22}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00040}\mbox{\hyperlink{CoordinateMappingManager_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{00040}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{CoordinateMappingManager_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{minWidth}} = 0; \textcolor{comment}{// |x<-\/-\/-\/-\/      |}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00041}\mbox{\hyperlink{CoordinateMappingManager_8hpp_aa8ec0caafe499a74f4989eae1b243a21}{00041}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{CoordinateMappingManager_8hpp_aa8ec0caafe499a74f4989eae1b243a21}{maxWidth}} = 6.03; \textcolor{comment}{//  |      -\/-\/-\/-\/>x|}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00042}\mbox{\hyperlink{CoordinateMappingManager_8hpp_a7a882e3c4c3b228cee91a5f3f3db70dc}{00042}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{CoordinateMappingManager_8hpp_a7a882e3c4c3b228cee91a5f3f3db70dc}{minHeight}} = 0.0;}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00043}\mbox{\hyperlink{CoordinateMappingManager_8hpp_ab53ce0f881e099671d39cbeb0ad9da36}{00043}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{CoordinateMappingManager_8hpp_ab53ce0f881e099671d39cbeb0ad9da36}{maxHeight}} = 2.89;}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00045}\mbox{\hyperlink{CoordinateMappingManager_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{00045}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{CoordinateMappingManager_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}} = -\/3.5; \textcolor{comment}{// |x<-\/-\/-\/-\/      |}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00046}\mbox{\hyperlink{CoordinateMappingManager_8hpp_a1454c0812b7f5ea224708b049da3b923}{00046}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{CoordinateMappingManager_8hpp_a1454c0812b7f5ea224708b049da3b923}{maxWidthRS}} = 3.5; \textcolor{comment}{//  |      -\/-\/-\/-\/>x|}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00047}00047 \textcolor{comment}{//static const float minHeightRS = -\/1.20;}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00048}00048 \textcolor{comment}{//static const float maxHeightRS = 1.20;}}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00049}\mbox{\hyperlink{CoordinateMappingManager_8hpp_a6fe1a44c4af83e2519071a37be532562}{00049}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{CoordinateMappingManager_8hpp_a6fe1a44c4af83e2519071a37be532562}{minHeightRS}} = -\/1.0;}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00050}\mbox{\hyperlink{CoordinateMappingManager_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{00050}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{CoordinateMappingManager_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{maxHeightRS}} = 1.0;}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00052}\mbox{\hyperlink{CoordinateMappingManager_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{00052}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{CoordinateMappingManager_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{xOriginUnity}} = -\/26.89;}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00053}\mbox{\hyperlink{CoordinateMappingManager_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{00053}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{CoordinateMappingManager_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{zOriginUnity}} = -\/3.842;}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00055}\mbox{\hyperlink{CoordinateMappingManager_8hpp_a00219f81f56add6161ea4fe55851c988}{00055}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{CoordinateMappingManager_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}} = 0.45;}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00056}\mbox{\hyperlink{CoordinateMappingManager_8hpp_a988c9ac0a2c7da8c9b8c0f66833cc89a}{00056}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{CoordinateMappingManager_8hpp_a988c9ac0a2c7da8c9b8c0f66833cc89a}{heightOffset}} = 0.15;}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00065}\mbox{\hyperlink{classCoordinateMappingManager}{00065}} \textcolor{keyword}{class }\mbox{\hyperlink{classCoordinateMappingManager}{CoordinateMappingManager}} \{}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00066}00066 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00072}00072     \textcolor{keywordtype}{float} \mbox{\hyperlink{classCoordinateMappingManager_a5c3664f4ec7cc22b99dba97df60d5bd3}{transformWidthCoordinate}}      (\textcolor{keywordtype}{float} widthCoordinate);}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00078}00078     \textcolor{keywordtype}{float} \mbox{\hyperlink{classCoordinateMappingManager_ab1189918e3477395629122540574512c}{transformHeightCoordinate}}     (\textcolor{keywordtype}{float} heightCoordinate);}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00084}00084     \textcolor{keywordtype}{float} \mbox{\hyperlink{classCoordinateMappingManager_a397e5119388c93ca80f98d2c0afeee60}{inverseTransform}}              (\textcolor{keywordtype}{float} inputNumber);}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00085}00085 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00097}00097     \textcolor{keyword}{virtual} std::vector <Point3D *> * \mbox{\hyperlink{classCoordinateMappingManager_a53059f45e764e26353439bc495074e86}{mapToMeters}}   (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap,}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00098}00098                                                      \textcolor{keywordtype}{float} xOrigin, \textcolor{keywordtype}{float} zOrigin);}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00099}00099 \};}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00108}\mbox{\hyperlink{classUnityCoordinateMappingManager}{00108}} \textcolor{keyword}{class }\mbox{\hyperlink{classUnityCoordinateMappingManager}{UnityCoordinateMappingManager}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCoordinateMappingManager}{CoordinateMappingManager}} \{}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00109}00109 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00122}00122     std::vector <Point3D *> * \mbox{\hyperlink{classUnityCoordinateMappingManager_a5ee8f7517bb82a03e6a201fd7635d552}{mapToMeters}}           (std::vector <Point3D *> pointsToMap, std::vector <bool> bodyKeyPointsMap,}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00123}00123                                                      \textcolor{keywordtype}{float} xOrigin, \textcolor{keywordtype}{float} zOrigin) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00124}00124 \};}
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{CoordinateMappingManager_8hpp_source_l00126}00126 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CoordinateMappingManager\_hpp */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

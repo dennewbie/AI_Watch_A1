@@ -1,0 +1,205 @@
+\hypertarget{classCleanCommand}{}\doxysection{Clean\+Command Class Reference}
+\label{classCleanCommand}\index{CleanCommand@{CleanCommand}}
+
+
+The \mbox{\hyperlink{classCleanCommand}{Clean\+Command}} class is a class that implements a command to clean the build folder by deleting old files.  
+
+
+
+
+{\ttfamily \#include $<$System\+Command.\+hpp$>$}
+
+Inheritance diagram for Clean\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCleanCommand}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSystemCommand_aa402638083047a972e143064f1d5e8cb}{execute\+Command}} (int $\ast$argc, char $\ast$$\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em This method is responsible for executing commands on the system based on the filled command string. If the string is empty, then no command is executed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCleanCommand_a2703e2431abfb5175121310594462174}{set\+Command}} (int $\ast$argc, char $\ast$$\ast$$\ast$argv) override
+\begin{DoxyCompactList}\small\item\em Set the string command to a cleaning command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystemCommand_ae066c4c5cf8b00c16e9ddf54dd936c47}{set\+Command}} (std\+::string \mbox{\hyperlink{classSystemCommand_abdc4fb0d069e0815759941dc72b5736d}{command}})
+\begin{DoxyCompactList}\small\item\em Set the string command with a particularly given string passed as a parameter. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSystemCommand_a4265db3249d1f004fe534b13d954e709}{get\+Command}} (void)
+\begin{DoxyCompactList}\small\item\em Get the string command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classSystemCommand_abdc4fb0d069e0815759941dc72b5736d}{command}}
+\begin{DoxyCompactList}\small\item\em The final command given to the system by the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classCleanCommand}{Clean\+Command}} class is a class that implements a command to clean the build folder by deleting old files. 
+
+The \mbox{\hyperlink{classCleanCommand}{Clean\+Command}} class is a class that implements a command to clean the build folder by deleting old files. It deletes all the images captured and computed when the current \char`\"{}\+JSONs\textquotesingle{} sending session with Kafka\char`\"{} is completed, as well as it deletes all the JSONs files produced in the meanwhile. 
+
+Definition at line \mbox{\hyperlink{SystemCommand_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{SystemCommand_8hpp_source}{System\+Command.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSystemCommand_aa402638083047a972e143064f1d5e8cb}\label{classSystemCommand_aa402638083047a972e143064f1d5e8cb}} 
+\index{CleanCommand@{CleanCommand}!executeCommand@{executeCommand}}
+\index{executeCommand@{executeCommand}!CleanCommand@{CleanCommand}}
+\doxysubsubsection{\texorpdfstring{executeCommand()}{executeCommand()}}
+{\footnotesize\ttfamily void System\+Command\+::execute\+Command (\begin{DoxyParamCaption}\item[{int $\ast$}]{argc,  }\item[{char $\ast$$\ast$$\ast$}]{argv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+This method is responsible for executing commands on the system based on the filled command string. If the string is empty, then no command is executed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & pointer to argc from the main function or based on what the program reads from the configuration file. \\
+\hline
+{\em argv} & pointer to argv from the main function or based on what the program reads from the configuration file. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{SystemCommand_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{SystemCommand_8cpp_source}{System\+Command.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023                                                              \{}
+\DoxyCodeLine{00024     \mbox{\hyperlink{classSystemCommand_a447d02e641bb26dbdf9332fa9e55485d}{setCommand}}(argc, argv);}
+\DoxyCodeLine{00025     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classSystemCommand_a4265db3249d1f004fe534b13d954e709}{getCommand}}().size() > 0 \&\& \mbox{\hyperlink{classSystemCommand_a4265db3249d1f004fe534b13d954e709}{getCommand}}() != \textcolor{stringliteral}{"{}OP"{}}) std::system(\mbox{\hyperlink{classSystemCommand_a4265db3249d1f004fe534b13d954e709}{getCommand}}().c\_str());}
+\DoxyCodeLine{00026 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystemCommand_a4265db3249d1f004fe534b13d954e709}\label{classSystemCommand_a4265db3249d1f004fe534b13d954e709}} 
+\index{CleanCommand@{CleanCommand}!getCommand@{getCommand}}
+\index{getCommand@{getCommand}!CleanCommand@{CleanCommand}}
+\doxysubsubsection{\texorpdfstring{getCommand()}{getCommand()}}
+{\footnotesize\ttfamily std\+::string System\+Command\+::get\+Command (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Get the string command. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{SystemCommand_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{SystemCommand_8cpp_source}{System\+Command.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019                                          \{}
+\DoxyCodeLine{00020     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classSystemCommand_abdc4fb0d069e0815759941dc72b5736d}{command}};}
+\DoxyCodeLine{00021 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCleanCommand_a2703e2431abfb5175121310594462174}\label{classCleanCommand_a2703e2431abfb5175121310594462174}} 
+\index{CleanCommand@{CleanCommand}!setCommand@{setCommand}}
+\index{setCommand@{setCommand}!CleanCommand@{CleanCommand}}
+\doxysubsubsection{\texorpdfstring{setCommand()}{setCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Clean\+Command\+::set\+Command (\begin{DoxyParamCaption}\item[{int $\ast$}]{argc,  }\item[{char $\ast$$\ast$$\ast$}]{argv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Set the string command to a cleaning command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & pointer to argc based on what the program reads from the configuration file. \\
+\hline
+{\em argv} & pointer to argv based on what the program reads from the configuration file. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classSystemCommand_a447d02e641bb26dbdf9332fa9e55485d}{System\+Command}}.
+
+
+
+Definition at line \mbox{\hyperlink{CleanCommand_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{CleanCommand_8cpp_source}{Clean\+Command.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015                                                         \{}
+\DoxyCodeLine{00016     std::stringstream cleanTerminalCommand;}
+\DoxyCodeLine{00017     \mbox{\hyperlink{classUsageManager}{UsageManager}} * usageManagerInstance = \mbox{\hyperlink{classUsageManager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}();}
+\DoxyCodeLine{00018     \textcolor{keywordflow}{if} (usageManagerInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_ab495e2525cf238bb390ca68277586bf4}{USAGE\_MANAGER\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ade33b45fd12b716d5e837609aa163416}{USAGE\_MANAGER\_NULLPTR\_SCOPE}});}
+\DoxyCodeLine{00019     }
+\DoxyCodeLine{00020     \textcolor{keywordtype}{char} *** localArgv = usageManagerInstance-\/>\mbox{\hyperlink{classUsageManager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}();}
+\DoxyCodeLine{00021     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * imagesFolder = (* localArgv)[\mbox{\hyperlink{constants_8hpp_a660671264f8ea07781cd04446d83cbf6}{imagesFolderOffset}}];}
+\DoxyCodeLine{00022     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * outputFolder = (* localArgv)[\mbox{\hyperlink{constants_8hpp_abbff93ab9bac10646d7ca187c30470ad}{outputFolderOffset}}];}
+\DoxyCodeLine{00023     cleanTerminalCommand << \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}rgb/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{00024                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}d/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{00025                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}skeleton/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{00026                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}videoframe/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{00027                             \textcolor{stringliteral}{"{}rm -\/r "{}} << outputFolder << \textcolor{stringliteral}{"{}op/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{00028                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}depth/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{00029                             \textcolor{stringliteral}{"{}rm -\/r "{}} << imagesFolder << \textcolor{stringliteral}{"{}sk/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{00030                             \textcolor{stringliteral}{"{}rm -\/r "{}} << outputFolder << \textcolor{stringliteral}{"{}movement/ > /dev/null \&\& "{}}}
+\DoxyCodeLine{00031                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}rgb \&\& "{}}}
+\DoxyCodeLine{00032                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}d \&\& "{}}}
+\DoxyCodeLine{00033                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}videoframe \&\& "{}}}
+\DoxyCodeLine{00034                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}skeleton \&\& "{}}}
+\DoxyCodeLine{00035                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}depth \&\& "{}}}
+\DoxyCodeLine{00036                             \textcolor{stringliteral}{"{}mkdir "{}} << imagesFolder << \textcolor{stringliteral}{"{}sk \&\& "{}}}
+\DoxyCodeLine{00037                             \textcolor{stringliteral}{"{}mkdir "{}} << outputFolder << \textcolor{stringliteral}{"{}movement/ \&\& "{}}}
+\DoxyCodeLine{00038                             \textcolor{stringliteral}{"{}mkdir "{}} << outputFolder << \textcolor{stringliteral}{"{}op/"{}};}
+\DoxyCodeLine{00039     \mbox{\hyperlink{classSystemCommand_a447d02e641bb26dbdf9332fa9e55485d}{SystemCommand::setCommand}}(std::string(cleanTerminalCommand.str()));}
+\DoxyCodeLine{00040 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystemCommand_ae066c4c5cf8b00c16e9ddf54dd936c47}\label{classSystemCommand_ae066c4c5cf8b00c16e9ddf54dd936c47}} 
+\index{CleanCommand@{CleanCommand}!setCommand@{setCommand}}
+\index{setCommand@{setCommand}!CleanCommand@{CleanCommand}}
+\doxysubsubsection{\texorpdfstring{setCommand()}{setCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void System\+Command\+::set\+Command (\begin{DoxyParamCaption}\item[{std\+::string}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Set the string command with a particularly given string passed as a parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{SystemCommand_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{SystemCommand_8cpp_source}{System\+Command.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015                                                  \{}
+\DoxyCodeLine{00016     this-\/>\mbox{\hyperlink{classSystemCommand_abdc4fb0d069e0815759941dc72b5736d}{command}} = \mbox{\hyperlink{classSystemCommand_abdc4fb0d069e0815759941dc72b5736d}{command}};}
+\DoxyCodeLine{00017 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSystemCommand_abdc4fb0d069e0815759941dc72b5736d}\label{classSystemCommand_abdc4fb0d069e0815759941dc72b5736d}} 
+\index{CleanCommand@{CleanCommand}!command@{command}}
+\index{command@{command}!CleanCommand@{CleanCommand}}
+\doxysubsubsection{\texorpdfstring{command}{command}}
+{\footnotesize\ttfamily std\+::string System\+Command\+::command\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+The final command given to the system by the program. 
+
+
+
+Definition at line \mbox{\hyperlink{SystemCommand_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{SystemCommand_8hpp_source}{System\+Command.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Command/\mbox{\hyperlink{SystemCommand_8hpp}{System\+Command.\+hpp}}\item 
+Command/\mbox{\hyperlink{CleanCommand_8cpp}{Clean\+Command.\+cpp}}\end{DoxyCompactItemize}

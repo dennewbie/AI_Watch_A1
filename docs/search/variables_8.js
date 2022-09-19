@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kafkamanager_0',['kafkaManager',['../class_facade_singleton.html#a518cef95e5cbc04e1810826eff2a060f',1,'FacadeSingleton']]]
+  ['json_5ffile_5fpath_0',['JSON_FILE_PATH',['../constants_8hpp.html#ad17edf12bbd3c466264f620690fda028',1,'constants.hpp']]]
 ];

@@ -20,13 +20,13 @@
 
 ## Demo 💻
 - [Demo #1](https://youtu.be/Ac0V8Dj0FbI)
-- [Demo #2](https://youtu.be/L69_9FtQmY8)
+- [Demo #2](https://youtu.be/pq3m9U3hRrQ)
 
 
 
 ## Docs 📜
 - [AI Watch A1 documentation](https://dennewbie.github.io/AI_Watch_A1/doc/index.html) is generated using [Doxygen](https://doxygen.nl/)
-- [BSc Computer Science's Thesis](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.pdf)
+- [Bachelor Thesis in Computer Science](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.pdf)
 
 
 
@@ -146,7 +146,7 @@ AI Watch A1 is licensed under the Apache License, Version 2.0. Copyright 2022. P
 
 
 ## Supervisor
-- [Dr. Alessio Ferone](https://www.researchgate.net/profile/Alessio-Ferone), CS Assistant Professor at the [University of Naples Parthenope](https://www.uniparthenope.it/)
+- [Dr. Alessio Ferone](https://www.researchgate.net/profile/Alessio-Ferone), CS Assistant Professor at the [University of Naples Parthenope](https://www.uniparthenope.it/).
 
 
 

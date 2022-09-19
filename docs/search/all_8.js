@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['json_5ffile_5fpath_0',['JSON_FILE_PATH',['../constants_8hpp.html#ad17edf12bbd3c466264f620690fda028',1,'constants.hpp']]]
+  ['heightoffset_0',['heightOffset',['../CoordinateMappingManager_8hpp.html#a988c9ac0a2c7da8c9b8c0f66833cc89a',1,'CoordinateMappingManager.hpp']]],
+  ['hex_1',['HEX',['../CMakeCCompilerId_8c.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX():&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX():&#160;CMakeCXXCompilerId.cpp']]]
 ];

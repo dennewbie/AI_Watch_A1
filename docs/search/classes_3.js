@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['imagemanager_0',['ImageManager',['../class_image_manager.html',1,'']]]
+  ['imagemanager_0',['ImageManager',['../classImageManager.html',1,'']]]
 ];

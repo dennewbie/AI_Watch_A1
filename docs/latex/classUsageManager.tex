@@ -1,0 +1,435 @@
+\hypertarget{classUsageManager}{}\doxysection{Usage\+Manager Class Reference}
+\label{classUsageManager}\index{UsageManager@{UsageManager}}
+
+
+\mbox{\hyperlink{classUsageManager}{Usage\+Manager}} class is a utility class that helps with configuration parameters.  
+
+
+
+
+{\ttfamily \#include $<$Usage\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUsageManager_ab42b151fe02294bb3c28c824a6bf6cb7}{Usage\+Manager}} (\mbox{\hyperlink{classUsageManager}{Usage\+Manager}} \&other)=delete
+\begin{DoxyCompactList}\small\item\em Disabling the possibility to clone the Singleton object. Singletons should not be cloneable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUsageManager_ab07ecb1bf5f9e52847243955913d6839}{operator=}} (const \mbox{\hyperlink{classUsageManager}{Usage\+Manager}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Disabling the possibility to assign a Singleton object. Singletons should not be assignable. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classUsageManager_a8b4d7a1b52de9904613be7d2562cd12b}{$\sim$\+Usage\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Usage Manager object. \end{DoxyCompactList}\item 
+int $\ast$ \mbox{\hyperlink{classUsageManager_a6773644ed5e5c15f5694f39c5f76cfd9}{get\+\_\+argc}} (void)
+\begin{DoxyCompactList}\small\item\em Get the argc\textquotesingle{}s pointer. \end{DoxyCompactList}\item 
+char $\ast$$\ast$$\ast$ \mbox{\hyperlink{classUsageManager_abf0d03e097025fc8d85133f6a0ff83ff}{get\+\_\+argv}} (void)
+\begin{DoxyCompactList}\small\item\em Get the argv\textquotesingle{}s pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classUsageManager}{Usage\+Manager}} $\ast$ \mbox{\hyperlink{classUsageManager_a223b17baf96c6e172aa8da76a8215724}{get\+Instance}} (int $\ast$\mbox{\hyperlink{classUsageManager_ad2f9dc91560a8dd4498ed869df79a613}{argc}}, char $\ast$$\ast$$\ast$\mbox{\hyperlink{classUsageManager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}}, const int \mbox{\hyperlink{classUsageManager_af7802bf5ae34a3b58318144ebc8c8052}{expected\+\_\+argc}}, const char $\ast$\mbox{\hyperlink{classUsageManager_aab4e2da282d83139124a0b95de74cd1d}{expected\+Usage\+Message}})
+\begin{DoxyCompactList}\small\item\em Get the unique class instance, given input parameters. This method should be called the first time when we want to create a reference to the object of this class. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classUsageManager}{Usage\+Manager}} $\ast$ \mbox{\hyperlink{classUsageManager_af047400a8bd50603cff4bbffe37ebea2}{get\+Instance}} (void)
+\begin{DoxyCompactList}\small\item\em Get the unique class instance. This methods should be called in the following scenario\+: when we just want to retrieve the reference to the object of this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{classUsageManager_ae2a85a52df993fd0a3969bb0a93d5f74}{get\+\_\+expected\+\_\+argc}} (void)
+\begin{DoxyCompactList}\small\item\em Get the expected argc value. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{classUsageManager_a6a79fcaa289441de1a65870d30b15f8f}{get\+\_\+expected\+Usage\+Message}} (void)
+\begin{DoxyCompactList}\small\item\em Get the expected usage message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUsageManager_a345e7bb03c752be3258c59fd8ba7004f}{check\+Usage}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the configuration parameters are valid and if they are equal to the number of the expected parameters. If not, it raises an error. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUsageManager_ad71bd8a659d1fa72578af1777b7c69b9}{Usage\+Manager}} (int $\ast$\mbox{\hyperlink{classUsageManager_ad2f9dc91560a8dd4498ed869df79a613}{argc}}=nullptr, char $\ast$$\ast$$\ast$\mbox{\hyperlink{classUsageManager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}}=nullptr, const int \mbox{\hyperlink{classUsageManager_af7802bf5ae34a3b58318144ebc8c8052}{expected\+\_\+argc}}=0, const char $\ast$\mbox{\hyperlink{classUsageManager_aab4e2da282d83139124a0b95de74cd1d}{expected\+Usage\+Message}}=nullptr)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classUsageManager}{Usage\+Manager}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$ \mbox{\hyperlink{classUsageManager_ad2f9dc91560a8dd4498ed869df79a613}{argc}}
+\begin{DoxyCompactList}\small\item\em configuration parameters\textquotesingle{} number. \end{DoxyCompactList}\item 
+char $\ast$$\ast$$\ast$ \mbox{\hyperlink{classUsageManager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}}
+\begin{DoxyCompactList}\small\item\em configuration parameters. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classUsageManager_af7802bf5ae34a3b58318144ebc8c8052}{expected\+\_\+argc}}
+\begin{DoxyCompactList}\small\item\em expected configuration parameters\textquotesingle{} number. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{classUsageManager_aab4e2da282d83139124a0b95de74cd1d}{expected\+Usage\+Message}}
+\begin{DoxyCompactList}\small\item\em a simple message that lets the user understand how to properly run the executable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classUsageManager}{Usage\+Manager}} $\ast$ \mbox{\hyperlink{classUsageManager_ae0a59e7727dff85dfdef79336d535498}{shared\+Instance}} \{ nullptr \}
+\begin{DoxyCompactList}\small\item\em The field for storing the singleton instance. \end{DoxyCompactList}\item 
+static std\+::mutex \mbox{\hyperlink{classUsageManager_a60b3e8b98388c96de3b829acf98eed69}{singleton\+Mutex}}
+\begin{DoxyCompactList}\small\item\em Mutex for thread-\/safe access. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classUsageManager}{Usage\+Manager}} class is a utility class that helps with configuration parameters. 
+
+\mbox{\hyperlink{classUsageManager}{Usage\+Manager}} class is a class that keeps track of configuration parameters read from a configuration file, checks if these parameters are valid, and if they are equal to the number of the expected parameters. Furthermore, it offers an on-\/demand service by returning the parameters read from the file to the callers. 
+
+Definition at line \mbox{\hyperlink{UsageManager_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{UsageManager_8hpp_source}{Usage\+Manager.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classUsageManager_ad71bd8a659d1fa72578af1777b7c69b9}\label{classUsageManager_ad71bd8a659d1fa72578af1777b7c69b9}} 
+\index{UsageManager@{UsageManager}!UsageManager@{UsageManager}}
+\index{UsageManager@{UsageManager}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{UsageManager()}{UsageManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Usage\+Manager\+::\+Usage\+Manager (\begin{DoxyParamCaption}\item[{int $\ast$}]{argc = {\ttfamily nullptr},  }\item[{char $\ast$$\ast$$\ast$}]{argv = {\ttfamily nullptr},  }\item[{const int}]{expected\+\_\+argc = {\ttfamily 0},  }\item[{const char $\ast$}]{expected\+Usage\+Message = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Construct a new \mbox{\hyperlink{classUsageManager}{Usage\+Manager}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & configuration parameters\textquotesingle{} number. \\
+\hline
+{\em argv} & configuration parameters. \\
+\hline
+{\em expected\+\_\+argc} & expected configuration parameters\textquotesingle{} number. \\
+\hline
+{\em expected\+Usage\+Message} & a simple message that lets the user understand how to properly run the executable. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8hpp_source_l00084}{84}} of file \mbox{\hyperlink{UsageManager_8hpp_source}{Usage\+Manager.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084                                                                                                                                            : \mbox{\hyperlink{classUsageManager_ad2f9dc91560a8dd4498ed869df79a613}{argc}}(\mbox{\hyperlink{classUsageManager_ad2f9dc91560a8dd4498ed869df79a613}{argc}}), \mbox{\hyperlink{classUsageManager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}}(\mbox{\hyperlink{classUsageManager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}}), \mbox{\hyperlink{classUsageManager_af7802bf5ae34a3b58318144ebc8c8052}{expected\_argc}}(\mbox{\hyperlink{classUsageManager_af7802bf5ae34a3b58318144ebc8c8052}{expected\_argc}}), \mbox{\hyperlink{classUsageManager_aab4e2da282d83139124a0b95de74cd1d}{expectedUsageMessage}}(\mbox{\hyperlink{classUsageManager_aab4e2da282d83139124a0b95de74cd1d}{expectedUsageMessage}}) \{}
+\DoxyCodeLine{00085         \mbox{\hyperlink{classUsageManager_a345e7bb03c752be3258c59fd8ba7004f}{checkUsage}}();}
+\DoxyCodeLine{00086     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classUsageManager_ab42b151fe02294bb3c28c824a6bf6cb7}\label{classUsageManager_ab42b151fe02294bb3c28c824a6bf6cb7}} 
+\index{UsageManager@{UsageManager}!UsageManager@{UsageManager}}
+\index{UsageManager@{UsageManager}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{UsageManager()}{UsageManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Usage\+Manager\+::\+Usage\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUsageManager}{Usage\+Manager}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Disabling the possibility to clone the Singleton object. Singletons should not be cloneable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUsageManager_a8b4d7a1b52de9904613be7d2562cd12b}\label{classUsageManager_a8b4d7a1b52de9904613be7d2562cd12b}} 
+\index{UsageManager@{UsageManager}!````~UsageManager@{$\sim$UsageManager}}
+\index{````~UsageManager@{$\sim$UsageManager}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$UsageManager()}{~UsageManager()}}
+{\footnotesize\ttfamily Usage\+Manager\+::$\sim$\+Usage\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the Usage Manager object. 
+
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{UsageManager_8cpp_source}{Usage\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037                             \{}
+\DoxyCodeLine{00038     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < * \mbox{\hyperlink{classUsageManager_a6773644ed5e5c15f5694f39c5f76cfd9}{get\_argc}}(); i++) \textcolor{keyword}{delete} [] (* \mbox{\hyperlink{classUsageManager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}())[i];}
+\DoxyCodeLine{00039     \textcolor{keyword}{delete} \mbox{\hyperlink{classUsageManager_a6773644ed5e5c15f5694f39c5f76cfd9}{get\_argc}}();}
+\DoxyCodeLine{00040     \textcolor{keyword}{delete} \mbox{\hyperlink{classUsageManager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}();}
+\DoxyCodeLine{00041     \textcolor{keyword}{delete} \mbox{\hyperlink{classUsageManager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}};}
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUsageManager_a345e7bb03c752be3258c59fd8ba7004f}\label{classUsageManager_a345e7bb03c752be3258c59fd8ba7004f}} 
+\index{UsageManager@{UsageManager}!checkUsage@{checkUsage}}
+\index{checkUsage@{checkUsage}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{checkUsage()}{checkUsage()}}
+{\footnotesize\ttfamily void Usage\+Manager\+::check\+Usage (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks if the configuration parameters are valid and if they are equal to the number of the expected parameters. If not, it raises an error. 
+
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{UsageManager_8cpp_source}{Usage\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020                                    \{}
+\DoxyCodeLine{00021     \textcolor{keywordflow}{if} (* \mbox{\hyperlink{classUsageManager_a6773644ed5e5c15f5694f39c5f76cfd9}{get\_argc}}() != \mbox{\hyperlink{classUsageManager_ae2a85a52df993fd0a3969bb0a93d5f74}{get\_expected\_argc}}()) \{}
+\DoxyCodeLine{00022         std::string buffer = \textcolor{stringliteral}{"{}Usage: ./"{}} + std::string((* \mbox{\hyperlink{classUsageManager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}())[\mbox{\hyperlink{constants_8hpp_ad4888214d23dda1d28d72563ed4f5f11}{programNameOffset}}]) + std::string(\mbox{\hyperlink{classUsageManager_a6a79fcaa289441de1a65870d30b15f8f}{get\_expectedUsageMessage}}()) + \textcolor{stringliteral}{"{} -\/-\/ "{}} + std::string(\mbox{\hyperlink{constants_8hpp_a94e3a7bc53c0fff54460fa4210e9dee2}{CHECK\_USAGE\_SCOPE}});}
+\DoxyCodeLine{00023         CV\_Error(\mbox{\hyperlink{constants_8hpp_af1b6329efa478baea3e7725a31f12e91}{CHECK\_USAGE\_ERROR}}, buffer);}
+\DoxyCodeLine{00024     \}}
+\DoxyCodeLine{00025 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classUsageManager_a6773644ed5e5c15f5694f39c5f76cfd9}\label{classUsageManager_a6773644ed5e5c15f5694f39c5f76cfd9}} 
+\index{UsageManager@{UsageManager}!get\_argc@{get\_argc}}
+\index{get\_argc@{get\_argc}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{get\_argc()}{get\_argc()}}
+{\footnotesize\ttfamily int $\ast$ Usage\+Manager\+::get\+\_\+argc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the argc\textquotesingle{}s pointer. 
+
+\begin{DoxyReturn}{Returns}
+int$\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{UsageManager_8cpp_source}{Usage\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056                                   \{}
+\DoxyCodeLine{00057     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classUsageManager_ad2f9dc91560a8dd4498ed869df79a613}{argc}};}
+\DoxyCodeLine{00058 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classUsageManager_abf0d03e097025fc8d85133f6a0ff83ff}\label{classUsageManager_abf0d03e097025fc8d85133f6a0ff83ff}} 
+\index{UsageManager@{UsageManager}!get\_argv@{get\_argv}}
+\index{get\_argv@{get\_argv}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{get\_argv()}{get\_argv()}}
+{\footnotesize\ttfamily char $\ast$$\ast$$\ast$ Usage\+Manager\+::get\+\_\+argv (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the argv\textquotesingle{}s pointer. 
+
+\begin{DoxyReturn}{Returns}
+char $\ast$$\ast$$\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{UsageManager_8cpp_source}{Usage\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060                                      \{}
+\DoxyCodeLine{00061     std::stringstream openPoseTerminalCommand;}
+\DoxyCodeLine{00062     \mbox{\hyperlink{classUsageManager}{UsageManager}} * usageManagerInstance = \mbox{\hyperlink{classUsageManager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}();}
+\DoxyCodeLine{00063     \textcolor{keywordflow}{if} (usageManagerInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_ab495e2525cf238bb390ca68277586bf4}{USAGE\_MANAGER\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ade33b45fd12b716d5e837609aa163416}{USAGE\_MANAGER\_NULLPTR\_SCOPE}});}
+\DoxyCodeLine{00064     \textcolor{keywordflow}{return} usageManagerInstance-\/>\mbox{\hyperlink{classUsageManager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}};}
+\DoxyCodeLine{00065 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classUsageManager_ae2a85a52df993fd0a3969bb0a93d5f74}\label{classUsageManager_ae2a85a52df993fd0a3969bb0a93d5f74}} 
+\index{UsageManager@{UsageManager}!get\_expected\_argc@{get\_expected\_argc}}
+\index{get\_expected\_argc@{get\_expected\_argc}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{get\_expected\_argc()}{get\_expected\_argc()}}
+{\footnotesize\ttfamily const int Usage\+Manager\+::get\+\_\+expected\+\_\+argc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the expected argc value. 
+
+\begin{DoxyReturn}{Returns}
+const int 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{UsageManager_8cpp_source}{Usage\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027                                                \{}
+\DoxyCodeLine{00028     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classUsageManager_af7802bf5ae34a3b58318144ebc8c8052}{expected\_argc}};}
+\DoxyCodeLine{00029 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classUsageManager_a6a79fcaa289441de1a65870d30b15f8f}\label{classUsageManager_a6a79fcaa289441de1a65870d30b15f8f}} 
+\index{UsageManager@{UsageManager}!get\_expectedUsageMessage@{get\_expectedUsageMessage}}
+\index{get\_expectedUsageMessage@{get\_expectedUsageMessage}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{get\_expectedUsageMessage()}{get\_expectedUsageMessage()}}
+{\footnotesize\ttfamily const char $\ast$ Usage\+Manager\+::get\+\_\+expected\+Usage\+Message (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the expected usage message. 
+
+\begin{DoxyReturn}{Returns}
+const char $\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{UsageManager_8cpp_source}{Usage\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031                                                          \{}
+\DoxyCodeLine{00032     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classUsageManager_aab4e2da282d83139124a0b95de74cd1d}{expectedUsageMessage}};}
+\DoxyCodeLine{00033 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classUsageManager_a223b17baf96c6e172aa8da76a8215724}\label{classUsageManager_a223b17baf96c6e172aa8da76a8215724}} 
+\index{UsageManager@{UsageManager}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUsageManager}{Usage\+Manager}} $\ast$ Usage\+Manager\+::get\+Instance (\begin{DoxyParamCaption}\item[{int $\ast$}]{argc,  }\item[{char $\ast$$\ast$$\ast$}]{argv,  }\item[{const int}]{expected\+\_\+argc,  }\item[{const char $\ast$}]{expected\+Usage\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the unique class instance, given input parameters. This method should be called the first time when we want to create a reference to the object of this class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & configuration parameters\textquotesingle{} number. \\
+\hline
+{\em argv} & configuration parameters. \\
+\hline
+{\em expected\+\_\+argc} & expected configuration parameters\textquotesingle{} number. \\
+\hline
+{\em expected\+Usage\+Message} & a simple message that lets the user understand how to properly run the executable. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classUsageManager}{Usage\+Manager}} $\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{UsageManager_8cpp_source}{Usage\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044                                                                                                                                \{}
+\DoxyCodeLine{00045     std::lock\_guard <std::mutex> lock(\mbox{\hyperlink{classUsageManager_a60b3e8b98388c96de3b829acf98eed69}{singletonMutex}});}
+\DoxyCodeLine{00046     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classUsageManager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}} == \textcolor{keyword}{nullptr}) \mbox{\hyperlink{classUsageManager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}} = \textcolor{keyword}{new} \mbox{\hyperlink{classUsageManager_ad71bd8a659d1fa72578af1777b7c69b9}{UsageManager}}(\mbox{\hyperlink{classUsageManager_ad2f9dc91560a8dd4498ed869df79a613}{argc}}, \mbox{\hyperlink{classUsageManager_ad6aa65b36661f52e7bfb6b8ffd7e3135}{argv}}, \mbox{\hyperlink{classUsageManager_af7802bf5ae34a3b58318144ebc8c8052}{expected\_argc}}, \mbox{\hyperlink{classUsageManager_aab4e2da282d83139124a0b95de74cd1d}{expectedUsageMessage}});}
+\DoxyCodeLine{00047     \textcolor{keywordflow}{return} \mbox{\hyperlink{classUsageManager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}};}
+\DoxyCodeLine{00048 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classUsageManager_af047400a8bd50603cff4bbffe37ebea2}\label{classUsageManager_af047400a8bd50603cff4bbffe37ebea2}} 
+\index{UsageManager@{UsageManager}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUsageManager}{Usage\+Manager}} $\ast$ Usage\+Manager\+::get\+Instance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the unique class instance. This methods should be called in the following scenario\+: when we just want to retrieve the reference to the object of this class. 
+
+\begin{DoxyReturn}{Returns}
+Usage\+Manager$\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{UsageManager_8cpp_source}{Usage\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050                                               \{}
+\DoxyCodeLine{00051     std::lock\_guard <std::mutex> lock(\mbox{\hyperlink{classUsageManager_a60b3e8b98388c96de3b829acf98eed69}{singletonMutex}});}
+\DoxyCodeLine{00052     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classUsageManager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}} == \textcolor{keyword}{nullptr}) \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00053     \textcolor{keywordflow}{return} \mbox{\hyperlink{classUsageManager_ae0a59e7727dff85dfdef79336d535498}{sharedInstance}};}
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classUsageManager_ab07ecb1bf5f9e52847243955913d6839}\label{classUsageManager_ab07ecb1bf5f9e52847243955913d6839}} 
+\index{UsageManager@{UsageManager}!operator=@{operator=}}
+\index{operator=@{operator=}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Usage\+Manager\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classUsageManager}{Usage\+Manager}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Disabling the possibility to assign a Singleton object. Singletons should not be assignable. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classUsageManager_ad2f9dc91560a8dd4498ed869df79a613}\label{classUsageManager_ad2f9dc91560a8dd4498ed869df79a613}} 
+\index{UsageManager@{UsageManager}!argc@{argc}}
+\index{argc@{argc}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{argc}{argc}}
+{\footnotesize\ttfamily int$\ast$ Usage\+Manager\+::argc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+configuration parameters\textquotesingle{} number. 
+
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{UsageManager_8hpp_source}{Usage\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{classUsageManager_ad6aa65b36661f52e7bfb6b8ffd7e3135}\label{classUsageManager_ad6aa65b36661f52e7bfb6b8ffd7e3135}} 
+\index{UsageManager@{UsageManager}!argv@{argv}}
+\index{argv@{argv}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{argv}{argv}}
+{\footnotesize\ttfamily char$\ast$$\ast$$\ast$ Usage\+Manager\+::argv\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+configuration parameters. 
+
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{UsageManager_8hpp_source}{Usage\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{classUsageManager_af7802bf5ae34a3b58318144ebc8c8052}\label{classUsageManager_af7802bf5ae34a3b58318144ebc8c8052}} 
+\index{UsageManager@{UsageManager}!expected\_argc@{expected\_argc}}
+\index{expected\_argc@{expected\_argc}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{expected\_argc}{expected\_argc}}
+{\footnotesize\ttfamily const int Usage\+Manager\+::expected\+\_\+argc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+expected configuration parameters\textquotesingle{} number. 
+
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{UsageManager_8hpp_source}{Usage\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{classUsageManager_aab4e2da282d83139124a0b95de74cd1d}\label{classUsageManager_aab4e2da282d83139124a0b95de74cd1d}} 
+\index{UsageManager@{UsageManager}!expectedUsageMessage@{expectedUsageMessage}}
+\index{expectedUsageMessage@{expectedUsageMessage}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{expectedUsageMessage}{expectedUsageMessage}}
+{\footnotesize\ttfamily const char$\ast$ Usage\+Manager\+::expected\+Usage\+Message\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+a simple message that lets the user understand how to properly run the executable. 
+
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{UsageManager_8hpp_source}{Usage\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{classUsageManager_ae0a59e7727dff85dfdef79336d535498}\label{classUsageManager_ae0a59e7727dff85dfdef79336d535498}} 
+\index{UsageManager@{UsageManager}!sharedInstance@{sharedInstance}}
+\index{sharedInstance@{sharedInstance}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{sharedInstance}{sharedInstance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUsageManager}{Usage\+Manager}} $\ast$ Usage\+Manager\+::shared\+Instance \{ nullptr \}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+The field for storing the singleton instance. 
+
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{UsageManager_8hpp_source}{Usage\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{classUsageManager_a60b3e8b98388c96de3b829acf98eed69}\label{classUsageManager_a60b3e8b98388c96de3b829acf98eed69}} 
+\index{UsageManager@{UsageManager}!singletonMutex@{singletonMutex}}
+\index{singletonMutex@{singletonMutex}!UsageManager@{UsageManager}}
+\doxysubsubsection{\texorpdfstring{singletonMutex}{singletonMutex}}
+{\footnotesize\ttfamily std\+::mutex Usage\+Manager\+::singleton\+Mutex\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Mutex for thread-\/safe access. 
+
+
+
+Definition at line \mbox{\hyperlink{UsageManager_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{UsageManager_8hpp_source}{Usage\+Manager.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Managers/\mbox{\hyperlink{UsageManager_8hpp}{Usage\+Manager.\+hpp}}\item 
+Managers/\mbox{\hyperlink{UsageManager_8cpp}{Usage\+Manager.\+cpp}}\end{DoxyCompactItemize}
