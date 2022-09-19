@@ -47,8 +47,6 @@ static const char * RDKAFKA_CONF_SET_SCOPE = "KafkaManager::loadConfigurationGro
 static const short int NEW_ALLOC_ERROR = 11;
 static const char * NEW_ALLOC_SCOPE = "Error while allocating dynamic memory with new.";
 
-static const short int CALLOC_ERROR = 12;
-static const char * CALLOC_SCOPE = "Error during calloc.";
 
 
 // Other useful constants declaration.

@@ -117,8 +117,8 @@ private:
     ~FacadeSingleton(void);
 protected:
     /**
-     * @brief Set the RealSeneManager pointer.
-     * @param cameraManager pointer to a RealSeneManager object.
+     * @brief Set the RealSenseManager pointer.
+     * @param cameraManager pointer to a RealSenseManager object.
      * @see RealSenseManager.hpp
      */
     void setCameraManager               (RealSenseManager * cameraManager);
@@ -248,8 +248,8 @@ public:
      * The pipeline is the consumer of the processing block interface, while the application consumes the computer vision interface.
      * @param color_intrin Reference to color video stream intrinsics.
      * @param scale Pointer to scaling factor.
-     * @param resX x resoultion <->
-     * @param resY y resolution
+     * @param resX x resoultion <->.
+     * @param resY y resolution.
      * @param destinationKafkaTopic the destination's kafka topic's name.
      * @see https://dev.intelrealsense.com/docs/docs-get-started
      * @see startEnvironment(rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY, bool firstBoot)

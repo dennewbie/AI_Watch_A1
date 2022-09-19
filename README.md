@@ -96,7 +96,7 @@
     ```
 
     ### Important #1 📌
-    The confluent local commands are intended for a single-node development environment and are not suitable for a production environment. The data that are produced are transient and are intended to be temporary. For production-ready workflows, check confluent.io.
+    The confluent local commands are intended for a single-node development environment and are not suitable for a production environment. The data that are produced are transient and are intended to be temporary. For production-ready workflows, check [Confluent website](https://www.confluent.io/).
 
     ### Important #2 📌
     The Confluent CLI requires Java version 1.8 or 1.11.

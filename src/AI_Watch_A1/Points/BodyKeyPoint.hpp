@@ -25,20 +25,20 @@ class BodyKeyPoint : public Point {
 private:
     /**
      * @brief The confidence value is an OpenPose parameter to evaluate how accurate the process was while 
-     * determining this joint point.
+     * determining this particular joint point.
      */
     float confidence;
     
 
 
     /**
-     * @brief Set the Confidence value.
+     * @brief Set the confidence value.
      * @param confidence 
      */
     void setConfidence  (float confidence);
 public:
     /**
-     * @brief Construct a new Body Key Point object.
+     * @brief Construct a new Body Keypoint object.
      * @param x 
      * @param y 
      * @param confidence 
@@ -48,7 +48,7 @@ public:
     BodyKeyPoint        (float x, float y, float confidence, Point * decorated = nullptr);
     
     /**
-     * @brief Get the Confidence value.
+     * @brief Get the confidence value.
      * @return float 
      */
     float getConfidence (void);

@@ -139,10 +139,9 @@ public:
      * The pipeline is the consumer of the processing block interface, while the application consumes the computer vision interface.
      * @param color_intrin Reference to color video stream intrinsics.
      * @param scale Pointer to scaling factor.
-     * @param resX x resoultion <->
-     * @param resY y resolution
+     * @param resX x resoultion <->.
+     * @param resY y resolution.
      * @param firstBoot true if the method is called for the first time (in this case a kind of camera calibration is done), false otherwise.
-     * @param destinationKafkaTopic the destination's kafka topic's name.
      * @see https://dev.intelrealsense.com/docs/docs-get-started
      * @see startEnvironment(rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY, const char * destinationKafkaTopic)
      */
@@ -169,6 +168,12 @@ public:
                                                  rs2::frame & colorizedDepthFrame) = 0;
 };
 
+
+
+/**
+ * @brief RealSenseD435Manager class is a class that abstracts the behavior of an Intel RealSense D435 Camera,
+ * in order to capture frames, apply post-processing, and so on.
+ */
 class RealSenseD435Manager : public RealSenseManager {
 public:
     /**
@@ -182,10 +187,9 @@ public:
      * The pipeline is the consumer of the processing block interface, while the application consumes the computer vision interface.
      * @param color_intrin Reference to color video stream intrinsics.
      * @param scale Pointer to scaling factor.
-     * @param resX x resoultion <->
-     * @param resY y resolution
+     * @param resX x resoultion <->.
+     * @param resY y resolution.
      * @param firstBoot true if the method is called for the first time (in this case a kind of camera calibration is done), false otherwise.
-     * @param destinationKafkaTopic the destination's kafka topic's name.
      * @see https://dev.intelrealsense.com/docs/docs-get-started
      * @see startEnvironment(rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY, const char * destinationKafkaTopic)
      */
@@ -208,8 +212,8 @@ public:
      * @see getVideoFrames         (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale)
      */
     void getVideoFramesRS                       (unsigned int user_nFrame, rs2::pipeline & pipelineStream,
-                                                 rs2::depth_frame & depthFrames, rs2::frame & colorFrames,
-                                                 rs2::frame & colorizedDepthFrames) override;
+                                                 rs2::depth_frame & depthFrame, rs2::frame & colorFrame,
+                                                 rs2::frame & colorizedDepthFrame) override;
 };
 
 #endif /* RealSenseManager_hpp */

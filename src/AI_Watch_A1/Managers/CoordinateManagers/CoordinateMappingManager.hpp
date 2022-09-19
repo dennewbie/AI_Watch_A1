@@ -65,14 +65,14 @@ static const float heightOffset = 0.15;
 class CoordinateMappingManager {
 protected:
     /**
-     * @brief Converts width value
-     * @param widthCoordinate Input width value
+     * @brief Converts width value.
+     * @param widthCoordinate Input width value.
      * @return float 
      */
     float transformWidthCoordinate      (float widthCoordinate);
     /**
-     * @brief Converts height value
-     * @param heightCoordinate Input height value
+     * @brief Converts height value.
+     * @param heightCoordinate Input height value.
      * @return float 
      */
     float transformHeightCoordinate     (float heightCoordinate);

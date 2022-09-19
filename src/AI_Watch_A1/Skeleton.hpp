@@ -30,7 +30,7 @@ enum BodyKeypoint { Nose = 0, Neck = 1, RShoulder = 2, RElbow = 3, RWrist = 4,
 
 
 /**
- * Skeleton class is a class that keeps track of the image different frames where a specific skeleton may appears, 
+ * Skeleton class is a class that keeps track of the different frames where a specific skeleton may appears,
  * its body key points, correspondent 3D space points, and other useful information skeleton-related.
  * @brief Skeleton class is used for skeleton creations and manipulations.
  */
@@ -85,7 +85,7 @@ private:
     std::vector <Point3D *>     skeletonPoints3D_RS;
     /**
      * @brief A pointer to a vector that contains a set of pointers to Point3D. These points have coordinates in which the domain is defined from 
-     * boundaries parameters specified in "constants.hpp"
+     * boundaries parameters specified in "CoordinateMappingManager.hpp".
      * @see https://dev.intelrealsense.com/docs/projection-in-intel-realsense-sdk-20
      * @see Point3D
      * @see constants.hpp
@@ -194,8 +194,8 @@ private:
     /**
      * @brief Draw a line that starts from a point and ends at another point. The points are specified as unsigned char, 
      * since is possible to access the instance BodyKeyPoints vector and get the point.
-     * @param start start point index in the BodyKeyPoints vector
-     * @param end end point index in the BodyKeyPoints vector
+     * @param start start point index in the BodyKeyPoints vector.
+     * @param end end point index in the BodyKeyPoints vector.
      */
     void drawLine                   (unsigned char start, unsigned char end);
     /**
@@ -215,7 +215,7 @@ private:
      */
     void deprojectSkeletonPoints3D  (void);
     /**
-     * @brief Write "nose" joint point's coordinates on the RGB image.
+     * @brief Write specific joint points' coordinates on the RGB image.
      * @see getSkeletonPoints3D()
      * @see getBodyKeyPoints()
      * @see Point

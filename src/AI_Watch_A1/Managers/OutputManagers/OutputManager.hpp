@@ -52,8 +52,8 @@ protected:
      * @param skeletonPoints3D A vector that contains pointers to Points3D whose coordinates represent the skeleton's junctions in certain space coordinates.
      * @param bodyKeyPointsMap A vector that contains for each body joint retrieved from OpenPose a corresponding boolean that means if that body joint 
      * is a valuable and effective body joint or not.
-     * @param frameID current frame ID
-     * @param personID current person ID within the current frame
+     * @param frameID current frame ID.
+     * @param personID current person ID within the current frame.
      * @return Json::Value 
      */
     virtual Json::Value makeOutputString        (std::vector <Point3D *> skeletonPoints3D, std::vector <bool> bodyKeyPointsMap,
@@ -77,8 +77,8 @@ protected:
      * @param skeletonPoints3D A vector that contains pointers to Points3D whose coordinates represent the skeleton's junctions in certain space coordinates.
      * @param bodyKeyPointsMap A vector that contains for each body joint retrieved from OpenPose a corresponding boolean that means if that body joint 
      * is a valuable and effective body joint or not.
-     * @param frameID current frame ID
-     * @param personID current person ID within the current frame
+     * @param frameID current frame ID.
+     * @param personID current person ID within the current frame.
      * @return Json::Value 
      */
     Json::Value makeOutputString                 (std::vector <Point3D *> skeletonPoints3D, std::vector <bool> bodyKeyPointsMap,
@@ -88,8 +88,8 @@ public:
      * @brief Loads a JSON file and returns it as a reference. The JSON file path on disk is given.
      * @param filePathJSON JSON file path on disk.
      * @param currentJSON JSON reference where the JSON file will be load.
-     * @return true if the file-loading ends correctly
-     * @return false if the file-loading does not end correctly
+     * @return true if the file-loading ends correctly.
+     * @return false if the file-loading does not end correctly.
      */
     bool loadJSON                                (std::string filePathJSON, Json::Value & currentJSON);
     /**
@@ -123,15 +123,15 @@ public:
      */
     Json::Value getValueAt                       (std::string key, unsigned int i, Json::Value currentJSON);
     /**
-     * @brief This methods take a reference to a JSON node that represents all the people's information within the frame, 
+     * @brief This methods take a reference to a JSON node that represents all the people's informations within the frame,
      * color, depth, distance, and skeleton-only frame, the current frame ID, and the output folder's path on disk and for 
      * each person in the people's JSON node, the method extracts, generates, and appends a single Skeleton to the current JSON node.
-     * @param people JSON node containing people's information detected within the frame.
-     * @param colorImage color frame
-     * @param distanceImage distance frame
-     * @param skeletonOnlyImage skeleton-only frame
-     * @param nFrame current image ID
-     * @param outputFolder output folder's path on disk
+     * @param people JSON node containing people's informations detected within the frame.
+     * @param colorImage color frame.
+     * @param distanceImage distance frame.
+     * @param skeletonOnlyImage skeleton-only frame.
+     * @param nFrame current image ID.
+     * @param outputFolder output folder's path on disk.
      * @see Skeleton.hpp
      */
     void createJSON                              (Json::Value & people, cv::Mat & colorImage, cv::Mat & distanceImage, cv::Mat & skeletonOnlyImage,

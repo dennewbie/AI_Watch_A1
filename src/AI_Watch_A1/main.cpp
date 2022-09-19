@@ -9,22 +9,30 @@
 // Copyright(c) 2022. All Rights Reserved.
 
 /** 
- * @mainpage AI Watch A1 Documentation
+ * @mainpage AI Watch A1 documentation
  * @section intro_sec Introduction
- * This is the AI Watch A1 Documentation for C++. AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve 
+ * This is the AI Watch A1 documentation for C++. AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve
  * multi-person 3D skeleton detection. Once this task is completed, AI Watch A1 provides support to send each detected skeleton and 
  * its joint points' 3D coordinates (room and D435's details have to be specified) via Kafka, in order to let further detached 
  * computation possible.
+ *
  * @section keynote_sec Keynote 📋
- * ...
+ * - [Keynote](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.key)
+ *
+ * @section demo_sec Demo 💻
+ * - [Demo #1](https://youtu.be/Ac0V8Dj0FbI)
+ * - [Demo #2](https://youtu.be/pq3m9U3hRrQ)
+ *
  * @section otherdoc_sec Other Docs 📜
- * ... bsc cs thesis ...
+ * - [Bachelor Thesis in Computer Science](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.pdf)
+ *
  * @section install_sec Installation 🚀
  * 1) Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies.
  * 
  * 2) Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies.
  * 
- * 3) Install [Confluent](https://www.confluent.io/) and its own dependencies.
+ * 3) Install [Confluent](https://www.confluent.io/) and its own dependencies. This step is not mandatory, but without Confluent,
+ * you will have to set up the Kafka environment.
  * 
  * 4) Run the following command in your terminal:
  * ```
@@ -39,7 +47,7 @@
  * 
  * 6) Copy OpenPose's `models` folder to the project's build folder.
  * 
- * 7) Copy OpenPose's `BoostConfig.cmake`, `FindGFlags.cmake` and `FindGlog.cmake` files  to the `build/cmake/modules/` folder
+ * 7) Copy OpenPose's `BoostConfig.cmake`, `FindGFlags.cmake` and `FindGlog.cmake` files  to the `build/cmake/modules/` folder.
  * 
  * 8) Run the following commands in your terminal:
  * 
@@ -47,8 +55,8 @@
  * cmake .. && make -j `sysctl -n hw.logicalcpu`
  * ```
  * 
- * 9) Now let's tart the Kafka environment. Run the following commands in a new terminal session. Set the environment variable for 
- * the Confluent Platform home directory:
+ * 9) Now let's start the Kafka environment. Run the following commands in a new terminal session located on the parent folder of the `confluent` folder.
+ * Set the environment variable for the Confluent Platform home directory:
  *   ```
  *   export CONFLUENT_HOME=confluent-7.2.1
  *   ```
@@ -90,12 +98,11 @@
  *
  *   ### Important #1 📌
  *   The confluent local commands are intended for a single-node development environment and are not suitable for a production environment. 
- *   The data that are produced are transient and are intended to be temporary. For production-ready workflows, see Install and Upgrade 
- *   Confluent Platform.
+ *   The data that are produced are transient and are intended to be temporary. For production-ready workflows, check [Confluent website](https://www.confluent.io/).
  *
  *   ### Important #2 📌
  *   The Confluent CLI requires Java version 1.8 or 1.11.
- *   See [Confluent versions interoperability](https://docs.confluent.io/current/installation/versions-interoperability.html)
+ *   See [Confluent versions interoperability](https://docs.confluent.io/current/installation/versions-interoperability.html).
  * 
  * 10) Navigate to `http://localhost:9021` and create a new topic `t1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and 
  *     set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file. At this point:
@@ -104,7 +111,7 @@
  * ```
  * sudo ./AI_Watch_A1.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255
  * ```
- *   - if external OpenPose execution is chosen, then set up your OpenPose parameters within the "conf.conf" file, run the following command in your terminal:
+ *   - if external OpenPose execution is chosen, then set up your OpenPose parameters within the "conf.conf" file and run the following command in your terminal:
  *
  * ```
  * sudo ./AI_Watch_A1.bin
@@ -113,6 +120,7 @@
  * @section tools_sec Tools 🛠
  * - [Intel RealSense SDK](https://github.com/IntelRealSense/librealsense)
  * - [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
+ * - [OpenCV](https://github.com/opencv/opencv)
  * - [Kafka](https://kafka.apache.org/)
  * - [Kafka C/C++ library](https://github.com/edenhill/librdkafka)
  * - [Confluent](https://www.confluent.io/)
@@ -132,8 +140,8 @@
  * - [LinkedIn](https://www.linkedin.com/in/denny-caruso/)
  * 
  * @section supervisor_sec Supervisor 
- * - Dr. Alessio Ferone, CS Assistant Professor at the University of Naples Parthenope
- * 
+ * - [Dr. Alessio Ferone](https://www.researchgate.net/profile/Alessio-Ferone), CS Assistant Professor at the [University of Naples Parthenope](https://www.uniparthenope.it/).
+ *
  * a.a. 2021/2022
  */
 
@@ -177,12 +185,12 @@ int main (int argc, char ** argv) {
         After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.
     */
     while (true) {
-//        myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
-//        myUtility->getVideoBodyKeyPoints(& argc, & argv);
+        myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
+        myUtility->getVideoBodyKeyPoints(& argc, & argv);
         myUtility->showSkeletons(user_nFrame);
-//        myUtility->sendData(user_nFrame);
-//        myUtility->cleanBuildFolder();
-//        break;
+        myUtility->sendData(user_nFrame);
+        myUtility->cleanBuildFolder();
+        break;
     }
     return EXIT_SUCCESS;
 }
