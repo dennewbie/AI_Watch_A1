@@ -40,37 +40,37 @@ int The return value for main indicates how the program exited. Normal exit is r
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{main_8cpp_source_l00170}{170}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00180}{180}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00170                                   \{}
-\DoxyCodeLine{00171     rs2::pipeline pipelineStream;}
-\DoxyCodeLine{00172     \textcolor{comment}{// Scaling factor for distance frame and topic name for kafka connection.}}
-\DoxyCodeLine{00173     \textcolor{keywordtype}{float} scale;}
-\DoxyCodeLine{00174     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * destinationKafkaTopic = \textcolor{stringliteral}{"{}t1"{}};}
-\DoxyCodeLine{00175     \textcolor{comment}{// Optimal resolution for D435: 848x480.}}
-\DoxyCodeLine{00176     \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} user\_nFrame = 1043, resX = 848, resY = 480;}
-\DoxyCodeLine{00177     \textcolor{keyword}{struct }rs2\_intrinsics color\_intrin;}
-\DoxyCodeLine{00178     }
-\DoxyCodeLine{00179     \textcolor{comment}{// Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.}}
-\DoxyCodeLine{00180     \mbox{\hyperlink{classFacadeSingleton}{FacadeSingleton}} * myUtility = \mbox{\hyperlink{classFacadeSingleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}(\mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
-\DoxyCodeLine{00181     myUtility-\/>startEnvironment(pipelineStream, color\_intrin, \& scale, resX, resY, destinationKafkaTopic);}
-\DoxyCodeLine{00182 }
-\DoxyCodeLine{00183     \textcolor{comment}{/*}}
-\DoxyCodeLine{00184 \textcolor{comment}{        An infinite loop that captures the frames seen from the camera, gives them to OpenPose, gets the output, and builds skeletons.}}
-\DoxyCodeLine{00185 \textcolor{comment}{        After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.}}
-\DoxyCodeLine{00186 \textcolor{comment}{    */}}
-\DoxyCodeLine{00187     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
-\DoxyCodeLine{00188         myUtility-\/>getVideoFrames(user\_nFrame, pipelineStream, scale);}
-\DoxyCodeLine{00189         myUtility-\/>getVideoBodyKeyPoints(\& argc, \& argv);}
-\DoxyCodeLine{00190         myUtility-\/>showSkeletons(user\_nFrame);}
-\DoxyCodeLine{00191         myUtility-\/>sendData(user\_nFrame);}
-\DoxyCodeLine{00192         myUtility-\/>cleanBuildFolder();}
-\DoxyCodeLine{00193         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00194     \}}
-\DoxyCodeLine{00195     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
-\DoxyCodeLine{00196 \}}
+\DoxyCodeLine{00180                                   \{}
+\DoxyCodeLine{00181     rs2::pipeline pipelineStream;}
+\DoxyCodeLine{00182     \textcolor{comment}{// Scaling factor for distance frame and topic name for kafka connection.}}
+\DoxyCodeLine{00183     \textcolor{keywordtype}{float} scale;}
+\DoxyCodeLine{00184     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * destinationKafkaTopic = \textcolor{stringliteral}{"{}t1"{}};}
+\DoxyCodeLine{00185     \textcolor{comment}{// Optimal resolution for D435: 848x480.}}
+\DoxyCodeLine{00186     \textcolor{keywordtype}{unsigned}  \textcolor{keywordtype}{int} user\_nFrame = 1043, resX = 848, resY = 480;}
+\DoxyCodeLine{00187     \textcolor{keyword}{struct }rs2\_intrinsics color\_intrin;}
+\DoxyCodeLine{00188     }
+\DoxyCodeLine{00189     \textcolor{comment}{// Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.}}
+\DoxyCodeLine{00190     \mbox{\hyperlink{classFacadeSingleton}{FacadeSingleton}} * myUtility = \mbox{\hyperlink{classFacadeSingleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}(\mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
+\DoxyCodeLine{00191     myUtility-\/>startEnvironment(pipelineStream, color\_intrin, \& scale, resX, resY, destinationKafkaTopic);}
+\DoxyCodeLine{00192 }
+\DoxyCodeLine{00193     \textcolor{comment}{/*}}
+\DoxyCodeLine{00194 \textcolor{comment}{        An infinite loop that captures the frames seen from the camera, gives them to OpenPose, gets the output, and builds skeletons.}}
+\DoxyCodeLine{00195 \textcolor{comment}{        After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.}}
+\DoxyCodeLine{00196 \textcolor{comment}{    */}}
+\DoxyCodeLine{00197     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{00198         myUtility-\/>getVideoFrames(user\_nFrame, pipelineStream, scale);}
+\DoxyCodeLine{00199         myUtility-\/>getVideoBodyKeyPoints(\& argc, \& argv);}
+\DoxyCodeLine{00200         myUtility-\/>showSkeletons(user\_nFrame);}
+\DoxyCodeLine{00201         myUtility-\/>sendData(user\_nFrame);}
+\DoxyCodeLine{00202         myUtility-\/>cleanBuildFolder();}
+\DoxyCodeLine{00203         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00204     \}}
+\DoxyCodeLine{00205     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{00206 \}}
 
 \end{DoxyCode}
 
@@ -84,7 +84,7 @@ Definition at line \mbox{\hyperlink{main_8cpp_source_l00170}{170}} of file \mbox
 
 
 
-Definition at line \mbox{\hyperlink{main_8cpp_source_l00154}{154}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00164}{164}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
 
 \mbox{\Hypertarget{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}\label{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}} 
 \index{main.cpp@{main.cpp}!expectedUsageMessage@{expectedUsageMessage}}
@@ -100,5 +100,5 @@ Definition at line \mbox{\hyperlink{main_8cpp_source_l00154}{154}} of file \mbox
 \end{DoxyCode}
 
 
-Definition at line \mbox{\hyperlink{main_8cpp_source_l00155}{155}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00165}{165}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
 

@@ -144,6 +144,15 @@ AI Watch A1 is licensed under the Apache License, Version 2.0. Copyright 2022. P
 - [LinkedIn](https://www.linkedin.com/in/denny-caruso/)
 
 
+## Citation 📖
+```
+    @report{AIWatchA1,
+        author = {Denny Caruso},
+        title = {Multi-person 3D skeleton detection with depth cameras​},
+        institution = {University of Naples, Parthenope},
+        year = {2022}
+    }
+```
 
 ## Supervisor
 - [Dr. Alessio Ferone](https://www.researchgate.net/profile/Alessio-Ferone), CS Assistant Professor at the [University of Naples Parthenope](https://www.uniparthenope.it/).
