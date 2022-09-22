@@ -27,6 +27,7 @@
  * - [Bachelor Thesis in Computer Science](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.pdf)
  *
  * @section install_sec Installation 🚀
+ * Note: Instructions for MacOS with Intel CPU
  * 1) Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies.
  * 
  * 2) Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies.
@@ -138,6 +139,16 @@
  * 
  * @section contacts_sec Contacts 🪪
  * - [LinkedIn](https://www.linkedin.com/in/denny-caruso/)
+ *
+ * @section citation_sec Citation 📖
+ *  ```
+ *    @report{AIWatchA1,
+ *        author = {Denny Caruso},
+ *        title = {Multi-person 3D skeleton detection with depth cameras​},
+ *        institution = {University of Naples, Parthenope},
+ *        year = {2022}
+ *    }
+ *  ```
  * 
  * @section supervisor_sec Supervisor 
  * - [Dr. Alessio Ferone](https://www.researchgate.net/profile/Alessio-Ferone), CS Assistant Professor at the [University of Naples Parthenope](https://www.uniparthenope.it/).
@@ -173,7 +184,7 @@ int main (int argc, char ** argv) {
     float scale;
     const char * destinationKafkaTopic = "t1";
     // Optimal resolution for D435: 848x480.
-    unsigned  int user_nFrame = 1043, resX = 848, resY = 480;
+    unsigned  int user_nFrame = 60, resX = 848, resY = 480;
     struct rs2_intrinsics color_intrin;
     
     // Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.
@@ -190,7 +201,6 @@ int main (int argc, char ** argv) {
         myUtility->showSkeletons(user_nFrame);
         myUtility->sendData(user_nFrame);
         myUtility->cleanBuildFolder();
-        break;
     }
     return EXIT_SUCCESS;
 }

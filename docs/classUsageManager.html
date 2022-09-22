@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="eye_small_white.png"/></td>
   <td id="projectalign">
-   <div id="projectname">AI Watch A1<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">AI Watch A1: Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
+   <div id="projectbrief">Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -219,6 +219,10 @@ Static Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassUsageManager_html_ad6aa65b36661f52e7bfb6b8ffd7e3135"><div class="ttname"><a href="classUsageManager.html#ad6aa65b36661f52e7bfb6b8ffd7e3135">UsageManager::argv</a></div><div class="ttdeci">char *** argv</div><div class="ttdoc">configuration parameters.</div><div class="ttdef"><b>Definition:</b> <a href="UsageManager_8hpp_source.html#l00047">UsageManager.hpp:47</a></div></div>
 <div class="ttc" id="aclassUsageManager_html_af7802bf5ae34a3b58318144ebc8c8052"><div class="ttname"><a href="classUsageManager.html#af7802bf5ae34a3b58318144ebc8c8052">UsageManager::expected_argc</a></div><div class="ttdeci">const int expected_argc</div><div class="ttdoc">expected configuration parameters' number.</div><div class="ttdef"><b>Definition:</b> <a href="UsageManager_8hpp_source.html#l00051">UsageManager.hpp:51</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="UsageManager_8cpp_source.html#l00020">checkUsage()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UsageManager_8cpp_source.html#l00044">getInstance()</a>.</p>
+
 </div>
 </div>
 <a id="ab42b151fe02294bb3c28c824a6bf6cb7" name="ab42b151fe02294bb3c28c824a6bf6cb7"></a>
@@ -291,6 +295,8 @@ Static Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassUsageManager_html_abf0d03e097025fc8d85133f6a0ff83ff"><div class="ttname"><a href="classUsageManager.html#abf0d03e097025fc8d85133f6a0ff83ff">UsageManager::get_argv</a></div><div class="ttdeci">char *** get_argv(void)</div><div class="ttdoc">Get the argv's pointer.</div><div class="ttdef"><b>Definition:</b> <a href="UsageManager_8cpp_source.html#l00060">UsageManager.cpp:60</a></div></div>
 <div class="ttc" id="aclassUsageManager_html_ae0a59e7727dff85dfdef79336d535498"><div class="ttname"><a href="classUsageManager.html#ae0a59e7727dff85dfdef79336d535498">UsageManager::sharedInstance</a></div><div class="ttdeci">static UsageManager * sharedInstance</div><div class="ttdoc">The field for storing the singleton instance.</div><div class="ttdef"><b>Definition:</b> <a href="UsageManager_8hpp_source.html#l00032">UsageManager.hpp:32</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="UsageManager_8cpp_source.html#l00056">get_argc()</a>, <a class="el" href="UsageManager_8cpp_source.html#l00060">get_argv()</a>, and <a class="el" href="UsageManager_8hpp_source.html#l00032">sharedInstance</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -333,6 +339,10 @@ Static Private Attributes</h2></td></tr>
 <div class="ttc" id="aconstants_8hpp_html_ad4888214d23dda1d28d72563ed4f5f11"><div class="ttname"><a href="constants_8hpp.html#ad4888214d23dda1d28d72563ed4f5f11">programNameOffset</a></div><div class="ttdeci">static const short int programNameOffset</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00061">constants.hpp:61</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_af1b6329efa478baea3e7725a31f12e91"><div class="ttname"><a href="constants_8hpp.html#af1b6329efa478baea3e7725a31f12e91">CHECK_USAGE_ERROR</a></div><div class="ttdeci">static const short int CHECK_USAGE_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00017">constants.hpp:17</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="constants_8hpp_source.html#l00017">CHECK_USAGE_ERROR</a>, <a class="el" href="constants_8hpp_source.html#l00018">CHECK_USAGE_SCOPE</a>, <a class="el" href="UsageManager_8cpp_source.html#l00056">get_argc()</a>, <a class="el" href="UsageManager_8cpp_source.html#l00060">get_argv()</a>, <a class="el" href="UsageManager_8cpp_source.html#l00027">get_expected_argc()</a>, <a class="el" href="UsageManager_8cpp_source.html#l00031">get_expectedUsageMessage()</a>, and <a class="el" href="constants_8hpp_source.html#l00061">programNameOffset</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UsageManager_8hpp_source.html#l00084">UsageManager()</a>.</p>
+
 </div>
 </div>
 <a id="a6773644ed5e5c15f5694f39c5f76cfd9" name="a6773644ed5e5c15f5694f39c5f76cfd9"></a>
@@ -359,6 +369,10 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classUsageManager.html#ad2f9dc91560a8dd4498ed869df79a613">argc</a>;</div>
 <div class="line"><span class="lineno">   58</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="UsageManager_8hpp_source.html#l00043">argc</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UsageManager_8cpp_source.html#l00020">checkUsage()</a>, and <a class="el" href="UsageManager_8cpp_source.html#l00037">~UsageManager()</a>.</p>
+
 </div>
 </div>
 <a id="abf0d03e097025fc8d85133f6a0ff83ff" name="abf0d03e097025fc8d85133f6a0ff83ff"></a>
@@ -392,6 +406,10 @@ Static Private Attributes</h2></td></tr>
 <div class="ttc" id="aconstants_8hpp_html_ab495e2525cf238bb390ca68277586bf4"><div class="ttname"><a href="constants_8hpp.html#ab495e2525cf238bb390ca68277586bf4">USAGE_MANAGER_NULLPTR_ERROR</a></div><div class="ttdeci">static const short int USAGE_MANAGER_NULLPTR_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00035">constants.hpp:35</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_ade33b45fd12b716d5e837609aa163416"><div class="ttname"><a href="constants_8hpp.html#ade33b45fd12b716d5e837609aa163416">USAGE_MANAGER_NULLPTR_SCOPE</a></div><div class="ttdeci">static const char * USAGE_MANAGER_NULLPTR_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00036">constants.hpp:36</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="UsageManager_8hpp_source.html#l00047">argv</a>, <a class="el" href="UsageManager_8cpp_source.html#l00050">getInstance()</a>, <a class="el" href="constants_8hpp_source.html#l00035">USAGE_MANAGER_NULLPTR_ERROR</a>, and <a class="el" href="constants_8hpp_source.html#l00036">USAGE_MANAGER_NULLPTR_SCOPE</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UsageManager_8cpp_source.html#l00020">checkUsage()</a>, <a class="el" href="OpenCV__Manager_8cpp_source.html#l00037">OpenCV_Manager::getVideoFramesCV()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00149">FacadeSingleton::sendData()</a>, <a class="el" href="CleanCommand_8cpp_source.html#l00015">CleanCommand::setCommand()</a>, <a class="el" href="OpenPoseCommand_8cpp_source.html#l00130">OpenPoseCommand::setCommand()</a>, <a class="el" href="MoveCommand_8cpp_source.html#l00015">MoveCommand::setCommand()</a>, <a class="el" href="OpenCV__Manager_8cpp_source.html#l00074">OpenCV_Manager::showSkeletonsCV()</a>, and <a class="el" href="UsageManager_8cpp_source.html#l00037">~UsageManager()</a>.</p>
+
 </div>
 </div>
 <a id="ae2a85a52df993fd0a3969bb0a93d5f74" name="ae2a85a52df993fd0a3969bb0a93d5f74"></a>
@@ -426,6 +444,10 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   28</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classUsageManager.html#af7802bf5ae34a3b58318144ebc8c8052">expected_argc</a>;</div>
 <div class="line"><span class="lineno">   29</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="UsageManager_8hpp_source.html#l00051">expected_argc</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UsageManager_8cpp_source.html#l00020">checkUsage()</a>.</p>
+
 </div>
 </div>
 <a id="a6a79fcaa289441de1a65870d30b15f8f" name="a6a79fcaa289441de1a65870d30b15f8f"></a>
@@ -460,6 +482,10 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   32</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classUsageManager.html#aab4e2da282d83139124a0b95de74cd1d">expectedUsageMessage</a>;</div>
 <div class="line"><span class="lineno">   33</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="UsageManager_8hpp_source.html#l00055">expectedUsageMessage</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UsageManager_8cpp_source.html#l00020">checkUsage()</a>.</p>
+
 </div>
 </div>
 <a id="a223b17baf96c6e172aa8da76a8215724" name="a223b17baf96c6e172aa8da76a8215724"></a>
@@ -529,6 +555,8 @@ Static Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassUsageManager_html_a60b3e8b98388c96de3b829acf98eed69"><div class="ttname"><a href="classUsageManager.html#a60b3e8b98388c96de3b829acf98eed69">UsageManager::singletonMutex</a></div><div class="ttdeci">static std::mutex singletonMutex</div><div class="ttdoc">Mutex for thread-safe access.</div><div class="ttdef"><b>Definition:</b> <a href="UsageManager_8hpp_source.html#l00036">UsageManager.hpp:36</a></div></div>
 <div class="ttc" id="aclassUsageManager_html_ad71bd8a659d1fa72578af1777b7c69b9"><div class="ttname"><a href="classUsageManager.html#ad71bd8a659d1fa72578af1777b7c69b9">UsageManager::UsageManager</a></div><div class="ttdeci">UsageManager(int *argc=nullptr, char ***argv=nullptr, const int expected_argc=0, const char *expectedUsageMessage=nullptr)</div><div class="ttdoc">Construct a new UsageManager object.</div><div class="ttdef"><b>Definition:</b> <a href="UsageManager_8hpp_source.html#l00084">UsageManager.hpp:84</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="UsageManager_8hpp_source.html#l00043">argc</a>, <a class="el" href="UsageManager_8hpp_source.html#l00047">argv</a>, <a class="el" href="UsageManager_8hpp_source.html#l00051">expected_argc</a>, <a class="el" href="UsageManager_8hpp_source.html#l00055">expectedUsageMessage</a>, <a class="el" href="UsageManager_8hpp_source.html#l00032">sharedInstance</a>, <a class="el" href="UsageManager_8hpp_source.html#l00036">singletonMutex</a>, and <a class="el" href="UsageManager_8hpp_source.html#l00084">UsageManager()</a>.</p>
+
 </div>
 </div>
 <a id="af047400a8bd50603cff4bbffe37ebea2" name="af047400a8bd50603cff4bbffe37ebea2"></a>
@@ -565,6 +593,10 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   53</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classUsageManager.html#ae0a59e7727dff85dfdef79336d535498">sharedInstance</a>;</div>
 <div class="line"><span class="lineno">   54</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="UsageManager_8hpp_source.html#l00032">sharedInstance</a>, and <a class="el" href="UsageManager_8hpp_source.html#l00036">singletonMutex</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FacadeSingleton_8cpp_source.html#l00020">FacadeSingleton::FacadeSingleton()</a>, <a class="el" href="UsageManager_8cpp_source.html#l00060">get_argv()</a>, <a class="el" href="OpenCV__Manager_8cpp_source.html#l00037">OpenCV_Manager::getVideoFramesCV()</a>, <a class="el" href="CleanCommand_8cpp_source.html#l00015">CleanCommand::setCommand()</a>, <a class="el" href="OpenPoseCommand_8cpp_source.html#l00130">OpenPoseCommand::setCommand()</a>, and <a class="el" href="MoveCommand_8cpp_source.html#l00015">MoveCommand::setCommand()</a>.</p>
+
 </div>
 </div>
 <a id="ab07ecb1bf5f9e52847243955913d6839" name="ab07ecb1bf5f9e52847243955913d6839"></a>
@@ -620,6 +652,8 @@ Static Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="UsageManager_8hpp_source.html#l00043">43</a> of file <a class="el" href="UsageManager_8hpp_source.html">UsageManager.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="UsageManager_8cpp_source.html#l00056">get_argc()</a>, and <a class="el" href="UsageManager_8cpp_source.html#l00044">getInstance()</a>.</p>
+
 </div>
 </div>
 <a id="ad6aa65b36661f52e7bfb6b8ffd7e3135" name="ad6aa65b36661f52e7bfb6b8ffd7e3135"></a>
@@ -645,6 +679,8 @@ Static Private Attributes</h2></td></tr>
 <p>configuration parameters. </p>
 
 <p class="definition">Definition at line <a class="el" href="UsageManager_8hpp_source.html#l00047">47</a> of file <a class="el" href="UsageManager_8hpp_source.html">UsageManager.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UsageManager_8cpp_source.html#l00060">get_argv()</a>, and <a class="el" href="UsageManager_8cpp_source.html#l00044">getInstance()</a>.</p>
 
 </div>
 </div>
@@ -672,6 +708,8 @@ Static Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="UsageManager_8hpp_source.html#l00051">51</a> of file <a class="el" href="UsageManager_8hpp_source.html">UsageManager.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="UsageManager_8cpp_source.html#l00027">get_expected_argc()</a>, and <a class="el" href="UsageManager_8cpp_source.html#l00044">getInstance()</a>.</p>
+
 </div>
 </div>
 <a id="aab4e2da282d83139124a0b95de74cd1d" name="aab4e2da282d83139124a0b95de74cd1d"></a>
@@ -697,6 +735,8 @@ Static Private Attributes</h2></td></tr>
 <p>a simple message that lets the user understand how to properly run the executable. </p>
 
 <p class="definition">Definition at line <a class="el" href="UsageManager_8hpp_source.html#l00055">55</a> of file <a class="el" href="UsageManager_8hpp_source.html">UsageManager.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UsageManager_8cpp_source.html#l00031">get_expectedUsageMessage()</a>, and <a class="el" href="UsageManager_8cpp_source.html#l00044">getInstance()</a>.</p>
 
 </div>
 </div>
@@ -724,6 +764,8 @@ Static Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="UsageManager_8hpp_source.html#l00032">32</a> of file <a class="el" href="UsageManager_8hpp_source.html">UsageManager.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="UsageManager_8cpp_source.html#l00044">getInstance()</a>, and <a class="el" href="UsageManager_8cpp_source.html#l00037">~UsageManager()</a>.</p>
+
 </div>
 </div>
 <a id="a60b3e8b98388c96de3b829acf98eed69" name="a60b3e8b98388c96de3b829acf98eed69"></a>
@@ -749,6 +791,8 @@ Static Private Attributes</h2></td></tr>
 <p>Mutex for thread-safe access. </p>
 
 <p class="definition">Definition at line <a class="el" href="UsageManager_8hpp_source.html#l00036">36</a> of file <a class="el" href="UsageManager_8hpp_source.html">UsageManager.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UsageManager_8cpp_source.html#l00044">getInstance()</a>.</p>
 
 </div>
 </div>

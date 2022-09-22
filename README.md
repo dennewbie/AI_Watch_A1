@@ -31,6 +31,9 @@
 
 
 ## Installation 🚀
+Note: Instructions for MacOS with Intel CPU
+
+
 1. Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies.
 
 2. Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies.

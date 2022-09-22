@@ -211,18 +211,19 @@
 \DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00208}00208     \textcolor{keywordflow}{if} (facadeSingletonInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_aba8cd558b16927b8fe2d962968d20c10}{FACADE\_SINGLETON\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ae5a935d42848889b474e368ef77cf46a}{FACADE\_SINGLETON\_NULLPTR\_SCOPE}});}
 \DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00209}00209     \textcolor{comment}{// xOrigin and zOrigin parameters are inverted as the built Unity world requires.}}
 \DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00210}00210     \mbox{\hyperlink{classSkeleton_aaebcbeeb42522c6147f0c63713bf3641}{setSkeletonPoints3D}}(facadeSingletonInstance-\/>\mbox{\hyperlink{classFacadeSingleton_a06a51b5942524c62681b032f8aa163f3}{getCoordinateMappingManager}}()-\/>\mbox{\hyperlink{classCoordinateMappingManager_a53059f45e764e26353439bc495074e86}{mapToMeters}}(\mbox{\hyperlink{classSkeleton_af62bfa912dd7f33164768b338bf9cc67}{getSkeletonPoints3D\_RS}}(), \mbox{\hyperlink{classSkeleton_a79798d4999379bc7063a9fc2dabad55e}{getBodyKeyPointsMap}}(), \mbox{\hyperlink{CoordinateMappingManager_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{zOriginUnity}}, \mbox{\hyperlink{CoordinateMappingManager_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{xOriginUnity}}));}
-\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00211}00211 \}}
-\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00212}00212 }
-\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00213}\mbox{\hyperlink{classSkeleton_af62bfa912dd7f33164768b338bf9cc67}{00213}} std::vector <Point3D *> \mbox{\hyperlink{classSkeleton_af62bfa912dd7f33164768b338bf9cc67}{Skeleton::getSkeletonPoints3D\_RS}} (\textcolor{keywordtype}{void}) \{}
-\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00214}00214     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classSkeleton_a9e8e0c89ba38dd7d98926af4b15d72a4}{skeletonPoints3D\_RS}};}
-\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00215}00215 \}}
-\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00216}00216 }
-\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00217}\mbox{\hyperlink{classSkeleton_a4661b8b588d471563909ee49823536db}{00217}} std::vector <Point3D *> * \mbox{\hyperlink{classSkeleton_a4661b8b588d471563909ee49823536db}{Skeleton::getSkeletonPoints3D}} (\textcolor{keywordtype}{void}) \{}
-\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00218}00218     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classSkeleton_aa08a5165ed3446633283c4d8cfa6b47e}{skeletonPoints3D}};}
-\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00219}00219 \}}
-\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00220}00220 }
-\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00221}\mbox{\hyperlink{classSkeleton_a1770444f4e0b5dc042216ea11eb140b9}{00221}} \textcolor{keywordtype}{float} \mbox{\hyperlink{classSkeleton_a1770444f4e0b5dc042216ea11eb140b9}{Skeleton::getConsistency}} (\textcolor{keywordtype}{void}) \{}
-\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00222}00222     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classSkeleton_add4518caaf948e4207dc0885b7238a04}{consistency}};}
-\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00223}00223 \}}
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00211}00211     \mbox{\hyperlink{classSkeleton_a960ce534a29be39bff035c8ef5e49004}{writeCoordinates}}();}
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00212}00212 \}}
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00213}00213 }
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00214}\mbox{\hyperlink{classSkeleton_af62bfa912dd7f33164768b338bf9cc67}{00214}} std::vector <Point3D *> \mbox{\hyperlink{classSkeleton_af62bfa912dd7f33164768b338bf9cc67}{Skeleton::getSkeletonPoints3D\_RS}} (\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00215}00215     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classSkeleton_a9e8e0c89ba38dd7d98926af4b15d72a4}{skeletonPoints3D\_RS}};}
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00216}00216 \}}
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00217}00217 }
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00218}\mbox{\hyperlink{classSkeleton_a4661b8b588d471563909ee49823536db}{00218}} std::vector <Point3D *> * \mbox{\hyperlink{classSkeleton_a4661b8b588d471563909ee49823536db}{Skeleton::getSkeletonPoints3D}} (\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00219}00219     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classSkeleton_aa08a5165ed3446633283c4d8cfa6b47e}{skeletonPoints3D}};}
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00220}00220 \}}
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00221}00221 }
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00222}\mbox{\hyperlink{classSkeleton_a1770444f4e0b5dc042216ea11eb140b9}{00222}} \textcolor{keywordtype}{float} \mbox{\hyperlink{classSkeleton_a1770444f4e0b5dc042216ea11eb140b9}{Skeleton::getConsistency}} (\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00223}00223     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classSkeleton_add4518caaf948e4207dc0885b7238a04}{consistency}};}
+\DoxyCodeLine{\Hypertarget{Skeleton_8cpp_source_l00224}00224 \}}
 
 \end{DoxyCode}

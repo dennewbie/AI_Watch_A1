@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="eye_small_white.png"/></td>
   <td id="projectalign">
-   <div id="projectname">AI Watch A1<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">AI Watch A1: Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
+   <div id="projectbrief">Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -229,6 +229,10 @@ getVideoFramesRS(unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, r
 <div class="ttc" id="aconstants_8hpp_html_ade33b45fd12b716d5e837609aa163416"><div class="ttname"><a href="constants_8hpp.html#ade33b45fd12b716d5e837609aa163416">USAGE_MANAGER_NULLPTR_SCOPE</a></div><div class="ttdeci">static const char * USAGE_MANAGER_NULLPTR_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00036">constants.hpp:36</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_ae5a935d42848889b474e368ef77cf46a"><div class="ttname"><a href="constants_8hpp.html#ae5a935d42848889b474e368ef77cf46a">FACADE_SINGLETON_NULLPTR_SCOPE</a></div><div class="ttdeci">static const char * FACADE_SINGLETON_NULLPTR_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00033">constants.hpp:33</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="constants_8hpp_source.html#l00032">FACADE_SINGLETON_NULLPTR_ERROR</a>, <a class="el" href="constants_8hpp_source.html#l00033">FACADE_SINGLETON_NULLPTR_SCOPE</a>, <a class="el" href="UsageManager_8cpp_source.html#l00060">UsageManager::get_argv()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00095">FacadeSingleton::getCameraManager()</a>, <a class="el" href="RealSenseManager_8cpp_source.html#l00061">RealSenseManager::getFrameID()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00115">FacadeSingleton::getImageManager()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00089">FacadeSingleton::getInstance()</a>, <a class="el" href="UsageManager_8cpp_source.html#l00050">UsageManager::getInstance()</a>, <a class="el" href="classRealSenseManager.html#a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f">RealSenseManager::getVideoFramesRS()</a>, <a class="el" href="constants_8hpp_source.html#l00064">imagesFolderOffset</a>, <a class="el" href="OpenCV__Manager_8cpp_source.html#l00015">realsenseFrameToMat()</a>, <a class="el" href="ImageManager_8cpp_source.html#l00050">ImageManager::releaseImages()</a>, <a class="el" href="ImageManager_8cpp_source.html#l00029">ImageManager::saveImages()</a>, <a class="el" href="constants_8hpp_source.html#l00035">USAGE_MANAGER_NULLPTR_ERROR</a>, and <a class="el" href="constants_8hpp_source.html#l00036">USAGE_MANAGER_NULLPTR_SCOPE</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FacadeSingleton_8cpp_source.html#l00135">FacadeSingleton::getVideoFrames()</a>.</p>
+
 </div>
 </div>
 <a id="a763f869b71bef3cd172254b2511b789f" name="a763f869b71bef3cd172254b2511b789f"></a>
@@ -279,6 +283,8 @@ getVideoFramesRS(unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, r
 <div class="line"><span class="lineno">   34</span>    }</div>
 <div class="line"><span class="lineno">   35</span>}</div>
 </div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="OpenCV__Manager_8cpp_source.html#l00037">getVideoFramesCV()</a>.</p>
+
 </div>
 </div>
 <a id="ae821406a67a6e69c4229f31e3e84f031" name="ae821406a67a6e69c4229f31e3e84f031"></a>
@@ -368,6 +374,10 @@ getVideoFramesRS(unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, r
 <div class="ttc" id="aclassOutputManagerJSON_html_ae7e940b50eb318e883b0844bece04dc7"><div class="ttname"><a href="classOutputManagerJSON.html#ae7e940b50eb318e883b0844bece04dc7">OutputManagerJSON::createJSON</a></div><div class="ttdeci">void createJSON(Json::Value &amp;people, cv::Mat &amp;colorImage, cv::Mat &amp;distanceImage, cv::Mat &amp;skeletonOnlyImage, unsigned int nFrame, const char *outputFolder)</div><div class="ttdoc">This methods take a reference to a JSON node that represents all the people's informations within the...</div><div class="ttdef"><b>Definition:</b> <a href="OutputManagerJSON_8cpp_source.html#l00068">OutputManagerJSON.cpp:68</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_abbff93ab9bac10646d7ca187c30470ad"><div class="ttname"><a href="constants_8hpp.html#abbff93ab9bac10646d7ca187c30470ad">outputFolderOffset</a></div><div class="ttdeci">static const short int outputFolderOffset</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00065">constants.hpp:65</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="OutputManagerJSON_8cpp_source.html#l00068">OutputManagerJSON::createJSON()</a>, <a class="el" href="constants_8hpp_source.html#l00032">FACADE_SINGLETON_NULLPTR_ERROR</a>, <a class="el" href="constants_8hpp_source.html#l00033">FACADE_SINGLETON_NULLPTR_SCOPE</a>, <a class="el" href="UsageManager_8cpp_source.html#l00060">UsageManager::get_argv()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00095">FacadeSingleton::getCameraManager()</a>, <a class="el" href="RealSenseManager_8cpp_source.html#l00061">RealSenseManager::getFrameID()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00115">FacadeSingleton::getImageManager()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00089">FacadeSingleton::getInstance()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00099">FacadeSingleton::getOutputManager()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00107">FacadeSingleton::getUsageManager()</a>, <a class="el" href="OutputManagerJSON_8cpp_source.html#l00056">OutputManagerJSON::getValueAt()</a>, <a class="el" href="constants_8hpp_source.html#l00064">imagesFolderOffset</a>, <a class="el" href="ImageManager_8cpp_source.html#l00021">ImageManager::loadImage()</a>, <a class="el" href="OutputManagerJSON_8cpp_source.html#l00043">OutputManagerJSON::loadJSON()</a>, <a class="el" href="constants_8hpp_source.html#l00065">outputFolderOffset</a>, <a class="el" href="ImageManager_8cpp_source.html#l00050">ImageManager::releaseImages()</a>, <a class="el" href="ImageManager_8cpp_source.html#l00029">ImageManager::saveImages()</a>, <a class="el" href="ImageManager_8cpp_source.html#l00039">ImageManager::showImages()</a>, <a class="el" href="constants_8hpp_source.html#l00035">USAGE_MANAGER_NULLPTR_ERROR</a>, and <a class="el" href="constants_8hpp_source.html#l00036">USAGE_MANAGER_NULLPTR_SCOPE</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FacadeSingleton_8cpp_source.html#l00145">FacadeSingleton::showSkeletons()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

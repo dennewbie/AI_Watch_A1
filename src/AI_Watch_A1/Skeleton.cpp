@@ -208,6 +208,7 @@ void Skeleton::generateSkeleton () {
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
     // xOrigin and zOrigin parameters are inverted as the built Unity world requires.
     setSkeletonPoints3D(facadeSingletonInstance->getCoordinateMappingManager()->mapToMeters(getSkeletonPoints3D_RS(), getBodyKeyPointsMap(), zOriginUnity, xOriginUnity));
+    writeCoordinates();
 }
 
 std::vector <Point3D *> Skeleton::getSkeletonPoints3D_RS (void) {

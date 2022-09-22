@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="eye_small_white.png"/></td>
   <td id="projectalign">
-   <div id="projectname">AI Watch A1<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">AI Watch A1: Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
+   <div id="projectbrief">Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -168,6 +168,10 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassSystemCommand_html_a4265db3249d1f004fe534b13d954e709"><div class="ttname"><a href="classSystemCommand.html#a4265db3249d1f004fe534b13d954e709">SystemCommand::getCommand</a></div><div class="ttdeci">std::string getCommand(void)</div><div class="ttdoc">Get the string command.</div><div class="ttdef"><b>Definition:</b> <a href="SystemCommand_8cpp_source.html#l00019">SystemCommand.cpp:19</a></div></div>
 <div class="ttc" id="aclassSystemCommand_html_a447d02e641bb26dbdf9332fa9e55485d"><div class="ttname"><a href="classSystemCommand.html#a447d02e641bb26dbdf9332fa9e55485d">SystemCommand::setCommand</a></div><div class="ttdeci">virtual void setCommand(int *argc, char ***argv)=0</div><div class="ttdoc">Set the string command. The method is inherited from the subclasses and overridden in order to expres...</div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="SystemCommand_8cpp_source.html#l00019">SystemCommand::getCommand()</a>, and <a class="el" href="classSystemCommand.html#a447d02e641bb26dbdf9332fa9e55485d">SystemCommand::setCommand()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FacadeSingleton_8cpp_source.html#l00166">FacadeSingleton::cleanBuildFolder()</a>, and <a class="el" href="FacadeSingleton_8cpp_source.html#l00139">FacadeSingleton::getVideoBodyKeyPoints()</a>.</p>
+
 </div>
 </div>
 <a id="a4265db3249d1f004fe534b13d954e709" name="a4265db3249d1f004fe534b13d954e709"></a>
@@ -203,6 +207,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   21</span>}</div>
 <div class="ttc" id="aclassSystemCommand_html_abdc4fb0d069e0815759941dc72b5736d"><div class="ttname"><a href="classSystemCommand.html#abdc4fb0d069e0815759941dc72b5736d">SystemCommand::command</a></div><div class="ttdeci">std::string command</div><div class="ttdoc">The final command given to the system by the program.</div><div class="ttdef"><b>Definition:</b> <a href="SystemCommand_8hpp_source.html#l00033">SystemCommand.hpp:33</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="SystemCommand_8hpp_source.html#l00033">SystemCommand::command</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="SystemCommand_8cpp_source.html#l00023">SystemCommand::executeCommand()</a>.</p>
+
 </div>
 </div>
 <a id="a2703e2431abfb5175121310594462174" name="a2703e2431abfb5175121310594462174"></a>
@@ -285,6 +293,8 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aconstants_8hpp_html_abbff93ab9bac10646d7ca187c30470ad"><div class="ttname"><a href="constants_8hpp.html#abbff93ab9bac10646d7ca187c30470ad">outputFolderOffset</a></div><div class="ttdeci">static const short int outputFolderOffset</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00065">constants.hpp:65</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_ade33b45fd12b716d5e837609aa163416"><div class="ttname"><a href="constants_8hpp.html#ade33b45fd12b716d5e837609aa163416">USAGE_MANAGER_NULLPTR_SCOPE</a></div><div class="ttdeci">static const char * USAGE_MANAGER_NULLPTR_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00036">constants.hpp:36</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="UsageManager_8cpp_source.html#l00060">UsageManager::get_argv()</a>, <a class="el" href="UsageManager_8cpp_source.html#l00050">UsageManager::getInstance()</a>, <a class="el" href="constants_8hpp_source.html#l00064">imagesFolderOffset</a>, <a class="el" href="constants_8hpp_source.html#l00065">outputFolderOffset</a>, <a class="el" href="classSystemCommand.html#a447d02e641bb26dbdf9332fa9e55485d">SystemCommand::setCommand()</a>, <a class="el" href="constants_8hpp_source.html#l00035">USAGE_MANAGER_NULLPTR_ERROR</a>, and <a class="el" href="constants_8hpp_source.html#l00036">USAGE_MANAGER_NULLPTR_SCOPE</a>.</p>
+
 </div>
 </div>
 <a id="ae066c4c5cf8b00c16e9ddf54dd936c47" name="ae066c4c5cf8b00c16e9ddf54dd936c47"></a>
@@ -324,6 +334,8 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   16</span>    this-&gt;<a class="code hl_variable" href="classSystemCommand.html#abdc4fb0d069e0815759941dc72b5736d">command</a> = <a class="code hl_variable" href="classSystemCommand.html#abdc4fb0d069e0815759941dc72b5736d">command</a>;</div>
 <div class="line"><span class="lineno">   17</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="SystemCommand_8hpp_source.html#l00033">SystemCommand::command</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -350,6 +362,8 @@ Private Attributes</h2></td></tr>
 <p>The final command given to the system by the program. </p>
 
 <p class="definition">Definition at line <a class="el" href="SystemCommand_8hpp_source.html#l00033">33</a> of file <a class="el" href="SystemCommand_8hpp_source.html">SystemCommand.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="SystemCommand_8cpp_source.html#l00019">SystemCommand::getCommand()</a>, and <a class="el" href="SystemCommand_8cpp_source.html#l00015">SystemCommand::setCommand()</a>.</p>
 
 </div>
 </div>

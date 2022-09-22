@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="eye_small_white.png"/></td>
   <td id="projectalign">
-   <div id="projectname">AI Watch A1<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">AI Watch A1: Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
+   <div id="projectbrief">Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -193,6 +193,10 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassSystemCommand_html_a4265db3249d1f004fe534b13d954e709"><div class="ttname"><a href="classSystemCommand.html#a4265db3249d1f004fe534b13d954e709">SystemCommand::getCommand</a></div><div class="ttdeci">std::string getCommand(void)</div><div class="ttdoc">Get the string command.</div><div class="ttdef"><b>Definition:</b> <a href="SystemCommand_8cpp_source.html#l00019">SystemCommand.cpp:19</a></div></div>
 <div class="ttc" id="aclassSystemCommand_html_a447d02e641bb26dbdf9332fa9e55485d"><div class="ttname"><a href="classSystemCommand.html#a447d02e641bb26dbdf9332fa9e55485d">SystemCommand::setCommand</a></div><div class="ttdeci">virtual void setCommand(int *argc, char ***argv)=0</div><div class="ttdoc">Set the string command. The method is inherited from the subclasses and overridden in order to expres...</div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="SystemCommand_8cpp_source.html#l00019">getCommand()</a>, and <a class="el" href="classSystemCommand.html#a447d02e641bb26dbdf9332fa9e55485d">setCommand()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FacadeSingleton_8cpp_source.html#l00166">FacadeSingleton::cleanBuildFolder()</a>, and <a class="el" href="FacadeSingleton_8cpp_source.html#l00139">FacadeSingleton::getVideoBodyKeyPoints()</a>.</p>
+
 </div>
 </div>
 <a id="a4265db3249d1f004fe534b13d954e709" name="a4265db3249d1f004fe534b13d954e709"></a>
@@ -228,6 +232,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   21</span>}</div>
 <div class="ttc" id="aclassSystemCommand_html_abdc4fb0d069e0815759941dc72b5736d"><div class="ttname"><a href="classSystemCommand.html#abdc4fb0d069e0815759941dc72b5736d">SystemCommand::command</a></div><div class="ttdeci">std::string command</div><div class="ttdoc">The final command given to the system by the program.</div><div class="ttdef"><b>Definition:</b> <a href="SystemCommand_8hpp_source.html#l00033">SystemCommand.hpp:33</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="SystemCommand_8hpp_source.html#l00033">command</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="SystemCommand_8cpp_source.html#l00023">executeCommand()</a>.</p>
+
 </div>
 </div>
 <a id="a447d02e641bb26dbdf9332fa9e55485d" name="a447d02e641bb26dbdf9332fa9e55485d"></a>
@@ -275,6 +283,8 @@ Private Attributes</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classCleanCommand.html#a2703e2431abfb5175121310594462174">CleanCommand</a>, <a class="el" href="classOpenPoseCommand.html#a239d0350ccef397f907d8adc286cc136">OpenPoseCommand</a>, and <a class="el" href="classMoveCommand.html#aaeef9929e51f2bff4b4a8c652c49fc8d">MoveCommand</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="SystemCommand_8cpp_source.html#l00023">executeCommand()</a>, <a class="el" href="CleanCommand_8cpp_source.html#l00015">CleanCommand::setCommand()</a>, <a class="el" href="OpenPoseCommand_8cpp_source.html#l00130">OpenPoseCommand::setCommand()</a>, and <a class="el" href="MoveCommand_8cpp_source.html#l00015">MoveCommand::setCommand()</a>.</p>
+
 </div>
 </div>
 <a id="ae066c4c5cf8b00c16e9ddf54dd936c47" name="ae066c4c5cf8b00c16e9ddf54dd936c47"></a>
@@ -314,6 +324,8 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   16</span>    this-&gt;<a class="code hl_variable" href="classSystemCommand.html#abdc4fb0d069e0815759941dc72b5736d">command</a> = <a class="code hl_variable" href="classSystemCommand.html#abdc4fb0d069e0815759941dc72b5736d">command</a>;</div>
 <div class="line"><span class="lineno">   17</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="SystemCommand_8hpp_source.html#l00033">command</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -340,6 +352,8 @@ Private Attributes</h2></td></tr>
 <p>The final command given to the system by the program. </p>
 
 <p class="definition">Definition at line <a class="el" href="SystemCommand_8hpp_source.html#l00033">33</a> of file <a class="el" href="SystemCommand_8hpp_source.html">SystemCommand.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="SystemCommand_8cpp_source.html#l00019">getCommand()</a>, and <a class="el" href="SystemCommand_8cpp_source.html#l00015">setCommand()</a>.</p>
 
 </div>
 </div>

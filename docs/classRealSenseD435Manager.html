@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="eye_small_white.png"/></td>
   <td id="projectalign">
-   <div id="projectname">AI Watch A1<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">AI Watch A1: Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
+   <div id="projectbrief">Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -195,6 +195,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   41</span>}</div>
 <div class="ttc" id="aclassRealSenseManager_html_a8501c8bab42b7160eddd453266763a2f"><div class="ttname"><a href="classRealSenseManager.html#a8501c8bab42b7160eddd453266763a2f">RealSenseManager::align</a></div><div class="ttdeci">rs2::align align</div><div class="ttdoc">Auxiliary processing block that performs image alignment using depth data and camera calibration.</div><div class="ttdef"><b>Definition:</b> <a href="RealSenseManager_8hpp_source.html#l00035">RealSenseManager.hpp:35</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="RealSenseManager_8hpp_source.html#l00035">RealSenseManager::align</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RealSenseD435Manager_8cpp_source.html#l00043">getVideoFramesRS()</a>.</p>
+
 </div>
 </div>
 <a id="a27f762a96b6b883a0304b084e225de32" name="a27f762a96b6b883a0304b084e225de32"></a>
@@ -230,6 +234,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   67</span>}</div>
 <div class="ttc" id="aclassRealSenseManager_html_ab876bfaffd8a23924ff182573e900cda"><div class="ttname"><a href="classRealSenseManager.html#ab876bfaffd8a23924ff182573e900cda">RealSenseManager::color_intrin</a></div><div class="ttdeci">struct rs2_intrinsics color_intrin</div><div class="ttdoc">Reference to color stream intrinsics.</div><div class="ttdef"><b>Definition:</b> <a href="RealSenseManager_8hpp_source.html#l00045">RealSenseManager.hpp:45</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="RealSenseManager_8hpp_source.html#l00045">RealSenseManager::color_intrin</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00145">Skeleton::deprojectSkeletonPoints3D()</a>.</p>
+
 </div>
 </div>
 <a id="a2ea17b74112e13cc79fdb7cbe74947c4" name="a2ea17b74112e13cc79fdb7cbe74947c4"></a>
@@ -370,6 +378,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   63</span>}</div>
 <div class="ttc" id="aclassRealSenseManager_html_ac0bcf70a9567a1710d07a66aa5bf9587"><div class="ttname"><a href="classRealSenseManager.html#ac0bcf70a9567a1710d07a66aa5bf9587">RealSenseManager::frameID</a></div><div class="ttdeci">unsigned int frameID</div><div class="ttdoc">Current frame counter.</div><div class="ttdef"><b>Definition:</b> <a href="RealSenseManager_8hpp_source.html#l00030">RealSenseManager.hpp:30</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="RealSenseManager_8hpp_source.html#l00030">RealSenseManager::frameID</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="OpenCV__Manager_8cpp_source.html#l00037">OpenCV_Manager::getVideoFramesCV()</a>, <a class="el" href="RealSenseD435Manager_8cpp_source.html#l00043">getVideoFramesRS()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00149">FacadeSingleton::sendData()</a>, and <a class="el" href="OpenCV__Manager_8cpp_source.html#l00074">OpenCV_Manager::showSkeletonsCV()</a>.</p>
+
 </div>
 </div>
 <a id="a5db5d92619fd13a559aba6622d9d7ad0" name="a5db5d92619fd13a559aba6622d9d7ad0"></a>
@@ -478,6 +490,8 @@ getVideoFrames (unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, fl
 <div class="ttc" id="aconstants_8hpp_html_a60f7f9c807b54759e94af5e875ab3e56"><div class="ttname"><a href="constants_8hpp.html#a60f7f9c807b54759e94af5e875ab3e56">RS_CAMERA_SCOPE</a></div><div class="ttdeci">static const char * RS_CAMERA_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00030">constants.hpp:30</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_ae4c7c146bcc762eadc9e87a62bd0924e"><div class="ttname"><a href="constants_8hpp.html#ae4c7c146bcc762eadc9e87a62bd0924e">RS_CAMERA_ERROR</a></div><div class="ttdeci">static const short int RS_CAMERA_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00029">constants.hpp:29</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="constants_8hpp_source.html#l00072">framesToSkip</a>, <a class="el" href="RealSenseManager_8cpp_source.html#l00039">RealSenseManager::get_align()</a>, <a class="el" href="RealSenseManager_8cpp_source.html#l00061">RealSenseManager::getFrameID()</a>, and <a class="el" href="RealSenseManager_8cpp_source.html#l00015">RealSenseManager::setFrameID()</a>.</p>
+
 </div>
 </div>
 <a id="a66ccf804742763a2bf2d3b6d9342f191" name="a66ccf804742763a2bf2d3b6d9342f191"></a>
@@ -518,6 +532,10 @@ getVideoFrames (unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, fl
 <div class="line"><span class="lineno">   20</span>    this-&gt;<a class="code hl_variable" href="classRealSenseManager.html#a8501c8bab42b7160eddd453266763a2f">align</a> = <a class="code hl_variable" href="classRealSenseManager.html#a8501c8bab42b7160eddd453266763a2f">align</a>;</div>
 <div class="line"><span class="lineno">   21</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="RealSenseManager_8hpp_source.html#l00035">RealSenseManager::align</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RealSenseD435Manager_8cpp_source.html#l00015">startEnvironment()</a>.</p>
+
 </div>
 </div>
 <a id="a1fcc8be70e92a51f9dcc82fdfe1b795e" name="a1fcc8be70e92a51f9dcc82fdfe1b795e"></a>
@@ -557,6 +575,10 @@ getVideoFrames (unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, fl
 <div class="line"><span class="lineno">   28</span>    this-&gt;<a class="code hl_variable" href="classRealSenseManager.html#ab876bfaffd8a23924ff182573e900cda">color_intrin</a> = <a class="code hl_variable" href="classRealSenseManager.html#ab876bfaffd8a23924ff182573e900cda">color_intrin</a>;</div>
 <div class="line"><span class="lineno">   29</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="RealSenseManager_8hpp_source.html#l00045">RealSenseManager::color_intrin</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RealSenseD435Manager_8cpp_source.html#l00015">startEnvironment()</a>.</p>
+
 </div>
 </div>
 <a id="a821b3c038564cd28a4efd764e85e3656" name="a821b3c038564cd28a4efd764e85e3656"></a>
@@ -596,6 +618,10 @@ getVideoFrames (unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, fl
 <div class="line"><span class="lineno">   36</span>    this-&gt;<a class="code hl_variable" href="classRealSenseManager.html#aea4cc5c31f53bd1f30dfcd10bcca9ff0">color_to_depth</a> = <a class="code hl_variable" href="classRealSenseManager.html#aea4cc5c31f53bd1f30dfcd10bcca9ff0">color_to_depth</a>;</div>
 <div class="line"><span class="lineno">   37</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="RealSenseManager_8hpp_source.html#l00055">RealSenseManager::color_to_depth</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RealSenseD435Manager_8cpp_source.html#l00015">startEnvironment()</a>.</p>
+
 </div>
 </div>
 <a id="a1fef8da6adb415bc157d5ca2931fda7e" name="a1fef8da6adb415bc157d5ca2931fda7e"></a>
@@ -635,6 +661,10 @@ getVideoFrames (unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, fl
 <div class="line"><span class="lineno">   24</span>    this-&gt;<a class="code hl_variable" href="classRealSenseManager.html#adad205399e7077b25c2c0650d31759c8">depth_intrin</a> = <a class="code hl_variable" href="classRealSenseManager.html#adad205399e7077b25c2c0650d31759c8">depth_intrin</a>;</div>
 <div class="line"><span class="lineno">   25</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="RealSenseManager_8hpp_source.html#l00040">RealSenseManager::depth_intrin</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RealSenseD435Manager_8cpp_source.html#l00015">startEnvironment()</a>.</p>
+
 </div>
 </div>
 <a id="a0e6df6bd8c81bd32022c18d06a272307" name="a0e6df6bd8c81bd32022c18d06a272307"></a>
@@ -674,6 +704,10 @@ getVideoFrames (unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, fl
 <div class="line"><span class="lineno">   32</span>    this-&gt;<a class="code hl_variable" href="classRealSenseManager.html#a116cc28e2d0b59b5cf946822a3d5dca4">depth_to_color</a> = <a class="code hl_variable" href="classRealSenseManager.html#a116cc28e2d0b59b5cf946822a3d5dca4">depth_to_color</a>;</div>
 <div class="line"><span class="lineno">   33</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="RealSenseManager_8hpp_source.html#l00050">RealSenseManager::depth_to_color</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RealSenseD435Manager_8cpp_source.html#l00015">startEnvironment()</a>.</p>
+
 </div>
 </div>
 <a id="a024d711ab0bfee1d954f7bd3a83b197f" name="a024d711ab0bfee1d954f7bd3a83b197f"></a>
@@ -713,6 +747,10 @@ getVideoFrames (unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, fl
 <div class="line"><span class="lineno">   16</span>    this-&gt;<a class="code hl_variable" href="classRealSenseManager.html#ac0bcf70a9567a1710d07a66aa5bf9587">frameID</a> = <a class="code hl_variable" href="classRealSenseManager.html#ac0bcf70a9567a1710d07a66aa5bf9587">frameID</a>;</div>
 <div class="line"><span class="lineno">   17</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="RealSenseManager_8hpp_source.html#l00030">RealSenseManager::frameID</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RealSenseD435Manager_8cpp_source.html#l00043">getVideoFramesRS()</a>, and <a class="el" href="RealSenseManager_8cpp_source.html#l00057">RealSenseManager::RealSenseManager()</a>.</p>
+
 </div>
 </div>
 <a id="a6bfda5201144b0f6cce703c954bc19ad" name="a6bfda5201144b0f6cce703c954bc19ad"></a>
@@ -825,6 +863,8 @@ startEnvironment(rs2::pipeline &amp; pipelineStream, struct rs2_intrinsics &amp;
 <div class="ttc" id="aclassRealSenseManager_html_a66ccf804742763a2bf2d3b6d9342f191"><div class="ttname"><a href="classRealSenseManager.html#a66ccf804742763a2bf2d3b6d9342f191">RealSenseManager::set_align</a></div><div class="ttdeci">void set_align(rs2::align align)</div><div class="ttdoc">Set the align object.</div><div class="ttdef"><b>Definition:</b> <a href="RealSenseManager_8cpp_source.html#l00019">RealSenseManager.cpp:19</a></div></div>
 <div class="ttc" id="aclassRealSenseManager_html_a821b3c038564cd28a4efd764e85e3656"><div class="ttname"><a href="classRealSenseManager.html#a821b3c038564cd28a4efd764e85e3656">RealSenseManager::set_color_to_depth</a></div><div class="ttdeci">void set_color_to_depth(struct rs2_extrinsics color_to_depth)</div><div class="ttdoc">Set the color extrinsics object.</div><div class="ttdef"><b>Definition:</b> <a href="RealSenseManager_8cpp_source.html#l00035">RealSenseManager.cpp:35</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="RealSenseManager_8hpp_source.html#l00045">RealSenseManager::color_intrin</a>, <a class="el" href="RealSenseManager_8cpp_source.html#l00019">RealSenseManager::set_align()</a>, <a class="el" href="RealSenseManager_8cpp_source.html#l00027">RealSenseManager::set_color_intrin()</a>, <a class="el" href="RealSenseManager_8cpp_source.html#l00035">RealSenseManager::set_color_to_depth()</a>, <a class="el" href="RealSenseManager_8cpp_source.html#l00023">RealSenseManager::set_depth_intrin()</a>, and <a class="el" href="RealSenseManager_8cpp_source.html#l00031">RealSenseManager::set_depth_to_color()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -853,6 +893,8 @@ startEnvironment(rs2::pipeline &amp; pipelineStream, struct rs2_intrinsics &amp;
 
 <p class="definition">Definition at line <a class="el" href="RealSenseManager_8hpp_source.html#l00035">35</a> of file <a class="el" href="RealSenseManager_8hpp_source.html">RealSenseManager.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="RealSenseManager_8cpp_source.html#l00039">RealSenseManager::get_align()</a>, and <a class="el" href="RealSenseManager_8cpp_source.html#l00019">RealSenseManager::set_align()</a>.</p>
+
 </div>
 </div>
 <a id="ab876bfaffd8a23924ff182573e900cda" name="ab876bfaffd8a23924ff182573e900cda"></a>
@@ -879,6 +921,8 @@ startEnvironment(rs2::pipeline &amp; pipelineStream, struct rs2_intrinsics &amp;
 <dl class="section see"><dt>See also</dt><dd><a href="https://dev.intelrealsense.com/docs/projection-in-intel-realsense-sdk-20">https://dev.intelrealsense.com/docs/projection-in-intel-realsense-sdk-20</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="RealSenseManager_8hpp_source.html#l00045">45</a> of file <a class="el" href="RealSenseManager_8hpp_source.html">RealSenseManager.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RealSenseManager_8cpp_source.html#l00065">RealSenseManager::get_color_intrin()</a>, <a class="el" href="RealSenseManager_8cpp_source.html#l00027">RealSenseManager::set_color_intrin()</a>, and <a class="el" href="RealSenseD435Manager_8cpp_source.html#l00015">startEnvironment()</a>.</p>
 
 </div>
 </div>
@@ -907,6 +951,8 @@ startEnvironment(rs2::pipeline &amp; pipelineStream, struct rs2_intrinsics &amp;
 
 <p class="definition">Definition at line <a class="el" href="RealSenseManager_8hpp_source.html#l00055">55</a> of file <a class="el" href="RealSenseManager_8hpp_source.html">RealSenseManager.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="RealSenseManager_8cpp_source.html#l00035">RealSenseManager::set_color_to_depth()</a>.</p>
+
 </div>
 </div>
 <a id="adad205399e7077b25c2c0650d31759c8" name="adad205399e7077b25c2c0650d31759c8"></a>
@@ -933,6 +979,8 @@ startEnvironment(rs2::pipeline &amp; pipelineStream, struct rs2_intrinsics &amp;
 <dl class="section see"><dt>See also</dt><dd><a href="https://dev.intelrealsense.com/docs/projection-in-intel-realsense-sdk-20">https://dev.intelrealsense.com/docs/projection-in-intel-realsense-sdk-20</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="RealSenseManager_8hpp_source.html#l00040">40</a> of file <a class="el" href="RealSenseManager_8hpp_source.html">RealSenseManager.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RealSenseManager_8cpp_source.html#l00023">RealSenseManager::set_depth_intrin()</a>.</p>
 
 </div>
 </div>
@@ -961,6 +1009,8 @@ startEnvironment(rs2::pipeline &amp; pipelineStream, struct rs2_intrinsics &amp;
 
 <p class="definition">Definition at line <a class="el" href="RealSenseManager_8hpp_source.html#l00050">50</a> of file <a class="el" href="RealSenseManager_8hpp_source.html">RealSenseManager.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="RealSenseManager_8cpp_source.html#l00031">RealSenseManager::set_depth_to_color()</a>.</p>
+
 </div>
 </div>
 <a id="ac0bcf70a9567a1710d07a66aa5bf9587" name="ac0bcf70a9567a1710d07a66aa5bf9587"></a>
@@ -986,6 +1036,8 @@ startEnvironment(rs2::pipeline &amp; pipelineStream, struct rs2_intrinsics &amp;
 <p>Current frame counter. </p>
 
 <p class="definition">Definition at line <a class="el" href="RealSenseManager_8hpp_source.html#l00030">30</a> of file <a class="el" href="RealSenseManager_8hpp_source.html">RealSenseManager.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RealSenseManager_8cpp_source.html#l00061">RealSenseManager::getFrameID()</a>, and <a class="el" href="RealSenseManager_8cpp_source.html#l00015">RealSenseManager::setFrameID()</a>.</p>
 
 </div>
 </div>

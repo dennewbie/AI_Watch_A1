@@ -87,6 +87,10 @@ Definition at line \mbox{\hyperlink{KafkaManager_8hpp_source_l00107}{107}} of fi
 \DoxyCodeLine{00109     \}}
 
 \end{DoxyCode}
+
+
+References \mbox{\hyperlink{KafkaManager_8cpp_source_l00060}{setup\+Producer()}}.
+
 \mbox{\Hypertarget{classKafkaManager_a854de8f42508a273cbe1efd295209ce0}\label{classKafkaManager_a854de8f42508a273cbe1efd295209ce0}} 
 \index{KafkaManager@{KafkaManager}!````~KafkaManager@{$\sim$KafkaManager}}
 \index{````~KafkaManager@{$\sim$KafkaManager}!KafkaManager@{KafkaManager}}
@@ -109,6 +113,10 @@ Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00087}{87}} of fil
 \DoxyCodeLine{00090 \}}
 
 \end{DoxyCode}
+
+
+References \mbox{\hyperlink{KafkaManager_8cpp_source_l00023}{get\+Producer()}}, and \mbox{\hyperlink{KafkaManager_8cpp_source_l00019}{set\+Configuration()}}.
+
 
 
 \doxysubsection{Member Function Documentation}
@@ -142,6 +150,10 @@ Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00056}{56}} of fil
 \DoxyCodeLine{00058 \}}
 
 \end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{KafkaManager_8cpp_source_l00060}{setup\+Producer()}}.
+
 \mbox{\Hypertarget{classKafkaManager_a1657e743b8c0f3d9d7d369cc22e1ae7c}\label{classKafkaManager_a1657e743b8c0f3d9d7d369cc22e1ae7c}} 
 \index{KafkaManager@{KafkaManager}!getArraySize@{getArraySize}}
 \index{getArraySize@{getArraySize}!KafkaManager@{KafkaManager}}
@@ -198,6 +210,14 @@ Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00027}{27}} of fil
 \DoxyCodeLine{00029 \}}
 
 \end{DoxyCode}
+
+
+References \mbox{\hyperlink{KafkaManager_8hpp_source_l00035}{configuration}}.
+
+
+
+Referenced by \mbox{\hyperlink{KafkaManager_8cpp_source_l00060}{setup\+Producer()}}.
+
 \mbox{\Hypertarget{classKafkaManager_a84f751836602eba4de36ddc7207bd4ba}\label{classKafkaManager_a84f751836602eba4de36ddc7207bd4ba}} 
 \index{KafkaManager@{KafkaManager}!getProducer@{getProducer}}
 \index{getProducer@{getProducer}!KafkaManager@{KafkaManager}}
@@ -222,6 +242,14 @@ Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00023}{23}} of fil
 \DoxyCodeLine{00025 \}}
 
 \end{DoxyCode}
+
+
+References \mbox{\hyperlink{KafkaManager_8hpp_source_l00031}{producer}}.
+
+
+
+Referenced by \mbox{\hyperlink{KafkaManager_8cpp_source_l00092}{send\+Data()}}, \mbox{\hyperlink{KafkaManager_8cpp_source_l00060}{setup\+Producer()}}, and \mbox{\hyperlink{KafkaManager_8cpp_source_l00087}{$\sim$\+Kafka\+Manager()}}.
+
 \mbox{\Hypertarget{classKafkaManager_a0ce5c5d2b9553121b354693c3e643feb}\label{classKafkaManager_a0ce5c5d2b9553121b354693c3e643feb}} 
 \index{KafkaManager@{KafkaManager}!getTopic@{getTopic}}
 \index{getTopic@{getTopic}!KafkaManager@{KafkaManager}}
@@ -246,6 +274,14 @@ Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00031}{31}} of fil
 \DoxyCodeLine{00033 \}}
 
 \end{DoxyCode}
+
+
+References \mbox{\hyperlink{KafkaManager_8hpp_source_l00039}{topic}}.
+
+
+
+Referenced by \mbox{\hyperlink{KafkaManager_8cpp_source_l00092}{send\+Data()}}.
+
 \mbox{\Hypertarget{classKafkaManager_aaaf9b95ef4029e1dfe0e0c38dc8ecbef}\label{classKafkaManager_aaaf9b95ef4029e1dfe0e0c38dc8ecbef}} 
 \index{KafkaManager@{KafkaManager}!loadConfigurationGroup@{loadConfigurationGroup}}
 \index{loadConfigurationGroup@{loadConfigurationGroup}!KafkaManager@{KafkaManager}}
@@ -289,6 +325,14 @@ Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00035}{35}} of fil
 \DoxyCodeLine{00050 \}}
 
 \end{DoxyCode}
+
+
+References \mbox{\hyperlink{constants_8hpp_source_l00044}{RDKAFKA\+\_\+\+CONF\+\_\+\+SET\+\_\+\+ERROR}}, \mbox{\hyperlink{constants_8hpp_source_l00045}{RDKAFKA\+\_\+\+CONF\+\_\+\+SET\+\_\+\+SCOPE}}, \mbox{\hyperlink{constants_8hpp_source_l00041}{RDKAFKA\+\_\+\+GET\+\_\+\+KEY\+\_\+\+FROM\+\_\+\+JSON\+\_\+\+ERROR}}, \mbox{\hyperlink{constants_8hpp_source_l00042}{RDKAFKA\+\_\+\+GET\+\_\+\+KEY\+\_\+\+FROM\+\_\+\+JSON\+\_\+\+SCOPE}}, \mbox{\hyperlink{constants_8hpp_source_l00038}{RDKAFKA\+\_\+\+GET\+\_\+\+KEYS\+\_\+\+FROM\+\_\+\+JSON\+\_\+\+ERROR}}, and \mbox{\hyperlink{constants_8hpp_source_l00039}{RDKAFKA\+\_\+\+GET\+\_\+\+KEYS\+\_\+\+FROM\+\_\+\+JSON\+\_\+\+SCOPE}}.
+
+
+
+Referenced by \mbox{\hyperlink{KafkaManager_8cpp_source_l00060}{setup\+Producer()}}.
+
 \mbox{\Hypertarget{classKafkaManager_a5dca4ae409b1f9c21402bf68a7607315}\label{classKafkaManager_a5dca4ae409b1f9c21402bf68a7607315}} 
 \index{KafkaManager@{KafkaManager}!sendData@{sendData}}
 \index{sendData@{sendData}!KafkaManager@{KafkaManager}}
@@ -340,6 +384,14 @@ Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00092}{92}} of fil
 \DoxyCodeLine{00117 \}}
 
 \end{DoxyCode}
+
+
+References \mbox{\hyperlink{KafkaManager_8cpp_source_l00023}{get\+Producer()}}, \mbox{\hyperlink{KafkaManager_8cpp_source_l00031}{get\+Topic()}}, \mbox{\hyperlink{KafkaManager_8hpp_source_l00031}{producer}}, and \mbox{\hyperlink{KafkaManager_8hpp_source_l00039}{topic}}.
+
+
+
+Referenced by \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00149}{Facade\+Singleton\+::send\+Data()}}.
+
 \mbox{\Hypertarget{classKafkaManager_ac4a825ea74c714ae344fdaad52edf195}\label{classKafkaManager_ac4a825ea74c714ae344fdaad52edf195}} 
 \index{KafkaManager@{KafkaManager}!setConfiguration@{setConfiguration}}
 \index{setConfiguration@{setConfiguration}!KafkaManager@{KafkaManager}}
@@ -366,6 +418,14 @@ Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00019}{19}} of fil
 \DoxyCodeLine{00021 \}}
 
 \end{DoxyCode}
+
+
+References \mbox{\hyperlink{KafkaManager_8hpp_source_l00035}{configuration}}.
+
+
+
+Referenced by \mbox{\hyperlink{KafkaManager_8cpp_source_l00060}{setup\+Producer()}}, and \mbox{\hyperlink{KafkaManager_8cpp_source_l00087}{$\sim$\+Kafka\+Manager()}}.
+
 \mbox{\Hypertarget{classKafkaManager_ad6099678d7438f7b96d7f8eb6e79784c}\label{classKafkaManager_ad6099678d7438f7b96d7f8eb6e79784c}} 
 \index{KafkaManager@{KafkaManager}!setProducer@{setProducer}}
 \index{setProducer@{setProducer}!KafkaManager@{KafkaManager}}
@@ -392,6 +452,14 @@ Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00015}{15}} of fil
 \DoxyCodeLine{00017 \}}
 
 \end{DoxyCode}
+
+
+References \mbox{\hyperlink{KafkaManager_8hpp_source_l00031}{producer}}.
+
+
+
+Referenced by \mbox{\hyperlink{KafkaManager_8cpp_source_l00060}{setup\+Producer()}}.
+
 \mbox{\Hypertarget{classKafkaManager_a5c3a7caaf5ec042f0074fbea516a44b1}\label{classKafkaManager_a5c3a7caaf5ec042f0074fbea516a44b1}} 
 \index{KafkaManager@{KafkaManager}!setupProducer@{setupProducer}}
 \index{setupProducer@{setupProducer}!KafkaManager@{KafkaManager}}
@@ -436,6 +504,14 @@ Definition at line \mbox{\hyperlink{KafkaManager_8cpp_source_l00060}{60}} of fil
 \end{DoxyCode}
 
 
+References \mbox{\hyperlink{KafkaManager_8cpp_source_l00056}{dr\+\_\+msg\+\_\+cb()}}, \mbox{\hyperlink{KafkaManager_8cpp_source_l00027}{get\+Configuration()}}, \mbox{\hyperlink{KafkaManager_8cpp_source_l00023}{get\+Producer()}}, \mbox{\hyperlink{KafkaManager_8cpp_source_l00035}{load\+Configuration\+Group()}}, \mbox{\hyperlink{KafkaManager_8cpp_source_l00019}{set\+Configuration()}}, and \mbox{\hyperlink{KafkaManager_8cpp_source_l00015}{set\+Producer()}}.
+
+
+
+Referenced by \mbox{\hyperlink{KafkaManager_8hpp_source_l00107}{Kafka\+Manager()}}.
+
+
+
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{classKafkaManager_a9d4dd8b03a3623edb445d60c906854e1}\label{classKafkaManager_a9d4dd8b03a3623edb445d60c906854e1}} 
 \index{KafkaManager@{KafkaManager}!configuration@{configuration}}
@@ -451,6 +527,10 @@ Kafka\textquotesingle{}s configuration.
 
 Definition at line \mbox{\hyperlink{KafkaManager_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{KafkaManager_8hpp_source}{Kafka\+Manager.\+hpp}}.
 
+
+
+Referenced by \mbox{\hyperlink{KafkaManager_8cpp_source_l00027}{get\+Configuration()}}, and \mbox{\hyperlink{KafkaManager_8cpp_source_l00019}{set\+Configuration()}}.
+
 \mbox{\Hypertarget{classKafkaManager_ab83428889cb7ba9aad62f95657ab5091}\label{classKafkaManager_ab83428889cb7ba9aad62f95657ab5091}} 
 \index{KafkaManager@{KafkaManager}!producer@{producer}}
 \index{producer@{producer}!KafkaManager@{KafkaManager}}
@@ -465,6 +545,10 @@ Kafka producer\textquotesingle{}s instance.
 
 Definition at line \mbox{\hyperlink{KafkaManager_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{KafkaManager_8hpp_source}{Kafka\+Manager.\+hpp}}.
 
+
+
+Referenced by \mbox{\hyperlink{KafkaManager_8cpp_source_l00023}{get\+Producer()}}, \mbox{\hyperlink{KafkaManager_8cpp_source_l00092}{send\+Data()}}, and \mbox{\hyperlink{KafkaManager_8cpp_source_l00015}{set\+Producer()}}.
+
 \mbox{\Hypertarget{classKafkaManager_a0a3dbefd7ac2330ed8bb9650b50d2efb}\label{classKafkaManager_a0a3dbefd7ac2330ed8bb9650b50d2efb}} 
 \index{KafkaManager@{KafkaManager}!topic@{topic}}
 \index{topic@{topic}!KafkaManager@{KafkaManager}}
@@ -478,6 +562,10 @@ Destination Kafka\textquotesingle{}s topic.
 
 
 Definition at line \mbox{\hyperlink{KafkaManager_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{KafkaManager_8hpp_source}{Kafka\+Manager.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{KafkaManager_8cpp_source_l00031}{get\+Topic()}}, and \mbox{\hyperlink{KafkaManager_8cpp_source_l00092}{send\+Data()}}.
 
 
 

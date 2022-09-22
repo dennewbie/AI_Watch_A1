@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="eye_small_white.png"/></td>
   <td id="projectalign">
-   <div id="projectname">AI Watch A1<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">AI Watch A1: Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
+   <div id="projectbrief">Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -180,6 +180,8 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassKafkaManager_html_a0a3dbefd7ac2330ed8bb9650b50d2efb"><div class="ttname"><a href="classKafkaManager.html#a0a3dbefd7ac2330ed8bb9650b50d2efb">KafkaManager::topic</a></div><div class="ttdeci">const char * topic</div><div class="ttdoc">Destination Kafka's topic.</div><div class="ttdef"><b>Definition:</b> <a href="KafkaManager_8hpp_source.html#l00039">KafkaManager.hpp:39</a></div></div>
 <div class="ttc" id="aclassKafkaManager_html_a5c3a7caaf5ec042f0074fbea516a44b1"><div class="ttname"><a href="classKafkaManager.html#a5c3a7caaf5ec042f0074fbea516a44b1">KafkaManager::setupProducer</a></div><div class="ttdeci">void setupProducer(void)</div><div class="ttdoc">Launches configuration loading, once reads all the configuration parameters and later set the produce...</div><div class="ttdef"><b>Definition:</b> <a href="KafkaManager_8cpp_source.html#l00060">KafkaManager.cpp:60</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="KafkaManager_8cpp_source.html#l00060">setupProducer()</a>.</p>
+
 </div>
 </div>
 <a id="a854de8f42508a273cbe1efd295209ce0" name="a854de8f42508a273cbe1efd295209ce0"></a>
@@ -208,6 +210,8 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassKafkaManager_html_a84f751836602eba4de36ddc7207bd4ba"><div class="ttname"><a href="classKafkaManager.html#a84f751836602eba4de36ddc7207bd4ba">KafkaManager::getProducer</a></div><div class="ttdeci">rd_kafka_t * getProducer(void)</div><div class="ttdoc">Get the Kafka producer's instance.</div><div class="ttdef"><b>Definition:</b> <a href="KafkaManager_8cpp_source.html#l00023">KafkaManager.cpp:23</a></div></div>
 <div class="ttc" id="aclassKafkaManager_html_ac4a825ea74c714ae344fdaad52edf195"><div class="ttname"><a href="classKafkaManager.html#ac4a825ea74c714ae344fdaad52edf195">KafkaManager::setConfiguration</a></div><div class="ttdeci">void setConfiguration(rd_kafka_conf_t *configuration)</div><div class="ttdoc">Set the Kafka's configuration.</div><div class="ttdef"><b>Definition:</b> <a href="KafkaManager_8cpp_source.html#l00019">KafkaManager.cpp:19</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="KafkaManager_8cpp_source.html#l00023">getProducer()</a>, and <a class="el" href="KafkaManager_8cpp_source.html#l00019">setConfiguration()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -266,6 +270,8 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   57</span>    <span class="keywordflow">if</span> (rkmessage-&gt;err) g_error(<span class="stringliteral">&quot;Message delivery failed: %s&quot;</span>, rd_kafka_err2str(rkmessage-&gt;err));</div>
 <div class="line"><span class="lineno">   58</span>}</div>
 </div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="KafkaManager_8cpp_source.html#l00060">setupProducer()</a>.</p>
+
 </div>
 </div>
 <a id="a1657e743b8c0f3d9d7d369cc22e1ae7c" name="a1657e743b8c0f3d9d7d369cc22e1ae7c"></a>
@@ -342,6 +348,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   29</span>}</div>
 <div class="ttc" id="aclassKafkaManager_html_a9d4dd8b03a3623edb445d60c906854e1"><div class="ttname"><a href="classKafkaManager.html#a9d4dd8b03a3623edb445d60c906854e1">KafkaManager::configuration</a></div><div class="ttdeci">rd_kafka_conf_t * configuration</div><div class="ttdoc">Kafka's configuration.</div><div class="ttdef"><b>Definition:</b> <a href="KafkaManager_8hpp_source.html#l00035">KafkaManager.hpp:35</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="KafkaManager_8hpp_source.html#l00035">configuration</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="KafkaManager_8cpp_source.html#l00060">setupProducer()</a>.</p>
+
 </div>
 </div>
 <a id="a84f751836602eba4de36ddc7207bd4ba" name="a84f751836602eba4de36ddc7207bd4ba"></a>
@@ -377,6 +387,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   25</span>}</div>
 <div class="ttc" id="aclassKafkaManager_html_ab83428889cb7ba9aad62f95657ab5091"><div class="ttname"><a href="classKafkaManager.html#ab83428889cb7ba9aad62f95657ab5091">KafkaManager::producer</a></div><div class="ttdeci">rd_kafka_t * producer</div><div class="ttdoc">Kafka producer's instance.</div><div class="ttdef"><b>Definition:</b> <a href="KafkaManager_8hpp_source.html#l00031">KafkaManager.hpp:31</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="KafkaManager_8hpp_source.html#l00031">producer</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="KafkaManager_8cpp_source.html#l00092">sendData()</a>, <a class="el" href="KafkaManager_8cpp_source.html#l00060">setupProducer()</a>, and <a class="el" href="KafkaManager_8cpp_source.html#l00087">~KafkaManager()</a>.</p>
+
 </div>
 </div>
 <a id="a0ce5c5d2b9553121b354693c3e643feb" name="a0ce5c5d2b9553121b354693c3e643feb"></a>
@@ -411,6 +425,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   32</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classKafkaManager.html#a0a3dbefd7ac2330ed8bb9650b50d2efb">topic</a>;</div>
 <div class="line"><span class="lineno">   33</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="KafkaManager_8hpp_source.html#l00039">topic</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="KafkaManager_8cpp_source.html#l00092">sendData()</a>.</p>
+
 </div>
 </div>
 <a id="aaaf9b95ef4029e1dfe0e0c38dc8ecbef" name="aaaf9b95ef4029e1dfe0e0c38dc8ecbef"></a>
@@ -487,6 +505,10 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aconstants_8hpp_html_abe6787c8524fba1f6378e3f12ddc050f"><div class="ttname"><a href="constants_8hpp.html#abe6787c8524fba1f6378e3f12ddc050f">RDKAFKA_GET_KEY_FROM_JSON_ERROR</a></div><div class="ttdeci">static const short int RDKAFKA_GET_KEY_FROM_JSON_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00041">constants.hpp:41</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_add4dc79bfdabf1941bd9f98494457065"><div class="ttname"><a href="constants_8hpp.html#add4dc79bfdabf1941bd9f98494457065">RDKAFKA_CONF_SET_SCOPE</a></div><div class="ttdeci">static const char * RDKAFKA_CONF_SET_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00045">constants.hpp:45</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="constants_8hpp_source.html#l00044">RDKAFKA_CONF_SET_ERROR</a>, <a class="el" href="constants_8hpp_source.html#l00045">RDKAFKA_CONF_SET_SCOPE</a>, <a class="el" href="constants_8hpp_source.html#l00041">RDKAFKA_GET_KEY_FROM_JSON_ERROR</a>, <a class="el" href="constants_8hpp_source.html#l00042">RDKAFKA_GET_KEY_FROM_JSON_SCOPE</a>, <a class="el" href="constants_8hpp_source.html#l00038">RDKAFKA_GET_KEYS_FROM_JSON_ERROR</a>, and <a class="el" href="constants_8hpp_source.html#l00039">RDKAFKA_GET_KEYS_FROM_JSON_SCOPE</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="KafkaManager_8cpp_source.html#l00060">setupProducer()</a>.</p>
+
 </div>
 </div>
 <a id="a5dca4ae409b1f9c21402bf68a7607315" name="a5dca4ae409b1f9c21402bf68a7607315"></a>
@@ -553,6 +575,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  117</span>}</div>
 <div class="ttc" id="aclassKafkaManager_html_a0ce5c5d2b9553121b354693c3e643feb"><div class="ttname"><a href="classKafkaManager.html#a0ce5c5d2b9553121b354693c3e643feb">KafkaManager::getTopic</a></div><div class="ttdeci">const char * getTopic(void)</div><div class="ttdoc">Get the destination Kafka's topic.</div><div class="ttdef"><b>Definition:</b> <a href="KafkaManager_8cpp_source.html#l00031">KafkaManager.cpp:31</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="KafkaManager_8cpp_source.html#l00023">getProducer()</a>, <a class="el" href="KafkaManager_8cpp_source.html#l00031">getTopic()</a>, <a class="el" href="KafkaManager_8hpp_source.html#l00031">producer</a>, and <a class="el" href="KafkaManager_8hpp_source.html#l00039">topic</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FacadeSingleton_8cpp_source.html#l00149">FacadeSingleton::sendData()</a>.</p>
+
 </div>
 </div>
 <a id="ac4a825ea74c714ae344fdaad52edf195" name="ac4a825ea74c714ae344fdaad52edf195"></a>
@@ -592,6 +618,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   20</span>    this-&gt;<a class="code hl_variable" href="classKafkaManager.html#a9d4dd8b03a3623edb445d60c906854e1">configuration</a> = <a class="code hl_variable" href="classKafkaManager.html#a9d4dd8b03a3623edb445d60c906854e1">configuration</a>;</div>
 <div class="line"><span class="lineno">   21</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="KafkaManager_8hpp_source.html#l00035">configuration</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="KafkaManager_8cpp_source.html#l00060">setupProducer()</a>, and <a class="el" href="KafkaManager_8cpp_source.html#l00087">~KafkaManager()</a>.</p>
+
 </div>
 </div>
 <a id="ad6099678d7438f7b96d7f8eb6e79784c" name="ad6099678d7438f7b96d7f8eb6e79784c"></a>
@@ -631,6 +661,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   16</span>    this-&gt;<a class="code hl_variable" href="classKafkaManager.html#ab83428889cb7ba9aad62f95657ab5091">producer</a> = <a class="code hl_variable" href="classKafkaManager.html#ab83428889cb7ba9aad62f95657ab5091">producer</a>;</div>
 <div class="line"><span class="lineno">   17</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="KafkaManager_8hpp_source.html#l00031">producer</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="KafkaManager_8cpp_source.html#l00060">setupProducer()</a>.</p>
+
 </div>
 </div>
 <a id="a5c3a7caaf5ec042f0074fbea516a44b1" name="a5c3a7caaf5ec042f0074fbea516a44b1"></a>
@@ -689,6 +723,10 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassKafkaManager_html_ab8cb8ce9fe469476883deac6c5c64def"><div class="ttname"><a href="classKafkaManager.html#ab8cb8ce9fe469476883deac6c5c64def">KafkaManager::getConfiguration</a></div><div class="ttdeci">rd_kafka_conf_t * getConfiguration(void)</div><div class="ttdoc">Get the Kafka's configuration.</div><div class="ttdef"><b>Definition:</b> <a href="KafkaManager_8cpp_source.html#l00027">KafkaManager.cpp:27</a></div></div>
 <div class="ttc" id="aclassKafkaManager_html_ad6099678d7438f7b96d7f8eb6e79784c"><div class="ttname"><a href="classKafkaManager.html#ad6099678d7438f7b96d7f8eb6e79784c">KafkaManager::setProducer</a></div><div class="ttdeci">void setProducer(rd_kafka_t *producer)</div><div class="ttdoc">Set the Kafka producer's instance.</div><div class="ttdef"><b>Definition:</b> <a href="KafkaManager_8cpp_source.html#l00015">KafkaManager.cpp:15</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="KafkaManager_8cpp_source.html#l00056">dr_msg_cb()</a>, <a class="el" href="KafkaManager_8cpp_source.html#l00027">getConfiguration()</a>, <a class="el" href="KafkaManager_8cpp_source.html#l00023">getProducer()</a>, <a class="el" href="KafkaManager_8cpp_source.html#l00035">loadConfigurationGroup()</a>, <a class="el" href="KafkaManager_8cpp_source.html#l00019">setConfiguration()</a>, and <a class="el" href="KafkaManager_8cpp_source.html#l00015">setProducer()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="KafkaManager_8hpp_source.html#l00107">KafkaManager()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -716,6 +754,8 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="KafkaManager_8hpp_source.html#l00035">35</a> of file <a class="el" href="KafkaManager_8hpp_source.html">KafkaManager.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="KafkaManager_8cpp_source.html#l00027">getConfiguration()</a>, and <a class="el" href="KafkaManager_8cpp_source.html#l00019">setConfiguration()</a>.</p>
+
 </div>
 </div>
 <a id="ab83428889cb7ba9aad62f95657ab5091" name="ab83428889cb7ba9aad62f95657ab5091"></a>
@@ -742,6 +782,8 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="KafkaManager_8hpp_source.html#l00031">31</a> of file <a class="el" href="KafkaManager_8hpp_source.html">KafkaManager.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="KafkaManager_8cpp_source.html#l00023">getProducer()</a>, <a class="el" href="KafkaManager_8cpp_source.html#l00092">sendData()</a>, and <a class="el" href="KafkaManager_8cpp_source.html#l00015">setProducer()</a>.</p>
+
 </div>
 </div>
 <a id="a0a3dbefd7ac2330ed8bb9650b50d2efb" name="a0a3dbefd7ac2330ed8bb9650b50d2efb"></a>
@@ -767,6 +809,8 @@ Private Attributes</h2></td></tr>
 <p>Destination Kafka's topic. </p>
 
 <p class="definition">Definition at line <a class="el" href="KafkaManager_8hpp_source.html#l00039">39</a> of file <a class="el" href="KafkaManager_8hpp_source.html">KafkaManager.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="KafkaManager_8cpp_source.html#l00031">getTopic()</a>, and <a class="el" href="KafkaManager_8cpp_source.html#l00092">sendData()</a>.</p>
 
 </div>
 </div>

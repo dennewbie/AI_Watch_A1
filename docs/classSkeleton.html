@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="eye_small_white.png"/></td>
   <td id="projectalign">
-   <div id="projectname">AI Watch A1<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">AI Watch A1: Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
+   <div id="projectbrief">Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -266,6 +266,8 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassSkeleton_html_aaf3cbe0e4d0f83a24af7ad5f229f959c"><div class="ttname"><a href="classSkeleton.html#aaf3cbe0e4d0f83a24af7ad5f229f959c">Skeleton::skeletonData</a></div><div class="ttdeci">Json::Value skeletonData</div><div class="ttdoc">Represents a Skeleton JSON value. This class is a discriminated union wrapper that can represent a:</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8hpp_source.html#l00078">Skeleton.hpp:78</a></div></div>
 <div class="ttc" id="aclassSkeleton_html_ac3624a3d6536f5455fe4d3b8f808a16d"><div class="ttname"><a href="classSkeleton.html#ac3624a3d6536f5455fe4d3b8f808a16d">Skeleton::setSkeletonData</a></div><div class="ttdeci">void setSkeletonData(Json::Value skeletonData)</div><div class="ttdoc">Set the Skeleton Data JSON object.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00035">Skeleton.cpp:35</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8cpp_source.html#l00047">setConsistency()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00019">setDistance_Image()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00015">setRGB_Image()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00023">setSkeleton_Image()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00035">setSkeletonData()</a>, <a class="el" href="Skeleton_8hpp_source.html#l00050">skeleton_Image</a>, and <a class="el" href="Skeleton_8hpp_source.html#l00078">skeletonData</a>.</p>
+
 </div>
 </div>
 <a id="a40ae97bb813d4e6271eac0e1cd904328" name="a40ae97bb813d4e6271eac0e1cd904328"></a>
@@ -294,9 +296,11 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  199</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="classSkeleton.html#a4661b8b588d471563909ee49823536db">getSkeletonPoints3D</a>() != <span class="keyword">nullptr</span>) <span class="keyword">delete</span> <a class="code hl_function" href="classSkeleton.html#a4661b8b588d471563909ee49823536db">getSkeletonPoints3D</a>();</div>
 <div class="line"><span class="lineno">  200</span>    <a class="code hl_function" href="classSkeleton.html#af62bfa912dd7f33164768b338bf9cc67">getSkeletonPoints3D_RS</a>().clear();</div>
 <div class="line"><span class="lineno">  201</span>}</div>
-<div class="ttc" id="aclassSkeleton_html_a4661b8b588d471563909ee49823536db"><div class="ttname"><a href="classSkeleton.html#a4661b8b588d471563909ee49823536db">Skeleton::getSkeletonPoints3D</a></div><div class="ttdeci">std::vector&lt; Point3D * &gt; * getSkeletonPoints3D(void)</div><div class="ttdoc">Get the Skeleton Points3D vector's pointer.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00217">Skeleton.cpp:217</a></div></div>
-<div class="ttc" id="aclassSkeleton_html_af62bfa912dd7f33164768b338bf9cc67"><div class="ttname"><a href="classSkeleton.html#af62bfa912dd7f33164768b338bf9cc67">Skeleton::getSkeletonPoints3D_RS</a></div><div class="ttdeci">std::vector&lt; Point3D * &gt; getSkeletonPoints3D_RS(void)</div><div class="ttdoc">Get the SkeletonPoints3D RS vector.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00213">Skeleton.cpp:213</a></div></div>
+<div class="ttc" id="aclassSkeleton_html_a4661b8b588d471563909ee49823536db"><div class="ttname"><a href="classSkeleton.html#a4661b8b588d471563909ee49823536db">Skeleton::getSkeletonPoints3D</a></div><div class="ttdeci">std::vector&lt; Point3D * &gt; * getSkeletonPoints3D(void)</div><div class="ttdoc">Get the Skeleton Points3D vector's pointer.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00218">Skeleton.cpp:218</a></div></div>
+<div class="ttc" id="aclassSkeleton_html_af62bfa912dd7f33164768b338bf9cc67"><div class="ttname"><a href="classSkeleton.html#af62bfa912dd7f33164768b338bf9cc67">Skeleton::getSkeletonPoints3D_RS</a></div><div class="ttdeci">std::vector&lt; Point3D * &gt; getSkeletonPoints3D_RS(void)</div><div class="ttdoc">Get the SkeletonPoints3D RS vector.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00214">Skeleton.cpp:214</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8cpp_source.html#l00218">getSkeletonPoints3D()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00214">getSkeletonPoints3D_RS()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -386,6 +390,10 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassSkeleton_html_ab4f1fbf48944d0c56009a3ec14d2ca08"><div class="ttname"><a href="classSkeleton.html#ab4f1fbf48944d0c56009a3ec14d2ca08">Skeleton::drawLine</a></div><div class="ttdeci">void drawLine(unsigned char start, unsigned char end)</div><div class="ttdoc">Draw a line that starts from a point and ends at another point. The points are specified as unsigned ...</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00131">Skeleton.cpp:131</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_af63f5982d924abff2ec60f905036d8c8"><div class="ttname"><a href="constants_8hpp.html#af63f5982d924abff2ec60f905036d8c8">openPoseBodyKeyPointsNumber</a></div><div class="ttdeci">static const short int openPoseBodyKeyPointsNumber</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00068">constants.hpp:68</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8cpp_source.html#l00140">drawCircle()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00131">drawLine()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00065">getBodyKeyPoints()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00069">getBodyKeyPointsMap()</a>, <a class="el" href="Skeleton_8hpp_source.html#l00024">LAnkle</a>, <a class="el" href="Skeleton_8hpp_source.html#l00025">LBigToe</a>, <a class="el" href="Skeleton_8hpp_source.html#l00025">LEar</a>, <a class="el" href="Skeleton_8hpp_source.html#l00023">LElbow</a>, <a class="el" href="Skeleton_8hpp_source.html#l00025">LEye</a>, <a class="el" href="Skeleton_8hpp_source.html#l00026">LHeel</a>, <a class="el" href="Skeleton_8hpp_source.html#l00024">LHip</a>, <a class="el" href="Skeleton_8hpp_source.html#l00024">LKnee</a>, <a class="el" href="Skeleton_8hpp_source.html#l00023">LShoulder</a>, <a class="el" href="Skeleton_8hpp_source.html#l00023">MidHip</a>, <a class="el" href="Skeleton_8hpp_source.html#l00022">Neck</a>, <a class="el" href="Skeleton_8hpp_source.html#l00022">Nose</a>, <a class="el" href="constants_8hpp_source.html#l00068">openPoseBodyKeyPointsNumber</a>, <a class="el" href="Skeleton_8hpp_source.html#l00024">RAnkle</a>, <a class="el" href="Skeleton_8hpp_source.html#l00026">RBigToe</a>, <a class="el" href="Skeleton_8hpp_source.html#l00025">REar</a>, <a class="el" href="Skeleton_8hpp_source.html#l00022">RElbow</a>, <a class="el" href="Skeleton_8hpp_source.html#l00025">REye</a>, <a class="el" href="Skeleton_8hpp_source.html#l00026">RHeel</a>, and <a class="el" href="Skeleton_8hpp_source.html#l00024">RKnee</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00203">generateSkeleton()</a>.</p>
+
 </div>
 </div>
 <a id="aa03ccd15736e50d1b3e56fc91fcd374f" name="aa03ccd15736e50d1b3e56fc91fcd374f"></a>
@@ -447,12 +455,16 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassOutputManagerJSON_html"><div class="ttname"><a href="classOutputManagerJSON.html">OutputManagerJSON</a></div><div class="ttdoc">OutputManagerJSON class is a class that abstracts final JSON output-producing operations.</div><div class="ttdef"><b>Definition:</b> <a href="OutputManager_8hpp_source.html#l00073">OutputManager.hpp:73</a></div></div>
 <div class="ttc" id="aclassOutputManagerJSON_html_ab8f239a05495e63d99ef7e783b566587"><div class="ttname"><a href="classOutputManagerJSON.html#ab8f239a05495e63d99ef7e783b566587">OutputManagerJSON::getValueAt</a></div><div class="ttdeci">Json::Value getValueAt(std::string key, Json::Value currentJSON)</div><div class="ttdoc">Utility method to get the value at a given key in a given JSON node.</div><div class="ttdef"><b>Definition:</b> <a href="OutputManagerJSON_8cpp_source.html#l00056">OutputManagerJSON.cpp:56</a></div></div>
 <div class="ttc" id="aclassSkeleton_html_a16a83ec139b8a59475992f2cdac8e5df"><div class="ttname"><a href="classSkeleton.html#a16a83ec139b8a59475992f2cdac8e5df">Skeleton::bodyKeyPoints</a></div><div class="ttdeci">std::vector&lt; BodyKeyPoint &gt; bodyKeyPoints</div><div class="ttdoc">A vector that contains each body joint retrieved from OpenPose.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8hpp_source.html#l00055">Skeleton.hpp:55</a></div></div>
-<div class="ttc" id="aclassSkeleton_html_a1770444f4e0b5dc042216ea11eb140b9"><div class="ttname"><a href="classSkeleton.html#a1770444f4e0b5dc042216ea11eb140b9">Skeleton::getConsistency</a></div><div class="ttdeci">float getConsistency(void)</div><div class="ttdoc">Get the Consistency float value.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00221">Skeleton.cpp:221</a></div></div>
+<div class="ttc" id="aclassSkeleton_html_a1770444f4e0b5dc042216ea11eb140b9"><div class="ttname"><a href="classSkeleton.html#a1770444f4e0b5dc042216ea11eb140b9">Skeleton::getConsistency</a></div><div class="ttdeci">float getConsistency(void)</div><div class="ttdoc">Get the Consistency float value.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00222">Skeleton.cpp:222</a></div></div>
 <div class="ttc" id="aclassSkeleton_html_a71d172069f4b4fe0a92ff5063d1cab49"><div class="ttname"><a href="classSkeleton.html#a71d172069f4b4fe0a92ff5063d1cab49">Skeleton::bodyKeyPointsMap</a></div><div class="ttdeci">std::vector&lt; bool &gt; bodyKeyPointsMap</div><div class="ttdoc">A vector that contains for each body joint retrieved from OpenPose a corresponding boolean that means...</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8hpp_source.html#l00062">Skeleton.hpp:62</a></div></div>
 <div class="ttc" id="aclassSkeleton_html_a84df89e2fe2580862286ce1a3b327855"><div class="ttname"><a href="classSkeleton.html#a84df89e2fe2580862286ce1a3b327855">Skeleton::getSkeletonData</a></div><div class="ttdeci">Json::Value getSkeletonData(void)</div><div class="ttdoc">Get the Skeleton Data JSON object.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00073">Skeleton.cpp:73</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_aba8cd558b16927b8fe2d962968d20c10"><div class="ttname"><a href="constants_8hpp.html#aba8cd558b16927b8fe2d962968d20c10">FACADE_SINGLETON_NULLPTR_ERROR</a></div><div class="ttdeci">static const short int FACADE_SINGLETON_NULLPTR_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00032">constants.hpp:32</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_ae5a935d42848889b474e368ef77cf46a"><div class="ttname"><a href="constants_8hpp.html#ae5a935d42848889b474e368ef77cf46a">FACADE_SINGLETON_NULLPTR_SCOPE</a></div><div class="ttdeci">static const char * FACADE_SINGLETON_NULLPTR_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00033">constants.hpp:33</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00055">bodyKeyPoints</a>, <a class="el" href="Skeleton_8hpp_source.html#l00062">bodyKeyPointsMap</a>, <a class="el" href="constants_8hpp_source.html#l00032">FACADE_SINGLETON_NULLPTR_ERROR</a>, <a class="el" href="constants_8hpp_source.html#l00033">FACADE_SINGLETON_NULLPTR_SCOPE</a>, <a class="el" href="Skeleton_8cpp_source.html#l00222">getConsistency()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00089">FacadeSingleton::getInstance()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00099">FacadeSingleton::getOutputManager()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00073">getSkeletonData()</a>, <a class="el" href="OutputManagerJSON_8cpp_source.html#l00056">OutputManagerJSON::getValueAt()</a>, <a class="el" href="constants_8hpp_source.html#l00068">openPoseBodyKeyPointsNumber</a>, <a class="el" href="Skeleton_8cpp_source.html#l00047">setConsistency()</a>, and <a class="el" href="Skeleton_8hpp_source.html#l00078">skeletonData</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00203">generateSkeleton()</a>.</p>
+
 </div>
 </div>
 <a id="a95020e44d078302777ed494db7186342" name="a95020e44d078302777ed494db7186342"></a>
@@ -520,6 +532,10 @@ get_color_intrin() </dd></dl>
 <div class="ttc" id="aconstants_8hpp_html_abe13aa9752d0f72992db79c160c29499"><div class="ttname"><a href="constants_8hpp.html#abe13aa9752d0f72992db79c160c29499">NEW_ALLOC_ERROR</a></div><div class="ttdeci">static const short int NEW_ALLOC_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00047">constants.hpp:47</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_afd7c8e624c9011a9fd3fef6568815ba2"><div class="ttname"><a href="constants_8hpp.html#afd7c8e624c9011a9fd3fef6568815ba2">NEW_ALLOC_SCOPE</a></div><div class="ttdeci">static const char * NEW_ALLOC_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00048">constants.hpp:48</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="constants_8hpp_source.html#l00032">FACADE_SINGLETON_NULLPTR_ERROR</a>, <a class="el" href="constants_8hpp_source.html#l00033">FACADE_SINGLETON_NULLPTR_SCOPE</a>, <a class="el" href="RealSenseManager_8cpp_source.html#l00065">RealSenseManager::get_color_intrin()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00065">getBodyKeyPoints()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00069">getBodyKeyPointsMap()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00095">FacadeSingleton::getCameraManager()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00057">getDistance_Image()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00089">FacadeSingleton::getInstance()</a>, <a class="el" href="constants_8hpp_source.html#l00047">NEW_ALLOC_ERROR</a>, <a class="el" href="constants_8hpp_source.html#l00048">NEW_ALLOC_SCOPE</a>, and <a class="el" href="Skeleton_8hpp_source.html#l00085">skeletonPoints3D_RS</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00203">generateSkeleton()</a>.</p>
+
 </div>
 </div>
 <a id="a6643a1e55f22c749920d3e70720b671f" name="a6643a1e55f22c749920d3e70720b671f"></a>
@@ -562,6 +578,10 @@ get_color_intrin() </dd></dl>
 <div class="ttc" id="aclassSkeleton_html_a02d9a7fe4c4e8358406b14e808ecc0f6"><div class="ttname"><a href="classSkeleton.html#a02d9a7fe4c4e8358406b14e808ecc0f6">Skeleton::getRGB_Image</a></div><div class="ttdeci">cv::Mat getRGB_Image(void)</div><div class="ttdoc">Get the RGB Image object.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00053">Skeleton.cpp:53</a></div></div>
 <div class="ttc" id="aclassSkeleton_html_ae773c61eee4888fbb5c63ee665f5925a"><div class="ttname"><a href="classSkeleton.html#ae773c61eee4888fbb5c63ee665f5925a">Skeleton::getSkeleton_Image</a></div><div class="ttdeci">cv::Mat getSkeleton_Image(void)</div><div class="ttdoc">Get the Skeleton-only Image object.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00061">Skeleton.cpp:61</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8cpp_source.html#l00053">getRGB_Image()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00061">getSkeleton_Image()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00099">calcBodyEdges()</a>.</p>
+
 </div>
 </div>
 <a id="ab4f1fbf48944d0c56009a3ec14d2ca08" name="ab4f1fbf48944d0c56009a3ec14d2ca08"></a>
@@ -617,6 +637,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">  137</span>    }</div>
 <div class="line"><span class="lineno">  138</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8cpp_source.html#l00065">getBodyKeyPoints()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00069">getBodyKeyPointsMap()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00053">getRGB_Image()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00061">getSkeleton_Image()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00099">calcBodyEdges()</a>.</p>
+
 </div>
 </div>
 <a id="ae0c3e5472eccf5a1781b609f51679bcb" name="ae0c3e5472eccf5a1781b609f51679bcb"></a>
@@ -647,16 +671,22 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">  208</span>    <span class="keywordflow">if</span> (facadeSingletonInstance == <span class="keyword">nullptr</span>) CV_Error(<a class="code hl_variable" href="constants_8hpp.html#aba8cd558b16927b8fe2d962968d20c10">FACADE_SINGLETON_NULLPTR_ERROR</a>, <a class="code hl_variable" href="constants_8hpp.html#ae5a935d42848889b474e368ef77cf46a">FACADE_SINGLETON_NULLPTR_SCOPE</a>);</div>
 <div class="line"><span class="lineno">  209</span>    <span class="comment">// xOrigin and zOrigin parameters are inverted as the built Unity world requires.</span></div>
 <div class="line"><span class="lineno">  210</span>    <a class="code hl_function" href="classSkeleton.html#aaebcbeeb42522c6147f0c63713bf3641">setSkeletonPoints3D</a>(facadeSingletonInstance-&gt;<a class="code hl_function" href="classFacadeSingleton.html#a06a51b5942524c62681b032f8aa163f3">getCoordinateMappingManager</a>()-&gt;<a class="code hl_function" href="classCoordinateMappingManager.html#a53059f45e764e26353439bc495074e86">mapToMeters</a>(<a class="code hl_function" href="classSkeleton.html#af62bfa912dd7f33164768b338bf9cc67">getSkeletonPoints3D_RS</a>(), <a class="code hl_function" href="classSkeleton.html#a79798d4999379bc7063a9fc2dabad55e">getBodyKeyPointsMap</a>(), <a class="code hl_variable" href="CoordinateMappingManager_8hpp.html#a1ba74a014193cc047f5d9c6d21ab8e04">zOriginUnity</a>, <a class="code hl_variable" href="CoordinateMappingManager_8hpp.html#a22e05a7dd1691d5e0ff93d47bb2cb2e6">xOriginUnity</a>));</div>
-<div class="line"><span class="lineno">  211</span>}</div>
-<div class="ttc" id="aCoordinateMappingManager_8hpp_html_a1ba74a014193cc047f5d9c6d21ab8e04"><div class="ttname"><a href="CoordinateMappingManager_8hpp.html#a1ba74a014193cc047f5d9c6d21ab8e04">zOriginUnity</a></div><div class="ttdeci">static const float zOriginUnity</div><div class="ttdef"><b>Definition:</b> <a href="CoordinateMappingManager_8hpp_source.html#l00053">CoordinateMappingManager.hpp:53</a></div></div>
-<div class="ttc" id="aCoordinateMappingManager_8hpp_html_a22e05a7dd1691d5e0ff93d47bb2cb2e6"><div class="ttname"><a href="CoordinateMappingManager_8hpp.html#a22e05a7dd1691d5e0ff93d47bb2cb2e6">xOriginUnity</a></div><div class="ttdeci">static const float xOriginUnity</div><div class="ttdef"><b>Definition:</b> <a href="CoordinateMappingManager_8hpp_source.html#l00052">CoordinateMappingManager.hpp:52</a></div></div>
+<div class="line"><span class="lineno">  211</span>    <a class="code hl_function" href="classSkeleton.html#a960ce534a29be39bff035c8ef5e49004">writeCoordinates</a>();</div>
+<div class="line"><span class="lineno">  212</span>}</div>
+<div class="ttc" id="aCoordinateMappingManager_8hpp_html_a1ba74a014193cc047f5d9c6d21ab8e04"><div class="ttname"><a href="CoordinateMappingManager_8hpp.html#a1ba74a014193cc047f5d9c6d21ab8e04">zOriginUnity</a></div><div class="ttdeci">static const float zOriginUnity</div><div class="ttdef"><b>Definition:</b> <a href="CoordinateMappingManager_8hpp_source.html#l00033">CoordinateMappingManager.hpp:33</a></div></div>
+<div class="ttc" id="aCoordinateMappingManager_8hpp_html_a22e05a7dd1691d5e0ff93d47bb2cb2e6"><div class="ttname"><a href="CoordinateMappingManager_8hpp.html#a22e05a7dd1691d5e0ff93d47bb2cb2e6">xOriginUnity</a></div><div class="ttdeci">static const float xOriginUnity</div><div class="ttdef"><b>Definition:</b> <a href="CoordinateMappingManager_8hpp_source.html#l00032">CoordinateMappingManager.hpp:32</a></div></div>
 <div class="ttc" id="aclassCoordinateMappingManager_html_a53059f45e764e26353439bc495074e86"><div class="ttname"><a href="classCoordinateMappingManager.html#a53059f45e764e26353439bc495074e86">CoordinateMappingManager::mapToMeters</a></div><div class="ttdeci">virtual std::vector&lt; Point3D * &gt; * mapToMeters(std::vector&lt; Point3D * &gt; pointsToMap, std::vector&lt; bool &gt; bodyKeyPointsMap, float xOrigin, float zOrigin)</div><div class="ttdoc">This method requires pointers' Point3D's vector, the related vector map, and the original coordinates...</div><div class="ttdef"><b>Definition:</b> <a href="CoordinateMappingManager_8cpp_source.html#l00053">CoordinateMappingManager.cpp:53</a></div></div>
 <div class="ttc" id="aclassFacadeSingleton_html_a06a51b5942524c62681b032f8aa163f3"><div class="ttname"><a href="classFacadeSingleton.html#a06a51b5942524c62681b032f8aa163f3">FacadeSingleton::getCoordinateMappingManager</a></div><div class="ttdeci">CoordinateMappingManager * getCoordinateMappingManager(void)</div><div class="ttdoc">Get the CoordinateMappingManager pointer.</div><div class="ttdef"><b>Definition:</b> <a href="FacadeSingleton_8cpp_source.html#l00111">FacadeSingleton.cpp:111</a></div></div>
 <div class="ttc" id="aclassSkeleton_html_a7b8cb4eb6d94c7cff3c658ef826e04a4"><div class="ttname"><a href="classSkeleton.html#a7b8cb4eb6d94c7cff3c658ef826e04a4">Skeleton::calcBodyEdges</a></div><div class="ttdeci">void calcBodyEdges(void)</div><div class="ttdoc">Calculate Skeleton and invoke methods to draw it on the image according to OpenPose skeleton structur...</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00099">Skeleton.cpp:99</a></div></div>
 <div class="ttc" id="aclassSkeleton_html_a95020e44d078302777ed494db7186342"><div class="ttname"><a href="classSkeleton.html#a95020e44d078302777ed494db7186342">Skeleton::deprojectSkeletonPoints3D</a></div><div class="ttdeci">void deprojectSkeletonPoints3D(void)</div><div class="ttdoc">Deprojection operation takes a 2D pixel location on a stream's images, as well as a depth,...</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00145">Skeleton.cpp:145</a></div></div>
+<div class="ttc" id="aclassSkeleton_html_a960ce534a29be39bff035c8ef5e49004"><div class="ttname"><a href="classSkeleton.html#a960ce534a29be39bff035c8ef5e49004">Skeleton::writeCoordinates</a></div><div class="ttdeci">void writeCoordinates(void)</div><div class="ttdoc">Write specific joint points' coordinates on the RGB image.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00169">Skeleton.cpp:169</a></div></div>
 <div class="ttc" id="aclassSkeleton_html_aa03ccd15736e50d1b3e56fc91fcd374f"><div class="ttname"><a href="classSkeleton.html#aa03ccd15736e50d1b3e56fc91fcd374f">Skeleton::calcBodyKeypoints</a></div><div class="ttdeci">void calcBodyKeypoints(void)</div><div class="ttdoc">Retrieve BodyKeyPoints vector and the BodyKeyPoints Map bool vector from OpenPose output,...</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00078">Skeleton.cpp:78</a></div></div>
 <div class="ttc" id="aclassSkeleton_html_aaebcbeeb42522c6147f0c63713bf3641"><div class="ttname"><a href="classSkeleton.html#aaebcbeeb42522c6147f0c63713bf3641">Skeleton::setSkeletonPoints3D</a></div><div class="ttdeci">void setSkeletonPoints3D(std::vector&lt; Point3D * &gt; *skeletonPoints3D)</div><div class="ttdoc">Set the Skeleton Points3D pointer to vector.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00043">Skeleton.cpp:43</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8cpp_source.html#l00099">calcBodyEdges()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00078">calcBodyKeypoints()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00145">deprojectSkeletonPoints3D()</a>, <a class="el" href="constants_8hpp_source.html#l00032">FACADE_SINGLETON_NULLPTR_ERROR</a>, <a class="el" href="constants_8hpp_source.html#l00033">FACADE_SINGLETON_NULLPTR_SCOPE</a>, <a class="el" href="Skeleton_8cpp_source.html#l00069">getBodyKeyPointsMap()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00111">FacadeSingleton::getCoordinateMappingManager()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00089">FacadeSingleton::getInstance()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00214">getSkeletonPoints3D_RS()</a>, <a class="el" href="CoordinateMappingManager_8cpp_source.html#l00053">CoordinateMappingManager::mapToMeters()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00043">setSkeletonPoints3D()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00169">writeCoordinates()</a>, <a class="el" href="CoordinateMappingManager_8hpp_source.html#l00032">xOriginUnity</a>, and <a class="el" href="CoordinateMappingManager_8hpp_source.html#l00033">zOriginUnity</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="OutputManagerJSON_8cpp_source.html#l00068">OutputManagerJSON::createJSON()</a>.</p>
+
 </div>
 </div>
 <a id="a0a21332dc3b5943626e7817b07e20f7e" name="a0a21332dc3b5943626e7817b07e20f7e"></a>
@@ -691,6 +721,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classSkeleton.html#a16a83ec139b8a59475992f2cdac8e5df">bodyKeyPoints</a>;</div>
 <div class="line"><span class="lineno">   67</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00055">bodyKeyPoints</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00099">calcBodyEdges()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00145">deprojectSkeletonPoints3D()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00131">drawLine()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00169">writeCoordinates()</a>.</p>
+
 </div>
 </div>
 <a id="a79798d4999379bc7063a9fc2dabad55e" name="a79798d4999379bc7063a9fc2dabad55e"></a>
@@ -717,6 +751,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   70</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classSkeleton.html#a71d172069f4b4fe0a92ff5063d1cab49">bodyKeyPointsMap</a>;</div>
 <div class="line"><span class="lineno">   71</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00062">bodyKeyPointsMap</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00099">calcBodyEdges()</a>, <a class="el" href="OutputManagerJSON_8cpp_source.html#l00068">OutputManagerJSON::createJSON()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00145">deprojectSkeletonPoints3D()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00131">drawLine()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00203">generateSkeleton()</a>.</p>
+
 </div>
 </div>
 <a id="a1770444f4e0b5dc042216ea11eb140b9" name="a1770444f4e0b5dc042216ea11eb140b9"></a>
@@ -738,12 +776,16 @@ get_color_intrin() </dd></dl>
 <p>Get the Consistency float value. </p>
 <dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Skeleton_8cpp_source.html#l00221">221</a> of file <a class="el" href="Skeleton_8cpp_source.html">Skeleton.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  221</span>                                    {</div>
-<div class="line"><span class="lineno">  222</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classSkeleton.html#add4518caaf948e4207dc0885b7238a04">consistency</a>;</div>
-<div class="line"><span class="lineno">  223</span>}</div>
+<p class="definition">Definition at line <a class="el" href="Skeleton_8cpp_source.html#l00222">222</a> of file <a class="el" href="Skeleton_8cpp_source.html">Skeleton.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  222</span>                                    {</div>
+<div class="line"><span class="lineno">  223</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classSkeleton.html#add4518caaf948e4207dc0885b7238a04">consistency</a>;</div>
+<div class="line"><span class="lineno">  224</span>}</div>
 <div class="ttc" id="aclassSkeleton_html_add4518caaf948e4207dc0885b7238a04"><div class="ttname"><a href="classSkeleton.html#add4518caaf948e4207dc0885b7238a04">Skeleton::consistency</a></div><div class="ttdeci">float consistency</div><div class="ttdoc">Consistency is a value that represents how accurate is the OpenPose detection for this skeleton....</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8hpp_source.html#l00099">Skeleton.hpp:99</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00099">consistency</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00078">calcBodyKeypoints()</a>, and <a class="el" href="OutputManagerJSON_8cpp_source.html#l00068">OutputManagerJSON::createJSON()</a>.</p>
+
 </div>
 </div>
 <a id="af23efe934c386caad075ecc3634e7510" name="af23efe934c386caad075ecc3634e7510"></a>
@@ -779,6 +821,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   59</span>}</div>
 <div class="ttc" id="aclassSkeleton_html_adc003c36524e2517427709737d3d4414"><div class="ttname"><a href="classSkeleton.html#adc003c36524e2517427709737d3d4414">Skeleton::distance_Image</a></div><div class="ttdeci">cv::Mat distance_Image</div><div class="ttdoc">Distance frame related to the frame in which the skeleton may appears.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8hpp_source.html#l00046">Skeleton.hpp:46</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00046">distance_Image</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00145">deprojectSkeletonPoints3D()</a>.</p>
+
 </div>
 </div>
 <a id="a02d9a7fe4c4e8358406b14e808ecc0f6" name="a02d9a7fe4c4e8358406b14e808ecc0f6"></a>
@@ -814,6 +860,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   55</span>}</div>
 <div class="ttc" id="aclassSkeleton_html_aad4a02880ae23413c988a9d8263d134f"><div class="ttname"><a href="classSkeleton.html#aad4a02880ae23413c988a9d8263d134f">Skeleton::rgb_Image</a></div><div class="ttdeci">cv::Mat rgb_Image</div><div class="ttdoc">RGB frame related to the frame in which the skeleton may appears.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8hpp_source.html#l00042">Skeleton.hpp:42</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00042">rgb_Image</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00140">drawCircle()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00131">drawLine()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00169">writeCoordinates()</a>.</p>
+
 </div>
 </div>
 <a id="ae773c61eee4888fbb5c63ee665f5925a" name="ae773c61eee4888fbb5c63ee665f5925a"></a>
@@ -848,6 +898,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   62</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classSkeleton.html#a253942679af89335bfbec0c380509476">skeleton_Image</a>;</div>
 <div class="line"><span class="lineno">   63</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00050">skeleton_Image</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00140">drawCircle()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00131">drawLine()</a>.</p>
+
 </div>
 </div>
 <a id="a84df89e2fe2580862286ce1a3b327855" name="a84df89e2fe2580862286ce1a3b327855"></a>
@@ -882,6 +936,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   74</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classSkeleton.html#aaf3cbe0e4d0f83a24af7ad5f229f959c">skeletonData</a>;</div>
 <div class="line"><span class="lineno">   75</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00078">skeletonData</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00078">calcBodyKeypoints()</a>.</p>
+
 </div>
 </div>
 <a id="a4661b8b588d471563909ee49823536db" name="a4661b8b588d471563909ee49823536db"></a>
@@ -903,12 +961,16 @@ get_color_intrin() </dd></dl>
 <p>Get the <a class="el" href="classSkeleton.html" title="Skeleton class is used for skeleton creations and manipulations.">Skeleton</a> Points3D vector's pointer. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::vector &lt;<a class="el" href="classPoint3D.html" title="Point3D class is used for Point3D creations and manipulations.">Point3D</a> *&gt;* </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Skeleton_8cpp_source.html#l00217">217</a> of file <a class="el" href="Skeleton_8cpp_source.html">Skeleton.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  217</span>                                                           {</div>
-<div class="line"><span class="lineno">  218</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classSkeleton.html#aa08a5165ed3446633283c4d8cfa6b47e">skeletonPoints3D</a>;</div>
-<div class="line"><span class="lineno">  219</span>}</div>
+<p class="definition">Definition at line <a class="el" href="Skeleton_8cpp_source.html#l00218">218</a> of file <a class="el" href="Skeleton_8cpp_source.html">Skeleton.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  218</span>                                                           {</div>
+<div class="line"><span class="lineno">  219</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classSkeleton.html#aa08a5165ed3446633283c4d8cfa6b47e">skeletonPoints3D</a>;</div>
+<div class="line"><span class="lineno">  220</span>}</div>
 <div class="ttc" id="aclassSkeleton_html_aa08a5165ed3446633283c4d8cfa6b47e"><div class="ttname"><a href="classSkeleton.html#aa08a5165ed3446633283c4d8cfa6b47e">Skeleton::skeletonPoints3D</a></div><div class="ttdeci">std::vector&lt; Point3D * &gt; * skeletonPoints3D</div><div class="ttdoc">A pointer to a vector that contains a set of pointers to Point3D. These points have coordinates in wh...</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8hpp_source.html#l00093">Skeleton.hpp:93</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00093">skeletonPoints3D</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="OutputManagerJSON_8cpp_source.html#l00068">OutputManagerJSON::createJSON()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00169">writeCoordinates()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00195">~Skeleton()</a>.</p>
+
 </div>
 </div>
 <a id="af62bfa912dd7f33164768b338bf9cc67" name="af62bfa912dd7f33164768b338bf9cc67"></a>
@@ -930,11 +992,15 @@ get_color_intrin() </dd></dl>
 <p>Get the SkeletonPoints3D RS vector. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::vector &lt;<a class="el" href="classPoint3D.html" title="Point3D class is used for Point3D creations and manipulations.">Point3D</a> *&gt; </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Skeleton_8cpp_source.html#l00213">213</a> of file <a class="el" href="Skeleton_8cpp_source.html">Skeleton.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  213</span>                                                            {</div>
-<div class="line"><span class="lineno">  214</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classSkeleton.html#a9e8e0c89ba38dd7d98926af4b15d72a4">skeletonPoints3D_RS</a>;</div>
-<div class="line"><span class="lineno">  215</span>}</div>
+<p class="definition">Definition at line <a class="el" href="Skeleton_8cpp_source.html#l00214">214</a> of file <a class="el" href="Skeleton_8cpp_source.html">Skeleton.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  214</span>                                                            {</div>
+<div class="line"><span class="lineno">  215</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classSkeleton.html#a9e8e0c89ba38dd7d98926af4b15d72a4">skeletonPoints3D_RS</a>;</div>
+<div class="line"><span class="lineno">  216</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00085">skeletonPoints3D_RS</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00203">generateSkeleton()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00195">~Skeleton()</a>.</p>
+
 </div>
 </div>
 <a id="a3babbad464b5151a2a4adeca386113fe" name="a3babbad464b5151a2a4adeca386113fe"></a>
@@ -974,6 +1040,8 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   28</span>    this-&gt;<a class="code hl_variable" href="classSkeleton.html#a16a83ec139b8a59475992f2cdac8e5df">bodyKeyPoints</a> = <a class="code hl_variable" href="classSkeleton.html#a16a83ec139b8a59475992f2cdac8e5df">bodyKeyPoints</a>;</div>
 <div class="line"><span class="lineno">   29</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00055">bodyKeyPoints</a>.</p>
+
 </div>
 </div>
 <a id="a47390f954b7ca888901dc7880916b823" name="a47390f954b7ca888901dc7880916b823"></a>
@@ -1013,6 +1081,8 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   32</span>    this-&gt;<a class="code hl_variable" href="classSkeleton.html#a71d172069f4b4fe0a92ff5063d1cab49">bodyKeyPointsMap</a> = <a class="code hl_variable" href="classSkeleton.html#a71d172069f4b4fe0a92ff5063d1cab49">bodyKeyPointsMap</a>;</div>
 <div class="line"><span class="lineno">   33</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00062">bodyKeyPointsMap</a>.</p>
+
 </div>
 </div>
 <a id="a69d6af494f53fbb29099240214f49c68" name="a69d6af494f53fbb29099240214f49c68"></a>
@@ -1052,6 +1122,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   48</span>    this-&gt;<a class="code hl_variable" href="classSkeleton.html#add4518caaf948e4207dc0885b7238a04">consistency</a> = <a class="code hl_variable" href="classSkeleton.html#add4518caaf948e4207dc0885b7238a04">consistency</a>;</div>
 <div class="line"><span class="lineno">   49</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00099">consistency</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00078">calcBodyKeypoints()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00187">Skeleton()</a>.</p>
+
 </div>
 </div>
 <a id="a5419725442d5d534ab0ef27dc6d78581" name="a5419725442d5d534ab0ef27dc6d78581"></a>
@@ -1091,6 +1165,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   20</span>    this-&gt;<a class="code hl_variable" href="classSkeleton.html#adc003c36524e2517427709737d3d4414">distance_Image</a> = myImage;</div>
 <div class="line"><span class="lineno">   21</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00046">distance_Image</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00187">Skeleton()</a>.</p>
+
 </div>
 </div>
 <a id="a2d6ab399677de99d77dcab4d2f06c82e" name="a2d6ab399677de99d77dcab4d2f06c82e"></a>
@@ -1130,6 +1208,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   16</span>    this-&gt;<a class="code hl_variable" href="classSkeleton.html#aad4a02880ae23413c988a9d8263d134f">rgb_Image</a> = myImage;</div>
 <div class="line"><span class="lineno">   17</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00042">rgb_Image</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00187">Skeleton()</a>.</p>
+
 </div>
 </div>
 <a id="a1901b30892f9bf9baa1242c1066621e2" name="a1901b30892f9bf9baa1242c1066621e2"></a>
@@ -1169,6 +1251,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   24</span>    this-&gt;<a class="code hl_variable" href="classSkeleton.html#a253942679af89335bfbec0c380509476">skeleton_Image</a> = myImage;</div>
 <div class="line"><span class="lineno">   25</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00050">skeleton_Image</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00187">Skeleton()</a>.</p>
+
 </div>
 </div>
 <a id="ac3624a3d6536f5455fe4d3b8f808a16d" name="ac3624a3d6536f5455fe4d3b8f808a16d"></a>
@@ -1208,6 +1294,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   36</span>    this-&gt;<a class="code hl_variable" href="classSkeleton.html#aaf3cbe0e4d0f83a24af7ad5f229f959c">skeletonData</a> = <a class="code hl_variable" href="classSkeleton.html#aaf3cbe0e4d0f83a24af7ad5f229f959c">skeletonData</a>;</div>
 <div class="line"><span class="lineno">   37</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00078">skeletonData</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00187">Skeleton()</a>.</p>
+
 </div>
 </div>
 <a id="aaebcbeeb42522c6147f0c63713bf3641" name="aaebcbeeb42522c6147f0c63713bf3641"></a>
@@ -1247,6 +1337,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   44</span>    this-&gt;<a class="code hl_variable" href="classSkeleton.html#aa08a5165ed3446633283c4d8cfa6b47e">skeletonPoints3D</a> = <a class="code hl_variable" href="classSkeleton.html#aa08a5165ed3446633283c4d8cfa6b47e">skeletonPoints3D</a>;</div>
 <div class="line"><span class="lineno">   45</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00093">skeletonPoints3D</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00203">generateSkeleton()</a>.</p>
+
 </div>
 </div>
 <a id="a07478a01b857b1870aa967b9bc369b42" name="a07478a01b857b1870aa967b9bc369b42"></a>
@@ -1286,6 +1380,8 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">   40</span>    this-&gt;<a class="code hl_variable" href="classSkeleton.html#a9e8e0c89ba38dd7d98926af4b15d72a4">skeletonPoints3D_RS</a> = <a class="code hl_variable" href="classSkeleton.html#a9e8e0c89ba38dd7d98926af4b15d72a4">skeletonPoints3D_RS</a>;</div>
 <div class="line"><span class="lineno">   41</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8hpp_source.html#l00085">skeletonPoints3D_RS</a>.</p>
+
 </div>
 </div>
 <a id="a960ce534a29be39bff035c8ef5e49004" name="a960ce534a29be39bff035c8ef5e49004"></a>
@@ -1336,6 +1432,10 @@ get_color_intrin() </dd></dl>
 <div class="line"><span class="lineno">  182</span>    }</div>
 <div class="line"><span class="lineno">  183</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="Skeleton_8cpp_source.html#l00065">getBodyKeyPoints()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00053">getRGB_Image()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00218">getSkeletonPoints3D()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00203">generateSkeleton()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -1364,6 +1464,8 @@ get_color_intrin() </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Skeleton_8hpp_source.html#l00055">55</a> of file <a class="el" href="Skeleton_8hpp_source.html">Skeleton.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00078">calcBodyKeypoints()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00065">getBodyKeyPoints()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00027">setBodyKeyPoints()</a>.</p>
+
 </div>
 </div>
 <a id="a71d172069f4b4fe0a92ff5063d1cab49" name="a71d172069f4b4fe0a92ff5063d1cab49"></a>
@@ -1391,6 +1493,8 @@ get_color_intrin() </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Skeleton_8hpp_source.html#l00062">62</a> of file <a class="el" href="Skeleton_8hpp_source.html">Skeleton.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00078">calcBodyKeypoints()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00069">getBodyKeyPointsMap()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00031">setBodyKeyPointsMap()</a>.</p>
+
 </div>
 </div>
 <a id="add4518caaf948e4207dc0885b7238a04" name="add4518caaf948e4207dc0885b7238a04"></a>
@@ -1416,6 +1520,8 @@ get_color_intrin() </dd></dl>
 <p>Consistency is a value that represents how accurate is the OpenPose detection for this skeleton. As consequence, a really low consistency value indicates a skeleton that could not there be in the real scene (OpenPose misdetection). Otherwise, a low consistency value indicates a partial skeleton. This value is within the range [0; 1]. </p>
 
 <p class="definition">Definition at line <a class="el" href="Skeleton_8hpp_source.html#l00099">99</a> of file <a class="el" href="Skeleton_8hpp_source.html">Skeleton.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00222">getConsistency()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00047">setConsistency()</a>.</p>
 
 </div>
 </div>
@@ -1443,6 +1549,8 @@ get_color_intrin() </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Skeleton_8hpp_source.html#l00046">46</a> of file <a class="el" href="Skeleton_8hpp_source.html">Skeleton.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00057">getDistance_Image()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00019">setDistance_Image()</a>.</p>
+
 </div>
 </div>
 <a id="aad4a02880ae23413c988a9d8263d134f" name="aad4a02880ae23413c988a9d8263d134f"></a>
@@ -1469,6 +1577,8 @@ get_color_intrin() </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Skeleton_8hpp_source.html#l00042">42</a> of file <a class="el" href="Skeleton_8hpp_source.html">Skeleton.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00053">getRGB_Image()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00015">setRGB_Image()</a>.</p>
+
 </div>
 </div>
 <a id="a253942679af89335bfbec0c380509476" name="a253942679af89335bfbec0c380509476"></a>
@@ -1494,6 +1604,8 @@ get_color_intrin() </dd></dl>
 <p>A frame that contains only skeleton information such as green legs and red dots, representing connections between body joints. </p>
 
 <p class="definition">Definition at line <a class="el" href="Skeleton_8hpp_source.html#l00050">50</a> of file <a class="el" href="Skeleton_8hpp_source.html">Skeleton.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00061">getSkeleton_Image()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00023">setSkeleton_Image()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00187">Skeleton()</a>.</p>
 
 </div>
 </div>
@@ -1534,6 +1646,8 @@ get_color_intrin() </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Skeleton_8hpp_source.html#l00078">78</a> of file <a class="el" href="Skeleton_8hpp_source.html">Skeleton.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00078">calcBodyKeypoints()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00073">getSkeletonData()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00035">setSkeletonData()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00187">Skeleton()</a>.</p>
+
 </div>
 </div>
 <a id="aa08a5165ed3446633283c4d8cfa6b47e" name="aa08a5165ed3446633283c4d8cfa6b47e"></a>
@@ -1565,6 +1679,8 @@ get_color_intrin() </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Skeleton_8hpp_source.html#l00093">93</a> of file <a class="el" href="Skeleton_8hpp_source.html">Skeleton.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00218">getSkeletonPoints3D()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00043">setSkeletonPoints3D()</a>.</p>
+
 </div>
 </div>
 <a id="a9e8e0c89ba38dd7d98926af4b15d72a4" name="a9e8e0c89ba38dd7d98926af4b15d72a4"></a>
@@ -1593,6 +1709,8 @@ get_color_intrin() </dd></dl>
 <a class="el" href="classPoint3D.html" title="Point3D class is used for Point3D creations and manipulations.">Point3D</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Skeleton_8hpp_source.html#l00085">85</a> of file <a class="el" href="Skeleton_8hpp_source.html">Skeleton.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00145">deprojectSkeletonPoints3D()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00214">getSkeletonPoints3D_RS()</a>, and <a class="el" href="Skeleton_8cpp_source.html#l00039">setSkeletonPoints3D_RS()</a>.</p>
 
 </div>
 </div>
