@@ -120,11 +120,11 @@ KafkaManager * FacadeSingleton::getKafkaManager (void) {
     return this->kafkaManager;
 }
 
-void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY, const char * destinationKafkaTopic) {
+void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY, const char * destinationKafkaTopic, Room room) {
     FacadeSingleton::setCameraManager(new RealSenseD435Manager());
     FacadeSingleton::setOutputManager(new OutputManagerJSON());
     FacadeSingleton::setOpenCV_Manager(new OpenCV_Manager());
-    FacadeSingleton::setCoordinateMappingManager(new UnityCoordinateMappingManager());
+    FacadeSingleton::setCoordinateMappingManager(new UnityCoordinateMappingManager(room));
     
     FacadeSingleton::setImageManager(new ImageManager());
     FacadeSingleton::setKafkaManager(new KafkaManager(destinationKafkaTopic));
@@ -132,8 +132,8 @@ void FacadeSingleton::startEnvironment (rs2::pipeline & pipelineStream, struct r
     cleanBuildFolder();
 }
 
-void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) {
-    getOpenCV_Manager()->getVideoFramesCV(user_nFrame, pipelineStream, scale);
+void FacadeSingleton::getVideoFrames (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale, const unsigned short int framesToSkip) {
+    getOpenCV_Manager()->getVideoFramesCV(user_nFrame, pipelineStream, scale, framesToSkip);
 }
 
 void FacadeSingleton::getVideoBodyKeyPoints (int * argc, char *** argv) {
@@ -142,8 +142,8 @@ void FacadeSingleton::getVideoBodyKeyPoints (int * argc, char *** argv) {
     delete openPoseCommand;
 }
 
-void FacadeSingleton::showSkeletons (unsigned int user_nFrame) {
-    getOpenCV_Manager()->showSkeletonsCV(user_nFrame);
+void FacadeSingleton::showSkeletons (unsigned int user_nFrame, const float skeletonThreshold) {
+    getOpenCV_Manager()->showSkeletonsCV(user_nFrame, skeletonThreshold);
 }
 
 void FacadeSingleton::sendData (unsigned int user_nFrame) {

@@ -159,13 +159,14 @@ public:
      * @param depthFrame Reference to depth frame object that will be captured.
      * @param colorFrame Reference to color frame object that will be captured.
      * @param colorizedDepthFrame Reference to colorized depth frame object that will be captured.
+     * @param framesToSkip Frames' number to skip in order to ignore a certain amount of frames and extend the recording interval. A '0' value means 'capture each frame'.
      * @see https://dev.intelrealsense.com/docs/docs-get-started
      * @see getVideoFramesCV(unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale)
      * @see getVideoFrames         (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale)
      */
     virtual void getVideoFramesRS               (unsigned int user_nFrame, rs2::pipeline & pipelineStream,
                                                  rs2::depth_frame & depthFrame, rs2::frame & colorFrame,
-                                                 rs2::frame & colorizedDepthFrame) = 0;
+                                                 rs2::frame & colorizedDepthFrame, const unsigned short int framesToSkip) = 0;
 };
 
 
@@ -207,13 +208,14 @@ public:
      * @param depthFrame Reference to depth frame object that will be captured.
      * @param colorFrame Reference to color frame object that will be captured.
      * @param colorizedDepthFrame Reference to colorized depth frame object that will be captured.
+     * @param framesToSkip Frames' number to skip in order to ignore a certain amount of frames and extend the recording interval. A '0' value means 'capture each frame'.
      * @see https://dev.intelrealsense.com/docs/docs-get-started
      * @see getVideoFramesCV(unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale)
      * @see getVideoFrames         (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale)
      */
     void getVideoFramesRS                       (unsigned int user_nFrame, rs2::pipeline & pipelineStream,
                                                  rs2::depth_frame & depthFrame, rs2::frame & colorFrame,
-                                                 rs2::frame & colorizedDepthFrame) override;
+                                                 rs2::frame & colorizedDepthFrame, const unsigned short int framesToSkip) override;
 };
 
 #endif /* RealSenseManager_hpp */

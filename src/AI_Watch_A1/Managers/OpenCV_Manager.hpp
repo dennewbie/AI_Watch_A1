@@ -44,17 +44,20 @@ public:
      * The pipeline can manage computer vision modules, which are implemented as a processing block. 
      * The pipeline is the consumer of the processing block interface, while the application consumes the computer vision interface.
      * @param scale Scaling factor.
+     * @param framesToSkip Frames' number to skip in order to ignore a certain amount of frames and extend the recording interval. A '0' value means 'capture each frame'.
      * @see https://dev.intelrealsense.com/docs/docs-get-started
      * @see getVideoFrames(unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale)
      * @see getVideoFramesRS(unsigned int user_nFrame, rs2::pipeline & pipelineStream, rs2::depth_frame & depthFrame, rs2::frame & colorFrame, rs2::frame & colorizedDepthFrame)
      */
-    void getVideoFramesCV           (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale);
+    void getVideoFramesCV           (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale, const unsigned short int framesToSkip);
     /**
      * @brief Retrieve OpenPose's output, convert it to RealSense coordinate's space, show results and save them.
      * @param user_nFrame frame's number to capture according to user choice.
+     * @param skeletonThreshold The magnitude or intensity that must be exceeded for a specific reaction, phenomenon, result, or condition to occur or be manifested.
+     * In this case, if the skeleton's confidence mean value is greater than "skeletonThreshold", then the skeleton will be considered a meaningful skeleton.
      * @see showSkeletons(unsigned int user_nFrame)
      */
-    void showSkeletonsCV            (unsigned int user_nFrame);
+    void showSkeletonsCV            (unsigned int user_nFrame, const float skeletonThreshold);
 };
 
 #endif /* OpenCV_Manager_hpp */

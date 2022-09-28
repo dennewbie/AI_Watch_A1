@@ -11,7 +11,7 @@
 /** 
  * @mainpage AI Watch A1 documentation
  * @section intro_sec Introduction
- * This is the AI Watch A1 documentation for C++. AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve
+ * This is the AI Watch A1 docum entation for C++. AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve
  * multi-person 3D skeleton detection. Once this task is completed, AI Watch A1 provides support to send each detected skeleton and 
  * its joint points' 3D coordinates (room and D435's details have to be specified) via Kafka, in order to let further detached 
  * computation possible.
@@ -28,6 +28,8 @@
  *
  * @section install_sec Installation 🚀
  * Note: Instructions for MacOS with Intel CPU
+ *
+ *
  * 1) Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies.
  * 
  * 2) Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies.
@@ -184,21 +186,24 @@ int main (int argc, char ** argv) {
     float scale;
     const char * destinationKafkaTopic = "t1";
     // Optimal resolution for D435: 848x480.
-    unsigned  int user_nFrame = 60, resX = 848, resY = 480;
+    unsigned int user_nFrame = 60, resX = 848, resY = 480;
+    const unsigned short int framesToSkip = 5;
+    const float skeletonThreshold = 0.05;
     struct rs2_intrinsics color_intrin;
+    Room room = CVPR_Lab();
     
     // Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.
     FacadeSingleton * myUtility = FacadeSingleton::getInstance(expected_argc, expectedUsageMessage);
-    myUtility->startEnvironment(pipelineStream, color_intrin, & scale, resX, resY, destinationKafkaTopic);
+    myUtility->startEnvironment(pipelineStream, color_intrin, & scale, resX, resY, destinationKafkaTopic, room);
 
     /*
         An infinite loop that captures the frames seen from the camera, gives them to OpenPose, gets the output, and builds skeletons.
         After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.
     */
     while (true) {
-        myUtility->getVideoFrames(user_nFrame, pipelineStream, scale);
+        myUtility->getVideoFrames(user_nFrame, pipelineStream, scale, framesToSkip);
         myUtility->getVideoBodyKeyPoints(& argc, & argv);
-        myUtility->showSkeletons(user_nFrame);
+        myUtility->showSkeletons(user_nFrame, skeletonThreshold);
         myUtility->sendData(user_nFrame);
         myUtility->cleanBuildFolder();
     }

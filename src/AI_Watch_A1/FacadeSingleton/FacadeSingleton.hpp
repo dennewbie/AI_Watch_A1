@@ -251,11 +251,12 @@ public:
      * @param resX x resoultion <->.
      * @param resY y resolution.
      * @param destinationKafkaTopic the destination's kafka topic's name.
+     * @param room Specific room within which the coordinate mapping will be done.
      * @see https://dev.intelrealsense.com/docs/docs-get-started
      * @see startEnvironment(rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY, bool firstBoot)
      */
     void startEnvironment       (rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale,
-                                 unsigned short int resX, unsigned short int resY, const char * destinationKafkaTopic);
+                                 unsigned short int resX, unsigned short int resY, const char * destinationKafkaTopic, Room room);
     /**
      * @brief Get user_nFrame video frames from the pipeline by applying a specific scaling factor.
      * @param user_nFrame frame's number to capture according to user choice.
@@ -265,11 +266,12 @@ public:
      * The pipeline can manage computer vision modules, which are implemented as a processing block. 
      * The pipeline is the consumer of the processing block interface, while the application consumes the computer vision interface.
      * @param scale Scaling factor.
+     * @param framesToSkip Frames' number to skip in order to ignore a certain amount of frames and extend the recording interval. A '0' value means 'capture each frame'.
      * @see https://dev.intelrealsense.com/docs/docs-get-started
      * @see getVideoFramesCV(unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale)
      * @see getVideoFramesRS(unsigned int user_nFrame, rs2::pipeline & pipelineStream, rs2::depth_frame & depthFrame, rs2::frame & colorFrame, rs2::frame & colorizedDepthFrame)
      */
-    void getVideoFrames         (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale);
+    void getVideoFrames         (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale, const unsigned short int framesToSkip);
     /**
      * @brief Start and execute OpenPose submodule.
      * @param argc arguments' number specified on launch (from main).
@@ -280,9 +282,11 @@ public:
     /**
      * @brief Retrieve OpenPose's output, convert it to RealSense coordinate's space, show results and save them.
      * @param user_nFrame frame's number to capture according to user choice.
+     * @param skeletonThreshold The magnitude or intensity that must be exceeded for a specific reaction, phenomenon, result, or condition to occur or be manifested.
+     * In this case, if the skeleton's confidence mean value is greater than "skeletonThreshold", then the skeleton will be considered a meaningful skeleton.
      * @see showSkeletonsCV(unsigned int user_nFrame)
      */
-    void showSkeletons          (unsigned int user_nFrame);
+    void showSkeletons          (unsigned int user_nFrame, const float skeletonThreshold);
     /**
      * @brief Send saved results by getVideoBodyKeyPoints(...) via Kafka using the KafkaManager.
      * @param user_nFrame frame's number to capture according to user choice.

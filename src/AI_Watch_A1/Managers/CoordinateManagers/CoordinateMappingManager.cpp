@@ -13,21 +13,25 @@
 
 
 
+Room CoordinateMappingManager::getRoom (void) {
+    return this->room;
+}
+
 float CoordinateMappingManager::transformWidthCoordinate (float widthCoordinate) {
-    float environmentWidth = std::abs(minWidth) + std::abs(maxWidth);
-    float environmentWidthRS = std::abs(minWidthRS) + std::abs(maxWidthRS);
-    return (((widthCoordinate - minWidthRS) / environmentWidthRS) * environmentWidth) + minWidth;
+    float environmentWidth = std::abs(getRoom().getMinWidth()) + std::abs(getRoom().getMaxWidth());
+    float environmentWidthRS = std::abs(getRoom().getMinWidthRS()) + std::abs(getRoom().getMaxWidthRS());
+    return (((widthCoordinate - getRoom().getMinWidthRS()) / environmentWidthRS) * environmentWidth) + getRoom().getMinWidth();
 }
 
 float CoordinateMappingManager::transformHeightCoordinate (float heightCoordinate) {
-//    float environmentHeight = std::abs(minHeight) + std::abs(maxHeight);
-//    float environmentHeightRS = std::abs(minHeightRS) + std::abs(maxHeightRS);
-//    float tempHeight = -(((heightCoordinate - maxHeightRS) / environmentHeightRS) * environmentHeight) + minHeight;
+//    float environmentHeight = std::abs(getRoom().getMinHeight()) + std::abs(getRoom().getMaxHeight());
+//    float environmentHeightRS = std::abs(getRoom().getMinHeightRS()) + std::abs(getRoom().getMaxHeightRS());
+//    float tempHeight = -(((heightCoordinate - getRoom().getMaxHeightRS()) / environmentHeightRS) * environmentHeight) + getRoom().getMinHeight();
 //    return std::abs(tempHeight) - 0.9;
     
-    float newHeightCoordinate = -heightCoordinate + maxHeightRS - heightOffset;
-    if (newHeightCoordinate >= maxHeight) {
-        return maxHeight;
+    float newHeightCoordinate = -heightCoordinate + getRoom().getMaxHeightRS() - getRoom().getHeightOffset();
+    if (newHeightCoordinate >= getRoom().getMaxHeight()) {
+        return getRoom().getMaxHeight();
     } else if (newHeightCoordinate <= 0) {
         return 0;
     }
@@ -60,7 +64,7 @@ std::vector <Point3D *> * CoordinateMappingManager::mapToMeters (std::vector <Po
             newPoints->push_back(new Point3D(
                 transformWidthCoordinate(pointsToMap.at(i)->getX()),
                 transformHeightCoordinate(pointsToMap.at(i)->getY()),
-                pointsToMap.at(i)->getZ() - zOrigin + distanceCameraFromBackWall,
+                pointsToMap.at(i)->getZ() - zOrigin + getRoom().getDistanceCameraFromBackWall(),
                 new BodyKeyPoint(0, 0, ((BodyKeyPoint *) pointsToMap.at(i)->getDecorated())->getConfidence()))
             );
         }

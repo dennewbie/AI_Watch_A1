@@ -132,10 +132,12 @@ public:
      * @param skeletonOnlyImage skeleton-only frame.
      * @param nFrame current image ID.
      * @param outputFolder output folder's path on disk.
+     * @param skeletonThreshold The magnitude or intensity that must be exceeded for a specific reaction, phenomenon, result, or condition to occur or be manifested.
+     * In this case, if the skeleton's confidence mean value is greater than "skeletonThreshold", then the skeleton will be considered a meaningful skeleton.
      * @see Skeleton.hpp
      */
     void createJSON                              (Json::Value & people, cv::Mat & colorImage, cv::Mat & distanceImage, cv::Mat & skeletonOnlyImage,
-                                                  unsigned int nFrame, const char * outputFolder);
+                                                  unsigned int nFrame, const char * outputFolder, const float skeletonThreshold);
 };
 
 #endif /* OutputManager_hpp */
