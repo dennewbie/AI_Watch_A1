@@ -16,9 +16,9 @@ virtual \mbox{\hyperlink{classOpenCV__Manager_abc9a2e3cc425fcb1d364000ea2ad51d7}
 \begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classOpenCV__Manager}{Open\+CV\+\_\+\+Manager}} object. \end{DoxyCompactList}\item 
 cv\+::\+Mat \mbox{\hyperlink{classOpenCV__Manager_a763f869b71bef3cd172254b2511b789f}{realsense\+Frame\+To\+Mat}} (const rs2\+::frame \&single\+Frame)
 \begin{DoxyCompactList}\small\item\em This method converts a frame of type rs2\+::frame to cv\+::\+Mat. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOpenCV__Manager_ab2b14f68d14fb05e15cf22f8184a651c}{get\+Video\+Frames\+CV}} (unsigned int user\+\_\+n\+Frame, rs2\+::pipeline \&pipeline\+Stream, float scale)
+void \mbox{\hyperlink{classOpenCV__Manager_a539a0c005b8541f68bab2b36a9d84aba}{get\+Video\+Frames\+CV}} (unsigned int user\+\_\+n\+Frame, rs2\+::pipeline \&pipeline\+Stream, float scale, const unsigned short int frames\+To\+Skip)
 \begin{DoxyCompactList}\small\item\em Get user\+\_\+n\+Frame video frames from the pipeline by applying a specific scaling factor. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOpenCV__Manager_ae821406a67a6e69c4229f31e3e84f031}{show\+Skeletons\+CV}} (unsigned int user\+\_\+n\+Frame)
+void \mbox{\hyperlink{classOpenCV__Manager_a91d73f7ffc0147f9e99a05e524a28db5}{show\+Skeletons\+CV}} (unsigned int user\+\_\+n\+Frame, const float skeleton\+Threshold)
 \begin{DoxyCompactList}\small\item\em Retrieve Open\+Pose\textquotesingle{}s output, convert it to Real\+Sense coordinate\textquotesingle{}s space, show results and save them. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -45,11 +45,11 @@ Destroy the \mbox{\hyperlink{classOpenCV__Manager}{Open\+CV\+\_\+\+Manager}} obj
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classOpenCV__Manager_ab2b14f68d14fb05e15cf22f8184a651c}\label{classOpenCV__Manager_ab2b14f68d14fb05e15cf22f8184a651c}} 
+\mbox{\Hypertarget{classOpenCV__Manager_a539a0c005b8541f68bab2b36a9d84aba}\label{classOpenCV__Manager_a539a0c005b8541f68bab2b36a9d84aba}} 
 \index{OpenCV\_Manager@{OpenCV\_Manager}!getVideoFramesCV@{getVideoFramesCV}}
 \index{getVideoFramesCV@{getVideoFramesCV}!OpenCV\_Manager@{OpenCV\_Manager}}
 \doxysubsubsection{\texorpdfstring{getVideoFramesCV()}{getVideoFramesCV()}}
-{\footnotesize\ttfamily void Open\+CV\+\_\+\+Manager\+::get\+Video\+Frames\+CV (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+\_\+n\+Frame,  }\item[{rs2\+::pipeline \&}]{pipeline\+Stream,  }\item[{float}]{scale }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Open\+CV\+\_\+\+Manager\+::get\+Video\+Frames\+CV (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+\_\+n\+Frame,  }\item[{rs2\+::pipeline \&}]{pipeline\+Stream,  }\item[{float}]{scale,  }\item[{const unsigned short int}]{frames\+To\+Skip }\end{DoxyParamCaption})}
 
 
 
@@ -62,6 +62,8 @@ Get user\+\_\+n\+Frame video frames from the pipeline by applying a specific sca
 {\em pipeline\+Stream} & The pipeline simplifies the user interaction with the device and computer vision processing modules. The class abstracts the camera configuration and streaming, and the vision modules triggering and threading. It lets the application focus on the computer vision output of the modules, or the device output data. The pipeline can manage computer vision modules, which are implemented as a processing block. The pipeline is the consumer of the processing block interface, while the application consumes the computer vision interface. \\
 \hline
 {\em scale} & Scaling factor. \\
+\hline
+{\em frames\+To\+Skip} & Frames\textquotesingle{} number to skip in order to ignore a certain amount of frames and extend the recording interval. A \textquotesingle{}0\textquotesingle{} value means \textquotesingle{}capture each frame\textquotesingle{}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
@@ -77,7 +79,7 @@ Definition at line \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00037}{37}} of 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00037                                                                                                           \{}
+\DoxyCodeLine{00037                                                                                                                                                  \{}
 \DoxyCodeLine{00038     \mbox{\hyperlink{classUsageManager}{UsageManager}} * usageManagerInstance = \mbox{\hyperlink{classUsageManager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}();}
 \DoxyCodeLine{00039     \textcolor{keywordflow}{if} (usageManagerInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_ab495e2525cf238bb390ca68277586bf4}{USAGE\_MANAGER\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ade33b45fd12b716d5e837609aa163416}{USAGE\_MANAGER\_NULLPTR\_SCOPE}});}
 \DoxyCodeLine{00040     \textcolor{keywordtype}{char} ** argv = * usageManagerInstance-\/>\mbox{\hyperlink{classUsageManager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}();}
@@ -93,7 +95,7 @@ Definition at line \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00037}{37}} of 
 \DoxyCodeLine{00050         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} frameID = cameraManager-\/>\mbox{\hyperlink{classRealSenseManager_aac01bf5b0fe977a03ff6ab9fa2bbf06f}{getFrameID}}();}
 \DoxyCodeLine{00051         rs2::depth\_frame depthFrame = rs2::depth\_frame(rs2::frame());}
 \DoxyCodeLine{00052         rs2::frame colorFrame, colorizedDepthFrame;}
-\DoxyCodeLine{00053         cameraManager-\/>\mbox{\hyperlink{classRealSenseManager_a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f}{getVideoFramesRS}}(user\_nFrame, pipelineStream, depthFrame, colorFrame, colorizedDepthFrame);}
+\DoxyCodeLine{00053         cameraManager-\/>\mbox{\hyperlink{classRealSenseManager_a47330063d22911a0dae8ff02a6c2b93e}{getVideoFramesRS}}(user\_nFrame, pipelineStream, depthFrame, colorFrame, colorizedDepthFrame, framesToSkip);}
 \DoxyCodeLine{00054         \textcolor{keywordtype}{int} cols = depthFrame.get\_width(), rows = depthFrame.get\_height();}
 \DoxyCodeLine{00055         \textcolor{comment}{// Convert}}
 \DoxyCodeLine{00056         cv::Mat colorImage = \mbox{\hyperlink{classOpenCV__Manager_a763f869b71bef3cd172254b2511b789f}{realsenseFrameToMat}}(colorFrame), distanceImage = cv::Mat::zeros(rows, cols, CV\_32FC1);}
@@ -117,7 +119,7 @@ Definition at line \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00037}{37}} of 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{constants_8hpp_source_l00032}{FACADE\+\_\+\+SINGLETON\+\_\+\+NULLPTR\+\_\+\+ERROR}}, \mbox{\hyperlink{constants_8hpp_source_l00033}{FACADE\+\_\+\+SINGLETON\+\_\+\+NULLPTR\+\_\+\+SCOPE}}, \mbox{\hyperlink{UsageManager_8cpp_source_l00060}{Usage\+Manager\+::get\+\_\+argv()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00095}{Facade\+Singleton\+::get\+Camera\+Manager()}}, \mbox{\hyperlink{RealSenseManager_8cpp_source_l00061}{Real\+Sense\+Manager\+::get\+Frame\+ID()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00115}{Facade\+Singleton\+::get\+Image\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00089}{Facade\+Singleton\+::get\+Instance()}}, \mbox{\hyperlink{UsageManager_8cpp_source_l00050}{Usage\+Manager\+::get\+Instance()}}, \mbox{\hyperlink{classRealSenseManager_a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f}{Real\+Sense\+Manager\+::get\+Video\+Frames\+RS()}}, \mbox{\hyperlink{constants_8hpp_source_l00064}{images\+Folder\+Offset}}, \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00015}{realsense\+Frame\+To\+Mat()}}, \mbox{\hyperlink{ImageManager_8cpp_source_l00050}{Image\+Manager\+::release\+Images()}}, \mbox{\hyperlink{ImageManager_8cpp_source_l00029}{Image\+Manager\+::save\+Images()}}, \mbox{\hyperlink{constants_8hpp_source_l00035}{USAGE\+\_\+\+MANAGER\+\_\+\+NULLPTR\+\_\+\+ERROR}}, and \mbox{\hyperlink{constants_8hpp_source_l00036}{USAGE\+\_\+\+MANAGER\+\_\+\+NULLPTR\+\_\+\+SCOPE}}.
+References \mbox{\hyperlink{constants_8hpp_source_l00032}{FACADE\+\_\+\+SINGLETON\+\_\+\+NULLPTR\+\_\+\+ERROR}}, \mbox{\hyperlink{constants_8hpp_source_l00033}{FACADE\+\_\+\+SINGLETON\+\_\+\+NULLPTR\+\_\+\+SCOPE}}, \mbox{\hyperlink{UsageManager_8cpp_source_l00060}{Usage\+Manager\+::get\+\_\+argv()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00095}{Facade\+Singleton\+::get\+Camera\+Manager()}}, \mbox{\hyperlink{RealSenseManager_8cpp_source_l00061}{Real\+Sense\+Manager\+::get\+Frame\+ID()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00115}{Facade\+Singleton\+::get\+Image\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00089}{Facade\+Singleton\+::get\+Instance()}}, \mbox{\hyperlink{UsageManager_8cpp_source_l00050}{Usage\+Manager\+::get\+Instance()}}, \mbox{\hyperlink{classRealSenseManager_a47330063d22911a0dae8ff02a6c2b93e}{Real\+Sense\+Manager\+::get\+Video\+Frames\+RS()}}, \mbox{\hyperlink{constants_8hpp_source_l00064}{images\+Folder\+Offset}}, \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00015}{realsense\+Frame\+To\+Mat()}}, \mbox{\hyperlink{ImageManager_8cpp_source_l00050}{Image\+Manager\+::release\+Images()}}, \mbox{\hyperlink{ImageManager_8cpp_source_l00029}{Image\+Manager\+::save\+Images()}}, \mbox{\hyperlink{constants_8hpp_source_l00035}{USAGE\+\_\+\+MANAGER\+\_\+\+NULLPTR\+\_\+\+ERROR}}, and \mbox{\hyperlink{constants_8hpp_source_l00036}{USAGE\+\_\+\+MANAGER\+\_\+\+NULLPTR\+\_\+\+SCOPE}}.
 
 
 
@@ -174,11 +176,11 @@ Definition at line \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00015}{15}} of 
 
 Referenced by \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00037}{get\+Video\+Frames\+CV()}}.
 
-\mbox{\Hypertarget{classOpenCV__Manager_ae821406a67a6e69c4229f31e3e84f031}\label{classOpenCV__Manager_ae821406a67a6e69c4229f31e3e84f031}} 
+\mbox{\Hypertarget{classOpenCV__Manager_a91d73f7ffc0147f9e99a05e524a28db5}\label{classOpenCV__Manager_a91d73f7ffc0147f9e99a05e524a28db5}} 
 \index{OpenCV\_Manager@{OpenCV\_Manager}!showSkeletonsCV@{showSkeletonsCV}}
 \index{showSkeletonsCV@{showSkeletonsCV}!OpenCV\_Manager@{OpenCV\_Manager}}
 \doxysubsubsection{\texorpdfstring{showSkeletonsCV()}{showSkeletonsCV()}}
-{\footnotesize\ttfamily void Open\+CV\+\_\+\+Manager\+::show\+Skeletons\+CV (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+\_\+n\+Frame }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Open\+CV\+\_\+\+Manager\+::show\+Skeletons\+CV (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+\_\+n\+Frame,  }\item[{const float}]{skeleton\+Threshold }\end{DoxyParamCaption})}
 
 
 
@@ -187,6 +189,8 @@ Retrieve Open\+Pose\textquotesingle{}s output, convert it to Real\+Sense coordin
 
 \begin{DoxyParams}{Parameters}
 {\em user\+\_\+n\+Frame} & frame\textquotesingle{}s number to capture according to user choice. \\
+\hline
+{\em skeleton\+Threshold} & The magnitude or intensity that must be exceeded for a specific reaction, phenomenon, result, or condition to occur or be manifested. In this case, if the skeleton\textquotesingle{}s confidence mean value is greater than \char`\"{}skeleton\+Threshold\char`\"{}, then the skeleton will be considered a meaningful skeleton. \\
 \hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
@@ -198,7 +202,7 @@ Definition at line \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00074}{74}} of 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00074                                                               \{}
+\DoxyCodeLine{00074                                                                                              \{}
 \DoxyCodeLine{00075     \mbox{\hyperlink{classFacadeSingleton}{FacadeSingleton}} * facadeSingletonInstance = \mbox{\hyperlink{classFacadeSingleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}();}
 \DoxyCodeLine{00076     \textcolor{keywordflow}{if} (facadeSingletonInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_aba8cd558b16927b8fe2d962968d20c10}{FACADE\_SINGLETON\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ae5a935d42848889b474e368ef77cf46a}{FACADE\_SINGLETON\_NULLPTR\_SCOPE}});}
 \DoxyCodeLine{00077     \mbox{\hyperlink{classRealSenseManager}{RealSenseManager}} * cameraManager = facadeSingletonInstance-\/>\mbox{\hyperlink{classFacadeSingleton_aa365ece7ecb2ba2d4a6d160e3698275a}{getCameraManager}}();}
@@ -238,7 +242,7 @@ Definition at line \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00074}{74}} of 
 \DoxyCodeLine{00111             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());}
 \DoxyCodeLine{00112             }
 \DoxyCodeLine{00113             \textcolor{comment}{// Produce a JSON output file for people present in this frame}}
-\DoxyCodeLine{00114             outputManagerJSON-\/>\mbox{\hyperlink{classOutputManagerJSON_ae7e940b50eb318e883b0844bece04dc7}{createJSON}}(people, colorImage, distanceImage, skeletonOnlyImage, currentImageID, outputFolder);}
+\DoxyCodeLine{00114             outputManagerJSON-\/>\mbox{\hyperlink{classOutputManagerJSON_a5e38880053af77de3de66925209ca5eb}{createJSON}}(people, colorImage, distanceImage, skeletonOnlyImage, currentImageID, outputFolder, skeletonThreshold);}
 \DoxyCodeLine{00115             }
 \DoxyCodeLine{00116             \textcolor{comment}{// Show images and save them}}
 \DoxyCodeLine{00117             imageManager-\/>\mbox{\hyperlink{classImageManager_a0d1b8bf95333d94fe2842937e5ef818c}{showImages}}( \{ skeletonOnlyImage, colorImage \}, \{ \textcolor{stringliteral}{"{}Frame Skeleton Background Cut"{}}, \textcolor{stringliteral}{"{}Frame Skeleton"{}} \} );}

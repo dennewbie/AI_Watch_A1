@@ -24,7 +24,7 @@
   <td id="projectalign">
    <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
+   <div id="projectbrief">AI Watch A1: Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -104,9 +104,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7cc9374e6575681b05db3e0592d10944"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealSenseManager.html#a7cc9374e6575681b05db3e0592d10944">startEnvironment</a> (rs2::pipeline &amp;pipelineStream, struct rs2_intrinsics &amp;<a class="el" href="classRealSenseManager.html#ab876bfaffd8a23924ff182573e900cda">color_intrin</a>, float *scale, unsigned short int resX, unsigned short int resY, bool firstBoot)=0</td></tr>
 <tr class="memdesc:a7cc9374e6575681b05db3e0592d10944"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is useful to invoke at the boot of the program where we want to initialize the different mangers, start the camera and set up the related environment. This method can be overridden and specified according to camera model.  <a href="classRealSenseManager.html#a7cc9374e6575681b05db3e0592d10944">More...</a><br /></td></tr>
 <tr class="separator:a7cc9374e6575681b05db3e0592d10944"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealSenseManager.html#a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f">getVideoFramesRS</a> (unsigned int user_nFrame, rs2::pipeline &amp;pipelineStream, rs2::depth_frame &amp;depthFrame, rs2::frame &amp;colorFrame, rs2::frame &amp;colorizedDepthFrame)=0</td></tr>
-<tr class="memdesc:a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get user_nFrame video frames from the pipeline by applying a specific scaling factor. This method can be overridden and specified according to camera model.  <a href="classRealSenseManager.html#a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f">More...</a><br /></td></tr>
-<tr class="separator:a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47330063d22911a0dae8ff02a6c2b93e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealSenseManager.html#a47330063d22911a0dae8ff02a6c2b93e">getVideoFramesRS</a> (unsigned int user_nFrame, rs2::pipeline &amp;pipelineStream, rs2::depth_frame &amp;depthFrame, rs2::frame &amp;colorFrame, rs2::frame &amp;colorizedDepthFrame, const unsigned short int framesToSkip)=0</td></tr>
+<tr class="memdesc:a47330063d22911a0dae8ff02a6c2b93e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get user_nFrame video frames from the pipeline by applying a specific scaling factor. This method can be overridden and specified according to camera model.  <a href="classRealSenseManager.html#a47330063d22911a0dae8ff02a6c2b93e">More...</a><br /></td></tr>
+<tr class="separator:a47330063d22911a0dae8ff02a6c2b93e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -430,8 +430,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f" name="a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f">&#9670;&nbsp;</a></span>getVideoFramesRS()</h2>
+<a id="a47330063d22911a0dae8ff02a6c2b93e" name="a47330063d22911a0dae8ff02a6c2b93e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47330063d22911a0dae8ff02a6c2b93e">&#9670;&nbsp;</a></span>getVideoFramesRS()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -467,7 +467,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">rs2::frame &amp;&#160;</td>
-          <td class="paramname"><em>colorizedDepthFrame</em>&#160;</td>
+          <td class="paramname"><em>colorizedDepthFrame</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short int&#160;</td>
+          <td class="paramname"><em>framesToSkip</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -490,6 +496,7 @@ Private Attributes</h2></td></tr>
     <tr><td class="paramname">depthFrame</td><td>Reference to depth frame object that will be captured. </td></tr>
     <tr><td class="paramname">colorFrame</td><td>Reference to color frame object that will be captured. </td></tr>
     <tr><td class="paramname">colorizedDepthFrame</td><td>Reference to colorized depth frame object that will be captured. </td></tr>
+    <tr><td class="paramname">framesToSkip</td><td>Frames' number to skip in order to ignore a certain amount of frames and extend the recording interval. A '0' value means 'capture each frame'. </td></tr>
   </table>
   </dd>
 </dl>
@@ -499,7 +506,7 @@ getVideoFramesCV(unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, f
 <dd>
 getVideoFrames (unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, float scale) </dd></dl>
 
-<p>Implemented in <a class="el" href="classRealSenseD435Manager.html#a5db5d92619fd13a559aba6622d9d7ad0">RealSenseD435Manager</a>.</p>
+<p>Implemented in <a class="el" href="classRealSenseD435Manager.html#ac397dd10a07ef1d4893f710643c59b6e">RealSenseD435Manager</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="OpenCV__Manager_8cpp_source.html#l00037">OpenCV_Manager::getVideoFramesCV()</a>.</p>
 

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['bodykeypoints_0',['bodyKeyPoints',['../classSkeleton.html#a16a83ec139b8a59475992f2cdac8e5df',1,'Skeleton']]],
-  ['bodykeypointsmap_1',['bodyKeyPointsMap',['../classSkeleton.html#a71d172069f4b4fe0a92ff5063d1cab49',1,'Skeleton']]]
+  ['align_0',['align',['../classRealSenseManager.html#a8501c8bab42b7160eddd453266763a2f',1,'RealSenseManager']]],
+  ['argc_1',['argc',['../classUsageManager.html#ad2f9dc91560a8dd4498ed869df79a613',1,'UsageManager']]],
+  ['argv_2',['argv',['../classUsageManager.html#ad6aa65b36661f52e7bfb6b8ffd7e3135',1,'UsageManager']]]
 ];

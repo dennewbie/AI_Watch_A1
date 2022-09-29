@@ -28,7 +28,7 @@ struct rs2\+\_\+intrinsics \& \mbox{\hyperlink{classRealSenseManager_a27f762a96b
 \begin{DoxyCompactList}\small\item\em Get the color intrinsics object. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classRealSenseManager_a7cc9374e6575681b05db3e0592d10944}{start\+Environment}} (rs2\+::pipeline \&pipeline\+Stream, struct rs2\+\_\+intrinsics \&\mbox{\hyperlink{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}{color\+\_\+intrin}}, float $\ast$scale, unsigned short int resX, unsigned short int resY, bool first\+Boot)=0
 \begin{DoxyCompactList}\small\item\em This method is useful to invoke at the boot of the program where we want to initialize the different mangers, start the camera and set up the related environment. This method can be overridden and specified according to camera model. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classRealSenseManager_a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f}{get\+Video\+Frames\+RS}} (unsigned int user\+\_\+n\+Frame, rs2\+::pipeline \&pipeline\+Stream, rs2\+::depth\+\_\+frame \&depth\+Frame, rs2\+::frame \&color\+Frame, rs2\+::frame \&colorized\+Depth\+Frame)=0
+virtual void \mbox{\hyperlink{classRealSenseManager_a47330063d22911a0dae8ff02a6c2b93e}{get\+Video\+Frames\+RS}} (unsigned int user\+\_\+n\+Frame, rs2\+::pipeline \&pipeline\+Stream, rs2\+::depth\+\_\+frame \&depth\+Frame, rs2\+::frame \&color\+Frame, rs2\+::frame \&colorized\+Depth\+Frame, const unsigned short int frames\+To\+Skip)=0
 \begin{DoxyCompactList}\small\item\em Get user\+\_\+n\+Frame video frames from the pipeline by applying a specific scaling factor. This method can be overridden and specified according to camera model. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -287,11 +287,11 @@ References \mbox{\hyperlink{RealSenseManager_8hpp_source_l00030}{frame\+ID}}.
 
 Referenced by \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00037}{Open\+CV\+\_\+\+Manager\+::get\+Video\+Frames\+CV()}}, \mbox{\hyperlink{RealSenseD435Manager_8cpp_source_l00043}{Real\+Sense\+D435\+Manager\+::get\+Video\+Frames\+RS()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00149}{Facade\+Singleton\+::send\+Data()}}, and \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00074}{Open\+CV\+\_\+\+Manager\+::show\+Skeletons\+CV()}}.
 
-\mbox{\Hypertarget{classRealSenseManager_a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f}\label{classRealSenseManager_a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f}} 
+\mbox{\Hypertarget{classRealSenseManager_a47330063d22911a0dae8ff02a6c2b93e}\label{classRealSenseManager_a47330063d22911a0dae8ff02a6c2b93e}} 
 \index{RealSenseManager@{RealSenseManager}!getVideoFramesRS@{getVideoFramesRS}}
 \index{getVideoFramesRS@{getVideoFramesRS}!RealSenseManager@{RealSenseManager}}
 \doxysubsubsection{\texorpdfstring{getVideoFramesRS()}{getVideoFramesRS()}}
-{\footnotesize\ttfamily virtual void Real\+Sense\+Manager\+::get\+Video\+Frames\+RS (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+\_\+n\+Frame,  }\item[{rs2\+::pipeline \&}]{pipeline\+Stream,  }\item[{rs2\+::depth\+\_\+frame \&}]{depth\+Frame,  }\item[{rs2\+::frame \&}]{color\+Frame,  }\item[{rs2\+::frame \&}]{colorized\+Depth\+Frame }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void Real\+Sense\+Manager\+::get\+Video\+Frames\+RS (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+\_\+n\+Frame,  }\item[{rs2\+::pipeline \&}]{pipeline\+Stream,  }\item[{rs2\+::depth\+\_\+frame \&}]{depth\+Frame,  }\item[{rs2\+::frame \&}]{color\+Frame,  }\item[{rs2\+::frame \&}]{colorized\+Depth\+Frame,  }\item[{const unsigned short int}]{frames\+To\+Skip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -309,6 +309,8 @@ Get user\+\_\+n\+Frame video frames from the pipeline by applying a specific sca
 \hline
 {\em colorized\+Depth\+Frame} & Reference to colorized depth frame object that will be captured. \\
 \hline
+{\em frames\+To\+Skip} & Frames\textquotesingle{} number to skip in order to ignore a certain amount of frames and extend the recording interval. A \textquotesingle{}0\textquotesingle{} value means \textquotesingle{}capture each frame\textquotesingle{}. \\
+\hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
 \href{https://dev.intelrealsense.com/docs/docs-get-started}{\texttt{ https\+://dev.\+intelrealsense.\+com/docs/docs-\/get-\/started}} 
@@ -319,7 +321,7 @@ get\+Video\+Frames (unsigned int user\+\_\+n\+Frame, rs2\+::pipeline \& pipeline
 \end{DoxySeeAlso}
 
 
-Implemented in \mbox{\hyperlink{classRealSenseD435Manager_a5db5d92619fd13a559aba6622d9d7ad0}{Real\+Sense\+D435\+Manager}}.
+Implemented in \mbox{\hyperlink{classRealSenseD435Manager_ac397dd10a07ef1d4893f710643c59b6e}{Real\+Sense\+D435\+Manager}}.
 
 
 

@@ -30,13 +30,13 @@ void \mbox{\hyperlink{classFacadeSingleton_ae5e73ada437689240904db89f67e587d}{op
 \begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classImageManager}{Image\+Manager}} pointer. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classKafkaManager}{Kafka\+Manager}} $\ast$ \mbox{\hyperlink{classFacadeSingleton_aeee0c1d582402e6b7663297ff1f0a634}{get\+Kafka\+Manager}} (void)
 \begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classKafkaManager}{Kafka\+Manager}} pointer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classFacadeSingleton_ac376a8315efd79a450eaba26608cefa0}{start\+Environment}} (rs2\+::pipeline \&pipeline\+Stream, struct rs2\+\_\+intrinsics \&color\+\_\+intrin, float $\ast$scale, unsigned short int resX, unsigned short int resY, const char $\ast$destination\+Kafka\+Topic)
+void \mbox{\hyperlink{classFacadeSingleton_a269a1e41f57c4490ec9f8d933b535dbf}{start\+Environment}} (rs2\+::pipeline \&pipeline\+Stream, struct rs2\+\_\+intrinsics \&color\+\_\+intrin, float $\ast$scale, unsigned short int resX, unsigned short int resY, const char $\ast$destination\+Kafka\+Topic, \mbox{\hyperlink{classRoom}{Room}} room)
 \begin{DoxyCompactList}\small\item\em This method is useful to invoke at the boot of the program where we want to initialize the different mangers, start the camera and set up the related environment. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classFacadeSingleton_a1392ddba1262d54d00c0a5d84a21e874}{get\+Video\+Frames}} (unsigned int user\+\_\+n\+Frame, rs2\+::pipeline \&pipeline\+Stream, float scale)
+void \mbox{\hyperlink{classFacadeSingleton_a9c706fde593f40f6746734382e057738}{get\+Video\+Frames}} (unsigned int user\+\_\+n\+Frame, rs2\+::pipeline \&pipeline\+Stream, float scale, const unsigned short int frames\+To\+Skip)
 \begin{DoxyCompactList}\small\item\em Get user\+\_\+n\+Frame video frames from the pipeline by applying a specific scaling factor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classFacadeSingleton_a7aaaa5771df6a9e3b8367f611b9c126d}{get\+Video\+Body\+Key\+Points}} (int $\ast$argc, char $\ast$$\ast$$\ast$argv)
 \begin{DoxyCompactList}\small\item\em Start and execute Open\+Pose submodule. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classFacadeSingleton_a34d70508a6bddd6f9f04b21fcd43adc8}{show\+Skeletons}} (unsigned int user\+\_\+n\+Frame)
+void \mbox{\hyperlink{classFacadeSingleton_a06ebcdd6234d6bc1fb416a22030daa9a}{show\+Skeletons}} (unsigned int user\+\_\+n\+Frame, const float skeleton\+Threshold)
 \begin{DoxyCompactList}\small\item\em Retrieve Open\+Pose\textquotesingle{}s output, convert it to Real\+Sense coordinate\textquotesingle{}s space, show results and save them. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classFacadeSingleton_ad27a9b955b74b4e549fc84650580bc15}{send\+Data}} (unsigned int user\+\_\+n\+Frame)
 \begin{DoxyCompactList}\small\item\em Send saved results by get\+Video\+Body\+Key\+Points(...) via Kafka using the \mbox{\hyperlink{classKafkaManager}{Kafka\+Manager}}. \end{DoxyCompactList}\item 
@@ -158,7 +158,7 @@ Definition at line \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00020}{20}} of 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{constants_8hpp_source_l00059}{CONF\+\_\+\+FILE\+\_\+\+PATH}}, \mbox{\hyperlink{main_8cpp_source_l00165}{expected\+\_\+argc}}, \mbox{\hyperlink{main_8cpp_source_l00166}{expected\+Usage\+Message}}, \mbox{\hyperlink{UsageManager_8cpp_source_l00050}{Usage\+Manager\+::get\+Instance()}}, \mbox{\hyperlink{constants_8hpp_source_l00047}{NEW\+\_\+\+ALLOC\+\_\+\+ERROR}}, \mbox{\hyperlink{constants_8hpp_source_l00048}{NEW\+\_\+\+ALLOC\+\_\+\+SCOPE}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00065}{set\+Usage\+Manager()}}, and \mbox{\hyperlink{constants_8hpp_source_l00066}{total\+File\+Parameters}}.
+References \mbox{\hyperlink{constants_8hpp_source_l00059}{CONF\+\_\+\+FILE\+\_\+\+PATH}}, \mbox{\hyperlink{main_8cpp_source_l00167}{expected\+\_\+argc}}, \mbox{\hyperlink{main_8cpp_source_l00168}{expected\+Usage\+Message}}, \mbox{\hyperlink{UsageManager_8cpp_source_l00050}{Usage\+Manager\+::get\+Instance()}}, \mbox{\hyperlink{constants_8hpp_source_l00047}{NEW\+\_\+\+ALLOC\+\_\+\+ERROR}}, \mbox{\hyperlink{constants_8hpp_source_l00048}{NEW\+\_\+\+ALLOC\+\_\+\+SCOPE}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00065}{set\+Usage\+Manager()}}, and \mbox{\hyperlink{constants_8hpp_source_l00066}{total\+File\+Parameters}}.
 
 
 
@@ -243,7 +243,7 @@ References \mbox{\hyperlink{SystemCommand_8cpp_source_l00023}{System\+Command\+:
 
 
 
-Referenced by \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00123}{start\+Environment()}}.
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00183}{main()}}, and \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00123}{start\+Environment()}}.
 
 \mbox{\Hypertarget{classFacadeSingleton_aa365ece7ecb2ba2d4a6d160e3698275a}\label{classFacadeSingleton_aa365ece7ecb2ba2d4a6d160e3698275a}} 
 \index{FacadeSingleton@{FacadeSingleton}!getCameraManager@{getCameraManager}}
@@ -387,7 +387,7 @@ Definition at line \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00083}{83}} of 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{main_8cpp_source_l00165}{expected\+\_\+argc}}, \mbox{\hyperlink{main_8cpp_source_l00166}{expected\+Usage\+Message}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00020}{Facade\+Singleton()}}, \mbox{\hyperlink{FacadeSingleton_8hpp_source_l00049}{shared\+Instance}}, and \mbox{\hyperlink{FacadeSingleton_8hpp_source_l00053}{singleton\+Mutex}}.
+References \mbox{\hyperlink{main_8cpp_source_l00167}{expected\+\_\+argc}}, \mbox{\hyperlink{main_8cpp_source_l00168}{expected\+Usage\+Message}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00020}{Facade\+Singleton()}}, \mbox{\hyperlink{FacadeSingleton_8hpp_source_l00049}{shared\+Instance}}, and \mbox{\hyperlink{FacadeSingleton_8hpp_source_l00053}{singleton\+Mutex}}.
 
 \mbox{\Hypertarget{classFacadeSingleton_aeac68956d001824b9ecb75d385687535}\label{classFacadeSingleton_aeac68956d001824b9ecb75d385687535}} 
 \index{FacadeSingleton@{FacadeSingleton}!getInstance@{getInstance}}
@@ -421,7 +421,7 @@ References \mbox{\hyperlink{FacadeSingleton_8hpp_source_l00049}{shared\+Instance
 
 
 
-Referenced by \mbox{\hyperlink{Skeleton_8cpp_source_l00078}{Skeleton\+::calc\+Body\+Keypoints()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00145}{Skeleton\+::deproject\+Skeleton\+Points3\+D()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00203}{Skeleton\+::generate\+Skeleton()}}, \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00037}{Open\+CV\+\_\+\+Manager\+::get\+Video\+Frames\+CV()}}, \mbox{\hyperlink{main_8cpp_source_l00181}{main()}}, and \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00074}{Open\+CV\+\_\+\+Manager\+::show\+Skeletons\+CV()}}.
+Referenced by \mbox{\hyperlink{Skeleton_8cpp_source_l00078}{Skeleton\+::calc\+Body\+Keypoints()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00145}{Skeleton\+::deproject\+Skeleton\+Points3\+D()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00203}{Skeleton\+::generate\+Skeleton()}}, \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00037}{Open\+CV\+\_\+\+Manager\+::get\+Video\+Frames\+CV()}}, \mbox{\hyperlink{main_8cpp_source_l00183}{main()}}, and \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00074}{Open\+CV\+\_\+\+Manager\+::show\+Skeletons\+CV()}}.
 
 \mbox{\Hypertarget{classFacadeSingleton_aeee0c1d582402e6b7663297ff1f0a634}\label{classFacadeSingleton_aeee0c1d582402e6b7663297ff1f0a634}} 
 \index{FacadeSingleton@{FacadeSingleton}!getKafkaManager@{getKafkaManager}}
@@ -600,11 +600,15 @@ Definition at line \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00139}{139}} of
 
 References \mbox{\hyperlink{SystemCommand_8cpp_source_l00023}{System\+Command\+::execute\+Command()}}.
 
-\mbox{\Hypertarget{classFacadeSingleton_a1392ddba1262d54d00c0a5d84a21e874}\label{classFacadeSingleton_a1392ddba1262d54d00c0a5d84a21e874}} 
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00183}{main()}}.
+
+\mbox{\Hypertarget{classFacadeSingleton_a9c706fde593f40f6746734382e057738}\label{classFacadeSingleton_a9c706fde593f40f6746734382e057738}} 
 \index{FacadeSingleton@{FacadeSingleton}!getVideoFrames@{getVideoFrames}}
 \index{getVideoFrames@{getVideoFrames}!FacadeSingleton@{FacadeSingleton}}
 \doxysubsubsection{\texorpdfstring{getVideoFrames()}{getVideoFrames()}}
-{\footnotesize\ttfamily void Facade\+Singleton\+::get\+Video\+Frames (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+\_\+n\+Frame,  }\item[{rs2\+::pipeline \&}]{pipeline\+Stream,  }\item[{float}]{scale }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Facade\+Singleton\+::get\+Video\+Frames (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+\_\+n\+Frame,  }\item[{rs2\+::pipeline \&}]{pipeline\+Stream,  }\item[{float}]{scale,  }\item[{const unsigned short int}]{frames\+To\+Skip }\end{DoxyParamCaption})}
 
 
 
@@ -617,6 +621,8 @@ Get user\+\_\+n\+Frame video frames from the pipeline by applying a specific sca
 {\em pipeline\+Stream} & The pipeline simplifies the user interaction with the device and computer vision processing modules. The class abstracts the camera configuration and streaming, and the vision modules triggering and threading. It lets the application focus on the computer vision output of the modules, or the device output data. The pipeline can manage computer vision modules, which are implemented as a processing block. The pipeline is the consumer of the processing block interface, while the application consumes the computer vision interface. \\
 \hline
 {\em scale} & Scaling factor. \\
+\hline
+{\em frames\+To\+Skip} & Frames\textquotesingle{} number to skip in order to ignore a certain amount of frames and extend the recording interval. A \textquotesingle{}0\textquotesingle{} value means \textquotesingle{}capture each frame\textquotesingle{}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
@@ -632,14 +638,18 @@ Definition at line \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00135}{135}} of
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00135                                                                                                          \{}
-\DoxyCodeLine{00136     \mbox{\hyperlink{classFacadeSingleton_a389756e6e8ebf946576a06ea0fe9d927}{getOpenCV\_Manager}}()-\/>\mbox{\hyperlink{classOpenCV__Manager_ab2b14f68d14fb05e15cf22f8184a651c}{getVideoFramesCV}}(user\_nFrame, pipelineStream, scale);}
+\DoxyCodeLine{00135                                                                                                                                                 \{}
+\DoxyCodeLine{00136     \mbox{\hyperlink{classFacadeSingleton_a389756e6e8ebf946576a06ea0fe9d927}{getOpenCV\_Manager}}()-\/>\mbox{\hyperlink{classOpenCV__Manager_a539a0c005b8541f68bab2b36a9d84aba}{getVideoFramesCV}}(user\_nFrame, pipelineStream, scale, framesToSkip);}
 \DoxyCodeLine{00137 \}}
 
 \end{DoxyCode}
 
 
 References \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00103}{get\+Open\+CV\+\_\+\+Manager()}}, and \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00037}{Open\+CV\+\_\+\+Manager\+::get\+Video\+Frames\+CV()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00183}{main()}}.
 
 \mbox{\Hypertarget{classFacadeSingleton_ae5e73ada437689240904db89f67e587d}\label{classFacadeSingleton_ae5e73ada437689240904db89f67e587d}} 
 \index{FacadeSingleton@{FacadeSingleton}!operator=@{operator=}}
@@ -698,6 +708,10 @@ Definition at line \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00149}{149}} of
 
 
 References \mbox{\hyperlink{UsageManager_8cpp_source_l00060}{Usage\+Manager\+::get\+\_\+argv()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00095}{get\+Camera\+Manager()}}, \mbox{\hyperlink{RealSenseManager_8cpp_source_l00061}{Real\+Sense\+Manager\+::get\+Frame\+ID()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00119}{get\+Kafka\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00099}{get\+Output\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00107}{get\+Usage\+Manager()}}, \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00043}{Output\+Manager\+JSON\+::load\+JSON()}}, \mbox{\hyperlink{constants_8hpp_source_l00065}{output\+Folder\+Offset}}, and \mbox{\hyperlink{KafkaManager_8cpp_source_l00092}{Kafka\+Manager\+::send\+Data()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00183}{main()}}.
 
 \mbox{\Hypertarget{classFacadeSingleton_a9583d8ca7077bd0e89bf4ab83f0b7535}\label{classFacadeSingleton_a9583d8ca7077bd0e89bf4ab83f0b7535}} 
 \index{FacadeSingleton@{FacadeSingleton}!setCameraManager@{setCameraManager}}
@@ -958,11 +972,11 @@ References \mbox{\hyperlink{FacadeSingleton_8hpp_source_l00081}{usage\+Manager}}
 
 Referenced by \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00020}{Facade\+Singleton()}}.
 
-\mbox{\Hypertarget{classFacadeSingleton_a34d70508a6bddd6f9f04b21fcd43adc8}\label{classFacadeSingleton_a34d70508a6bddd6f9f04b21fcd43adc8}} 
+\mbox{\Hypertarget{classFacadeSingleton_a06ebcdd6234d6bc1fb416a22030daa9a}\label{classFacadeSingleton_a06ebcdd6234d6bc1fb416a22030daa9a}} 
 \index{FacadeSingleton@{FacadeSingleton}!showSkeletons@{showSkeletons}}
 \index{showSkeletons@{showSkeletons}!FacadeSingleton@{FacadeSingleton}}
 \doxysubsubsection{\texorpdfstring{showSkeletons()}{showSkeletons()}}
-{\footnotesize\ttfamily void Facade\+Singleton\+::show\+Skeletons (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+\_\+n\+Frame }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Facade\+Singleton\+::show\+Skeletons (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+\_\+n\+Frame,  }\item[{const float}]{skeleton\+Threshold }\end{DoxyParamCaption})}
 
 
 
@@ -971,6 +985,8 @@ Retrieve Open\+Pose\textquotesingle{}s output, convert it to Real\+Sense coordin
 
 \begin{DoxyParams}{Parameters}
 {\em user\+\_\+n\+Frame} & frame\textquotesingle{}s number to capture according to user choice. \\
+\hline
+{\em skeleton\+Threshold} & The magnitude or intensity that must be exceeded for a specific reaction, phenomenon, result, or condition to occur or be manifested. In this case, if the skeleton\textquotesingle{}s confidence mean value is greater than \char`\"{}skeleton\+Threshold\char`\"{}, then the skeleton will be considered a meaningful skeleton. \\
 \hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
@@ -982,8 +998,8 @@ Definition at line \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00145}{145}} of
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00145                                                              \{}
-\DoxyCodeLine{00146     \mbox{\hyperlink{classFacadeSingleton_a389756e6e8ebf946576a06ea0fe9d927}{getOpenCV\_Manager}}()-\/>\mbox{\hyperlink{classOpenCV__Manager_ae821406a67a6e69c4229f31e3e84f031}{showSkeletonsCV}}(user\_nFrame);}
+\DoxyCodeLine{00145                                                                                             \{}
+\DoxyCodeLine{00146     \mbox{\hyperlink{classFacadeSingleton_a389756e6e8ebf946576a06ea0fe9d927}{getOpenCV\_Manager}}()-\/>\mbox{\hyperlink{classOpenCV__Manager_a91d73f7ffc0147f9e99a05e524a28db5}{showSkeletonsCV}}(user\_nFrame, skeletonThreshold);}
 \DoxyCodeLine{00147 \}}
 
 \end{DoxyCode}
@@ -991,11 +1007,15 @@ Definition at line \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00145}{145}} of
 
 References \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00103}{get\+Open\+CV\+\_\+\+Manager()}}, and \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00074}{Open\+CV\+\_\+\+Manager\+::show\+Skeletons\+CV()}}.
 
-\mbox{\Hypertarget{classFacadeSingleton_ac376a8315efd79a450eaba26608cefa0}\label{classFacadeSingleton_ac376a8315efd79a450eaba26608cefa0}} 
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00183}{main()}}.
+
+\mbox{\Hypertarget{classFacadeSingleton_a269a1e41f57c4490ec9f8d933b535dbf}\label{classFacadeSingleton_a269a1e41f57c4490ec9f8d933b535dbf}} 
 \index{FacadeSingleton@{FacadeSingleton}!startEnvironment@{startEnvironment}}
 \index{startEnvironment@{startEnvironment}!FacadeSingleton@{FacadeSingleton}}
 \doxysubsubsection{\texorpdfstring{startEnvironment()}{startEnvironment()}}
-{\footnotesize\ttfamily void Facade\+Singleton\+::start\+Environment (\begin{DoxyParamCaption}\item[{rs2\+::pipeline \&}]{pipeline\+Stream,  }\item[{struct rs2\+\_\+intrinsics \&}]{color\+\_\+intrin,  }\item[{float $\ast$}]{scale,  }\item[{unsigned short int}]{resX,  }\item[{unsigned short int}]{resY,  }\item[{const char $\ast$}]{destination\+Kafka\+Topic }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Facade\+Singleton\+::start\+Environment (\begin{DoxyParamCaption}\item[{rs2\+::pipeline \&}]{pipeline\+Stream,  }\item[{struct rs2\+\_\+intrinsics \&}]{color\+\_\+intrin,  }\item[{float $\ast$}]{scale,  }\item[{unsigned short int}]{resX,  }\item[{unsigned short int}]{resY,  }\item[{const char $\ast$}]{destination\+Kafka\+Topic,  }\item[{\mbox{\hyperlink{classRoom}{Room}}}]{room }\end{DoxyParamCaption})}
 
 
 
@@ -1015,6 +1035,8 @@ This method is useful to invoke at the boot of the program where we want to init
 \hline
 {\em destination\+Kafka\+Topic} & the destination\textquotesingle{}s kafka topic\textquotesingle{}s name. \\
 \hline
+{\em room} & Specific room within which the coordinate mapping will be done. \\
+\hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
 \href{https://dev.intelrealsense.com/docs/docs-get-started}{\texttt{ https\+://dev.\+intelrealsense.\+com/docs/docs-\/get-\/started}} 
@@ -1027,11 +1049,11 @@ Definition at line \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00123}{123}} of
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00123                                                                                                                                                                                                                \{}
+\DoxyCodeLine{00123                                                                                                                                                                                                                           \{}
 \DoxyCodeLine{00124     \mbox{\hyperlink{classFacadeSingleton_a9583d8ca7077bd0e89bf4ab83f0b7535}{FacadeSingleton::setCameraManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{classRealSenseD435Manager}{RealSenseD435Manager}}());}
 \DoxyCodeLine{00125     \mbox{\hyperlink{classFacadeSingleton_a07ddf5d33365e939fe1af6a82dfcbee1}{FacadeSingleton::setOutputManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{classOutputManagerJSON}{OutputManagerJSON}}());}
 \DoxyCodeLine{00126     \mbox{\hyperlink{classFacadeSingleton_a67c6b17081009693ab23f13720e13420}{FacadeSingleton::setOpenCV\_Manager}}(\textcolor{keyword}{new} \mbox{\hyperlink{classOpenCV__Manager}{OpenCV\_Manager}}());}
-\DoxyCodeLine{00127     \mbox{\hyperlink{classFacadeSingleton_a60e394e259984fce5c7388f4050fe1f8}{FacadeSingleton::setCoordinateMappingManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{classUnityCoordinateMappingManager}{UnityCoordinateMappingManager}}());}
+\DoxyCodeLine{00127     \mbox{\hyperlink{classFacadeSingleton_a60e394e259984fce5c7388f4050fe1f8}{FacadeSingleton::setCoordinateMappingManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{classUnityCoordinateMappingManager}{UnityCoordinateMappingManager}}(room));}
 \DoxyCodeLine{00128     }
 \DoxyCodeLine{00129     \mbox{\hyperlink{classFacadeSingleton_a30385b27b8d5bbeb95879bdfe94e20d5}{FacadeSingleton::setImageManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{classImageManager}{ImageManager}}());}
 \DoxyCodeLine{00130     \mbox{\hyperlink{classFacadeSingleton_a6eae17430632954f6627dcd55fe6e8e1}{FacadeSingleton::setKafkaManager}}(\textcolor{keyword}{new} \mbox{\hyperlink{classKafkaManager}{KafkaManager}}(destinationKafkaTopic));}
@@ -1042,7 +1064,11 @@ Definition at line \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00123}{123}} of
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00166}{clean\+Build\+Folder()}}, \mbox{\hyperlink{constants_8hpp_source_l00074}{FIRST\+\_\+\+BOOT}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00095}{get\+Camera\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00053}{set\+Camera\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00069}{set\+Coordinate\+Mapping\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00073}{set\+Image\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00077}{set\+Kafka\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00061}{set\+Open\+CV\+\_\+\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00057}{set\+Output\+Manager()}}, and \mbox{\hyperlink{classRealSenseManager_a7cc9374e6575681b05db3e0592d10944}{Real\+Sense\+Manager\+::start\+Environment()}}.
+References \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00166}{clean\+Build\+Folder()}}, \mbox{\hyperlink{constants_8hpp_source_l00071}{FIRST\+\_\+\+BOOT}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00095}{get\+Camera\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00053}{set\+Camera\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00069}{set\+Coordinate\+Mapping\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00073}{set\+Image\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00077}{set\+Kafka\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00061}{set\+Open\+CV\+\_\+\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00057}{set\+Output\+Manager()}}, and \mbox{\hyperlink{classRealSenseManager_a7cc9374e6575681b05db3e0592d10944}{Real\+Sense\+Manager\+::start\+Environment()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00183}{main()}}.
 
 
 

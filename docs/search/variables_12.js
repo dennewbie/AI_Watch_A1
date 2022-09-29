@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['usage_5fmanager_5fnullptr_5ferror_0',['USAGE_MANAGER_NULLPTR_ERROR',['../constants_8hpp.html#ab495e2525cf238bb390ca68277586bf4',1,'constants.hpp']]],
-  ['usage_5fmanager_5fnullptr_5fscope_1',['USAGE_MANAGER_NULLPTR_SCOPE',['../constants_8hpp.html#ade33b45fd12b716d5e837609aa163416',1,'constants.hpp']]],
-  ['usagemanager_2',['usageManager',['../classFacadeSingleton.html#a6eb06ed04c4fd57714f6efe44aa755d7',1,'FacadeSingleton']]]
+  ['topic_0',['topic',['../classKafkaManager.html#a0a3dbefd7ac2330ed8bb9650b50d2efb',1,'KafkaManager']]],
+  ['totalfileparameters_1',['totalFileParameters',['../constants_8hpp.html#aa2c3576e26c9e710cd2877d639fad9ae',1,'constants.hpp']]]
 ];

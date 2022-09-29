@@ -12,7 +12,7 @@ var searchData=
   ['realsensed435manager_2ecpp_9',['RealSenseD435Manager.cpp',['../RealSenseD435Manager_8cpp.html',1,'']]],
   ['realsensed435manager_2ecpp_2eo_2ed_10',['RealSenseD435Manager.cpp.o.d',['../RealSenseD435Manager_8cpp_8o_8d.html',1,'']]],
   ['realsenseframetomat_11',['realsenseFrameToMat',['../classOpenCV__Manager.html#a763f869b71bef3cd172254b2511b789f',1,'OpenCV_Manager']]],
-  ['realsensemanager_12',['RealSenseManager',['../classRealSenseManager.html',1,'RealSenseManager'],['../classRealSenseManager.html#ad8a8e23ad0136c97ddc64f8e7fdcabcf',1,'RealSenseManager::RealSenseManager()']]],
+  ['realsensemanager_12',['RealSenseManager',['../classRealSenseManager.html#ad8a8e23ad0136c97ddc64f8e7fdcabcf',1,'RealSenseManager::RealSenseManager()'],['../classRealSenseManager.html',1,'RealSenseManager']]],
   ['realsensemanager_2ecpp_13',['RealSenseManager.cpp',['../RealSenseManager_8cpp.html',1,'']]],
   ['realsensemanager_2ecpp_2eo_2ed_14',['RealSenseManager.cpp.o.d',['../RealSenseManager_8cpp_8o_8d.html',1,'']]],
   ['realsensemanager_2ehpp_15',['RealSenseManager.hpp',['../RealSenseManager_8hpp.html',1,'']]],
@@ -24,9 +24,14 @@ var searchData=
   ['rheel_21',['RHeel',['../Skeleton_8hpp.html#ac815fd3d3b9033ac5ec3fe70eb7941e1a2dee8e709ae29456173aabb753d00788',1,'Skeleton.hpp']]],
   ['rhip_22',['RHip',['../Skeleton_8hpp.html#ac815fd3d3b9033ac5ec3fe70eb7941e1ab74c0d7c57573e79a26cd2306b8bece5',1,'Skeleton.hpp']]],
   ['rknee_23',['RKnee',['../Skeleton_8hpp.html#ac815fd3d3b9033ac5ec3fe70eb7941e1ac7c8fb1313e566743350b79042e626ae',1,'Skeleton.hpp']]],
-  ['rs_5fcamera_5ferror_24',['RS_CAMERA_ERROR',['../constants_8hpp.html#ae4c7c146bcc762eadc9e87a62bd0924e',1,'constants.hpp']]],
-  ['rs_5fcamera_5fscope_25',['RS_CAMERA_SCOPE',['../constants_8hpp.html#a60f7f9c807b54759e94af5e875ab3e56',1,'constants.hpp']]],
-  ['rshoulder_26',['RShoulder',['../Skeleton_8hpp.html#ac815fd3d3b9033ac5ec3fe70eb7941e1a6486d55da0e37e31e6fe3a9793edaba7',1,'Skeleton.hpp']]],
-  ['rsmalltoe_27',['RSmallToe',['../Skeleton_8hpp.html#ac815fd3d3b9033ac5ec3fe70eb7941e1a7d854c2cda02273367b169b0e52b74bc',1,'Skeleton.hpp']]],
-  ['rwrist_28',['RWrist',['../Skeleton_8hpp.html#ac815fd3d3b9033ac5ec3fe70eb7941e1af8977914fcb429efda05528faa9897e3',1,'Skeleton.hpp']]]
+  ['room_24',['room',['../classCoordinateMappingManager.html#aa46cf231c8d4c64815eeeade33c8979c',1,'CoordinateMappingManager']]],
+  ['room_25',['Room',['../classRoom.html#ac631b03c0bc78baf63a48a4111a6ca66',1,'Room::Room()'],['../classRoom.html',1,'Room']]],
+  ['room_2ecpp_26',['Room.cpp',['../Room_8cpp.html',1,'']]],
+  ['room_2ecpp_2eo_2ed_27',['Room.cpp.o.d',['../Room_8cpp_8o_8d.html',1,'']]],
+  ['room_2ehpp_28',['Room.hpp',['../Room_8hpp.html',1,'']]],
+  ['rs_5fcamera_5ferror_29',['RS_CAMERA_ERROR',['../constants_8hpp.html#ae4c7c146bcc762eadc9e87a62bd0924e',1,'constants.hpp']]],
+  ['rs_5fcamera_5fscope_30',['RS_CAMERA_SCOPE',['../constants_8hpp.html#a60f7f9c807b54759e94af5e875ab3e56',1,'constants.hpp']]],
+  ['rshoulder_31',['RShoulder',['../Skeleton_8hpp.html#ac815fd3d3b9033ac5ec3fe70eb7941e1a6486d55da0e37e31e6fe3a9793edaba7',1,'Skeleton.hpp']]],
+  ['rsmalltoe_32',['RSmallToe',['../Skeleton_8hpp.html#ac815fd3d3b9033ac5ec3fe70eb7941e1a7d854c2cda02273367b169b0e52b74bc',1,'Skeleton.hpp']]],
+  ['rwrist_33',['RWrist',['../Skeleton_8hpp.html#ac815fd3d3b9033ac5ec3fe70eb7941e1af8977914fcb429efda05528faa9897e3',1,'Skeleton.hpp']]]
 ];

@@ -44,7 +44,7 @@
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00040}00040     CV\_Error(\mbox{\hyperlink{constants_8hpp_ae4c7c146bcc762eadc9e87a62bd0924e}{RS\_CAMERA\_ERROR}}, \mbox{\hyperlink{constants_8hpp_a60f7f9c807b54759e94af5e875ab3e56}{RS\_CAMERA\_SCOPE}});}
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00041}00041 \}}
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00042}00042 }
-\DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00043}\mbox{\hyperlink{classRealSenseD435Manager_a5db5d92619fd13a559aba6622d9d7ad0}{00043}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classRealSenseD435Manager_a5db5d92619fd13a559aba6622d9d7ad0}{RealSenseD435Manager::getVideoFramesRS}} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} user\_nFrame, rs2::pipeline \& pipelineStream, rs2::depth\_frame \& depthFrame, rs2::frame \& colorFrame, rs2::frame \& colorizedDepthFrame) \textcolor{keyword}{try} \{}
+\DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00043}\mbox{\hyperlink{classRealSenseD435Manager_ac397dd10a07ef1d4893f710643c59b6e}{00043}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classRealSenseD435Manager_ac397dd10a07ef1d4893f710643c59b6e}{RealSenseD435Manager::getVideoFramesRS}} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} user\_nFrame, rs2::pipeline \& pipelineStream, rs2::depth\_frame \& depthFrame, rs2::frame \& colorFrame, rs2::frame \& colorizedDepthFrame, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} framesToSkip) \textcolor{keyword}{try} \{}
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00044}00044     rs2::colorizer colorMap;}
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00045}00045     rs2::spatial\_filter spatialFilter;}
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00046}00046     rs2::frameset streamData, alignedStreamData;}
@@ -54,7 +54,7 @@
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00050}00050     \textcolor{keywordflow}{do} \{}
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00051}00051         streamData = pipelineStream.wait\_for\_frames();}
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00052}00052         skippedFrameCounter += 1;}
-\DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00053}00053     \} \textcolor{keywordflow}{while} (skippedFrameCounter < \mbox{\hyperlink{constants_8hpp_a3876ec08958e65e59c795e0dde94d726}{framesToSkip}});}
+\DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00053}00053     \} \textcolor{keywordflow}{while} (skippedFrameCounter < framesToSkip);}
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00054}00054     }
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00055}00055     alignedStreamData = \mbox{\hyperlink{classRealSenseManager_acff6020a0a3efe31b637d6dc5b341dd7}{RealSenseManager::get\_align}}().process(streamData);}
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00056}00056     depthFrame = alignedStreamData.get\_depth\_frame();}

@@ -28,7 +28,7 @@ Json\+::\+Value \mbox{\hyperlink{classOutputManagerJSON_a556acfc598ddd6b525d4650
 \begin{DoxyCompactList}\small\item\em Utility method to get i-\/th value in a given JSON node. \end{DoxyCompactList}\item 
 Json\+::\+Value \mbox{\hyperlink{classOutputManagerJSON_aa4bf1a257f2e3454485efd5f454dd38b}{get\+Value\+At}} (std\+::string key, unsigned int i, Json\+::\+Value current\+JSON)
 \begin{DoxyCompactList}\small\item\em Utility method to get the value at a given key of the i-\/th value in a given JSON node. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOutputManagerJSON_ae7e940b50eb318e883b0844bece04dc7}{create\+JSON}} (Json\+::\+Value \&people, cv\+::\+Mat \&color\+Image, cv\+::\+Mat \&distance\+Image, cv\+::\+Mat \&skeleton\+Only\+Image, unsigned int n\+Frame, const char $\ast$output\+Folder)
+void \mbox{\hyperlink{classOutputManagerJSON_a5e38880053af77de3de66925209ca5eb}{create\+JSON}} (Json\+::\+Value \&people, cv\+::\+Mat \&color\+Image, cv\+::\+Mat \&distance\+Image, cv\+::\+Mat \&skeleton\+Only\+Image, unsigned int n\+Frame, const char $\ast$output\+Folder, const float skeleton\+Threshold)
 \begin{DoxyCompactList}\small\item\em This methods take a reference to a JSON node that represents all the people\textquotesingle{}s informations within the frame, color, depth, distance, and skeleton-\/only frame, the current frame ID, and the output folder\textquotesingle{}s path on disk and for each person in the people\textquotesingle{}s JSON node, the method extracts, generates, and appends a single \mbox{\hyperlink{classSkeleton}{Skeleton}} to the current JSON node. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -54,11 +54,11 @@ Definition at line \mbox{\hyperlink{OutputManager_8hpp_source_l00073}{73}} of fi
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classOutputManagerJSON_ae7e940b50eb318e883b0844bece04dc7}\label{classOutputManagerJSON_ae7e940b50eb318e883b0844bece04dc7}} 
+\mbox{\Hypertarget{classOutputManagerJSON_a5e38880053af77de3de66925209ca5eb}\label{classOutputManagerJSON_a5e38880053af77de3de66925209ca5eb}} 
 \index{OutputManagerJSON@{OutputManagerJSON}!createJSON@{createJSON}}
 \index{createJSON@{createJSON}!OutputManagerJSON@{OutputManagerJSON}}
 \doxysubsubsection{\texorpdfstring{createJSON()}{createJSON()}}
-{\footnotesize\ttfamily void Output\+Manager\+JSON\+::create\+JSON (\begin{DoxyParamCaption}\item[{Json\+::\+Value \&}]{people,  }\item[{cv\+::\+Mat \&}]{color\+Image,  }\item[{cv\+::\+Mat \&}]{distance\+Image,  }\item[{cv\+::\+Mat \&}]{skeleton\+Only\+Image,  }\item[{unsigned int}]{n\+Frame,  }\item[{const char $\ast$}]{output\+Folder }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Output\+Manager\+JSON\+::create\+JSON (\begin{DoxyParamCaption}\item[{Json\+::\+Value \&}]{people,  }\item[{cv\+::\+Mat \&}]{color\+Image,  }\item[{cv\+::\+Mat \&}]{distance\+Image,  }\item[{cv\+::\+Mat \&}]{skeleton\+Only\+Image,  }\item[{unsigned int}]{n\+Frame,  }\item[{const char $\ast$}]{output\+Folder,  }\item[{const float}]{skeleton\+Threshold }\end{DoxyParamCaption})}
 
 
 
@@ -78,6 +78,8 @@ This methods take a reference to a JSON node that represents all the people\text
 \hline
 {\em output\+Folder} & output folder\textquotesingle{}s path on disk. \\
 \hline
+{\em skeleton\+Threshold} & The magnitude or intensity that must be exceeded for a specific reaction, phenomenon, result, or condition to occur or be manifested. In this case, if the skeleton\textquotesingle{}s confidence mean value is greater than \char`\"{}skeleton\+Threshold\char`\"{}, then the skeleton will be considered a meaningful skeleton. \\
+\hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{Skeleton_8hpp}{Skeleton.\+hpp}} 
@@ -88,7 +90,7 @@ Definition at line \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00068}{68}} o
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00068                                                                                                                                                                             \{}
+\DoxyCodeLine{00068                                                                                                                                                                                                            \{}
 \DoxyCodeLine{00069     Json::Value root, peopleArray(Json::arrayValue);}
 \DoxyCodeLine{00070     std::stringstream outputJsonFilePath;}
 \DoxyCodeLine{00071     root[\textcolor{stringliteral}{"{}ID\_Frame"{}}] = nFrame;}
@@ -99,7 +101,7 @@ Definition at line \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00068}{68}} o
 \DoxyCodeLine{00076         \mbox{\hyperlink{classSkeleton}{Skeleton}} singlePersonSkeleton = \mbox{\hyperlink{classSkeleton}{Skeleton}}(colorImage, distanceImage, skeletonOnlyImage, singlePerson);}
 \DoxyCodeLine{00077         singlePersonSkeleton.\mbox{\hyperlink{classSkeleton_ae0c3e5472eccf5a1781b609f51679bcb}{generateSkeleton}}();}
 \DoxyCodeLine{00078         \textcolor{comment}{// Discard Skeleton with low consistency value}}
-\DoxyCodeLine{00079         \textcolor{keywordflow}{if} (singlePersonSkeleton.\mbox{\hyperlink{classSkeleton_a1770444f4e0b5dc042216ea11eb140b9}{getConsistency}}() > \mbox{\hyperlink{constants_8hpp_a8f377d27eed600066beca29aafa1acb3}{skeletonThreshold}}) \{}
+\DoxyCodeLine{00079         \textcolor{keywordflow}{if} (singlePersonSkeleton.\mbox{\hyperlink{classSkeleton_a1770444f4e0b5dc042216ea11eb140b9}{getConsistency}}() > skeletonThreshold) \{}
 \DoxyCodeLine{00080             peopleArray.append(\mbox{\hyperlink{classOutputManagerJSON_a63603930f5b39d9b1f10e5b667e60ab8}{makeOutputString}}(* singlePersonSkeleton.\mbox{\hyperlink{classSkeleton_a4661b8b588d471563909ee49823536db}{getSkeletonPoints3D}}(), singlePersonSkeleton.\mbox{\hyperlink{classSkeleton_a79798d4999379bc7063a9fc2dabad55e}{getBodyKeyPointsMap}}(), nFrame, (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}) i));}
 \DoxyCodeLine{00081         \}}
 \DoxyCodeLine{00082     \}}
@@ -115,7 +117,7 @@ Definition at line \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00068}{68}} o
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Skeleton_8cpp_source_l00203}{Skeleton\+::generate\+Skeleton()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00069}{Skeleton\+::get\+Body\+Key\+Points\+Map()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00222}{Skeleton\+::get\+Consistency()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00218}{Skeleton\+::get\+Skeleton\+Points3\+D()}}, \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00056}{get\+Value\+At()}}, \mbox{\hyperlink{constants_8hpp_source_l00058}{JSON\+\_\+\+FILE\+\_\+\+PATH}}, \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00015}{make\+Output\+String()}}, \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00049}{save\+JSON()}}, \mbox{\hyperlink{OutputManager_8cpp_source_l00015}{Output\+Manager\+::set\+String\+Output\+Data()}}, and \mbox{\hyperlink{constants_8hpp_source_l00070}{skeleton\+Threshold}}.
+References \mbox{\hyperlink{Skeleton_8cpp_source_l00203}{Skeleton\+::generate\+Skeleton()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00069}{Skeleton\+::get\+Body\+Key\+Points\+Map()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00222}{Skeleton\+::get\+Consistency()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00218}{Skeleton\+::get\+Skeleton\+Points3\+D()}}, \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00056}{get\+Value\+At()}}, \mbox{\hyperlink{constants_8hpp_source_l00058}{JSON\+\_\+\+FILE\+\_\+\+PATH}}, \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00015}{make\+Output\+String()}}, \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00049}{save\+JSON()}}, and \mbox{\hyperlink{OutputManager_8cpp_source_l00015}{Output\+Manager\+::set\+String\+Output\+Data()}}.
 
 
 

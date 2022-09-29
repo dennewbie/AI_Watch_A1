@@ -1,10 +1,14 @@
 var searchData=
 [
-  ['decorated_0',['decorated',['../classPoint.html#a0485a214ecf7495bd71cf6ca2a042ad4',1,'Point']]],
-  ['depth_5fintrin_1',['depth_intrin',['../classRealSenseManager.html#adad205399e7077b25c2c0650d31759c8',1,'RealSenseManager']]],
-  ['depth_5fmax_2',['depth_max',['../constants_8hpp.html#ab05dff73074361867c9b60c87b191601',1,'constants.hpp']]],
-  ['depth_5fmin_3',['depth_min',['../constants_8hpp.html#a704d946ebc135615d343776e32bf4352',1,'constants.hpp']]],
-  ['depth_5fto_5fcolor_4',['depth_to_color',['../classRealSenseManager.html#a116cc28e2d0b59b5cf946822a3d5dca4',1,'RealSenseManager']]],
-  ['distance_5fimage_5',['distance_Image',['../classSkeleton.html#adc003c36524e2517427709737d3d4414',1,'Skeleton']]],
-  ['distancecamerafrombackwall_6',['distanceCameraFromBackWall',['../CoordinateMappingManager_8hpp.html#a00219f81f56add6161ea4fe55851c988',1,'CoordinateMappingManager.hpp']]]
+  ['cameramanager_0',['cameraManager',['../classFacadeSingleton.html#a00aca9d472d299f60347f122ec80de2f',1,'FacadeSingleton']]],
+  ['check_5fusage_5ferror_1',['CHECK_USAGE_ERROR',['../constants_8hpp.html#af1b6329efa478baea3e7725a31f12e91',1,'constants.hpp']]],
+  ['check_5fusage_5fscope_2',['CHECK_USAGE_SCOPE',['../constants_8hpp.html#a94e3a7bc53c0fff54460fa4210e9dee2',1,'constants.hpp']]],
+  ['color_5fintrin_3',['color_intrin',['../classRealSenseManager.html#ab876bfaffd8a23924ff182573e900cda',1,'RealSenseManager']]],
+  ['color_5fto_5fdepth_4',['color_to_depth',['../classRealSenseManager.html#aea4cc5c31f53bd1f30dfcd10bcca9ff0',1,'RealSenseManager']]],
+  ['command_5',['command',['../classSystemCommand.html#abdc4fb0d069e0815759941dc72b5736d',1,'SystemCommand']]],
+  ['conf_5ffile_5fpath_6',['CONF_FILE_PATH',['../constants_8hpp.html#a5aa49a27b0acba734928cbc530041586',1,'constants.hpp']]],
+  ['confidence_7',['confidence',['../classBodyKeyPoint.html#aa64af4346a29d6190ef05654bc2e0d0c',1,'BodyKeyPoint']]],
+  ['configuration_8',['configuration',['../classKafkaManager.html#a9d4dd8b03a3623edb445d60c906854e1',1,'KafkaManager']]],
+  ['consistency_9',['consistency',['../classSkeleton.html#add4518caaf948e4207dc0885b7238a04',1,'Skeleton']]],
+  ['coordinatemappingmanager_10',['coordinateMappingManager',['../classFacadeSingleton.html#a21b9379face73a60c0328c2132f77940',1,'FacadeSingleton']]]
 ];

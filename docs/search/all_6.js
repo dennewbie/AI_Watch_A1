@@ -7,6 +7,5 @@ var searchData=
   ['facadesingleton_2ecpp_2eo_2ed_4',['FacadeSingleton.cpp.o.d',['../FacadeSingleton_8cpp_8o_8d.html',1,'']]],
   ['facadesingleton_2ehpp_5',['FacadeSingleton.hpp',['../FacadeSingleton_8hpp.html',1,'']]],
   ['first_5fboot_6',['FIRST_BOOT',['../constants_8hpp.html#a81a02baada85d2e7a44ac803f1e0aba4',1,'constants.hpp']]],
-  ['frameid_7',['frameID',['../classRealSenseManager.html#ac0bcf70a9567a1710d07a66aa5bf9587',1,'RealSenseManager']]],
-  ['framestoskip_8',['framesToSkip',['../constants_8hpp.html#a3876ec08958e65e59c795e0dde94d726',1,'constants.hpp']]]
+  ['frameid_7',['frameID',['../classRealSenseManager.html#ac0bcf70a9567a1710d07a66aa5bf9587',1,'RealSenseManager']]]
 ];

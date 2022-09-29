@@ -8,7 +8,7 @@ var searchData=
   ['depth_5fmin_5',['depth_min',['../constants_8hpp.html#a704d946ebc135615d343776e32bf4352',1,'constants.hpp']]],
   ['depth_5fto_5fcolor_6',['depth_to_color',['../classRealSenseManager.html#a116cc28e2d0b59b5cf946822a3d5dca4',1,'RealSenseManager']]],
   ['distance_5fimage_7',['distance_Image',['../classSkeleton.html#adc003c36524e2517427709737d3d4414',1,'Skeleton']]],
-  ['distancecamerafrombackwall_8',['distanceCameraFromBackWall',['../CoordinateMappingManager_8hpp.html#a00219f81f56add6161ea4fe55851c988',1,'CoordinateMappingManager.hpp']]],
+  ['distancecamerafrombackwall_8',['distanceCameraFromBackWall',['../CVPR__Lab_8hpp.html#a00219f81f56add6161ea4fe55851c988',1,'CVPR_Lab.hpp']]],
   ['dr_5fmsg_5fcb_9',['dr_msg_cb',['../classKafkaManager.html#a713480164aa94d6e24f88c62c4082e8c',1,'KafkaManager']]],
   ['drawcircle_10',['drawCircle',['../classSkeleton.html#a6643a1e55f22c749920d3e70720b671f',1,'Skeleton']]],
   ['drawline_11',['drawLine',['../classSkeleton.html#ab4f1fbf48944d0c56009a3ec14d2ca08',1,'Skeleton']]]

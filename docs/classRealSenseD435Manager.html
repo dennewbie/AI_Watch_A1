@@ -24,7 +24,7 @@
   <td id="projectalign">
    <div id="projectname">AI Watch A1
    </div>
-   <div id="projectbrief">Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
+   <div id="projectbrief">AI Watch A1: Multi-person 3D skeleton detection using Intel RealSense and OpenPose with Kafka support.</div>
   </td>
  </tr>
  </tbody>
@@ -92,9 +92,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6bfda5201144b0f6cce703c954bc19ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealSenseD435Manager.html#a6bfda5201144b0f6cce703c954bc19ad">startEnvironment</a> (rs2::pipeline &amp;pipelineStream, struct rs2_intrinsics &amp;<a class="el" href="classRealSenseManager.html#ab876bfaffd8a23924ff182573e900cda">color_intrin</a>, float *scale, unsigned short int resX, unsigned short int resY, bool firstBoot) override</td></tr>
 <tr class="memdesc:a6bfda5201144b0f6cce703c954bc19ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is useful to invoke at the boot of the program where we want to initialize the different mangers, start the camera and set up the related environment. This method is specific for D435 Intel RealSense camera.  <a href="classRealSenseD435Manager.html#a6bfda5201144b0f6cce703c954bc19ad">More...</a><br /></td></tr>
 <tr class="separator:a6bfda5201144b0f6cce703c954bc19ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5db5d92619fd13a559aba6622d9d7ad0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealSenseD435Manager.html#a5db5d92619fd13a559aba6622d9d7ad0">getVideoFramesRS</a> (unsigned int user_nFrame, rs2::pipeline &amp;pipelineStream, rs2::depth_frame &amp;depthFrame, rs2::frame &amp;colorFrame, rs2::frame &amp;colorizedDepthFrame) override</td></tr>
-<tr class="memdesc:a5db5d92619fd13a559aba6622d9d7ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get user_nFrame video frames from the pipeline by applying a specific scaling factor. This method is specific for D435 Intel RealSense camera.  <a href="classRealSenseD435Manager.html#a5db5d92619fd13a559aba6622d9d7ad0">More...</a><br /></td></tr>
-<tr class="separator:a5db5d92619fd13a559aba6622d9d7ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac397dd10a07ef1d4893f710643c59b6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealSenseD435Manager.html#ac397dd10a07ef1d4893f710643c59b6e">getVideoFramesRS</a> (unsigned int user_nFrame, rs2::pipeline &amp;pipelineStream, rs2::depth_frame &amp;depthFrame, rs2::frame &amp;colorFrame, rs2::frame &amp;colorizedDepthFrame, const unsigned short int framesToSkip) override</td></tr>
+<tr class="memdesc:ac397dd10a07ef1d4893f710643c59b6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get user_nFrame video frames from the pipeline by applying a specific scaling factor. This method is specific for D435 Intel RealSense camera.  <a href="classRealSenseD435Manager.html#ac397dd10a07ef1d4893f710643c59b6e">More...</a><br /></td></tr>
+<tr class="separator:ac397dd10a07ef1d4893f710643c59b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac01bf5b0fe977a03ff6ab9fa2bbf06f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealSenseManager.html#aac01bf5b0fe977a03ff6ab9fa2bbf06f">getFrameID</a> (void)</td></tr>
 <tr class="memdesc:aac01bf5b0fe977a03ff6ab9fa2bbf06f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current frame ID value.  <a href="classRealSenseManager.html#aac01bf5b0fe977a03ff6ab9fa2bbf06f">More...</a><br /></td></tr>
 <tr class="separator:aac01bf5b0fe977a03ff6ab9fa2bbf06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,7 +159,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><a class="el" href="classRealSenseD435Manager.html" title="RealSenseD435Manager class is a class that abstracts the behavior of an Intel RealSense D435 Camera,...">RealSenseD435Manager</a> class is a class that abstracts the behavior of an Intel RealSense D435 Camera, in order to capture frames, apply post-processing, and so on. </p>
 
-<p class="definition">Definition at line <a class="el" href="RealSenseManager_8hpp_source.html#l00177">177</a> of file <a class="el" href="RealSenseManager_8hpp_source.html">RealSenseManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RealSenseManager_8hpp_source.html#l00178">178</a> of file <a class="el" href="RealSenseManager_8hpp_source.html">RealSenseManager.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="acff6020a0a3efe31b637d6dc5b341dd7" name="acff6020a0a3efe31b637d6dc5b341dd7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acff6020a0a3efe31b637d6dc5b341dd7">&#9670;&nbsp;</a></span>get_align()</h2>
@@ -384,8 +384,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5db5d92619fd13a559aba6622d9d7ad0" name="a5db5d92619fd13a559aba6622d9d7ad0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5db5d92619fd13a559aba6622d9d7ad0">&#9670;&nbsp;</a></span>getVideoFramesRS()</h2>
+<a id="ac397dd10a07ef1d4893f710643c59b6e" name="ac397dd10a07ef1d4893f710643c59b6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac397dd10a07ef1d4893f710643c59b6e">&#9670;&nbsp;</a></span>getVideoFramesRS()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -421,7 +421,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">rs2::frame &amp;&#160;</td>
-          <td class="paramname"><em>colorizedDepthFrame</em>&#160;</td>
+          <td class="paramname"><em>colorizedDepthFrame</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short int&#160;</td>
+          <td class="paramname"><em>framesToSkip</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -444,6 +450,7 @@ Private Attributes</h2></td></tr>
     <tr><td class="paramname">depthFrame</td><td>Reference to depth frame object that will be captured. </td></tr>
     <tr><td class="paramname">colorFrame</td><td>Reference to color frame object that will be captured. </td></tr>
     <tr><td class="paramname">colorizedDepthFrame</td><td>Reference to colorized depth frame object that will be captured. </td></tr>
+    <tr><td class="paramname">framesToSkip</td><td>Frames' number to skip in order to ignore a certain amount of frames and extend the recording interval. A '0' value means 'capture each frame'. </td></tr>
   </table>
   </dd>
 </dl>
@@ -453,10 +460,10 @@ getVideoFramesCV(unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, f
 <dd>
 getVideoFrames (unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, float scale) </dd></dl>
 
-<p>Implements <a class="el" href="classRealSenseManager.html#a99e6a8fd7ce5b9feb5a3ffc91a5a5b0f">RealSenseManager</a>.</p>
+<p>Implements <a class="el" href="classRealSenseManager.html#a47330063d22911a0dae8ff02a6c2b93e">RealSenseManager</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="RealSenseD435Manager_8cpp_source.html#l00043">43</a> of file <a class="el" href="RealSenseD435Manager_8cpp_source.html">RealSenseD435Manager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   43</span>                                                                                                                                                                                           {</div>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>                                                                                                                                                                                                                                  {</div>
 <div class="line"><span class="lineno">   44</span>    rs2::colorizer colorMap;</div>
 <div class="line"><span class="lineno">   45</span>    rs2::spatial_filter spatialFilter;</div>
 <div class="line"><span class="lineno">   46</span>    rs2::frameset streamData, alignedStreamData;</div>
@@ -466,7 +473,7 @@ getVideoFrames (unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, fl
 <div class="line"><span class="lineno">   50</span>    <span class="keywordflow">do</span> {</div>
 <div class="line"><span class="lineno">   51</span>        streamData = pipelineStream.wait_for_frames();</div>
 <div class="line"><span class="lineno">   52</span>        skippedFrameCounter += 1;</div>
-<div class="line"><span class="lineno">   53</span>    } <span class="keywordflow">while</span> (skippedFrameCounter &lt; <a class="code hl_variable" href="constants_8hpp.html#a3876ec08958e65e59c795e0dde94d726">framesToSkip</a>);</div>
+<div class="line"><span class="lineno">   53</span>    } <span class="keywordflow">while</span> (skippedFrameCounter &lt; framesToSkip);</div>
 <div class="line"><span class="lineno">   54</span>    </div>
 <div class="line"><span class="lineno">   55</span>    alignedStreamData = <a class="code hl_function" href="classRealSenseManager.html#acff6020a0a3efe31b637d6dc5b341dd7">RealSenseManager::get_align</a>().process(streamData);</div>
 <div class="line"><span class="lineno">   56</span>    depthFrame = alignedStreamData.get_depth_frame();</div>
@@ -486,11 +493,10 @@ getVideoFrames (unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, fl
 <div class="ttc" id="aclassRealSenseManager_html_a024d711ab0bfee1d954f7bd3a83b197f"><div class="ttname"><a href="classRealSenseManager.html#a024d711ab0bfee1d954f7bd3a83b197f">RealSenseManager::setFrameID</a></div><div class="ttdeci">void setFrameID(unsigned int frameID)</div><div class="ttdoc">Set the Frame ID value.</div><div class="ttdef"><b>Definition:</b> <a href="RealSenseManager_8cpp_source.html#l00015">RealSenseManager.cpp:15</a></div></div>
 <div class="ttc" id="aclassRealSenseManager_html_aac01bf5b0fe977a03ff6ab9fa2bbf06f"><div class="ttname"><a href="classRealSenseManager.html#aac01bf5b0fe977a03ff6ab9fa2bbf06f">RealSenseManager::getFrameID</a></div><div class="ttdeci">unsigned int getFrameID(void)</div><div class="ttdoc">Get the current frame ID value.</div><div class="ttdef"><b>Definition:</b> <a href="RealSenseManager_8cpp_source.html#l00061">RealSenseManager.cpp:61</a></div></div>
 <div class="ttc" id="aclassRealSenseManager_html_acff6020a0a3efe31b637d6dc5b341dd7"><div class="ttname"><a href="classRealSenseManager.html#acff6020a0a3efe31b637d6dc5b341dd7">RealSenseManager::get_align</a></div><div class="ttdeci">rs2::align get_align(void)</div><div class="ttdoc">Get the align object.</div><div class="ttdef"><b>Definition:</b> <a href="RealSenseManager_8cpp_source.html#l00039">RealSenseManager.cpp:39</a></div></div>
-<div class="ttc" id="aconstants_8hpp_html_a3876ec08958e65e59c795e0dde94d726"><div class="ttname"><a href="constants_8hpp.html#a3876ec08958e65e59c795e0dde94d726">framesToSkip</a></div><div class="ttdeci">static const short int framesToSkip</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00072">constants.hpp:72</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_a60f7f9c807b54759e94af5e875ab3e56"><div class="ttname"><a href="constants_8hpp.html#a60f7f9c807b54759e94af5e875ab3e56">RS_CAMERA_SCOPE</a></div><div class="ttdeci">static const char * RS_CAMERA_SCOPE</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00030">constants.hpp:30</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_ae4c7c146bcc762eadc9e87a62bd0924e"><div class="ttname"><a href="constants_8hpp.html#ae4c7c146bcc762eadc9e87a62bd0924e">RS_CAMERA_ERROR</a></div><div class="ttdeci">static const short int RS_CAMERA_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00029">constants.hpp:29</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="constants_8hpp_source.html#l00072">framesToSkip</a>, <a class="el" href="RealSenseManager_8cpp_source.html#l00039">RealSenseManager::get_align()</a>, <a class="el" href="RealSenseManager_8cpp_source.html#l00061">RealSenseManager::getFrameID()</a>, and <a class="el" href="RealSenseManager_8cpp_source.html#l00015">RealSenseManager::setFrameID()</a>.</p>
+<p class="reference">References <a class="el" href="RealSenseManager_8cpp_source.html#l00039">RealSenseManager::get_align()</a>, <a class="el" href="RealSenseManager_8cpp_source.html#l00061">RealSenseManager::getFrameID()</a>, and <a class="el" href="RealSenseManager_8cpp_source.html#l00015">RealSenseManager::setFrameID()</a>.</p>
 
 </div>
 </div>
