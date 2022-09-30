@@ -14,7 +14,7 @@
 <p><div></div></p>
 
 ## Keynote 📋
-- [Keynote](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.key)
+- [Keynote](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs_keynote.pdf)
 
 
 
