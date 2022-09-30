@@ -111,20 +111,21 @@
 \DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00107}00107             cv::Mat distanceImage = cv::Mat(colorImage.rows, colorImage.cols, CV\_32FC1);}
 \DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00108}00108             imageManager-\/>\mbox{\hyperlink{classImageManager_aee3ff89c8031117cac540670fb8c09fe}{loadImage}}(distanceImagePath.str(), cv::IMREAD\_ANYCOLOR | cv::IMREAD\_ANYDEPTH, distanceImage);}
 \DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00109}00109             imageManager-\/>\mbox{\hyperlink{classImageManager_aee3ff89c8031117cac540670fb8c09fe}{loadImage}}(colorizedDepthImagePath.str(), cv::IMREAD\_COLOR, colorizedDepthImage);}
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00110}00110             imageManager-\/>\mbox{\hyperlink{classImageManager_a0d1b8bf95333d94fe2842937e5ef818c}{showImages}}( \{ colorImage, colorizedDepthImage \}, \{ \textcolor{stringliteral}{"{}Frame No Skeleton"{}}, \textcolor{stringliteral}{"{}Frame Colorized Depth"{}} \} );}
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00111}00111             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());}
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00112}00112             }
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00113}00113             \textcolor{comment}{// Produce a JSON output file for people present in this frame}}
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00114}00114             outputManagerJSON-\/>\mbox{\hyperlink{classOutputManagerJSON_a5e38880053af77de3de66925209ca5eb}{createJSON}}(people, colorImage, distanceImage, skeletonOnlyImage, currentImageID, outputFolder, skeletonThreshold);}
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00115}00115             }
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00116}00116             \textcolor{comment}{// Show images and save them}}
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00117}00117             imageManager-\/>\mbox{\hyperlink{classImageManager_a0d1b8bf95333d94fe2842937e5ef818c}{showImages}}( \{ skeletonOnlyImage, colorImage \}, \{ \textcolor{stringliteral}{"{}Frame Skeleton Background Cut"{}}, \textcolor{stringliteral}{"{}Frame Skeleton"{}} \} );}
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00118}00118             skeletonOnlyImagePath << imagesFolder << \textcolor{stringliteral}{"{}sk/"{}} << currentImageID << \textcolor{stringliteral}{"{}\_sk.png"{}};}
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00119}00119             skeletonImagePath << imagesFolder << \textcolor{stringliteral}{"{}skeleton/"{}} << currentImageID << \textcolor{stringliteral}{"{}\_Skeleton.png"{}};}
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00120}00120             imageManager-\/>\mbox{\hyperlink{classImageManager_aeae03d66a4a45347804c4c927fa55b42}{saveImages}}( \{ colorImage, skeletonOnlyImage \}, \{ skeletonImagePath.str(), skeletonOnlyImagePath.str() \} );}
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00121}00121             imageManager-\/>\mbox{\hyperlink{classImageManager_a6b448d93b315c6479590fa5afd278674}{releaseImages}}( \{ colorImage, distanceImage, colorizedDepthImage, skeletonOnlyImage \} );}
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00122}00122         \}}
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00123}00123     \}}
-\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00124}00124 \}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00110}00110             \textcolor{comment}{// Note: Comment following line for better performance}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00111}00111             imageManager-\/>\mbox{\hyperlink{classImageManager_a0d1b8bf95333d94fe2842937e5ef818c}{showImages}}( \{ colorImage, colorizedDepthImage \}, \{ \textcolor{stringliteral}{"{}Frame No Skeleton"{}}, \textcolor{stringliteral}{"{}Frame Colorized Depth"{}} \} );}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00112}00112             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00113}00113             }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00114}00114             \textcolor{comment}{// Produce a JSON output file for people present in this frame}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00115}00115             outputManagerJSON-\/>\mbox{\hyperlink{classOutputManagerJSON_a5e38880053af77de3de66925209ca5eb}{createJSON}}(people, colorImage, distanceImage, skeletonOnlyImage, currentImageID, outputFolder, skeletonThreshold);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00116}00116             }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00117}00117             \textcolor{comment}{// Show images and save them. Note: Comment following line for better performance}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00118}00118             imageManager-\/>\mbox{\hyperlink{classImageManager_a0d1b8bf95333d94fe2842937e5ef818c}{showImages}}( \{ skeletonOnlyImage, colorImage \}, \{ \textcolor{stringliteral}{"{}Frame Skeleton Background Cut"{}}, \textcolor{stringliteral}{"{}Frame Skeleton"{}} \} );}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00119}00119             skeletonOnlyImagePath << imagesFolder << \textcolor{stringliteral}{"{}sk/"{}} << currentImageID << \textcolor{stringliteral}{"{}\_sk.png"{}};}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00120}00120             skeletonImagePath << imagesFolder << \textcolor{stringliteral}{"{}skeleton/"{}} << currentImageID << \textcolor{stringliteral}{"{}\_Skeleton.png"{}};}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00121}00121             imageManager-\/>\mbox{\hyperlink{classImageManager_aeae03d66a4a45347804c4c927fa55b42}{saveImages}}( \{ colorImage, skeletonOnlyImage \}, \{ skeletonImagePath.str(), skeletonOnlyImagePath.str() \} );}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00122}00122             imageManager-\/>\mbox{\hyperlink{classImageManager_a6b448d93b315c6479590fa5afd278674}{releaseImages}}( \{ colorImage, distanceImage, colorizedDepthImage, skeletonOnlyImage \} );}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00123}00123         \}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00124}00124     \}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00125}00125 \}}
 
 \end{DoxyCode}

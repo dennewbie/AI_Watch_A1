@@ -104,6 +104,9 @@ Note: Instructions for MacOS with Intel CPU
     ### Important #2 📌
     The Confluent CLI requires Java version 1.8 or 1.11.
     See [Confluent versions interoperability](https://docs.confluent.io/current/installation/versions-interoperability.html).
+
+     ### Important #3 📌
+     In order to improve speed and general performance, you could disable images' showing and change the number of frames captured per second. In this last option, capturing too few frames per second reduces output' quality. Furthermore, it's also possible to reduce OpenPose's network resolution, but a significant drawback is reduced accuracy.
    
 10. Navigate to http://localhost:9021 and create a new topic `t1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file. At this point:
     - if internal OpenPose execution is chosen, then run the following command in your terminal:
