@@ -1,0 +1,96 @@
+\hypertarget{OutputManagerJSON_8cpp_source}{}\doxysection{Output\+Manager\+JSON.\+cpp}
+\label{OutputManagerJSON_8cpp_source}\index{Managers/OutputManagers/OutputManagerJSON.cpp@{Managers/OutputManagers/OutputManagerJSON.cpp}}
+\mbox{\hyperlink{OutputManagerJSON_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00002}00002 \textcolor{comment}{//  OutputManagerJSON.cpp}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00003}00003 \textcolor{comment}{//  AI Watch A1}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00004}00004 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 21/07/22.}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00008}00008 \textcolor{comment}{// License: Apache 2.0. See LICENSE file in root directory.}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00009}00009 \textcolor{comment}{// Copyright(c) 2022. All Rights Reserved.}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{OutputManager_8hpp}{OutputManager.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00015}\mbox{\hyperlink{classOutputManagerJSON_a63603930f5b39d9b1f10e5b667e60ab8}{00015}} Json::Value \mbox{\hyperlink{classOutputManagerJSON_a63603930f5b39d9b1f10e5b667e60ab8}{OutputManagerJSON::makeOutputString}} (std::vector <Point3D *> skeletonPoints3D, std::vector <bool> bodyKeyPointsMap, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} frameID, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} personID) \{}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00016}00016     Json::Value root, arraySkeletonPoints3D(Json::arrayValue);}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00017}00017     Json::StyledStreamWriter writer;}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00018}00018     }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00019}00019     \textcolor{comment}{// For each OpenPose's skeleton body joint point}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00020}00020     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < skeletonPoints3D.size(); i++) \{}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00021}00021         \textcolor{keywordflow}{if} (i >= 24) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00022}00022         Json::Value singlePoint3D\_JSON;}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00023}00023         \textcolor{comment}{// Build JSON node for i-\/th body joint point}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00024}00024         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}pointID"{}}] = Json::Value((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}) i);}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00025}00025         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}confidence"{}}] = Json::Value(((\mbox{\hyperlink{classBodyKeyPoint}{BodyKeyPoint}} *) skeletonPoints3D.at(i)-\/>getDecorated())-\/>getConfidence());}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00026}00026         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}x"{}}] = Json::Value((\textcolor{keywordtype}{double}) skeletonPoints3D.at(i)-\/>getZ());}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00027}00027         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}y"{}}] = Json::Value((\textcolor{keywordtype}{double}) skeletonPoints3D.at(i)-\/>getY());}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00028}00028         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}z"{}}] = Json::Value((\textcolor{keywordtype}{double}) skeletonPoints3D.at(i)-\/>getX());}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00029}00029         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}x\_rotation"{}}] = Json::Value(0.0);}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00030}00030         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}y\_rotation"{}}] = Json::Value(0.0);}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00031}00031         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}z\_rotation"{}}] = Json::Value(0.0);}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00032}00032         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}w\_rotation"{}}] = Json::Value(1.0);}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00033}00033         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}thingId"{}}] = Json::Value(std::string(\textcolor{stringliteral}{"{}org.eclipse.ditto:camera01"{}}));}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00034}00034         arraySkeletonPoints3D.append(singlePoint3D\_JSON);}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00035}00035     \}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00037}00037     root[\textcolor{stringliteral}{"{}personID"{}}] = Json::Value((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}) personID);}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00038}00038     root[\textcolor{stringliteral}{"{}skeleton"{}}] = arraySkeletonPoints3D;}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00039}00039     \mbox{\hyperlink{classOutputManager_a2335cc8b2252dbed78b728452deced26}{OutputManager::setStringOutputData}}(root.toStyledString());}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00040}00040     \textcolor{keywordflow}{return} root;}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00041}00041 \}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00043}\mbox{\hyperlink{classOutputManagerJSON_ae664a1f8616d4876501710849c1c59d2}{00043}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classOutputManagerJSON_ae664a1f8616d4876501710849c1c59d2}{OutputManagerJSON::loadJSON}} (std::string filePathJSON, Json::Value \& currentJSON) \{}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00044}00044     Json::Reader readerJSON;}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00045}00045     std::ifstream streamJSON(filePathJSON.c\_str(), std::ifstream::binary);}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00046}00046     \textcolor{keywordflow}{return} readerJSON.parse(streamJSON, currentJSON, \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00047}00047 \}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00049}\mbox{\hyperlink{classOutputManagerJSON_a720baaccfe9269bb18f3548b9dde0f52}{00049}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classOutputManagerJSON_a720baaccfe9269bb18f3548b9dde0f52}{OutputManagerJSON::saveJSON}} (std::string filePath) \{}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00050}00050     Json::StyledStreamWriter writer;}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00051}00051     std::ofstream outputFile(filePath);}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00052}00052     outputFile << \mbox{\hyperlink{classOutputManager_a66991ea844cee883d6538a8a3aedb731}{OutputManager::getStringOutputData}}();}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00053}00053     outputFile.close();}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00054}00054 \}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00056}\mbox{\hyperlink{classOutputManagerJSON_ab8f239a05495e63d99ef7e783b566587}{00056}} Json::Value \mbox{\hyperlink{classOutputManagerJSON_ab8f239a05495e63d99ef7e783b566587}{OutputManagerJSON::getValueAt}} (std::string key, Json::Value currentJSON) \{}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00057}00057     \textcolor{keywordflow}{return} currentJSON[key];}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00058}00058 \}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00060}\mbox{\hyperlink{classOutputManagerJSON_a556acfc598ddd6b525d465026c873845}{00060}} Json::Value \mbox{\hyperlink{classOutputManagerJSON_ab8f239a05495e63d99ef7e783b566587}{OutputManagerJSON::getValueAt}} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i, Json::Value currentJSON) \{}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00061}00061     \textcolor{keywordflow}{return} currentJSON[i];}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00062}00062 \}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00064}\mbox{\hyperlink{classOutputManagerJSON_aa4bf1a257f2e3454485efd5f454dd38b}{00064}} Json::Value \mbox{\hyperlink{classOutputManagerJSON_ab8f239a05495e63d99ef7e783b566587}{OutputManagerJSON::getValueAt}} (std::string key, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i, Json::Value currentJSON) \{}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00065}00065     \textcolor{keywordflow}{return} (currentJSON[i])[key];}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00066}00066 \}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00068}\mbox{\hyperlink{classOutputManagerJSON_a5e38880053af77de3de66925209ca5eb}{00068}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classOutputManagerJSON_a5e38880053af77de3de66925209ca5eb}{OutputManagerJSON::createJSON}} (Json::Value \& people, cv::Mat \& colorImage, cv::Mat \& distanceImage, cv::Mat \& skeletonOnlyImage, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} nFrame, \textcolor{keyword}{const} \textcolor{keywordtype}{char} * outputFolder, \textcolor{keyword}{const} \textcolor{keywordtype}{float} skeletonThreshold) \{}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00069}00069     Json::Value root, peopleArray(Json::arrayValue);}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00070}00070     std::stringstream outputJsonFilePath;}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00071}00071     root[\textcolor{stringliteral}{"{}ID\_Frame"{}}] = nFrame;}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00073}00073     \textcolor{comment}{// For each OpenPose's detected skeleton }}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00074}00074     \textcolor{keywordflow}{for} (Json::Value::ArrayIndex i = 0; i < people.size(); i++) \{}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00075}00075         Json::Value singlePerson = \mbox{\hyperlink{classOutputManagerJSON_ab8f239a05495e63d99ef7e783b566587}{getValueAt}}(\textcolor{stringliteral}{"{}pose\_keypoints\_2d"{}}, i, people);}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00076}00076         \mbox{\hyperlink{classSkeleton}{Skeleton}} singlePersonSkeleton = \mbox{\hyperlink{classSkeleton}{Skeleton}}(colorImage, distanceImage, skeletonOnlyImage, singlePerson);}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00077}00077         singlePersonSkeleton.\mbox{\hyperlink{classSkeleton_ae0c3e5472eccf5a1781b609f51679bcb}{generateSkeleton}}();}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00078}00078         \textcolor{comment}{// Discard Skeleton with low consistency value}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00079}00079         \textcolor{keywordflow}{if} (singlePersonSkeleton.\mbox{\hyperlink{classSkeleton_a1770444f4e0b5dc042216ea11eb140b9}{getConsistency}}() > skeletonThreshold) \{}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00080}00080             peopleArray.append(\mbox{\hyperlink{classOutputManagerJSON_a63603930f5b39d9b1f10e5b667e60ab8}{makeOutputString}}(* singlePersonSkeleton.\mbox{\hyperlink{classSkeleton_a4661b8b588d471563909ee49823536db}{getSkeletonPoints3D}}(), singlePersonSkeleton.\mbox{\hyperlink{classSkeleton_a79798d4999379bc7063a9fc2dabad55e}{getBodyKeyPointsMap}}(), nFrame, (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}) i));}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00081}00081         \}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00082}00082     \}}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00083}00083     }
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00084}00084     root[\textcolor{stringliteral}{"{}People"{}}] = peopleArray;}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00085}00085     \mbox{\hyperlink{classOutputManager_a2335cc8b2252dbed78b728452deced26}{OutputManager::setStringOutputData}}(root.toStyledString());}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00086}00086     outputJsonFilePath << outputFolder << \textcolor{stringliteral}{"{}movement/frame"{}} << nFrame << \textcolor{stringliteral}{"{}\_"{}} << \mbox{\hyperlink{constants_8hpp_ad17edf12bbd3c466264f620690fda028}{JSON\_FILE\_PATH}};}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00087}00087     \mbox{\hyperlink{classOutputManagerJSON_a720baaccfe9269bb18f3548b9dde0f52}{saveJSON}}(std::string(outputJsonFilePath.str()));}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00088}00088     outputJsonFilePath.str(std::string());}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00089}00089     outputJsonFilePath.clear();}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00090}00090 \}}
+
+\end{DoxyCode}

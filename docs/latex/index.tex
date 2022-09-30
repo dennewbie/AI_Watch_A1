@@ -1,0 +1,157 @@
+\hypertarget{index_intro_sec}{}\doxysection{Introduction}\label{index_intro_sec}
+This is the AI Watch A1 docum entation for C++. AI Watch A1 uses one Intel Real\+Sense D435 camera and Open\+Pose in order to achieve multi-\/person 3D skeleton detection. Once this task is completed, AI Watch A1 provides support to send each detected skeleton and its joint points\textquotesingle{} 3D coordinates (room and D435\textquotesingle{}s details have to be specified) via Kafka, in order to let further detached computation possible.\hypertarget{index_keynote_sec}{}\doxysection{Keynote 📋}\label{index_keynote_sec}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.key}{\texttt{ Keynote}}
+\end{DoxyItemize}\hypertarget{index_demo_sec}{}\doxysection{Demo 💻}\label{index_demo_sec}
+
+\begin{DoxyItemize}
+\item \href{https://youtu.be/Ac0V8Dj0FbI}{\texttt{ Demo \#1}}
+\item \href{https://youtu.be/pq3m9U3hRrQ}{\texttt{ Demo \#2}}
+\end{DoxyItemize}\hypertarget{index_otherdoc_sec}{}\doxysection{Other Docs 📜}\label{index_otherdoc_sec}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.pdf}{\texttt{ Bachelor Thesis in Computer Science}}
+\end{DoxyItemize}\hypertarget{index_install_sec}{}\doxysection{Installation 🚀}\label{index_install_sec}
+Note\+: Instructions for Mac\+OS with Intel CPU
+
+1) Install \href{https://github.com/IntelRealSense/librealsense}{\texttt{ Real\+Sense SDK 2.\+0}} and its own dependencies.
+
+2) Install \href{https://github.com/CMU-Perceptual-Computing-Lab/openpose}{\texttt{ Open\+Pose}} and its own dependencies.
+
+3) Install \href{https://www.confluent.io/}{\texttt{ Confluent}} and its own dependencies. This step is not mandatory, but without Confluent, you will have to set up the Kafka environment.
+
+4) Run the following command in your terminal\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone -\/-\/recursive git@github.com:dennewbie/AI\_Watch\_A1.git}
+
+\end{DoxyCode}
+
+
+5) From {\ttfamily /\+AI\+\_\+\+Watch\+\_\+\+A1/src/\+AI\+\_\+\+Watch\+\_\+\+A1/} folder, run the following commands in your terminal\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir build \&\& cd build}
+
+\end{DoxyCode}
+
+
+6) Copy Open\+Pose\textquotesingle{}s {\ttfamily models} folder to the project\textquotesingle{}s build folder.
+
+7) Copy Open\+Pose\textquotesingle{}s {\ttfamily Boost\+Config.\+cmake}, {\ttfamily Find\+GFlags.\+cmake} and {\ttfamily Find\+Glog.\+cmake} files to the {\ttfamily build/cmake/modules/} folder.
+
+8) Run the following commands in your terminal\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake .. \&\& make -\/j `sysctl -\/n hw.logicalcpu`}
+
+\end{DoxyCode}
+
+
+9) Now let\textquotesingle{}s start the Kafka environment. Run the following commands in a new terminal session located on the parent folder of the {\ttfamily confluent} folder. Set the environment variable for the Confluent Platform home directory\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export CONFLUENT\_HOME=confluent-\/7.2.1}
+
+\end{DoxyCode}
+ Add the Confluent Platform bin directory to your PATH\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export PATH=\$PATH:\$CONFLUENT\_HOME/bin}
+
+\end{DoxyCode}
+ Test your installation by running the confluent command\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{confluent -\/-\/help}
+
+\end{DoxyCode}
+ Your output should show the available commands for managing Confluent Platform.
+
+Start Confluent Platform by using the Confluent CLI confluent local services start command. This command starts all of the Confluent Platform components, including Kafka, Zoo\+Keeper, Schema Registry, HTTP REST Proxy for Kafka, Kafka Connect, ksql\+DB, and Control Center. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{confluent local services start}
+
+\end{DoxyCode}
+
+
+Your output should resemble\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Starting Zookeeper}
+\DoxyCodeLine{Zookeeper is [UP]}
+\DoxyCodeLine{Starting Kafka}
+\DoxyCodeLine{Kafka is [UP]}
+\DoxyCodeLine{Starting Schema Registry}
+\DoxyCodeLine{Schema Registry is [UP]}
+\DoxyCodeLine{Starting Kafka REST}
+\DoxyCodeLine{Kafka REST is [UP]}
+\DoxyCodeLine{Starting Connect}
+\DoxyCodeLine{Connect is [UP]}
+\DoxyCodeLine{Starting KSQL Server}
+\DoxyCodeLine{KSQL Server is [UP]}
+\DoxyCodeLine{Starting Control Center}
+\DoxyCodeLine{Control Center is [UP]}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md0}{}\doxysubsubsection{Important \#1 📌}\label{index_autotoc_md0}
+The confluent local commands are intended for a single-\/node development environment and are not suitable for a production environment. The data that are produced are transient and are intended to be temporary. For production-\/ready workflows, check \href{https://www.confluent.io/}{\texttt{ Confluent website}}.\hypertarget{index_autotoc_md1}{}\doxysubsubsection{Important \#2 📌}\label{index_autotoc_md1}
+The Confluent CLI requires Java version 1.\+8 or 1.\+11. See \href{https://docs.confluent.io/current/installation/versions-interoperability.html}{\texttt{ Confluent versions interoperability}}.
+
+10) Navigate to {\ttfamily \href{http://localhost:9021}{\texttt{ http\+://localhost\+:9021}}} and create a new topic {\ttfamily t1} with default settings. Now go to {\ttfamily /\+AI\+\_\+\+Watch\+\_\+\+A1/src/\+AI\+\_\+\+Watch\+\_\+\+A1/} and set up your \href{https://github.com/edenhill/librdkafka}{\texttt{ Kafka}} parameters within the {\ttfamily configuration\+\_\+file.\+ini} file. At this point\+:
+\begin{DoxyItemize}
+\item if internal Open\+Pose execution is chosen, then run the following command in your terminal\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo ./AI\_Watch\_A1.bin -\/-\/num\_gpu 1 -\/-\/num\_gpu\_start 2 -\/-\/image\_dir rs\_images/rgb -\/-\/write\_json op\_output/op -\/-\/logging\_level 255}
+
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item if external Open\+Pose execution is chosen, then set up your Open\+Pose parameters within the \char`\"{}conf.\+conf\char`\"{} file and run the following command in your terminal\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo ./AI\_Watch\_A1.bin}
+
+\end{DoxyCode}
+\hypertarget{index_tools_sec}{}\doxysection{Tools 🛠}\label{index_tools_sec}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/IntelRealSense/librealsense}{\texttt{ Intel Real\+Sense SDK}}
+\item \href{https://github.com/CMU-Perceptual-Computing-Lab/openpose}{\texttt{ Open\+Pose}}
+\item \href{https://github.com/opencv/opencv}{\texttt{ Open\+CV}}
+\item \href{https://kafka.apache.org/}{\texttt{ Kafka}}
+\item \href{https://github.com/edenhill/librdkafka}{\texttt{ Kafka C/\+C++ library}}
+\item \href{https://www.confluent.io/}{\texttt{ Confluent}}
+\item \href{https://github.com/open-source-parsers/jsoncpp}{\texttt{ jsoncpp}}
+\item \href{https://doxygen.nl/}{\texttt{ Doxygen}}
+\item \href{https://staruml.io/}{\texttt{ Star\+UML}}
+\item \href{https://www.sketch.com/}{\texttt{ Sketch}}
+\end{DoxyItemize}\hypertarget{index_contributing_sec}{}\doxysection{Contributing 👨🏻👳🏾‍♂️👩🏼‍🦱👽}\label{index_contributing_sec}
+In order to contribute to AI Watch A1, please follow the \href{https://github.com/dennewbie/AI_Watch_A1/blob/main/CONTRIBUTING.md}{\texttt{ contribution guidelines}}.\hypertarget{index_license_sec}{}\doxysection{License ☢️}\label{index_license_sec}
+AI Watch A1 is licensed under the Apache License, Version 2.\+0. Copyright 2022. Please, see the \href{https://github.com/dennewbie/AI_Watch_A1/blob/main/LICENSE}{\texttt{ license}} for further details and the {\ttfamily /licenses} folder for the used libraries\textquotesingle{} licenses details.\hypertarget{index_contacts_sec}{}\doxysection{Contacts 🪪}\label{index_contacts_sec}
+
+\begin{DoxyItemize}
+\item \href{https://www.linkedin.com/in/denny-caruso/}{\texttt{ Linked\+In}}
+\end{DoxyItemize}\hypertarget{index_citation_sec}{}\doxysection{Citation 📖}\label{index_citation_sec}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@report\{AIWatchA1,}
+\DoxyCodeLine{    author = \{Denny Caruso\},}
+\DoxyCodeLine{    title = \{Multi-\/person 3D skeleton detection with depth cameras​\},}
+\DoxyCodeLine{    institution = \{University of Naples, Parthenope\},}
+\DoxyCodeLine{    year = \{2022\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_supervisor_sec}{}\doxysection{Supervisor}\label{index_supervisor_sec}
+
+\begin{DoxyItemize}
+\item \href{https://www.researchgate.net/profile/Alessio-Ferone}{\texttt{ Dr. Alessio Ferone}}, CS Assistant Professor at the \href{https://www.uniparthenope.it/}{\texttt{ University of Naples Parthenope}}.
+\end{DoxyItemize}
+
+a.\+a. 2021/2022 

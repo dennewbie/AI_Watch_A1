@@ -34,7 +34,7 @@ cv::Mat OpenCV_Manager::realsenseFrameToMat (const rs2::frame & singleFrame) {
     }
 }
 
-void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale) {
+void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale, const unsigned short int framesToSkip) {
     UsageManager * usageManagerInstance = UsageManager::getInstance();
     if (usageManagerInstance == nullptr) CV_Error(USAGE_MANAGER_NULLPTR_ERROR, USAGE_MANAGER_NULLPTR_SCOPE);
     char ** argv = * usageManagerInstance->get_argv();
@@ -50,7 +50,7 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
         unsigned int frameID = cameraManager->getFrameID();
         rs2::depth_frame depthFrame = rs2::depth_frame(rs2::frame());
         rs2::frame colorFrame, colorizedDepthFrame;
-        cameraManager->getVideoFramesRS(user_nFrame, pipelineStream, depthFrame, colorFrame, colorizedDepthFrame);
+        cameraManager->getVideoFramesRS(user_nFrame, pipelineStream, depthFrame, colorFrame, colorizedDepthFrame, framesToSkip);
         int cols = depthFrame.get_width(), rows = depthFrame.get_height();
         // Convert
         cv::Mat colorImage = realsenseFrameToMat(colorFrame), distanceImage = cv::Mat::zeros(rows, cols, CV_32FC1);
@@ -71,7 +71,7 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
     }
 }
 
-void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame) {
+void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame, const float skeletonThreshold) {
     FacadeSingleton * facadeSingletonInstance = FacadeSingleton::getInstance();
     if (facadeSingletonInstance == nullptr) CV_Error(FACADE_SINGLETON_NULLPTR_ERROR, FACADE_SINGLETON_NULLPTR_SCOPE);
     RealSenseManager * cameraManager = facadeSingletonInstance->getCameraManager();
@@ -81,12 +81,14 @@ void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame) {
     ImageManager * imageManager = facadeSingletonInstance->getImageManager();
     char ** argv = * usageManagerInstance->get_argv(), * imagesFolder = argv[imagesFolderOffset], * outputFolder = argv[outputFolderOffset];
     unsigned int frameID = cameraManager->getFrameID(), currentImageID;
+    
     Json::Value currentJSON;
     
     // Do this until we don't iterate on user_nFrame frame
     for (unsigned int nFrame = 0; nFrame < user_nFrame; nFrame++) {
         std::stringstream inputJsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath, outputJsonFilePath;
         currentImageID = frameID - user_nFrame + nFrame;
+        
         // Internal Approach OpenPose
 //        inputJsonFilePath << outputFolder << "op/" << nFrame << "_keypoints.json";
         // External Approach OpenPose
@@ -105,13 +107,14 @@ void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame) {
             cv::Mat distanceImage = cv::Mat(colorImage.rows, colorImage.cols, CV_32FC1);
             imageManager->loadImage(distanceImagePath.str(), cv::IMREAD_ANYCOLOR | cv::IMREAD_ANYDEPTH, distanceImage);
             imageManager->loadImage(colorizedDepthImagePath.str(), cv::IMREAD_COLOR, colorizedDepthImage);
+            // Note: Comment following line for better performance
             imageManager->showImages( { colorImage, colorizedDepthImage }, { "Frame No Skeleton", "Frame Colorized Depth" } );
             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
             
-            // Produce a JSON output file for each person present in this frame
-            outputManagerJSON->createJSON(people, colorImage, distanceImage, skeletonOnlyImage, currentImageID, outputFolder);
+            // Produce a JSON output file for people present in this frame
+            outputManagerJSON->createJSON(people, colorImage, distanceImage, skeletonOnlyImage, currentImageID, outputFolder, skeletonThreshold);
             
-            // Show images and save them
+            // Show images and save them. Note: Comment following line for better performance
             imageManager->showImages( { skeletonOnlyImage, colorImage }, { "Frame Skeleton Background Cut", "Frame Skeleton" } );
             skeletonOnlyImagePath << imagesFolder << "sk/" << currentImageID << "_sk.png";
             skeletonImagePath << imagesFolder << "skeleton/" << currentImageID << "_Skeleton.png";

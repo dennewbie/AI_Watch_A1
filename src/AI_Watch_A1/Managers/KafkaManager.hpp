@@ -20,9 +20,8 @@
 
 
 /**
- * Skeleton class is a class that keeps track of the image different frames where a specific skeleton may appears, 
- * its body key points, correspondent 3D space points, and other useful information skeleton-related.
- * @brief Skeleton class is used for skeleton creations and manipulations.
+ * @brief Kafka class is a class that is responsible to send all generated output data, via Apache Kafka
+ * technology to the next AI Watch module.
  */
 class KafkaManager {
 private:
@@ -96,7 +95,7 @@ private:
     */
     static void dr_msg_cb           (rd_kafka_t * kafka_handle, const rd_kafka_message_t * rkmessage, void * opaque);
     /**
-     * @brief Launches configuration loading once reads all the configuration parameters and 
+     * @brief Launches configuration loading, once reads all the configuration parameters and
      * later set the producer instance.
      */
     void setupProducer              (void);

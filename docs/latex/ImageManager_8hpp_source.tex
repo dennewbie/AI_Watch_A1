@@ -1,0 +1,42 @@
+\hypertarget{ImageManager_8hpp_source}{}\doxysection{Image\+Manager.\+hpp}
+\label{ImageManager_8hpp_source}\index{Managers/ImageManager.hpp@{Managers/ImageManager.hpp}}
+\mbox{\hyperlink{ImageManager_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00002}00002 \textcolor{comment}{//  ImageManager.hpp}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00003}00003 \textcolor{comment}{//  AI Watch A1}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00004}00004 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 30/07/22.}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00008}00008 \textcolor{comment}{// License: Apache 2.0. See LICENSE file in root directory.}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00009}00009 \textcolor{comment}{// Copyright(c) 2022. All Rights Reserved.}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00011}00011 \textcolor{preprocessor}{\#ifndef ImageManager\_hpp}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00012}00012 \textcolor{preprocessor}{\#define ImageManager\_hpp}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00014}00014 \textcolor{preprocessor}{\#include <opencv2/core.hpp>}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00015}00015 \textcolor{preprocessor}{\#include <opencv2/imgcodecs.hpp>}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00016}00016 \textcolor{preprocessor}{\#include <opencv2/imgproc.hpp>}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00017}00017 \textcolor{preprocessor}{\#include <opencv2/highgui.hpp>}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00018}00018 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00019}00019 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00020}00020 \textcolor{preprocessor}{\#include <initializer\_list>}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00021}00021 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{constants_8hpp}{constants.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00029}\mbox{\hyperlink{classImageManager}{00029}} \textcolor{keyword}{class }\mbox{\hyperlink{classImageManager}{ImageManager}} \{}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00030}00030 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00036}00036     \textcolor{keywordtype}{void} \mbox{\hyperlink{classImageManager_ae2c821d9593569270222d88f30674a10}{saveImage}}      (std::string imageSavePath, \textcolor{keyword}{const} cv::Mat \& imageToSave);}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00037}00037 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00044}00044     \textcolor{keywordtype}{void} \mbox{\hyperlink{classImageManager_aee3ff89c8031117cac540670fb8c09fe}{loadImage}}      (std::string imagePath, \textcolor{keywordtype}{int} loadType, cv::Mat \& inputImage);}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00050}00050     \textcolor{keywordtype}{void} \mbox{\hyperlink{classImageManager_aeae03d66a4a45347804c4c927fa55b42}{saveImages}}     (\textcolor{keyword}{const} std::initializer\_list <cv::Mat> \& images, \textcolor{keyword}{const} std::initializer\_list <std::string> \& imagePaths);}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00056}00056     \textcolor{keywordtype}{void} \mbox{\hyperlink{classImageManager_a0d1b8bf95333d94fe2842937e5ef818c}{showImages}}     (\textcolor{keyword}{const} std::initializer\_list <cv::Mat> \& images, \textcolor{keyword}{const} std::initializer\_list <std::string> \& windowNames);}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00061}00061     \textcolor{keywordtype}{void} \mbox{\hyperlink{classImageManager_a6b448d93b315c6479590fa5afd278674}{releaseImages}}  (\textcolor{keyword}{const} std::initializer\_list <cv::Mat> \& images);}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00062}00062 \};}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00064}00064 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ImageManager\_hpp */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{ImageManager_8hpp_source_l00065}00065 }
+
+\end{DoxyCode}

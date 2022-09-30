@@ -65,7 +65,7 @@ Json::Value OutputManagerJSON::getValueAt (std::string key, unsigned int i, Json
     return (currentJSON[i])[key];
 }
 
-void OutputManagerJSON::createJSON (Json::Value & people, cv::Mat & colorImage, cv::Mat & distanceImage, cv::Mat & skeletonOnlyImage, unsigned int nFrame, const char * outputFolder) {
+void OutputManagerJSON::createJSON (Json::Value & people, cv::Mat & colorImage, cv::Mat & distanceImage, cv::Mat & skeletonOnlyImage, unsigned int nFrame, const char * outputFolder, const float skeletonThreshold) {
     Json::Value root, peopleArray(Json::arrayValue);
     std::stringstream outputJsonFilePath;
     root["ID_Frame"] = nFrame;

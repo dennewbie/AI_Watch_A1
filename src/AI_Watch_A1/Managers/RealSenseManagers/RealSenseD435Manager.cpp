@@ -40,12 +40,19 @@ void RealSenseD435Manager::startEnvironment (rs2::pipeline & pipelineStream, str
     CV_Error(RS_CAMERA_ERROR, RS_CAMERA_SCOPE);
 }
 
-void RealSenseD435Manager::getVideoFramesRS (unsigned int user_nFrame, rs2::pipeline & pipelineStream, rs2::depth_frame & depthFrame, rs2::frame & colorFrame, rs2::frame & colorizedDepthFrame) try {
+void RealSenseD435Manager::getVideoFramesRS (unsigned int user_nFrame, rs2::pipeline & pipelineStream, rs2::depth_frame & depthFrame, rs2::frame & colorFrame, rs2::frame & colorizedDepthFrame, const unsigned short int framesToSkip) try {
     rs2::colorizer colorMap;
     rs2::spatial_filter spatialFilter;
+    rs2::frameset streamData, alignedStreamData;
+    unsigned short int skippedFrameCounter = 0;
     
     // Capture frames and apply post-processing
-    rs2::frameset streamData = pipelineStream.wait_for_frames(), alignedStreamData = RealSenseManager::get_align().process(streamData);
+    do {
+        streamData = pipelineStream.wait_for_frames();
+        skippedFrameCounter += 1;
+    } while (skippedFrameCounter < framesToSkip);
+    
+    alignedStreamData = RealSenseManager::get_align().process(streamData);
     depthFrame = alignedStreamData.get_depth_frame();
     spatialFilter.set_option(RS2_OPTION_HOLES_FILL, 1);
     depthFrame = spatialFilter.process(depthFrame);

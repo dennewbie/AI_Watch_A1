@@ -13,25 +13,9 @@
 
 #include <vector>
 #include <cmath>
+#include "../../Room/CVPR_Lab.hpp"
 #include "../../Points/Point3D.hpp"
 #include "../../Points/BodyKeyPoint.hpp"
-
-
-
-static const float minWidth = 0; // |x<----      |
-static const float maxWidth = 5.271; //  |      ---->x|
-static const float minHeight = 0.0;
-static const float maxHeight = 3.0;
-
-static const float minWidthRS = -3.5; // |x<----      |
-static const float maxWidthRS = 3.5; //  |      ---->x|
-static const float minHeightRS = -1.0;
-static const float maxHeightRS = 1.0;
-
-static const float xOriginUnity = -26.89;
-static const float zOriginUnity = -3.842;
-
-static const float distanceCameraFromBackWall = 0.3;
 
 
 
@@ -44,24 +28,39 @@ static const float distanceCameraFromBackWall = 0.3;
 class CoordinateMappingManager {
 protected:
     /**
-     * @brief Converts width value
-     * @param widthCoordinate Input width value
+     * @brief Specific room within which the coordinate mapping will be done.
+     */
+    const Room room;
+    
+    /**
+     * @brief Returns the room object.
+     * @return Room
+     */
+    Room getRoom (void);
+    /**
+     * @brief Converts width value.
+     * @param widthCoordinate Input width value.
      * @return float 
      */
     float transformWidthCoordinate      (float widthCoordinate);
     /**
-     * @brief Converts height value
-     * @param heightCoordinate Input height value
+     * @brief Converts height value.
+     * @param heightCoordinate Input height value.
      * @return float 
      */
     float transformHeightCoordinate     (float heightCoordinate);
     /**
      * @brief Implements the inverse conversion on the input value.
-     * @param inputNumber 
+     * @param inputNumber Input value to convert.
      * @return float 
      */
     float inverseTransform              (float inputNumber);
 public:
+    /**
+     * @brief Construct a new Coordinate Mapping Manager object.
+     * @param room Specific room within which the coordinate mapping will be done.
+     */
+    CoordinateMappingManager (Room room) : room(room) { }
     /**
      * @brief This method requires pointers' Point3D's vector, the related vector map, and the original coordinates' space origins. 
      * It returns a pointer to pointers' Point3D's vector that actually contains all input Points whose coordinates' values have been 
@@ -86,6 +85,11 @@ public:
  */
 class UnityCoordinateMappingManager : public CoordinateMappingManager {
 public:
+    /**
+     * @brief Construct a new Unity Coordinate Mapping Manager object.
+     * @param room Specific room within which the Unity' coordinate mapping will be done.
+     */
+    UnityCoordinateMappingManager (Room room);
     /**
      * @brief This method requires pointers' Point3D's vector, the related vector map, and the original coordinates' space origins. 
      * It returns a pointer to pointers' Point3D's vector that actually contains all input Points whose coordinates' values have been 

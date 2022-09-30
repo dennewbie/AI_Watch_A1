@@ -1,0 +1,706 @@
+\hypertarget{classRealSenseManager}{}\doxysection{Real\+Sense\+Manager Class Reference}
+\label{classRealSenseManager}\index{RealSenseManager@{RealSenseManager}}
+
+
+\mbox{\hyperlink{classRealSenseManager}{Real\+Sense\+Manager}} class is a class that abstracts the behavior of an Intel Real\+Sense Camera, in order to capture frames, apply post-\/processing, and so on.  
+
+
+
+
+{\ttfamily \#include $<$Real\+Sense\+Manager.\+hpp$>$}
+
+Inheritance diagram for Real\+Sense\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classRealSenseManager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRealSenseManager_ad8a8e23ad0136c97ddc64f8e7fdcabcf}{Real\+Sense\+Manager}} (void)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRealSenseManager}{Real\+Sense\+Manager}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classRealSenseManager_ab9aaff5b69e2025ae3522b25fdfe95ea}{$\sim$\+Real\+Sense\+Manager}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classRealSenseManager}{Real\+Sense\+Manager}} object. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classRealSenseManager_aac01bf5b0fe977a03ff6ab9fa2bbf06f}{get\+Frame\+ID}} (void)
+\begin{DoxyCompactList}\small\item\em Get the current frame ID value. \end{DoxyCompactList}\item 
+struct rs2\+\_\+intrinsics \& \mbox{\hyperlink{classRealSenseManager_a27f762a96b6b883a0304b084e225de32}{get\+\_\+color\+\_\+intrin}} (void)
+\begin{DoxyCompactList}\small\item\em Get the color intrinsics object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classRealSenseManager_a7cc9374e6575681b05db3e0592d10944}{start\+Environment}} (rs2\+::pipeline \&pipeline\+Stream, struct rs2\+\_\+intrinsics \&\mbox{\hyperlink{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}{color\+\_\+intrin}}, float $\ast$scale, unsigned short int resX, unsigned short int resY, bool first\+Boot)=0
+\begin{DoxyCompactList}\small\item\em This method is useful to invoke at the boot of the program where we want to initialize the different mangers, start the camera and set up the related environment. This method can be overridden and specified according to camera model. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classRealSenseManager_a47330063d22911a0dae8ff02a6c2b93e}{get\+Video\+Frames\+RS}} (unsigned int user\+\_\+n\+Frame, rs2\+::pipeline \&pipeline\+Stream, rs2\+::depth\+\_\+frame \&depth\+Frame, rs2\+::frame \&color\+Frame, rs2\+::frame \&colorized\+Depth\+Frame, const unsigned short int frames\+To\+Skip)=0
+\begin{DoxyCompactList}\small\item\em Get user\+\_\+n\+Frame video frames from the pipeline by applying a specific scaling factor. This method can be overridden and specified according to camera model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRealSenseManager_a024d711ab0bfee1d954f7bd3a83b197f}{set\+Frame\+ID}} (unsigned int \mbox{\hyperlink{classRealSenseManager_ac0bcf70a9567a1710d07a66aa5bf9587}{frame\+ID}})
+\begin{DoxyCompactList}\small\item\em Set the Frame ID value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRealSenseManager_a66ccf804742763a2bf2d3b6d9342f191}{set\+\_\+align}} (rs2\+::align \mbox{\hyperlink{classRealSenseManager_a8501c8bab42b7160eddd453266763a2f}{align}})
+\begin{DoxyCompactList}\small\item\em Set the align object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRealSenseManager_a1fef8da6adb415bc157d5ca2931fda7e}{set\+\_\+depth\+\_\+intrin}} (struct rs2\+\_\+intrinsics \mbox{\hyperlink{classRealSenseManager_adad205399e7077b25c2c0650d31759c8}{depth\+\_\+intrin}})
+\begin{DoxyCompactList}\small\item\em Set the depth intrinsics object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRealSenseManager_a1fcc8be70e92a51f9dcc82fdfe1b795e}{set\+\_\+color\+\_\+intrin}} (struct rs2\+\_\+intrinsics \&\mbox{\hyperlink{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}{color\+\_\+intrin}})
+\begin{DoxyCompactList}\small\item\em Set the color intrinsics object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRealSenseManager_a0e6df6bd8c81bd32022c18d06a272307}{set\+\_\+depth\+\_\+to\+\_\+color}} (struct rs2\+\_\+extrinsics \mbox{\hyperlink{classRealSenseManager_a116cc28e2d0b59b5cf946822a3d5dca4}{depth\+\_\+to\+\_\+color}})
+\begin{DoxyCompactList}\small\item\em Set the depth extrinsics object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRealSenseManager_a821b3c038564cd28a4efd764e85e3656}{set\+\_\+color\+\_\+to\+\_\+depth}} (struct rs2\+\_\+extrinsics \mbox{\hyperlink{classRealSenseManager_aea4cc5c31f53bd1f30dfcd10bcca9ff0}{color\+\_\+to\+\_\+depth}})
+\begin{DoxyCompactList}\small\item\em Set the color extrinsics object. \end{DoxyCompactList}\item 
+rs2\+::align \mbox{\hyperlink{classRealSenseManager_acff6020a0a3efe31b637d6dc5b341dd7}{get\+\_\+align}} (void)
+\begin{DoxyCompactList}\small\item\em Get the align object. \end{DoxyCompactList}\item 
+struct rs2\+\_\+intrinsics \mbox{\hyperlink{classRealSenseManager_a5ebace7ab4e60e5e31e6e33318c87990}{get\+\_\+depth\+\_\+intrin}} (void)
+\begin{DoxyCompactList}\small\item\em Get the depth intrinsics object. \end{DoxyCompactList}\item 
+struct rs2\+\_\+extrinsics \mbox{\hyperlink{classRealSenseManager_a5d1fe0f7b27ee4d137ef1aed5eea0b6e}{get\+\_\+depth\+\_\+to\+\_\+color}} (void)
+\begin{DoxyCompactList}\small\item\em Get the depth extrinsics object. \end{DoxyCompactList}\item 
+struct rs2\+\_\+extrinsics \mbox{\hyperlink{classRealSenseManager_a2ea17b74112e13cc79fdb7cbe74947c4}{get\+\_\+color\+\_\+to\+\_\+depth}} (void)
+\begin{DoxyCompactList}\small\item\em Get the color extrinsics object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{classRealSenseManager_ac0bcf70a9567a1710d07a66aa5bf9587}{frame\+ID}}
+\begin{DoxyCompactList}\small\item\em Current frame counter. \end{DoxyCompactList}\item 
+rs2\+::align \mbox{\hyperlink{classRealSenseManager_a8501c8bab42b7160eddd453266763a2f}{align}}
+\begin{DoxyCompactList}\small\item\em Auxiliary processing block that performs image alignment using depth data and camera calibration. \end{DoxyCompactList}\item 
+struct rs2\+\_\+intrinsics \mbox{\hyperlink{classRealSenseManager_adad205399e7077b25c2c0650d31759c8}{depth\+\_\+intrin}}
+\begin{DoxyCompactList}\small\item\em Reference to depth stream intrinsics. \end{DoxyCompactList}\item 
+struct rs2\+\_\+intrinsics \mbox{\hyperlink{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}{color\+\_\+intrin}}
+\begin{DoxyCompactList}\small\item\em Reference to color stream intrinsics. \end{DoxyCompactList}\item 
+struct rs2\+\_\+extrinsics \mbox{\hyperlink{classRealSenseManager_a116cc28e2d0b59b5cf946822a3d5dca4}{depth\+\_\+to\+\_\+color}}
+\begin{DoxyCompactList}\small\item\em Reference to depth stream extrinsics. \end{DoxyCompactList}\item 
+struct rs2\+\_\+extrinsics \mbox{\hyperlink{classRealSenseManager_aea4cc5c31f53bd1f30dfcd10bcca9ff0}{color\+\_\+to\+\_\+depth}}
+\begin{DoxyCompactList}\small\item\em Reference to color stream extrinsics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRealSenseManager}{Real\+Sense\+Manager}} class is a class that abstracts the behavior of an Intel Real\+Sense Camera, in order to capture frames, apply post-\/processing, and so on. 
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{RealSenseManager_8hpp_source}{Real\+Sense\+Manager.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRealSenseManager_ad8a8e23ad0136c97ddc64f8e7fdcabcf}\label{classRealSenseManager_ad8a8e23ad0136c97ddc64f8e7fdcabcf}} 
+\index{RealSenseManager@{RealSenseManager}!RealSenseManager@{RealSenseManager}}
+\index{RealSenseManager@{RealSenseManager}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{RealSenseManager()}{RealSenseManager()}}
+{\footnotesize\ttfamily Real\+Sense\+Manager\+::\+Real\+Sense\+Manager (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRealSenseManager}{Real\+Sense\+Manager}} object. 
+
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{RealSenseManager_8cpp_source}{Real\+Sense\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057                                         : \mbox{\hyperlink{classRealSenseManager_a8501c8bab42b7160eddd453266763a2f}{align}}(RS2\_STREAM\_COLOR) \{}
+\DoxyCodeLine{00058     \mbox{\hyperlink{classRealSenseManager_a024d711ab0bfee1d954f7bd3a83b197f}{setFrameID}}(0);}
+\DoxyCodeLine{00059 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{RealSenseManager_8cpp_source_l00015}{set\+Frame\+ID()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_ab9aaff5b69e2025ae3522b25fdfe95ea}\label{classRealSenseManager_ab9aaff5b69e2025ae3522b25fdfe95ea}} 
+\index{RealSenseManager@{RealSenseManager}!````~RealSenseManager@{$\sim$RealSenseManager}}
+\index{````~RealSenseManager@{$\sim$RealSenseManager}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$RealSenseManager()}{~RealSenseManager()}}
+{\footnotesize\ttfamily virtual Real\+Sense\+Manager\+::$\sim$\+Real\+Sense\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classRealSenseManager}{Real\+Sense\+Manager}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRealSenseManager_acff6020a0a3efe31b637d6dc5b341dd7}\label{classRealSenseManager_acff6020a0a3efe31b637d6dc5b341dd7}} 
+\index{RealSenseManager@{RealSenseManager}!get\_align@{get\_align}}
+\index{get\_align@{get\_align}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{get\_align()}{get\_align()}}
+{\footnotesize\ttfamily rs2\+::align Real\+Sense\+Manager\+::get\+\_\+align (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Get the align object. 
+
+\begin{DoxyReturn}{Returns}
+rs2\+::align 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\href{http://docs.ros.org/en/kinetic/api/librealsense2/html/classrs2_1_1align.html}{\texttt{ http\+://docs.\+ros.\+org/en/kinetic/api/librealsense2/html/classrs2\+\_\+1\+\_\+1align.\+html}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{RealSenseManager_8cpp_source}{Real\+Sense\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039                                           \{}
+\DoxyCodeLine{00040     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRealSenseManager_a8501c8bab42b7160eddd453266763a2f}{align}};}
+\DoxyCodeLine{00041 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{RealSenseManager_8hpp_source_l00035}{align}}.
+
+
+
+Referenced by \mbox{\hyperlink{RealSenseD435Manager_8cpp_source_l00043}{Real\+Sense\+D435\+Manager\+::get\+Video\+Frames\+RS()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_a27f762a96b6b883a0304b084e225de32}\label{classRealSenseManager_a27f762a96b6b883a0304b084e225de32}} 
+\index{RealSenseManager@{RealSenseManager}!get\_color\_intrin@{get\_color\_intrin}}
+\index{get\_color\_intrin@{get\_color\_intrin}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{get\_color\_intrin()}{get\_color\_intrin()}}
+{\footnotesize\ttfamily struct rs2\+\_\+intrinsics \& Real\+Sense\+Manager\+::get\+\_\+color\+\_\+intrin (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the color intrinsics object. 
+
+\begin{DoxyReturn}{Returns}
+struct rs2\+\_\+intrinsics \& 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{RealSenseManager_8cpp_source}{Real\+Sense\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065                                                                 \{}
+\DoxyCodeLine{00066     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}{color\_intrin}};}
+\DoxyCodeLine{00067 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{RealSenseManager_8hpp_source_l00045}{color\+\_\+intrin}}.
+
+
+
+Referenced by \mbox{\hyperlink{Skeleton_8cpp_source_l00145}{Skeleton\+::deproject\+Skeleton\+Points3\+D()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_a2ea17b74112e13cc79fdb7cbe74947c4}\label{classRealSenseManager_a2ea17b74112e13cc79fdb7cbe74947c4}} 
+\index{RealSenseManager@{RealSenseManager}!get\_color\_to\_depth@{get\_color\_to\_depth}}
+\index{get\_color\_to\_depth@{get\_color\_to\_depth}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{get\_color\_to\_depth()}{get\_color\_to\_depth()}}
+{\footnotesize\ttfamily struct rs2\+\_\+extrinsics Real\+Sense\+Manager\+::get\+\_\+color\+\_\+to\+\_\+depth (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Get the color extrinsics object. 
+
+\begin{DoxyReturn}{Returns}
+struct rs2\+\_\+extrinsics 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{RealSenseManager_8cpp_source}{Real\+Sense\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051                                                                 \{}
+\DoxyCodeLine{00052     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRealSenseManager_aea4cc5c31f53bd1f30dfcd10bcca9ff0}{color\_to\_depth}};}
+\DoxyCodeLine{00053 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRealSenseManager_a5ebace7ab4e60e5e31e6e33318c87990}\label{classRealSenseManager_a5ebace7ab4e60e5e31e6e33318c87990}} 
+\index{RealSenseManager@{RealSenseManager}!get\_depth\_intrin@{get\_depth\_intrin}}
+\index{get\_depth\_intrin@{get\_depth\_intrin}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{get\_depth\_intrin()}{get\_depth\_intrin()}}
+{\footnotesize\ttfamily struct rs2\+\_\+intrinsics Real\+Sense\+Manager\+::get\+\_\+depth\+\_\+intrin (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Get the depth intrinsics object. 
+
+\begin{DoxyReturn}{Returns}
+struct rs2\+\_\+intrinsics 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{RealSenseManager_8cpp_source}{Real\+Sense\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043                                                               \{}
+\DoxyCodeLine{00044     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRealSenseManager_adad205399e7077b25c2c0650d31759c8}{depth\_intrin}};}
+\DoxyCodeLine{00045 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRealSenseManager_a5d1fe0f7b27ee4d137ef1aed5eea0b6e}\label{classRealSenseManager_a5d1fe0f7b27ee4d137ef1aed5eea0b6e}} 
+\index{RealSenseManager@{RealSenseManager}!get\_depth\_to\_color@{get\_depth\_to\_color}}
+\index{get\_depth\_to\_color@{get\_depth\_to\_color}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{get\_depth\_to\_color()}{get\_depth\_to\_color()}}
+{\footnotesize\ttfamily struct rs2\+\_\+extrinsics Real\+Sense\+Manager\+::get\+\_\+depth\+\_\+to\+\_\+color (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Get the depth extrinsics object. 
+
+\begin{DoxyReturn}{Returns}
+struct rs2\+\_\+extrinsics 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{RealSenseManager_8cpp_source}{Real\+Sense\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047                                                                 \{}
+\DoxyCodeLine{00048     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRealSenseManager_a116cc28e2d0b59b5cf946822a3d5dca4}{depth\_to\_color}};}
+\DoxyCodeLine{00049 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRealSenseManager_aac01bf5b0fe977a03ff6ab9fa2bbf06f}\label{classRealSenseManager_aac01bf5b0fe977a03ff6ab9fa2bbf06f}} 
+\index{RealSenseManager@{RealSenseManager}!getFrameID@{getFrameID}}
+\index{getFrameID@{getFrameID}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{getFrameID()}{getFrameID()}}
+{\footnotesize\ttfamily unsigned int Real\+Sense\+Manager\+::get\+Frame\+ID (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the current frame ID value. 
+
+\begin{DoxyReturn}{Returns}
+unsigned int 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{RealSenseManager_8cpp_source}{Real\+Sense\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061                                                \{}
+\DoxyCodeLine{00062     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRealSenseManager_ac0bcf70a9567a1710d07a66aa5bf9587}{frameID}};}
+\DoxyCodeLine{00063 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{RealSenseManager_8hpp_source_l00030}{frame\+ID}}.
+
+
+
+Referenced by \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00037}{Open\+CV\+\_\+\+Manager\+::get\+Video\+Frames\+CV()}}, \mbox{\hyperlink{RealSenseD435Manager_8cpp_source_l00043}{Real\+Sense\+D435\+Manager\+::get\+Video\+Frames\+RS()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00149}{Facade\+Singleton\+::send\+Data()}}, and \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00074}{Open\+CV\+\_\+\+Manager\+::show\+Skeletons\+CV()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_a47330063d22911a0dae8ff02a6c2b93e}\label{classRealSenseManager_a47330063d22911a0dae8ff02a6c2b93e}} 
+\index{RealSenseManager@{RealSenseManager}!getVideoFramesRS@{getVideoFramesRS}}
+\index{getVideoFramesRS@{getVideoFramesRS}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{getVideoFramesRS()}{getVideoFramesRS()}}
+{\footnotesize\ttfamily virtual void Real\+Sense\+Manager\+::get\+Video\+Frames\+RS (\begin{DoxyParamCaption}\item[{unsigned int}]{user\+\_\+n\+Frame,  }\item[{rs2\+::pipeline \&}]{pipeline\+Stream,  }\item[{rs2\+::depth\+\_\+frame \&}]{depth\+Frame,  }\item[{rs2\+::frame \&}]{color\+Frame,  }\item[{rs2\+::frame \&}]{colorized\+Depth\+Frame,  }\item[{const unsigned short int}]{frames\+To\+Skip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get user\+\_\+n\+Frame video frames from the pipeline by applying a specific scaling factor. This method can be overridden and specified according to camera model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+\_\+n\+Frame} & frame\textquotesingle{}s number to capture according to user choice. \\
+\hline
+{\em pipeline\+Stream} & The pipeline simplifies the user interaction with the device and computer vision processing modules. The class abstracts the camera configuration and streaming, and the vision modules triggering and threading. It lets the application focus on the computer vision output of the modules, or the device output data. The pipeline can manage computer vision modules, which are implemented as a processing block. The pipeline is the consumer of the processing block interface, while the application consumes the computer vision interface. \\
+\hline
+{\em depth\+Frame} & Reference to depth frame object that will be captured. \\
+\hline
+{\em color\+Frame} & Reference to color frame object that will be captured. \\
+\hline
+{\em colorized\+Depth\+Frame} & Reference to colorized depth frame object that will be captured. \\
+\hline
+{\em frames\+To\+Skip} & Frames\textquotesingle{} number to skip in order to ignore a certain amount of frames and extend the recording interval. A \textquotesingle{}0\textquotesingle{} value means \textquotesingle{}capture each frame\textquotesingle{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\href{https://dev.intelrealsense.com/docs/docs-get-started}{\texttt{ https\+://dev.\+intelrealsense.\+com/docs/docs-\/get-\/started}} 
+
+get\+Video\+Frames\+CV(unsigned int user\+\_\+n\+Frame, rs2\+::pipeline \& pipeline\+Stream, float scale) 
+
+get\+Video\+Frames (unsigned int user\+\_\+n\+Frame, rs2\+::pipeline \& pipeline\+Stream, float scale) 
+\end{DoxySeeAlso}
+
+
+Implemented in \mbox{\hyperlink{classRealSenseD435Manager_ac397dd10a07ef1d4893f710643c59b6e}{Real\+Sense\+D435\+Manager}}.
+
+
+
+Referenced by \mbox{\hyperlink{OpenCV__Manager_8cpp_source_l00037}{Open\+CV\+\_\+\+Manager\+::get\+Video\+Frames\+CV()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_a66ccf804742763a2bf2d3b6d9342f191}\label{classRealSenseManager_a66ccf804742763a2bf2d3b6d9342f191}} 
+\index{RealSenseManager@{RealSenseManager}!set\_align@{set\_align}}
+\index{set\_align@{set\_align}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{set\_align()}{set\_align()}}
+{\footnotesize\ttfamily void Real\+Sense\+Manager\+::set\+\_\+align (\begin{DoxyParamCaption}\item[{rs2\+::align}]{align }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Set the align object. 
+
+\begin{DoxySeeAlso}{See also}
+\href{http://docs.ros.org/en/kinetic/api/librealsense2/html/classrs2_1_1align.html}{\texttt{ http\+://docs.\+ros.\+org/en/kinetic/api/librealsense2/html/classrs2\+\_\+1\+\_\+1align.\+html}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em align} & Auxiliary processing block that performs image alignment using depth data and camera calibration. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{RealSenseManager_8cpp_source}{Real\+Sense\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019                                                 \{}
+\DoxyCodeLine{00020     this-\/>\mbox{\hyperlink{classRealSenseManager_a8501c8bab42b7160eddd453266763a2f}{align}} = \mbox{\hyperlink{classRealSenseManager_a8501c8bab42b7160eddd453266763a2f}{align}};}
+\DoxyCodeLine{00021 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{RealSenseManager_8hpp_source_l00035}{align}}.
+
+
+
+Referenced by \mbox{\hyperlink{RealSenseD435Manager_8cpp_source_l00015}{Real\+Sense\+D435\+Manager\+::start\+Environment()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_a1fcc8be70e92a51f9dcc82fdfe1b795e}\label{classRealSenseManager_a1fcc8be70e92a51f9dcc82fdfe1b795e}} 
+\index{RealSenseManager@{RealSenseManager}!set\_color\_intrin@{set\_color\_intrin}}
+\index{set\_color\_intrin@{set\_color\_intrin}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{set\_color\_intrin()}{set\_color\_intrin()}}
+{\footnotesize\ttfamily void Real\+Sense\+Manager\+::set\+\_\+color\+\_\+intrin (\begin{DoxyParamCaption}\item[{struct rs2\+\_\+intrinsics \&}]{color\+\_\+intrin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Set the color intrinsics object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color\+\_\+intrin} & Reference to color stream intrinsics. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{RealSenseManager_8cpp_source}{Real\+Sense\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027                                                                              \{}
+\DoxyCodeLine{00028     this-\/>\mbox{\hyperlink{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}{color\_intrin}} = \mbox{\hyperlink{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}{color\_intrin}};}
+\DoxyCodeLine{00029 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{RealSenseManager_8hpp_source_l00045}{color\+\_\+intrin}}.
+
+
+
+Referenced by \mbox{\hyperlink{RealSenseD435Manager_8cpp_source_l00015}{Real\+Sense\+D435\+Manager\+::start\+Environment()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_a821b3c038564cd28a4efd764e85e3656}\label{classRealSenseManager_a821b3c038564cd28a4efd764e85e3656}} 
+\index{RealSenseManager@{RealSenseManager}!set\_color\_to\_depth@{set\_color\_to\_depth}}
+\index{set\_color\_to\_depth@{set\_color\_to\_depth}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{set\_color\_to\_depth()}{set\_color\_to\_depth()}}
+{\footnotesize\ttfamily void Real\+Sense\+Manager\+::set\+\_\+color\+\_\+to\+\_\+depth (\begin{DoxyParamCaption}\item[{struct rs2\+\_\+extrinsics}]{color\+\_\+to\+\_\+depth }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Set the color extrinsics object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color\+\_\+to\+\_\+depth} & Reference to color stream extrinsics. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{RealSenseManager_8cpp_source}{Real\+Sense\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035                                                                                \{}
+\DoxyCodeLine{00036     this-\/>\mbox{\hyperlink{classRealSenseManager_aea4cc5c31f53bd1f30dfcd10bcca9ff0}{color\_to\_depth}} = \mbox{\hyperlink{classRealSenseManager_aea4cc5c31f53bd1f30dfcd10bcca9ff0}{color\_to\_depth}};}
+\DoxyCodeLine{00037 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{RealSenseManager_8hpp_source_l00055}{color\+\_\+to\+\_\+depth}}.
+
+
+
+Referenced by \mbox{\hyperlink{RealSenseD435Manager_8cpp_source_l00015}{Real\+Sense\+D435\+Manager\+::start\+Environment()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_a1fef8da6adb415bc157d5ca2931fda7e}\label{classRealSenseManager_a1fef8da6adb415bc157d5ca2931fda7e}} 
+\index{RealSenseManager@{RealSenseManager}!set\_depth\_intrin@{set\_depth\_intrin}}
+\index{set\_depth\_intrin@{set\_depth\_intrin}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{set\_depth\_intrin()}{set\_depth\_intrin()}}
+{\footnotesize\ttfamily void Real\+Sense\+Manager\+::set\+\_\+depth\+\_\+intrin (\begin{DoxyParamCaption}\item[{struct rs2\+\_\+intrinsics}]{depth\+\_\+intrin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Set the depth intrinsics object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em depth\+\_\+intrin} & Reference to depth stream intrinsics. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{RealSenseManager_8cpp_source}{Real\+Sense\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023                                                                            \{}
+\DoxyCodeLine{00024     this-\/>\mbox{\hyperlink{classRealSenseManager_adad205399e7077b25c2c0650d31759c8}{depth\_intrin}} = \mbox{\hyperlink{classRealSenseManager_adad205399e7077b25c2c0650d31759c8}{depth\_intrin}};}
+\DoxyCodeLine{00025 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{RealSenseManager_8hpp_source_l00040}{depth\+\_\+intrin}}.
+
+
+
+Referenced by \mbox{\hyperlink{RealSenseD435Manager_8cpp_source_l00015}{Real\+Sense\+D435\+Manager\+::start\+Environment()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_a0e6df6bd8c81bd32022c18d06a272307}\label{classRealSenseManager_a0e6df6bd8c81bd32022c18d06a272307}} 
+\index{RealSenseManager@{RealSenseManager}!set\_depth\_to\_color@{set\_depth\_to\_color}}
+\index{set\_depth\_to\_color@{set\_depth\_to\_color}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{set\_depth\_to\_color()}{set\_depth\_to\_color()}}
+{\footnotesize\ttfamily void Real\+Sense\+Manager\+::set\+\_\+depth\+\_\+to\+\_\+color (\begin{DoxyParamCaption}\item[{struct rs2\+\_\+extrinsics}]{depth\+\_\+to\+\_\+color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Set the depth extrinsics object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em depth\+\_\+to\+\_\+color} & Reference to depth stream extrinsics. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{RealSenseManager_8cpp_source}{Real\+Sense\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031                                                                                \{}
+\DoxyCodeLine{00032     this-\/>\mbox{\hyperlink{classRealSenseManager_a116cc28e2d0b59b5cf946822a3d5dca4}{depth\_to\_color}} = \mbox{\hyperlink{classRealSenseManager_a116cc28e2d0b59b5cf946822a3d5dca4}{depth\_to\_color}};}
+\DoxyCodeLine{00033 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{RealSenseManager_8hpp_source_l00050}{depth\+\_\+to\+\_\+color}}.
+
+
+
+Referenced by \mbox{\hyperlink{RealSenseD435Manager_8cpp_source_l00015}{Real\+Sense\+D435\+Manager\+::start\+Environment()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_a024d711ab0bfee1d954f7bd3a83b197f}\label{classRealSenseManager_a024d711ab0bfee1d954f7bd3a83b197f}} 
+\index{RealSenseManager@{RealSenseManager}!setFrameID@{setFrameID}}
+\index{setFrameID@{setFrameID}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{setFrameID()}{setFrameID()}}
+{\footnotesize\ttfamily void Real\+Sense\+Manager\+::set\+Frame\+ID (\begin{DoxyParamCaption}\item[{unsigned int}]{frame\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Set the Frame ID value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame\+ID} & Current frame counter. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{RealSenseManager_8cpp_source}{Real\+Sense\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015                                                        \{}
+\DoxyCodeLine{00016     this-\/>\mbox{\hyperlink{classRealSenseManager_ac0bcf70a9567a1710d07a66aa5bf9587}{frameID}} = \mbox{\hyperlink{classRealSenseManager_ac0bcf70a9567a1710d07a66aa5bf9587}{frameID}};}
+\DoxyCodeLine{00017 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{RealSenseManager_8hpp_source_l00030}{frame\+ID}}.
+
+
+
+Referenced by \mbox{\hyperlink{RealSenseD435Manager_8cpp_source_l00043}{Real\+Sense\+D435\+Manager\+::get\+Video\+Frames\+RS()}}, and \mbox{\hyperlink{RealSenseManager_8cpp_source_l00057}{Real\+Sense\+Manager()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_a7cc9374e6575681b05db3e0592d10944}\label{classRealSenseManager_a7cc9374e6575681b05db3e0592d10944}} 
+\index{RealSenseManager@{RealSenseManager}!startEnvironment@{startEnvironment}}
+\index{startEnvironment@{startEnvironment}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{startEnvironment()}{startEnvironment()}}
+{\footnotesize\ttfamily virtual void Real\+Sense\+Manager\+::start\+Environment (\begin{DoxyParamCaption}\item[{rs2\+::pipeline \&}]{pipeline\+Stream,  }\item[{struct rs2\+\_\+intrinsics \&}]{color\+\_\+intrin,  }\item[{float $\ast$}]{scale,  }\item[{unsigned short int}]{resX,  }\item[{unsigned short int}]{resY,  }\item[{bool}]{first\+Boot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+This method is useful to invoke at the boot of the program where we want to initialize the different mangers, start the camera and set up the related environment. This method can be overridden and specified according to camera model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipeline\+Stream} & The pipeline simplifies the user interaction with the device and computer vision processing modules. The class abstracts the camera configuration and streaming, and the vision modules triggering and threading. It lets the application focus on the computer vision output of the modules, or the device output data. The pipeline can manage computer vision modules, which are implemented as a processing block. The pipeline is the consumer of the processing block interface, while the application consumes the computer vision interface. \\
+\hline
+{\em color\+\_\+intrin} & Reference to color video stream intrinsics. \\
+\hline
+{\em scale} & Pointer to scaling factor. \\
+\hline
+{\em resX} & x resoultion \texorpdfstring{$<$}{<}-\/\texorpdfstring{$>$}{>}. \\
+\hline
+{\em resY} & y resolution. \\
+\hline
+{\em first\+Boot} & true if the method is called for the first time (in this case a kind of camera calibration is done), false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\href{https://dev.intelrealsense.com/docs/docs-get-started}{\texttt{ https\+://dev.\+intelrealsense.\+com/docs/docs-\/get-\/started}} 
+
+start\+Environment(rs2\+::pipeline \& pipeline\+Stream, struct rs2\+\_\+intrinsics \& color\+\_\+intrin, float $\ast$ scale, unsigned short int res\+X, unsigned short int res\+Y, const char $\ast$ destination\+Kafka\+Topic) 
+\end{DoxySeeAlso}
+
+
+Implemented in \mbox{\hyperlink{classRealSenseD435Manager_a6bfda5201144b0f6cce703c954bc19ad}{Real\+Sense\+D435\+Manager}}.
+
+
+
+Referenced by \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00123}{Facade\+Singleton\+::start\+Environment()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRealSenseManager_a8501c8bab42b7160eddd453266763a2f}\label{classRealSenseManager_a8501c8bab42b7160eddd453266763a2f}} 
+\index{RealSenseManager@{RealSenseManager}!align@{align}}
+\index{align@{align}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{align}{align}}
+{\footnotesize\ttfamily rs2\+::align Real\+Sense\+Manager\+::align\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Auxiliary processing block that performs image alignment using depth data and camera calibration. 
+
+\begin{DoxySeeAlso}{See also}
+\href{http://docs.ros.org/en/kinetic/api/librealsense2/html/classrs2_1_1align.html}{\texttt{ http\+://docs.\+ros.\+org/en/kinetic/api/librealsense2/html/classrs2\+\_\+1\+\_\+1align.\+html}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{RealSenseManager_8hpp_source}{Real\+Sense\+Manager.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{RealSenseManager_8cpp_source_l00039}{get\+\_\+align()}}, and \mbox{\hyperlink{RealSenseManager_8cpp_source_l00019}{set\+\_\+align()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}\label{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}} 
+\index{RealSenseManager@{RealSenseManager}!color\_intrin@{color\_intrin}}
+\index{color\_intrin@{color\_intrin}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{color\_intrin}{color\_intrin}}
+{\footnotesize\ttfamily struct rs2\+\_\+intrinsics Real\+Sense\+Manager\+::color\+\_\+intrin\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to color stream intrinsics. 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://dev.intelrealsense.com/docs/projection-in-intel-realsense-sdk-20}{\texttt{ https\+://dev.\+intelrealsense.\+com/docs/projection-\/in-\/intel-\/realsense-\/sdk-\/20}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{RealSenseManager_8hpp_source}{Real\+Sense\+Manager.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{RealSenseManager_8cpp_source_l00065}{get\+\_\+color\+\_\+intrin()}}, \mbox{\hyperlink{RealSenseManager_8cpp_source_l00027}{set\+\_\+color\+\_\+intrin()}}, and \mbox{\hyperlink{RealSenseD435Manager_8cpp_source_l00015}{Real\+Sense\+D435\+Manager\+::start\+Environment()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_aea4cc5c31f53bd1f30dfcd10bcca9ff0}\label{classRealSenseManager_aea4cc5c31f53bd1f30dfcd10bcca9ff0}} 
+\index{RealSenseManager@{RealSenseManager}!color\_to\_depth@{color\_to\_depth}}
+\index{color\_to\_depth@{color\_to\_depth}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{color\_to\_depth}{color\_to\_depth}}
+{\footnotesize\ttfamily struct rs2\+\_\+extrinsics Real\+Sense\+Manager\+::color\+\_\+to\+\_\+depth\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to color stream extrinsics. 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://dev.intelrealsense.com/docs/projection-in-intel-realsense-sdk-20}{\texttt{ https\+://dev.\+intelrealsense.\+com/docs/projection-\/in-\/intel-\/realsense-\/sdk-\/20}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{RealSenseManager_8hpp_source}{Real\+Sense\+Manager.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{RealSenseManager_8cpp_source_l00035}{set\+\_\+color\+\_\+to\+\_\+depth()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_adad205399e7077b25c2c0650d31759c8}\label{classRealSenseManager_adad205399e7077b25c2c0650d31759c8}} 
+\index{RealSenseManager@{RealSenseManager}!depth\_intrin@{depth\_intrin}}
+\index{depth\_intrin@{depth\_intrin}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{depth\_intrin}{depth\_intrin}}
+{\footnotesize\ttfamily struct rs2\+\_\+intrinsics Real\+Sense\+Manager\+::depth\+\_\+intrin\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to depth stream intrinsics. 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://dev.intelrealsense.com/docs/projection-in-intel-realsense-sdk-20}{\texttt{ https\+://dev.\+intelrealsense.\+com/docs/projection-\/in-\/intel-\/realsense-\/sdk-\/20}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{RealSenseManager_8hpp_source}{Real\+Sense\+Manager.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{RealSenseManager_8cpp_source_l00023}{set\+\_\+depth\+\_\+intrin()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_a116cc28e2d0b59b5cf946822a3d5dca4}\label{classRealSenseManager_a116cc28e2d0b59b5cf946822a3d5dca4}} 
+\index{RealSenseManager@{RealSenseManager}!depth\_to\_color@{depth\_to\_color}}
+\index{depth\_to\_color@{depth\_to\_color}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{depth\_to\_color}{depth\_to\_color}}
+{\footnotesize\ttfamily struct rs2\+\_\+extrinsics Real\+Sense\+Manager\+::depth\+\_\+to\+\_\+color\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to depth stream extrinsics. 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://dev.intelrealsense.com/docs/projection-in-intel-realsense-sdk-20}{\texttt{ https\+://dev.\+intelrealsense.\+com/docs/projection-\/in-\/intel-\/realsense-\/sdk-\/20}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{RealSenseManager_8hpp_source}{Real\+Sense\+Manager.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{RealSenseManager_8cpp_source_l00031}{set\+\_\+depth\+\_\+to\+\_\+color()}}.
+
+\mbox{\Hypertarget{classRealSenseManager_ac0bcf70a9567a1710d07a66aa5bf9587}\label{classRealSenseManager_ac0bcf70a9567a1710d07a66aa5bf9587}} 
+\index{RealSenseManager@{RealSenseManager}!frameID@{frameID}}
+\index{frameID@{frameID}!RealSenseManager@{RealSenseManager}}
+\doxysubsubsection{\texorpdfstring{frameID}{frameID}}
+{\footnotesize\ttfamily unsigned int Real\+Sense\+Manager\+::frame\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Current frame counter. 
+
+
+
+Definition at line \mbox{\hyperlink{RealSenseManager_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{RealSenseManager_8hpp_source}{Real\+Sense\+Manager.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{RealSenseManager_8cpp_source_l00061}{get\+Frame\+ID()}}, and \mbox{\hyperlink{RealSenseManager_8cpp_source_l00015}{set\+Frame\+ID()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Managers/\+Real\+Sense\+Managers/\mbox{\hyperlink{RealSenseManager_8hpp}{Real\+Sense\+Manager.\+hpp}}\item 
+Managers/\+Real\+Sense\+Managers/\mbox{\hyperlink{RealSenseManager_8cpp}{Real\+Sense\+Manager.\+cpp}}\end{DoxyCompactItemize}

@@ -139,10 +139,9 @@ public:
      * The pipeline is the consumer of the processing block interface, while the application consumes the computer vision interface.
      * @param color_intrin Reference to color video stream intrinsics.
      * @param scale Pointer to scaling factor.
-     * @param resX x resoultion <->
-     * @param resY y resolution
+     * @param resX x resoultion <->.
+     * @param resY y resolution.
      * @param firstBoot true if the method is called for the first time (in this case a kind of camera calibration is done), false otherwise.
-     * @param destinationKafkaTopic the destination's kafka topic's name.
      * @see https://dev.intelrealsense.com/docs/docs-get-started
      * @see startEnvironment(rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY, const char * destinationKafkaTopic)
      */
@@ -160,15 +159,22 @@ public:
      * @param depthFrame Reference to depth frame object that will be captured.
      * @param colorFrame Reference to color frame object that will be captured.
      * @param colorizedDepthFrame Reference to colorized depth frame object that will be captured.
+     * @param framesToSkip Frames' number to skip in order to ignore a certain amount of frames and extend the recording interval. A '0' value means 'capture each frame'.
      * @see https://dev.intelrealsense.com/docs/docs-get-started
      * @see getVideoFramesCV(unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale)
      * @see getVideoFrames         (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale)
      */
     virtual void getVideoFramesRS               (unsigned int user_nFrame, rs2::pipeline & pipelineStream,
                                                  rs2::depth_frame & depthFrame, rs2::frame & colorFrame,
-                                                 rs2::frame & colorizedDepthFrame) = 0;
+                                                 rs2::frame & colorizedDepthFrame, const unsigned short int framesToSkip) = 0;
 };
 
+
+
+/**
+ * @brief RealSenseD435Manager class is a class that abstracts the behavior of an Intel RealSense D435 Camera,
+ * in order to capture frames, apply post-processing, and so on.
+ */
 class RealSenseD435Manager : public RealSenseManager {
 public:
     /**
@@ -182,10 +188,9 @@ public:
      * The pipeline is the consumer of the processing block interface, while the application consumes the computer vision interface.
      * @param color_intrin Reference to color video stream intrinsics.
      * @param scale Pointer to scaling factor.
-     * @param resX x resoultion <->
-     * @param resY y resolution
+     * @param resX x resoultion <->.
+     * @param resY y resolution.
      * @param firstBoot true if the method is called for the first time (in this case a kind of camera calibration is done), false otherwise.
-     * @param destinationKafkaTopic the destination's kafka topic's name.
      * @see https://dev.intelrealsense.com/docs/docs-get-started
      * @see startEnvironment(rs2::pipeline & pipelineStream, struct rs2_intrinsics & color_intrin, float * scale, unsigned short int resX, unsigned short int resY, const char * destinationKafkaTopic)
      */
@@ -203,13 +208,14 @@ public:
      * @param depthFrame Reference to depth frame object that will be captured.
      * @param colorFrame Reference to color frame object that will be captured.
      * @param colorizedDepthFrame Reference to colorized depth frame object that will be captured.
+     * @param framesToSkip Frames' number to skip in order to ignore a certain amount of frames and extend the recording interval. A '0' value means 'capture each frame'.
      * @see https://dev.intelrealsense.com/docs/docs-get-started
      * @see getVideoFramesCV(unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale)
      * @see getVideoFrames         (unsigned int user_nFrame, rs2::pipeline & pipelineStream, float scale)
      */
     void getVideoFramesRS                       (unsigned int user_nFrame, rs2::pipeline & pipelineStream,
-                                                 rs2::depth_frame & depthFrames, rs2::frame & colorFrames,
-                                                 rs2::frame & colorizedDepthFrames) override;
+                                                 rs2::depth_frame & depthFrame, rs2::frame & colorFrame,
+                                                 rs2::frame & colorizedDepthFrame, const unsigned short int framesToSkip) override;
 };
 
 #endif /* RealSenseManager_hpp */

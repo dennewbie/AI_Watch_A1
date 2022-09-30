@@ -1,0 +1,72 @@
+\hypertarget{RealSenseManager_8hpp_source}{}\doxysection{Real\+Sense\+Manager.\+hpp}
+\label{RealSenseManager_8hpp_source}\index{Managers/RealSenseManagers/RealSenseManager.hpp@{Managers/RealSenseManagers/RealSenseManager.hpp}}
+\mbox{\hyperlink{RealSenseManager_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00002}00002 \textcolor{comment}{//  RealSenseManager.hpp}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00003}00003 \textcolor{comment}{//  AI Watch A1}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00004}00004 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 23/07/22.}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00008}00008 \textcolor{comment}{// License: Apache 2.0. See LICENSE file in root directory.}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00009}00009 \textcolor{comment}{// Copyright(c) 2022. All Rights Reserved.}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00011}00011 \textcolor{preprocessor}{\#ifndef RealSenseManager\_hpp}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00012}00012 \textcolor{preprocessor}{\#define RealSenseManager\_hpp}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00014}00014 \textcolor{preprocessor}{\#include <librealsense2/rs.hpp>}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00015}00015 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00016}00016 \textcolor{preprocessor}{\#include <opencv2/core.hpp>}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00017}00017 \textcolor{preprocessor}{\#include "{}../../constants.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00025}\mbox{\hyperlink{classRealSenseManager}{00025}} \textcolor{keyword}{class }\mbox{\hyperlink{classRealSenseManager}{RealSenseManager}} \{}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00026}00026 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00030}\mbox{\hyperlink{classRealSenseManager_ac0bcf70a9567a1710d07a66aa5bf9587}{00030}}     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                \mbox{\hyperlink{classRealSenseManager_ac0bcf70a9567a1710d07a66aa5bf9587}{frameID}};}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00035}\mbox{\hyperlink{classRealSenseManager_a8501c8bab42b7160eddd453266763a2f}{00035}}     rs2::align                  \mbox{\hyperlink{classRealSenseManager_a8501c8bab42b7160eddd453266763a2f}{align}};}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00040}\mbox{\hyperlink{classRealSenseManager_adad205399e7077b25c2c0650d31759c8}{00040}}     \textcolor{keyword}{struct }rs2\_intrinsics       \mbox{\hyperlink{classRealSenseManager_adad205399e7077b25c2c0650d31759c8}{depth\_intrin}};}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00045}\mbox{\hyperlink{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}{00045}}     \textcolor{keyword}{struct }rs2\_intrinsics       \mbox{\hyperlink{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}{color\_intrin}};}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00050}\mbox{\hyperlink{classRealSenseManager_a116cc28e2d0b59b5cf946822a3d5dca4}{00050}}     \textcolor{keyword}{struct }rs2\_extrinsics       \mbox{\hyperlink{classRealSenseManager_a116cc28e2d0b59b5cf946822a3d5dca4}{depth\_to\_color}};}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00055}\mbox{\hyperlink{classRealSenseManager_aea4cc5c31f53bd1f30dfcd10bcca9ff0}{00055}}     \textcolor{keyword}{struct }rs2\_extrinsics       \mbox{\hyperlink{classRealSenseManager_aea4cc5c31f53bd1f30dfcd10bcca9ff0}{color\_to\_depth}};}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00056}00056 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00061}00061     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRealSenseManager_a024d711ab0bfee1d954f7bd3a83b197f}{setFrameID}}             (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classRealSenseManager_ac0bcf70a9567a1710d07a66aa5bf9587}{frameID}});}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00067}00067     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRealSenseManager_a66ccf804742763a2bf2d3b6d9342f191}{set\_align}}              (rs2::align \mbox{\hyperlink{classRealSenseManager_a8501c8bab42b7160eddd453266763a2f}{align}});}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00072}00072     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRealSenseManager_a1fef8da6adb415bc157d5ca2931fda7e}{set\_depth\_intrin}}       (\textcolor{keyword}{struct} rs2\_intrinsics \mbox{\hyperlink{classRealSenseManager_adad205399e7077b25c2c0650d31759c8}{depth\_intrin}});}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00077}00077     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRealSenseManager_a1fcc8be70e92a51f9dcc82fdfe1b795e}{set\_color\_intrin}}       (\textcolor{keyword}{struct} rs2\_intrinsics \& \mbox{\hyperlink{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}{color\_intrin}});}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00082}00082     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRealSenseManager_a0e6df6bd8c81bd32022c18d06a272307}{set\_depth\_to\_color}}     (\textcolor{keyword}{struct} rs2\_extrinsics \mbox{\hyperlink{classRealSenseManager_a116cc28e2d0b59b5cf946822a3d5dca4}{depth\_to\_color}});}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00087}00087     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRealSenseManager_a821b3c038564cd28a4efd764e85e3656}{set\_color\_to\_depth}}     (\textcolor{keyword}{struct} rs2\_extrinsics \mbox{\hyperlink{classRealSenseManager_aea4cc5c31f53bd1f30dfcd10bcca9ff0}{color\_to\_depth}});}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00088}00088     }
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00096}00096     rs2::align \mbox{\hyperlink{classRealSenseManager_acff6020a0a3efe31b637d6dc5b341dd7}{get\_align}}                        (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00101}00101     \textcolor{keyword}{struct }rs2\_intrinsics \mbox{\hyperlink{classRealSenseManager_a5ebace7ab4e60e5e31e6e33318c87990}{get\_depth\_intrin}}      (void);}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00106}00106     \textcolor{keyword}{struct }rs2\_extrinsics \mbox{\hyperlink{classRealSenseManager_a5d1fe0f7b27ee4d137ef1aed5eea0b6e}{get\_depth\_to\_color}}    (void);}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00111}00111     \textcolor{keyword}{struct }rs2\_extrinsics \mbox{\hyperlink{classRealSenseManager_a2ea17b74112e13cc79fdb7cbe74947c4}{get\_color\_to\_depth}}    (void);}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00112}00112 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00116}00116     \mbox{\hyperlink{classRealSenseManager_ad8a8e23ad0136c97ddc64f8e7fdcabcf}{RealSenseManager}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00120}\mbox{\hyperlink{classRealSenseManager_ab9aaff5b69e2025ae3522b25fdfe95ea}{00120}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{classRealSenseManager_ab9aaff5b69e2025ae3522b25fdfe95ea}{\string~RealSenseManager}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00125}00125     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classRealSenseManager_aac01bf5b0fe977a03ff6ab9fa2bbf06f}{getFrameID}}                     (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00130}00130     \textcolor{keyword}{struct }rs2\_intrinsics \& \mbox{\hyperlink{classRealSenseManager_a27f762a96b6b883a0304b084e225de32}{get\_color\_intrin}}    (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00148}\mbox{\hyperlink{classRealSenseManager_a7cc9374e6575681b05db3e0592d10944}{00148}}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classRealSenseManager_a7cc9374e6575681b05db3e0592d10944}{startEnvironment}}               (rs2::pipeline \& pipelineStream, \textcolor{keyword}{struct} rs2\_intrinsics \& \mbox{\hyperlink{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}{color\_intrin}}, \textcolor{keywordtype}{float} * scale,}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00149}00149                                                  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} resX, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} resY, \textcolor{keywordtype}{bool} firstBoot) = 0;}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00167}\mbox{\hyperlink{classRealSenseManager_a47330063d22911a0dae8ff02a6c2b93e}{00167}}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classRealSenseManager_a47330063d22911a0dae8ff02a6c2b93e}{getVideoFramesRS}}               (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} user\_nFrame, rs2::pipeline \& pipelineStream,}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00168}00168                                                  rs2::depth\_frame \& depthFrame, rs2::frame \& colorFrame,}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00169}00169                                                  rs2::frame \& colorizedDepthFrame, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} framesToSkip) = 0;}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00170}00170 \};}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00172}00172 }
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00173}00173 }
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00178}\mbox{\hyperlink{classRealSenseD435Manager}{00178}} \textcolor{keyword}{class }\mbox{\hyperlink{classRealSenseD435Manager}{RealSenseD435Manager}} : \textcolor{keyword}{public} \mbox{\hyperlink{classRealSenseManager}{RealSenseManager}} \{}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00179}00179 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00197}00197     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRealSenseD435Manager_a6bfda5201144b0f6cce703c954bc19ad}{startEnvironment}}                       (rs2::pipeline \& pipelineStream, \textcolor{keyword}{struct} rs2\_intrinsics \& \mbox{\hyperlink{classRealSenseManager_ab876bfaffd8a23924ff182573e900cda}{color\_intrin}}, \textcolor{keywordtype}{float} * scale,}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00198}00198                                                  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} resX, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} resY, \textcolor{keywordtype}{bool} firstBoot) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00216}00216     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRealSenseD435Manager_ac397dd10a07ef1d4893f710643c59b6e}{getVideoFramesRS}}                       (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} user\_nFrame, rs2::pipeline \& pipelineStream,}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00217}00217                                                  rs2::depth\_frame \& depthFrame, rs2::frame \& colorFrame,}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00218}00218                                                  rs2::frame \& colorizedDepthFrame, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} framesToSkip) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00219}00219 \};}
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00220}00220 }
+\DoxyCodeLine{\Hypertarget{RealSenseManager_8hpp_source_l00221}00221 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* RealSenseManager\_hpp */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

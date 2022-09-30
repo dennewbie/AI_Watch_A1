@@ -3,7 +3,7 @@
         <h1> AI Watch A1 </h1>
     </div>
     <div align="justify">
-        <h3> AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve multi-person 3D skeleton tracking. Once this task is completed, AI Watch A1 provides support to send each detected skeleton and its joint points' 3D coordinates (room and D435's details have to be specified) via Kafka, in order to let further detached computation possible.
+        <h3> AI Watch A1 uses one Intel RealSense D435 camera and OpenPose in order to achieve multi-person 3D skeleton detection. Once this task is completed, AI Watch A1 provides support to send each detected skeleton and its joint points' 3D coordinates (room and D435's details have to be specified) via Kafka, in order to let further detached computation possible.
         </h3>
     </div>
     <div align="center">
@@ -14,28 +14,31 @@
 <p><div></div></p>
 
 ## Keynote 📋
-...
+- [Keynote](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs_keynote.pdf)
 
 
 
 ## Demo 💻
 - [Demo #1](https://youtu.be/Ac0V8Dj0FbI)
-- [Demo #2]()
+- [Demo #2](https://youtu.be/pq3m9U3hRrQ)
 
 
 
 ## Docs 📜
-- [AI Watch A1 documentation](https://dennewbie.github.io/AI_Watch_A1/doc/index.html) is generated using [Doxygen](https://doxygen.nl/).
-- BSc Computer Science's Thesis
+- [AI Watch A1 documentation](https://dennewbie.github.io/AI_Watch_A1/doc/index.html) is generated using [Doxygen](https://doxygen.nl/)
+- [Bachelor Thesis in Computer Science](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.pdf)
 
 
 
 ## Installation 🚀
+Note: Instructions for MacOS with Intel CPU
+
+
 1. Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies.
 
 2. Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies.
 
-3. Install [Confluent](https://www.confluent.io/) and its own dependencies.
+3. Install [Confluent](https://www.confluent.io/) and its own dependencies. This step is not mandatory, but without Confluent, you will have to set up the Kafka environment.
 
 4. Run the following command in your terminal:
    ```
@@ -55,10 +58,10 @@
 8. Run the following commands in your terminal:
    
    ```
-   cmake .. && make -j \`sysctl -n hw.logicalcpu\`
+   cmake .. && make -j `sysctl -n hw.logicalcpu`
    ```
 
-9. Now let's tart the Kafka environment. Run the following commands in a new terminal session. Set the environment variable for the Confluent Platform home directory:
+9. Now let's start the Kafka environment. Run the following commands in a new terminal session located on the parent folder of the `confluent` folder. Set the environment variable for the Confluent Platform home directory:
     ```
     export CONFLUENT_HOME=confluent-7.2.1
     ```
@@ -96,22 +99,25 @@
     ```
 
     ### Important #1 📌
-    The confluent local commands are intended for a single-node development environment and are not suitable for a production environment. The data that are produced are transient and are intended to be temporary. For production-ready workflows, see Install and Upgrade Confluent Platform.
+    The confluent local commands are intended for a single-node development environment and are not suitable for a production environment. The data that are produced are transient and are intended to be temporary. For production-ready workflows, check [Confluent website](https://www.confluent.io/).
 
     ### Important #2 📌
     The Confluent CLI requires Java version 1.8 or 1.11.
-    See [Confluent versions interoperability](https://docs.confluent.io/current/installation/versions-interoperability.html)
+    See [Confluent versions interoperability](https://docs.confluent.io/current/installation/versions-interoperability.html).
+
+     ### Important #3 📌
+     In order to improve speed and general performance, you could disable images' showing and change the number of frames captured per second. In this last option, capturing too few frames per second reduces output' quality. Furthermore, it's also possible to reduce OpenPose's network resolution, but a significant drawback is reduced accuracy.
    
 10. Navigate to http://localhost:9021 and create a new topic `t1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file. At this point:
     - if internal OpenPose execution is chosen, then run the following command in your terminal:
    
         ```
-        sudo ././AI_Watch_A1.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255
+        sudo ./AI_Watch_A1.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255
         ```
     - if external OpenPose execution is chosen, then set up your OpenPose parameters within the "conf.conf" file, run the following command in your terminal:
 
         ```
-        sudo ././AI_Watch_A1.bin
+        sudo ./AI_Watch_A1.bin
         ```
 
 
@@ -119,6 +125,7 @@
 ## Tools 🛠
 - [Intel RealSense SDK](https://github.com/IntelRealSense/librealsense)
 - [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
+- [OpenCV](https://github.com/opencv/opencv)
 - [Kafka](https://kafka.apache.org/)
 - [Kafka C/C++ library](https://github.com/edenhill/librdkafka)
 - [Confluent](https://www.confluent.io/)
@@ -143,9 +150,18 @@ AI Watch A1 is licensed under the Apache License, Version 2.0. Copyright 2022. P
 - [LinkedIn](https://www.linkedin.com/in/denny-caruso/)
 
 
+## Citation 📖
+```
+    @report{AIWatchA1,
+        author = {Denny Caruso},
+        title = {Multi-person 3D skeleton detection with depth cameras​},
+        institution = {University of Naples, Parthenope},
+        year = {2022}
+    }
+```
 
 ## Supervisor
-- Dr. Alessio Ferone, CS Assistant Professor at the University of Naples Parthenope
+- [Dr. Alessio Ferone](https://www.researchgate.net/profile/Alessio-Ferone), CS Assistant Professor at the [University of Naples Parthenope](https://www.uniparthenope.it/).
 
 
 

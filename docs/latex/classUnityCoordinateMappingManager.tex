@@ -1,0 +1,324 @@
+\hypertarget{classUnityCoordinateMappingManager}{}\doxysection{Unity\+Coordinate\+Mapping\+Manager Class Reference}
+\label{classUnityCoordinateMappingManager}\index{UnityCoordinateMappingManager@{UnityCoordinateMappingManager}}
+
+
+The \mbox{\hyperlink{classUnityCoordinateMappingManager}{Unity\+Coordinate\+Mapping\+Manager}} class is a class that is responsible for converting coordinates values from a coordinates\textquotesingle{} space to Unity coordinates\textquotesingle{} space whose parameters are specified at the top of this header file.  
+
+
+
+
+{\ttfamily \#include $<$Coordinate\+Mapping\+Manager.\+hpp$>$}
+
+Inheritance diagram for Unity\+Coordinate\+Mapping\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classUnityCoordinateMappingManager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUnityCoordinateMappingManager_af1228cb138c21cd8e1d1627da8743cf7}{Unity\+Coordinate\+Mapping\+Manager}} (\mbox{\hyperlink{classRoom}{Room}} \mbox{\hyperlink{classCoordinateMappingManager_aa46cf231c8d4c64815eeeade33c8979c}{room}})
+\begin{DoxyCompactList}\small\item\em Construct a new Unity Coordinate Mapping Manager object. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classPoint3D}{Point3D}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{classUnityCoordinateMappingManager_a5ee8f7517bb82a03e6a201fd7635d552}{map\+To\+Meters}} (std\+::vector$<$ \mbox{\hyperlink{classPoint3D}{Point3D}} $\ast$ $>$ points\+To\+Map, std\+::vector$<$ bool $>$ body\+Key\+Points\+Map, float x\+Origin, float z\+Origin) override
+\begin{DoxyCompactList}\small\item\em This method requires pointers\textquotesingle{} \mbox{\hyperlink{classPoint3D}{Point3D}}\textquotesingle{}s vector, the related vector map, and the original coordinates\textquotesingle{} space origins. It returns a pointer to pointers\textquotesingle{} \mbox{\hyperlink{classPoint3D}{Point3D}}\textquotesingle{}s vector that actually contains all input Points whose coordinates\textquotesingle{} values have been converted to the new coordinates\textquotesingle{} space. In this case, the method converts the values to Unity coordinates\textquotesingle{} space values whose configuration parameters are specified at the top of this header file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRoom}{Room}} \mbox{\hyperlink{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}{get\+Room}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the room object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCoordinateMappingManager_a5c3664f4ec7cc22b99dba97df60d5bd3}{transform\+Width\+Coordinate}} (float width\+Coordinate)
+\begin{DoxyCompactList}\small\item\em Converts width value. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCoordinateMappingManager_ab1189918e3477395629122540574512c}{transform\+Height\+Coordinate}} (float height\+Coordinate)
+\begin{DoxyCompactList}\small\item\em Converts height value. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCoordinateMappingManager_a397e5119388c93ca80f98d2c0afeee60}{inverse\+Transform}} (float input\+Number)
+\begin{DoxyCompactList}\small\item\em Implements the inverse conversion on the input value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classRoom}{Room}} \mbox{\hyperlink{classCoordinateMappingManager_aa46cf231c8d4c64815eeeade33c8979c}{room}}
+\begin{DoxyCompactList}\small\item\em Specific room within which the coordinate mapping will be done. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classUnityCoordinateMappingManager}{Unity\+Coordinate\+Mapping\+Manager}} class is a class that is responsible for converting coordinates values from a coordinates\textquotesingle{} space to Unity coordinates\textquotesingle{} space whose parameters are specified at the top of this header file. 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://math.stackexchange.com/questions/685110/how-to-determine-coordinates-on-two-different-size-rectangles}{\texttt{ https\+://math.\+stackexchange.\+com/questions/685110/how-\/to-\/determine-\/coordinates-\/on-\/two-\/different-\/size-\/rectangles}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{CoordinateMappingManager_8hpp_source_l00086}{86}} of file \mbox{\hyperlink{CoordinateMappingManager_8hpp_source}{Coordinate\+Mapping\+Manager.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classUnityCoordinateMappingManager_af1228cb138c21cd8e1d1627da8743cf7}\label{classUnityCoordinateMappingManager_af1228cb138c21cd8e1d1627da8743cf7}} 
+\index{UnityCoordinateMappingManager@{UnityCoordinateMappingManager}!UnityCoordinateMappingManager@{UnityCoordinateMappingManager}}
+\index{UnityCoordinateMappingManager@{UnityCoordinateMappingManager}!UnityCoordinateMappingManager@{UnityCoordinateMappingManager}}
+\doxysubsubsection{\texorpdfstring{UnityCoordinateMappingManager()}{UnityCoordinateMappingManager()}}
+{\footnotesize\ttfamily Unity\+Coordinate\+Mapping\+Manager\+::\+Unity\+Coordinate\+Mapping\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRoom}{Room}}}]{room }\end{DoxyParamCaption})}
+
+
+
+Construct a new Unity Coordinate Mapping Manager object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & Specific room within which the Unity\textquotesingle{} coordinate mapping will be done. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{UnityCoordinateMappingManager_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{UnityCoordinateMappingManager_8cpp_source}{Unity\+Coordinate\+Mapping\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015 : \mbox{\hyperlink{classCoordinateMappingManager_ab0e6f1164d1f65697d8af15801aa8f04}{CoordinateMappingManager}}(\mbox{\hyperlink{classCoordinateMappingManager_aa46cf231c8d4c64815eeeade33c8979c}{room}}) \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}\label{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}} 
+\index{UnityCoordinateMappingManager@{UnityCoordinateMappingManager}!getRoom@{getRoom}}
+\index{getRoom@{getRoom}!UnityCoordinateMappingManager@{UnityCoordinateMappingManager}}
+\doxysubsubsection{\texorpdfstring{getRoom()}{getRoom()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRoom}{Room}} Coordinate\+Mapping\+Manager\+::get\+Room (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Returns the room object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRoom}{Room}} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{CoordinateMappingManager_8cpp_source}{Coordinate\+Mapping\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016                                             \{}
+\DoxyCodeLine{00017     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classCoordinateMappingManager_aa46cf231c8d4c64815eeeade33c8979c}{room}};}
+\DoxyCodeLine{00018 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{CoordinateMappingManager_8hpp_source_l00033}{Coordinate\+Mapping\+Manager\+::room}}.
+
+
+
+Referenced by \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00057}{Coordinate\+Mapping\+Manager\+::map\+To\+Meters()}}, \mbox{\hyperlink{UnityCoordinateMappingManager_8cpp_source_l00017}{map\+To\+Meters()}}, \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00026}{Coordinate\+Mapping\+Manager\+::transform\+Height\+Coordinate()}}, and \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00020}{Coordinate\+Mapping\+Manager\+::transform\+Width\+Coordinate()}}.
+
+\mbox{\Hypertarget{classCoordinateMappingManager_a397e5119388c93ca80f98d2c0afeee60}\label{classCoordinateMappingManager_a397e5119388c93ca80f98d2c0afeee60}} 
+\index{UnityCoordinateMappingManager@{UnityCoordinateMappingManager}!inverseTransform@{inverseTransform}}
+\index{inverseTransform@{inverseTransform}!UnityCoordinateMappingManager@{UnityCoordinateMappingManager}}
+\doxysubsubsection{\texorpdfstring{inverseTransform()}{inverseTransform()}}
+{\footnotesize\ttfamily float Coordinate\+Mapping\+Manager\+::inverse\+Transform (\begin{DoxyParamCaption}\item[{float}]{input\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Implements the inverse conversion on the input value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Number} & Input value to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{CoordinateMappingManager_8cpp_source}{Coordinate\+Mapping\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042                                                                    \{}
+\DoxyCodeLine{00043     \textcolor{keywordtype}{float} outputNumber = 0.0;}
+\DoxyCodeLine{00044     \textcolor{keywordflow}{if} (inputNumber >= 1) \{}
+\DoxyCodeLine{00045         outputNumber = (1 -\/ 2 * inputNumber);}
+\DoxyCodeLine{00046     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (inputNumber <= -\/1) \{}
+\DoxyCodeLine{00047         outputNumber = (-\/(1 + 2 * inputNumber));}
+\DoxyCodeLine{00048     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00049         outputNumber = (1 -\/ std::abs(inputNumber) + 0.25);}
+\DoxyCodeLine{00050     \}}
+\DoxyCodeLine{00051     }
+\DoxyCodeLine{00052     \textcolor{keywordflow}{return} outputNumber;}
+\DoxyCodeLine{00053 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classUnityCoordinateMappingManager_a5ee8f7517bb82a03e6a201fd7635d552}\label{classUnityCoordinateMappingManager_a5ee8f7517bb82a03e6a201fd7635d552}} 
+\index{UnityCoordinateMappingManager@{UnityCoordinateMappingManager}!mapToMeters@{mapToMeters}}
+\index{mapToMeters@{mapToMeters}!UnityCoordinateMappingManager@{UnityCoordinateMappingManager}}
+\doxysubsubsection{\texorpdfstring{mapToMeters()}{mapToMeters()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classPoint3D}{Point3D}} $\ast$ $>$ $\ast$ Unity\+Coordinate\+Mapping\+Manager\+::map\+To\+Meters (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classPoint3D}{Point3D}} $\ast$ $>$}]{points\+To\+Map,  }\item[{std\+::vector$<$ bool $>$}]{body\+Key\+Points\+Map,  }\item[{float}]{x\+Origin,  }\item[{float}]{z\+Origin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This method requires pointers\textquotesingle{} \mbox{\hyperlink{classPoint3D}{Point3D}}\textquotesingle{}s vector, the related vector map, and the original coordinates\textquotesingle{} space origins. It returns a pointer to pointers\textquotesingle{} \mbox{\hyperlink{classPoint3D}{Point3D}}\textquotesingle{}s vector that actually contains all input Points whose coordinates\textquotesingle{} values have been converted to the new coordinates\textquotesingle{} space. In this case, the method converts the values to Unity coordinates\textquotesingle{} space values whose configuration parameters are specified at the top of this header file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points\+To\+Map} & \\
+\hline
+{\em body\+Key\+Points\+Map} & \\
+\hline
+{\em x\+Origin} & \\
+\hline
+{\em z\+Origin} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector \texorpdfstring{$<$}{<}\mbox{\hyperlink{classPoint3D}{Point3D}} $\ast$\texorpdfstring{$>$}{>} $\ast$ 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classCoordinateMappingManager_a53059f45e764e26353439bc495074e86}{Coordinate\+Mapping\+Manager}}.
+
+
+
+Definition at line \mbox{\hyperlink{UnityCoordinateMappingManager_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{UnityCoordinateMappingManager_8cpp_source}{Unity\+Coordinate\+Mapping\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017                                                                                                                                                                       \{}
+\DoxyCodeLine{00018     std::vector <Point3D *> * newPoints = \textcolor{keyword}{new} std::vector <Point3D *>;}
+\DoxyCodeLine{00019     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < bodyKeyPointsMap.size(); i++) \{}
+\DoxyCodeLine{00020         \textcolor{keywordflow}{if} (!bodyKeyPointsMap.at(i)) \{}
+\DoxyCodeLine{00021             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{classPoint3D}{Point3D}}(0, 0, 0, \textcolor{keyword}{new} \mbox{\hyperlink{classBodyKeyPoint}{BodyKeyPoint}}(0, 0, 0)));}
+\DoxyCodeLine{00022         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00023             newPoints-\/>push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{classPoint3D}{Point3D}}(}
+\DoxyCodeLine{00024                 \mbox{\hyperlink{classCoordinateMappingManager_a5c3664f4ec7cc22b99dba97df60d5bd3}{transformWidthCoordinate}}(pointsToMap.at(i)-\/>getX()) -\/ std::abs(xOrigin),}
+\DoxyCodeLine{00025                 \mbox{\hyperlink{classCoordinateMappingManager_ab1189918e3477395629122540574512c}{transformHeightCoordinate}}(pointsToMap.at(i)-\/>getY()),}
+\DoxyCodeLine{00026                 -\/ (pointsToMap.at(i)-\/>getZ() -\/ zOrigin + \mbox{\hyperlink{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}{getRoom}}().getDistanceCameraFromBackWall()),}
+\DoxyCodeLine{00027                 \textcolor{keyword}{new} \mbox{\hyperlink{classBodyKeyPoint}{BodyKeyPoint}}(0, 0, ((\mbox{\hyperlink{classBodyKeyPoint}{BodyKeyPoint}} *) pointsToMap.at(i)-\/>getDecorated())-\/>getConfidence()))}
+\DoxyCodeLine{00028             );}
+\DoxyCodeLine{00029         \}}
+\DoxyCodeLine{00030     \}}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032     \textcolor{keywordflow}{return} newPoints;}
+\DoxyCodeLine{00033 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00016}{Coordinate\+Mapping\+Manager\+::get\+Room()}}, \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00026}{Coordinate\+Mapping\+Manager\+::transform\+Height\+Coordinate()}}, and \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00020}{Coordinate\+Mapping\+Manager\+::transform\+Width\+Coordinate()}}.
+
+\mbox{\Hypertarget{classCoordinateMappingManager_ab1189918e3477395629122540574512c}\label{classCoordinateMappingManager_ab1189918e3477395629122540574512c}} 
+\index{UnityCoordinateMappingManager@{UnityCoordinateMappingManager}!transformHeightCoordinate@{transformHeightCoordinate}}
+\index{transformHeightCoordinate@{transformHeightCoordinate}!UnityCoordinateMappingManager@{UnityCoordinateMappingManager}}
+\doxysubsubsection{\texorpdfstring{transformHeightCoordinate()}{transformHeightCoordinate()}}
+{\footnotesize\ttfamily float Coordinate\+Mapping\+Manager\+::transform\+Height\+Coordinate (\begin{DoxyParamCaption}\item[{float}]{height\+Coordinate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Converts height value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em height\+Coordinate} & Input height value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{CoordinateMappingManager_8cpp_source}{Coordinate\+Mapping\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026                                                                                  \{}
+\DoxyCodeLine{00027 \textcolor{comment}{//    float environmentHeight = std::abs(getRoom().getMinHeight()) + std::abs(getRoom().getMaxHeight());}}
+\DoxyCodeLine{00028 \textcolor{comment}{//    float environmentHeightRS = std::abs(getRoom().getMinHeightRS()) + std::abs(getRoom().getMaxHeightRS());}}
+\DoxyCodeLine{00029 \textcolor{comment}{//    float tempHeight = -\/(((heightCoordinate -\/ getRoom().getMaxHeightRS()) / environmentHeightRS) * environmentHeight) + getRoom().getMinHeight();}}
+\DoxyCodeLine{00030 \textcolor{comment}{//    return std::abs(tempHeight) -\/ 0.9;}}
+\DoxyCodeLine{00031     }
+\DoxyCodeLine{00032     \textcolor{keywordtype}{float} newHeightCoordinate = -\/heightCoordinate + \mbox{\hyperlink{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}{getRoom}}().\mbox{\hyperlink{classRoom_a2dcc632674acc7f025962172eb45d1f6}{getMaxHeightRS}}() -\/ \mbox{\hyperlink{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}{getRoom}}().\mbox{\hyperlink{classRoom_aa177d1f721f5985ff5032e9b3ad1bf32}{getHeightOffset}}();}
+\DoxyCodeLine{00033     \textcolor{keywordflow}{if} (newHeightCoordinate >= \mbox{\hyperlink{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}{getRoom}}().getMaxHeight()) \{}
+\DoxyCodeLine{00034         \textcolor{keywordflow}{return} \mbox{\hyperlink{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}{getRoom}}().\mbox{\hyperlink{classRoom_ae5bb2c476119694129f50be36d4093e6}{getMaxHeight}}();}
+\DoxyCodeLine{00035     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (newHeightCoordinate <= 0) \{}
+\DoxyCodeLine{00036         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00037     \}}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039     \textcolor{keywordflow}{return} newHeightCoordinate;}
+\DoxyCodeLine{00040 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{Room_8cpp_source_l00124}{Room\+::get\+Height\+Offset()}}, \mbox{\hyperlink{Room_8cpp_source_l00092}{Room\+::get\+Max\+Height()}}, \mbox{\hyperlink{Room_8cpp_source_l00108}{Room\+::get\+Max\+Height\+RS()}}, and \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00016}{Coordinate\+Mapping\+Manager\+::get\+Room()}}.
+
+
+
+Referenced by \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00057}{Coordinate\+Mapping\+Manager\+::map\+To\+Meters()}}, and \mbox{\hyperlink{UnityCoordinateMappingManager_8cpp_source_l00017}{map\+To\+Meters()}}.
+
+\mbox{\Hypertarget{classCoordinateMappingManager_a5c3664f4ec7cc22b99dba97df60d5bd3}\label{classCoordinateMappingManager_a5c3664f4ec7cc22b99dba97df60d5bd3}} 
+\index{UnityCoordinateMappingManager@{UnityCoordinateMappingManager}!transformWidthCoordinate@{transformWidthCoordinate}}
+\index{transformWidthCoordinate@{transformWidthCoordinate}!UnityCoordinateMappingManager@{UnityCoordinateMappingManager}}
+\doxysubsubsection{\texorpdfstring{transformWidthCoordinate()}{transformWidthCoordinate()}}
+{\footnotesize\ttfamily float Coordinate\+Mapping\+Manager\+::transform\+Width\+Coordinate (\begin{DoxyParamCaption}\item[{float}]{width\+Coordinate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Converts width value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width\+Coordinate} & Input width value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{CoordinateMappingManager_8cpp_source}{Coordinate\+Mapping\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020                                                                                \{}
+\DoxyCodeLine{00021     \textcolor{keywordtype}{float} environmentWidth = std::abs(\mbox{\hyperlink{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}{getRoom}}().getMinWidth()) + std::abs(\mbox{\hyperlink{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}{getRoom}}().getMaxWidth());}
+\DoxyCodeLine{00022     \textcolor{keywordtype}{float} environmentWidthRS = std::abs(\mbox{\hyperlink{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}{getRoom}}().getMinWidthRS()) + std::abs(\mbox{\hyperlink{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}{getRoom}}().getMaxWidthRS());}
+\DoxyCodeLine{00023     \textcolor{keywordflow}{return} (((widthCoordinate -\/ \mbox{\hyperlink{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}{getRoom}}().getMinWidthRS()) / environmentWidthRS) * environmentWidth) + \mbox{\hyperlink{classCoordinateMappingManager_ae300fd95b5f11a38fe5c9fe87c763d5a}{getRoom}}().\mbox{\hyperlink{classRoom_a54ce4fbb5fabe5c206abb2d2c02e9ab6}{getMinWidth}}();}
+\DoxyCodeLine{00024 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{Room_8cpp_source_l00080}{Room\+::get\+Min\+Width()}}, and \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00016}{Coordinate\+Mapping\+Manager\+::get\+Room()}}.
+
+
+
+Referenced by \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00057}{Coordinate\+Mapping\+Manager\+::map\+To\+Meters()}}, and \mbox{\hyperlink{UnityCoordinateMappingManager_8cpp_source_l00017}{map\+To\+Meters()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classCoordinateMappingManager_aa46cf231c8d4c64815eeeade33c8979c}\label{classCoordinateMappingManager_aa46cf231c8d4c64815eeeade33c8979c}} 
+\index{UnityCoordinateMappingManager@{UnityCoordinateMappingManager}!room@{room}}
+\index{room@{room}!UnityCoordinateMappingManager@{UnityCoordinateMappingManager}}
+\doxysubsubsection{\texorpdfstring{room}{room}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classRoom}{Room}} Coordinate\+Mapping\+Manager\+::room\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Specific room within which the coordinate mapping will be done. 
+
+
+
+Definition at line \mbox{\hyperlink{CoordinateMappingManager_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{CoordinateMappingManager_8hpp_source}{Coordinate\+Mapping\+Manager.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00016}{Coordinate\+Mapping\+Manager\+::get\+Room()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Managers/\+Coordinate\+Managers/\mbox{\hyperlink{CoordinateMappingManager_8hpp}{Coordinate\+Mapping\+Manager.\+hpp}}\item 
+Managers/\+Coordinate\+Managers/\mbox{\hyperlink{UnityCoordinateMappingManager_8cpp}{Unity\+Coordinate\+Mapping\+Manager.\+cpp}}\end{DoxyCompactItemize}

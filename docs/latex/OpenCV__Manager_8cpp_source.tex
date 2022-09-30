@@ -1,0 +1,131 @@
+\hypertarget{OpenCV__Manager_8cpp_source}{}\doxysection{Open\+CV\+\_\+\+Manager.\+cpp}
+\label{OpenCV__Manager_8cpp_source}\index{Managers/OpenCV\_Manager.cpp@{Managers/OpenCV\_Manager.cpp}}
+\mbox{\hyperlink{OpenCV__Manager_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00002}00002 \textcolor{comment}{//  OpenCV\_Manager.cpp}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00003}00003 \textcolor{comment}{//  AI Watch A1}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00004}00004 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 23/07/22.}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00008}00008 \textcolor{comment}{// License: Apache 2.0. See LICENSE file in root directory.}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00009}00009 \textcolor{comment}{// Copyright(c) 2022. All Rights Reserved.}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{OpenCV__Manager_8hpp}{OpenCV\_Manager.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00015}\mbox{\hyperlink{classOpenCV__Manager_a763f869b71bef3cd172254b2511b789f}{00015}} cv::Mat \mbox{\hyperlink{classOpenCV__Manager_a763f869b71bef3cd172254b2511b789f}{OpenCV\_Manager::realsenseFrameToMat}} (\textcolor{keyword}{const} rs2::frame \& singleFrame) \{}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00016}00016     rs2::video\_frame videoFrame = singleFrame.as<rs2::video\_frame>();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00017}00017     \textcolor{keyword}{const} \textcolor{keywordtype}{int} frameWidth = videoFrame.get\_width(), frameHeight = videoFrame.get\_height();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00018}00018     }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00019}00019     \textcolor{keywordflow}{switch} (singleFrame.get\_profile().format()) \{}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00020}00020         \textcolor{keywordflow}{case} RS2\_FORMAT\_BGR8:}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00021}00021             \textcolor{keywordflow}{return} cv::Mat(cv::Size(frameWidth, frameHeight), CV\_8UC3, (\textcolor{keywordtype}{void} *) singleFrame.get\_data(), cv::Mat::AUTO\_STEP);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00022}00022         \textcolor{keywordflow}{case} RS2\_FORMAT\_RGB8: \{}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00023}00023             cv::Mat rgbFrame = cv::Mat(cv::Size(frameWidth, frameHeight), CV\_8UC3, (\textcolor{keywordtype}{void} *) singleFrame.get\_data(), cv::Mat::AUTO\_STEP);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00024}00024             cv::cvtColor(rgbFrame, rgbFrame, cv::COLOR\_RGB2BGR);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00025}00025             \textcolor{keywordflow}{return} rgbFrame;}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00026}00026         \}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00027}00027         \textcolor{keywordflow}{case} RS2\_FORMAT\_Z16:}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00028}00028             \textcolor{keywordflow}{return} cv::Mat(cv::Size(frameWidth, frameHeight), CV\_16UC1, (\textcolor{keywordtype}{void} *) singleFrame.get\_data(), cv::Mat::AUTO\_STEP);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00029}00029         \textcolor{keywordflow}{case} RS2\_FORMAT\_Y8:}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00030}00030             \textcolor{keywordflow}{return} cv::Mat(cv::Size(frameWidth, frameHeight), CV\_8UC1, (\textcolor{keywordtype}{void} *) singleFrame.get\_data(), cv::Mat::AUTO\_STEP);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00031}00031         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00032}00032             \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}Frame format is not supported yet!"{}});}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00033}00033             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00034}00034     \}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00035}00035 \}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00037}\mbox{\hyperlink{classOpenCV__Manager_a539a0c005b8541f68bab2b36a9d84aba}{00037}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classOpenCV__Manager_a539a0c005b8541f68bab2b36a9d84aba}{OpenCV\_Manager::getVideoFramesCV}} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} user\_nFrame, rs2::pipeline \& pipelineStream, \textcolor{keywordtype}{float} scale, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} framesToSkip) \{}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00038}00038     \mbox{\hyperlink{classUsageManager}{UsageManager}} * usageManagerInstance = \mbox{\hyperlink{classUsageManager_af047400a8bd50603cff4bbffe37ebea2}{UsageManager::getInstance}}();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00039}00039     \textcolor{keywordflow}{if} (usageManagerInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_ab495e2525cf238bb390ca68277586bf4}{USAGE\_MANAGER\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ade33b45fd12b716d5e837609aa163416}{USAGE\_MANAGER\_NULLPTR\_SCOPE}});}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00040}00040     \textcolor{keywordtype}{char} ** argv = * usageManagerInstance-\/>\mbox{\hyperlink{classUsageManager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00041}00041     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * imagesFolder = argv[\mbox{\hyperlink{constants_8hpp_a660671264f8ea07781cd04446d83cbf6}{imagesFolderOffset}}];}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00042}00042     \mbox{\hyperlink{classFacadeSingleton}{FacadeSingleton}} * facadeSingletonInstance = \mbox{\hyperlink{classFacadeSingleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00043}00043     \textcolor{keywordflow}{if} (facadeSingletonInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_aba8cd558b16927b8fe2d962968d20c10}{FACADE\_SINGLETON\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ae5a935d42848889b474e368ef77cf46a}{FACADE\_SINGLETON\_NULLPTR\_SCOPE}});}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00044}00044     \mbox{\hyperlink{classRealSenseManager}{RealSenseManager}} * cameraManager = facadeSingletonInstance-\/>\mbox{\hyperlink{classFacadeSingleton_aa365ece7ecb2ba2d4a6d160e3698275a}{getCameraManager}}();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00045}00045     \mbox{\hyperlink{classImageManager}{ImageManager}} * imageManager = facadeSingletonInstance-\/>\mbox{\hyperlink{classFacadeSingleton_a3bcded05b467db6b295d7958d31434d9}{getImageManager}}();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00046}00046     }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00047}00047     \textcolor{comment}{// Do this until we don't capture, convert, scale, compute and save user\_nFrame frame}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00048}00048     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} nFrame = 0; nFrame < user\_nFrame; nFrame++) \{}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00049}00049         \textcolor{comment}{// Capture}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00050}00050         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} frameID = cameraManager-\/>\mbox{\hyperlink{classRealSenseManager_aac01bf5b0fe977a03ff6ab9fa2bbf06f}{getFrameID}}();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00051}00051         rs2::depth\_frame depthFrame = rs2::depth\_frame(rs2::frame());}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00052}00052         rs2::frame colorFrame, colorizedDepthFrame;}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00053}00053         cameraManager-\/>\mbox{\hyperlink{classRealSenseManager_a47330063d22911a0dae8ff02a6c2b93e}{getVideoFramesRS}}(user\_nFrame, pipelineStream, depthFrame, colorFrame, colorizedDepthFrame, framesToSkip);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00054}00054         \textcolor{keywordtype}{int} cols = depthFrame.get\_width(), rows = depthFrame.get\_height();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00055}00055         \textcolor{comment}{// Convert}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00056}00056         cv::Mat colorImage = \mbox{\hyperlink{classOpenCV__Manager_a763f869b71bef3cd172254b2511b789f}{realsenseFrameToMat}}(colorFrame), distanceImage = cv::Mat::zeros(rows, cols, CV\_32FC1);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00057}00057         cv::Mat depthImage = \mbox{\hyperlink{classOpenCV__Manager_a763f869b71bef3cd172254b2511b789f}{realsenseFrameToMat}}(depthFrame), colorizedDepthImage = \mbox{\hyperlink{classOpenCV__Manager_a763f869b71bef3cd172254b2511b789f}{realsenseFrameToMat}}(colorizedDepthFrame);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00058}00058         \textcolor{comment}{// Scale}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00059}00059         depthImage *= 1000.0 * scale;}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00060}00060         \textcolor{comment}{// Compute distance}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00061}00061         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < cols; i++) \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < rows; j++) distanceImage.at <\textcolor{keywordtype}{float}> (j, i) = (float) depthFrame.get\_distance(i, j);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00063}00063         std::stringstream colorImagePath, distanceImagePath, colorizedDepthImagePath;}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00064}00064         colorImagePath <<           imagesFolder << \textcolor{stringliteral}{"{}rgb/"{}} <<   frameID << \textcolor{stringliteral}{"{}\_Color.png"{}};}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00065}00065         distanceImagePath <<        imagesFolder << \textcolor{stringliteral}{"{}d/"{}} <<     frameID << \textcolor{stringliteral}{"{}\_Distance.exr"{}};}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00066}00066         colorizedDepthImagePath <<  imagesFolder << \textcolor{stringliteral}{"{}depth/"{}} << frameID << \textcolor{stringliteral}{"{}\_Depth.png"{}};}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00067}00067         \textcolor{comment}{// Save}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00068}00068         imageManager-\/>\mbox{\hyperlink{classImageManager_aeae03d66a4a45347804c4c927fa55b42}{saveImages}}( \{ colorImage, distanceImage, colorizedDepthImage \},}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00069}00069                                  \{ colorImagePath.str(), distanceImagePath.str(), colorizedDepthImagePath.str() \} );}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00070}00070         imageManager-\/>\mbox{\hyperlink{classImageManager_a6b448d93b315c6479590fa5afd278674}{releaseImages}}( \{ colorImage, depthImage, distanceImage, colorizedDepthImage \} );}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00071}00071     \}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00072}00072 \}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00074}\mbox{\hyperlink{classOpenCV__Manager_a91d73f7ffc0147f9e99a05e524a28db5}{00074}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classOpenCV__Manager_a91d73f7ffc0147f9e99a05e524a28db5}{OpenCV\_Manager::showSkeletonsCV}} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} user\_nFrame, \textcolor{keyword}{const} \textcolor{keywordtype}{float} skeletonThreshold) \{}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00075}00075     \mbox{\hyperlink{classFacadeSingleton}{FacadeSingleton}} * facadeSingletonInstance = \mbox{\hyperlink{classFacadeSingleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00076}00076     \textcolor{keywordflow}{if} (facadeSingletonInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_aba8cd558b16927b8fe2d962968d20c10}{FACADE\_SINGLETON\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ae5a935d42848889b474e368ef77cf46a}{FACADE\_SINGLETON\_NULLPTR\_SCOPE}});}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00077}00077     \mbox{\hyperlink{classRealSenseManager}{RealSenseManager}} * cameraManager = facadeSingletonInstance-\/>\mbox{\hyperlink{classFacadeSingleton_aa365ece7ecb2ba2d4a6d160e3698275a}{getCameraManager}}();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00078}00078     \mbox{\hyperlink{classOutputManagerJSON}{OutputManagerJSON}} * outputManagerJSON = (\mbox{\hyperlink{classOutputManagerJSON}{OutputManagerJSON}} *) facadeSingletonInstance-\/>\mbox{\hyperlink{classFacadeSingleton_a91e11305b99378bd6c7e8d6bfb5b1ca4}{getOutputManager}}();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00079}00079     \mbox{\hyperlink{classUsageManager}{UsageManager}} * usageManagerInstance = facadeSingletonInstance-\/>\mbox{\hyperlink{classFacadeSingleton_a96d0bcfe088620c1dca604a92a3bbe44}{getUsageManager}}();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00080}00080     \textcolor{keywordflow}{if} (usageManagerInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_ab495e2525cf238bb390ca68277586bf4}{USAGE\_MANAGER\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ade33b45fd12b716d5e837609aa163416}{USAGE\_MANAGER\_NULLPTR\_SCOPE}});}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00081}00081     \mbox{\hyperlink{classImageManager}{ImageManager}} * imageManager = facadeSingletonInstance-\/>\mbox{\hyperlink{classFacadeSingleton_a3bcded05b467db6b295d7958d31434d9}{getImageManager}}();}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00082}00082     \textcolor{keywordtype}{char} ** argv = * usageManagerInstance-\/>\mbox{\hyperlink{classUsageManager_abf0d03e097025fc8d85133f6a0ff83ff}{get\_argv}}(), * imagesFolder = argv[\mbox{\hyperlink{constants_8hpp_a660671264f8ea07781cd04446d83cbf6}{imagesFolderOffset}}], * outputFolder = argv[\mbox{\hyperlink{constants_8hpp_abbff93ab9bac10646d7ca187c30470ad}{outputFolderOffset}}];}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00083}00083     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} frameID = cameraManager-\/>\mbox{\hyperlink{classRealSenseManager_aac01bf5b0fe977a03ff6ab9fa2bbf06f}{getFrameID}}(), currentImageID;}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00084}00084     }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00085}00085     Json::Value currentJSON;}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00086}00086     }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00087}00087     \textcolor{comment}{// Do this until we don't iterate on user\_nFrame frame}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00088}00088     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} nFrame = 0; nFrame < user\_nFrame; nFrame++) \{}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00089}00089         std::stringstream inputJsonFilePath, skeletonImagePath, colorImagePath, distanceImagePath, colorizedDepthImagePath, skeletonOnlyImagePath, outputJsonFilePath;}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00090}00090         currentImageID = frameID -\/ user\_nFrame + nFrame;}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00091}00091         }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00092}00092         \textcolor{comment}{// Internal Approach OpenPose}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00093}00093 \textcolor{comment}{//        inputJsonFilePath << outputFolder << "{}op/"{} << nFrame << "{}\_keypoints.json"{};}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00094}00094         \textcolor{comment}{// External Approach OpenPose}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00095}00095         inputJsonFilePath << outputFolder << \textcolor{stringliteral}{"{}op/"{}} << currentImageID << \textcolor{stringliteral}{"{}\_Color\_keypoints.json"{}};}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00096}00096         }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00097}00097         \textcolor{comment}{// Try to load OpenPose's output JSON file}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00098}00098         \textcolor{keywordflow}{if} (outputManagerJSON-\/>\mbox{\hyperlink{classOutputManagerJSON_ae664a1f8616d4876501710849c1c59d2}{loadJSON}}(inputJsonFilePath.str(), currentJSON)) \{}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00099}00099             Json::Value people = outputManagerJSON-\/>\mbox{\hyperlink{classOutputManagerJSON_ab8f239a05495e63d99ef7e783b566587}{getValueAt}}(\textcolor{stringliteral}{"{}people"{}}, currentJSON);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00100}00100             colorImagePath << imagesFolder << \textcolor{stringliteral}{"{}rgb/"{}} << currentImageID << \textcolor{stringliteral}{"{}\_Color.png"{}};}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00101}00101             distanceImagePath << imagesFolder << \textcolor{stringliteral}{"{}d/"{}} << currentImageID << \textcolor{stringliteral}{"{}\_Distance.exr"{}};}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00102}00102             colorizedDepthImagePath << imagesFolder << \textcolor{stringliteral}{"{}depth/"{}} << currentImageID << \textcolor{stringliteral}{"{}\_Depth.png"{}};}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00103}00103             }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00104}00104             \textcolor{comment}{// Load images captured previously from camera}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00105}00105             cv::Mat colorImage, colorizedDepthImage;}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00106}00106             imageManager-\/>\mbox{\hyperlink{classImageManager_aee3ff89c8031117cac540670fb8c09fe}{loadImage}}(colorImagePath.str(), cv::IMREAD\_COLOR, colorImage);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00107}00107             cv::Mat distanceImage = cv::Mat(colorImage.rows, colorImage.cols, CV\_32FC1);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00108}00108             imageManager-\/>\mbox{\hyperlink{classImageManager_aee3ff89c8031117cac540670fb8c09fe}{loadImage}}(distanceImagePath.str(), cv::IMREAD\_ANYCOLOR | cv::IMREAD\_ANYDEPTH, distanceImage);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00109}00109             imageManager-\/>\mbox{\hyperlink{classImageManager_aee3ff89c8031117cac540670fb8c09fe}{loadImage}}(colorizedDepthImagePath.str(), cv::IMREAD\_COLOR, colorizedDepthImage);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00110}00110             \textcolor{comment}{// Note: Comment following line for better performance}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00111}00111             imageManager-\/>\mbox{\hyperlink{classImageManager_a0d1b8bf95333d94fe2842937e5ef818c}{showImages}}( \{ colorImage, colorizedDepthImage \}, \{ \textcolor{stringliteral}{"{}Frame No Skeleton"{}}, \textcolor{stringliteral}{"{}Frame Colorized Depth"{}} \} );}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00112}00112             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00113}00113             }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00114}00114             \textcolor{comment}{// Produce a JSON output file for people present in this frame}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00115}00115             outputManagerJSON-\/>\mbox{\hyperlink{classOutputManagerJSON_a5e38880053af77de3de66925209ca5eb}{createJSON}}(people, colorImage, distanceImage, skeletonOnlyImage, currentImageID, outputFolder, skeletonThreshold);}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00116}00116             }
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00117}00117             \textcolor{comment}{// Show images and save them. Note: Comment following line for better performance}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00118}00118             imageManager-\/>\mbox{\hyperlink{classImageManager_a0d1b8bf95333d94fe2842937e5ef818c}{showImages}}( \{ skeletonOnlyImage, colorImage \}, \{ \textcolor{stringliteral}{"{}Frame Skeleton Background Cut"{}}, \textcolor{stringliteral}{"{}Frame Skeleton"{}} \} );}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00119}00119             skeletonOnlyImagePath << imagesFolder << \textcolor{stringliteral}{"{}sk/"{}} << currentImageID << \textcolor{stringliteral}{"{}\_sk.png"{}};}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00120}00120             skeletonImagePath << imagesFolder << \textcolor{stringliteral}{"{}skeleton/"{}} << currentImageID << \textcolor{stringliteral}{"{}\_Skeleton.png"{}};}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00121}00121             imageManager-\/>\mbox{\hyperlink{classImageManager_aeae03d66a4a45347804c4c927fa55b42}{saveImages}}( \{ colorImage, skeletonOnlyImage \}, \{ skeletonImagePath.str(), skeletonOnlyImagePath.str() \} );}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00122}00122             imageManager-\/>\mbox{\hyperlink{classImageManager_a6b448d93b315c6479590fa5afd278674}{releaseImages}}( \{ colorImage, distanceImage, colorizedDepthImage, skeletonOnlyImage \} );}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00123}00123         \}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00124}00124     \}}
+\DoxyCodeLine{\Hypertarget{OpenCV__Manager_8cpp_source_l00125}00125 \}}
+
+\end{DoxyCode}

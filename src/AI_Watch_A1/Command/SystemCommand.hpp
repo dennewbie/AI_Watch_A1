@@ -66,7 +66,7 @@ public:
 
 /**
  * The CleanCommand class is a class that implements a command to clean the build folder by deleting old files. 
- * It deletes all the images captured and computed when the current "JSONs's sending session with Kafka" 
+ * It deletes all the images captured and computed when the current "JSONs' sending session with Kafka"
  * is completed, as well as it deletes all the JSONs files produced in the meanwhile.
  * @brief The CleanCommand class is a class that implements a command to clean the build folder by deleting old files. 
  */
@@ -104,7 +104,7 @@ class MoveCommand : public SystemCommand {
 protected:
     /**
      * @brief Set the string command to moving files through the directories command.
- * @param argc pointer to argc based on what the program reads from the configuration file.
+     * @param argc pointer to argc based on what the program reads from the configuration file.
      * @param argv pointer to argv based on what the program reads from the configuration file.
      */
     void setCommand (int * argc, char *** argv) override;

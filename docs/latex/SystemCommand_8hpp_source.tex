@@ -1,0 +1,60 @@
+\hypertarget{SystemCommand_8hpp_source}{}\doxysection{System\+Command.\+hpp}
+\label{SystemCommand_8hpp_source}\index{Command/SystemCommand.hpp@{Command/SystemCommand.hpp}}
+\mbox{\hyperlink{SystemCommand_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00002}00002 \textcolor{comment}{//  SystemCommand.hpp}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00003}00003 \textcolor{comment}{//  AI Watch A1}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00004}00004 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00005}00005 \textcolor{comment}{//  Created by Denny Caruso on 23/07/22.}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00008}00008 \textcolor{comment}{// License: Apache 2.0. See LICENSE file in root directory.}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00009}00009 \textcolor{comment}{// Copyright(c) 2022. All Rights Reserved.}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00011}00011 \textcolor{preprocessor}{\#ifndef SystemCommand\_hpp}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00012}00012 \textcolor{preprocessor}{\#define SystemCommand\_hpp}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00014}00014 \textcolor{preprocessor}{\#include "{}../FacadeSingleton/FacadeSingleton.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00015}00015 \textcolor{preprocessor}{\#include <opencv2/core.hpp>}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00016}00016 \textcolor{preprocessor}{\#include <opencv2/imgcodecs.hpp>}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00017}00017 \textcolor{preprocessor}{\#include "{}../Managers/UsageManager.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00028}\mbox{\hyperlink{classSystemCommand}{00028}} \textcolor{keyword}{class }\mbox{\hyperlink{classSystemCommand}{SystemCommand}} \{}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00029}00029 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00033}\mbox{\hyperlink{classSystemCommand_abdc4fb0d069e0815759941dc72b5736d}{00033}}     std::string \mbox{\hyperlink{classSystemCommand_abdc4fb0d069e0815759941dc72b5736d}{command}};}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00034}00034 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00040}\mbox{\hyperlink{classSystemCommand_a447d02e641bb26dbdf9332fa9e55485d}{00040}}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classSystemCommand_a447d02e641bb26dbdf9332fa9e55485d}{setCommand}} (\textcolor{keywordtype}{int} * argc, \textcolor{keywordtype}{char} *** argv) = 0;}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00045}00045     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSystemCommand_a447d02e641bb26dbdf9332fa9e55485d}{setCommand}} (std::string \mbox{\hyperlink{classSystemCommand_abdc4fb0d069e0815759941dc72b5736d}{command}});}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00050}00050     std::string \mbox{\hyperlink{classSystemCommand_a4265db3249d1f004fe534b13d954e709}{getCommand}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00051}00051 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00055}\mbox{\hyperlink{classSystemCommand_aa6d16650c42a0545ec3589bbeadb36f4}{00055}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{classSystemCommand_aa6d16650c42a0545ec3589bbeadb36f4}{\string~SystemCommand}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00062}00062     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSystemCommand_aa402638083047a972e143064f1d5e8cb}{executeCommand}} (\textcolor{keywordtype}{int} * argc, \textcolor{keywordtype}{char} *** argv);}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00063}00063 \};}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00073}\mbox{\hyperlink{classCleanCommand}{00073}} \textcolor{keyword}{class }\mbox{\hyperlink{classCleanCommand}{CleanCommand}} : \textcolor{keyword}{public} \mbox{\hyperlink{classSystemCommand}{SystemCommand}} \{}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00074}00074 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00080}00080     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCleanCommand_a2703e2431abfb5175121310594462174}{setCommand}} (\textcolor{keywordtype}{int} * argc, \textcolor{keywordtype}{char} *** argv) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00081}00081 \};}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00088}\mbox{\hyperlink{classOpenPoseCommand}{00088}} \textcolor{keyword}{class }\mbox{\hyperlink{classOpenPoseCommand}{OpenPoseCommand}} : \textcolor{keyword}{public} \mbox{\hyperlink{classSystemCommand}{SystemCommand}} \{}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00089}00089 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00095}00095     \textcolor{keywordtype}{void} \mbox{\hyperlink{classOpenPoseCommand_a239d0350ccef397f907d8adc286cc136}{setCommand}} (\textcolor{keywordtype}{int} * argc, \textcolor{keywordtype}{char} *** argv) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00096}00096 \};}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00103}\mbox{\hyperlink{classMoveCommand}{00103}} \textcolor{keyword}{class }\mbox{\hyperlink{classMoveCommand}{MoveCommand}} : \textcolor{keyword}{public} \mbox{\hyperlink{classSystemCommand}{SystemCommand}} \{}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00104}00104 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00110}00110     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMoveCommand_aaeef9929e51f2bff4b4a8c652c49fc8d}{setCommand}} (\textcolor{keywordtype}{int} * argc, \textcolor{keywordtype}{char} *** argv) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00111}00111 \};}
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{SystemCommand_8hpp_source_l00113}00113 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SystemCommand\_hpp */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
