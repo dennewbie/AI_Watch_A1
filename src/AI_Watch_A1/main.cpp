@@ -186,7 +186,7 @@ int main (int argc, char ** argv) {
     float scale;
     const char * destinationKafkaTopic = "t1";
     // Optimal resolution for D435: 848x480.
-    unsigned int user_nFrame = 60, resX = 848, resY = 480;
+    unsigned int user_nFrame = 50, resX = 848, resY = 480;
     const unsigned short int framesToSkip = 5;
     const float skeletonThreshold = 0.05;
     struct rs2_intrinsics color_intrin;

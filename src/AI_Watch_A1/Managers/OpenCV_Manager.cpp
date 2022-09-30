@@ -107,13 +107,14 @@ void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame, const float skel
             cv::Mat distanceImage = cv::Mat(colorImage.rows, colorImage.cols, CV_32FC1);
             imageManager->loadImage(distanceImagePath.str(), cv::IMREAD_ANYCOLOR | cv::IMREAD_ANYDEPTH, distanceImage);
             imageManager->loadImage(colorizedDepthImagePath.str(), cv::IMREAD_COLOR, colorizedDepthImage);
+            // Note: Comment following line for better performance
             imageManager->showImages( { colorImage, colorizedDepthImage }, { "Frame No Skeleton", "Frame Colorized Depth" } );
             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
             
             // Produce a JSON output file for people present in this frame
             outputManagerJSON->createJSON(people, colorImage, distanceImage, skeletonOnlyImage, currentImageID, outputFolder, skeletonThreshold);
             
-            // Show images and save them
+            // Show images and save them. Note: Comment following line for better performance
             imageManager->showImages( { skeletonOnlyImage, colorImage }, { "Frame Skeleton Background Cut", "Frame Skeleton" } );
             skeletonOnlyImagePath << imagesFolder << "sk/" << currentImageID << "_sk.png";
             skeletonImagePath << imagesFolder << "skeleton/" << currentImageID << "_Skeleton.png";
