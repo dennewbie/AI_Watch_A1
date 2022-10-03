@@ -34,7 +34,7 @@
 Note: Instructions for MacOS with Intel CPU
 
 
-1. Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies. The following guide is really helpful: [Build RealSense for macOS Monterey (Intel + Apple Silicon)](https://lightbuzz.com/realsense-macos/) is really helpful.
+1. Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies. The following guide is really helpful: [build RealSense for macOS Monterey (Intel + Apple Silicon)](https://lightbuzz.com/realsense-macos/).
 
 2. Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies.
 
