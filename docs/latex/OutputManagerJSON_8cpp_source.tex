@@ -22,7 +22,7 @@
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00018}00018     }
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00019}00019     \textcolor{comment}{// For each OpenPose's skeleton body joint point}}
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00020}00020     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < skeletonPoints3D.size(); i++) \{}
-\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00021}00021         \textcolor{keywordflow}{if} (i >= 24) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00021}00021         \textcolor{keywordflow}{if} (i > 24) \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00022}00022         Json::Value singlePoint3D\_JSON;}
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00023}00023         \textcolor{comment}{// Build JSON node for i-\/th body joint point}}
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00024}00024         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}pointID"{}}] = Json::Value((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}) i);}
@@ -34,7 +34,7 @@
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00030}00030         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}y\_rotation"{}}] = Json::Value(0.0);}
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00031}00031         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}z\_rotation"{}}] = Json::Value(0.0);}
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00032}00032         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}w\_rotation"{}}] = Json::Value(1.0);}
-\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00033}00033         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}thingId"{}}] = Json::Value(std::string(\textcolor{stringliteral}{"{}org.eclipse.ditto:camera01"{}}));}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00033}00033         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}thingId"{}}] = Json::Value(std::string(\textcolor{stringliteral}{"{}digitaltwin:Laboratorio\_Corridoio:1"{}}));}
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00034}00034         arraySkeletonPoints3D.append(singlePoint3D\_JSON);}
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00035}00035     \}}
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00036}00036 }

@@ -91,7 +91,7 @@ $(function() {
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">// For each OpenPose&#39;s skeleton body joint point</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> i = 0; i &lt; skeletonPoints3D.size(); i++) {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">if</span> (i &gt;= 24) <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">if</span> (i &gt; 24) <span class="keywordflow">continue</span>;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        Json::Value singlePoint3D_JSON;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="comment">// Build JSON node for i-th body joint point</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;pointID&quot;</span>] = Json::Value((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) i);</div>
@@ -103,7 +103,7 @@ $(function() {
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;y_rotation&quot;</span>] = Json::Value(0.0);</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;z_rotation&quot;</span>] = Json::Value(0.0);</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;w_rotation&quot;</span>] = Json::Value(1.0);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;thingId&quot;</span>] = Json::Value(std::string(<span class="stringliteral">&quot;org.eclipse.ditto:camera01&quot;</span>));</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;thingId&quot;</span>] = Json::Value(std::string(<span class="stringliteral">&quot;digitaltwin:Laboratorio_Corridoio:1&quot;</span>));</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        arraySkeletonPoints3D.append(singlePoint3D_JSON);</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
