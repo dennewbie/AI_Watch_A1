@@ -108,7 +108,7 @@
  *   The Confluent CLI requires Java version 1.8 or 1.11.
  *   See [Confluent versions interoperability](https://docs.confluent.io/current/installation/versions-interoperability.html).
  * 
- * 10) Navigate to `http://localhost:9021` and create a new topic `t1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and 
+ * 10) Navigate to `http://localhost:9021` and create a new topic `topic1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and
  *     set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file. At this point:
  *   - if internal OpenPose execution is chosen, then run the following command in your terminal:
  *  
@@ -185,7 +185,7 @@ int main (int argc, char ** argv) {
     rs2::pipeline pipelineStream;
     // Scaling factor for distance frame and topic name for kafka connection.
     float scale;
-    const char * destinationKafkaTopic = "t1";
+    const char * destinationKafkaTopic = "topic1";
     // Optimal resolution for D435: 848x480.
     unsigned int user_nFrame = 50, resX = 848, resY = 480;
     const unsigned short int framesToSkip = 5;

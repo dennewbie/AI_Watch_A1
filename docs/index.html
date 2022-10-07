@@ -125,7 +125,7 @@ Important #1 📌</h3>
 <h3><a class="anchor" id="autotoc_md1"></a>
 Important #2 📌</h3>
 <p >The Confluent CLI requires Java version 1.8 or 1.11. See <a href="https://docs.confluent.io/current/installation/versions-interoperability.html">Confluent versions interoperability</a>.</p>
-<p >10) Navigate to <code><a href="http://localhost:9021">http://localhost:9021</a></code> and create a new topic <code>t1</code> with default settings. Now go to <code>/AI_Watch_A1/src/AI_Watch_A1/</code> and set up your <a href="https://github.com/edenhill/librdkafka">Kafka</a> parameters within the <code>configuration_file.ini</code> file. At this point:</p><ul>
+<p >10) Navigate to <code><a href="http://localhost:9021">http://localhost:9021</a></code> and create a new topic <code>topic1</code> with default settings. Now go to <code>/AI_Watch_A1/src/AI_Watch_A1/</code> and set up your <a href="https://github.com/edenhill/librdkafka">Kafka</a> parameters within the <code>configuration_file.ini</code> file. At this point:</p><ul>
 <li>if internal OpenPose execution is chosen, then run the following command in your terminal:</li>
 </ul>
 <div class="fragment"><div class="line">sudo ./AI_Watch_A1.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255</div>
