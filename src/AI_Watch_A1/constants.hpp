@@ -65,7 +65,7 @@ static const short int imagesFolderOffset = 3;
 static const short int outputFolderOffset = 4;
 static const short int totalFileParameters = 5;
 
-static const short int openPoseBodyKeyPointsNumber = 24;
+static const short int openPoseBodyKeyPointsNumber = 25;
 
 static const bool NOT_FIRST_BOOT = false;
 static const bool FIRST_BOOT = true;

@@ -22,7 +22,7 @@
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00018}00018     }
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00019}00019     \textcolor{comment}{// For each OpenPose's skeleton body joint point}}
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00020}00020     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} i = 0; i < skeletonPoints3D.size(); i++) \{}
-\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00021}00021         \textcolor{keywordflow}{if} (i > 24) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00021}00021         \textcolor{keywordflow}{if} (i >= \mbox{\hyperlink{constants_8hpp_af63f5982d924abff2ec60f905036d8c8}{openPoseBodyKeyPointsNumber}}) \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00022}00022         Json::Value singlePoint3D\_JSON;}
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00023}00023         \textcolor{comment}{// Build JSON node for i-\/th body joint point}}
 \DoxyCodeLine{\Hypertarget{OutputManagerJSON_8cpp_source_l00024}00024         singlePoint3D\_JSON[\textcolor{stringliteral}{"{}pointID"{}}] = Json::Value((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}) i);}

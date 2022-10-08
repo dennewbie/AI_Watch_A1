@@ -18,7 +18,7 @@ Json::Value OutputManagerJSON::makeOutputString (std::vector <Point3D *> skeleto
     
     // For each OpenPose's skeleton body joint point
     for (unsigned char i = 0; i < skeletonPoints3D.size(); i++) {
-        if (i > 24) continue;
+        if (i >= openPoseBodyKeyPointsNumber) continue;
         Json::Value singlePoint3D_JSON;
         // Build JSON node for i-th body joint point
         singlePoint3D_JSON["pointID"] = Json::Value((unsigned int) i);
