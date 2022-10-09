@@ -202,33 +202,33 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="Skeleton_8hpp.html">Skeleton.hpp</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="OutputManagerJSON_8cpp_source.html#l00068">68</a> of file <a class="el" href="OutputManagerJSON_8cpp_source.html">OutputManagerJSON.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   68</span>                                                                                                                                                                                                           {</div>
-<div class="line"><span class="lineno">   69</span>    Json::Value root, peopleArray(Json::arrayValue);</div>
-<div class="line"><span class="lineno">   70</span>    std::stringstream outputJsonFilePath;</div>
-<div class="line"><span class="lineno">   71</span>    root[<span class="stringliteral">&quot;ID_Frame&quot;</span>] = nFrame;</div>
-<div class="line"><span class="lineno">   72</span> </div>
-<div class="line"><span class="lineno">   73</span>    <span class="comment">// For each OpenPose&#39;s detected skeleton </span></div>
-<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">for</span> (Json::Value::ArrayIndex i = 0; i &lt; people.size(); i++) {</div>
-<div class="line"><span class="lineno">   75</span>        Json::Value singlePerson = <a class="code hl_function" href="classOutputManagerJSON.html#ab8f239a05495e63d99ef7e783b566587">getValueAt</a>(<span class="stringliteral">&quot;pose_keypoints_2d&quot;</span>, i, people);</div>
-<div class="line"><span class="lineno">   76</span>        <a class="code hl_class" href="classSkeleton.html">Skeleton</a> singlePersonSkeleton = <a class="code hl_class" href="classSkeleton.html">Skeleton</a>(colorImage, distanceImage, skeletonOnlyImage, singlePerson);</div>
-<div class="line"><span class="lineno">   77</span>        singlePersonSkeleton.<a class="code hl_function" href="classSkeleton.html#ae0c3e5472eccf5a1781b609f51679bcb">generateSkeleton</a>();</div>
-<div class="line"><span class="lineno">   78</span>        <span class="comment">// Discard Skeleton with low consistency value</span></div>
-<div class="line"><span class="lineno">   79</span>        <span class="keywordflow">if</span> (singlePersonSkeleton.<a class="code hl_function" href="classSkeleton.html#a1770444f4e0b5dc042216ea11eb140b9">getConsistency</a>() &gt; skeletonThreshold) {</div>
-<div class="line"><span class="lineno">   80</span>            peopleArray.append(<a class="code hl_function" href="classOutputManagerJSON.html#a63603930f5b39d9b1f10e5b667e60ab8">makeOutputString</a>(* singlePersonSkeleton.<a class="code hl_function" href="classSkeleton.html#a4661b8b588d471563909ee49823536db">getSkeletonPoints3D</a>(), singlePersonSkeleton.<a class="code hl_function" href="classSkeleton.html#a79798d4999379bc7063a9fc2dabad55e">getBodyKeyPointsMap</a>(), nFrame, (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) i));</div>
-<div class="line"><span class="lineno">   81</span>        }</div>
-<div class="line"><span class="lineno">   82</span>    }</div>
-<div class="line"><span class="lineno">   83</span>    </div>
-<div class="line"><span class="lineno">   84</span>    root[<span class="stringliteral">&quot;People&quot;</span>] = peopleArray;</div>
-<div class="line"><span class="lineno">   85</span>    <a class="code hl_function" href="classOutputManager.html#a2335cc8b2252dbed78b728452deced26">OutputManager::setStringOutputData</a>(root.toStyledString());</div>
-<div class="line"><span class="lineno">   86</span>    outputJsonFilePath &lt;&lt; outputFolder &lt;&lt; <span class="stringliteral">&quot;movement/frame&quot;</span> &lt;&lt; nFrame &lt;&lt; <span class="stringliteral">&quot;_&quot;</span> &lt;&lt; <a class="code hl_variable" href="constants_8hpp.html#ad17edf12bbd3c466264f620690fda028">JSON_FILE_PATH</a>;</div>
-<div class="line"><span class="lineno">   87</span>    <a class="code hl_function" href="classOutputManagerJSON.html#a720baaccfe9269bb18f3548b9dde0f52">saveJSON</a>(std::string(outputJsonFilePath.str()));</div>
-<div class="line"><span class="lineno">   88</span>    outputJsonFilePath.str(std::string());</div>
-<div class="line"><span class="lineno">   89</span>    outputJsonFilePath.clear();</div>
-<div class="line"><span class="lineno">   90</span>}</div>
+<p class="definition">Definition at line <a class="el" href="OutputManagerJSON_8cpp_source.html#l00070">70</a> of file <a class="el" href="OutputManagerJSON_8cpp_source.html">OutputManagerJSON.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>                                                                                                                                                                                                           {</div>
+<div class="line"><span class="lineno">   71</span>    Json::Value root, peopleArray(Json::arrayValue);</div>
+<div class="line"><span class="lineno">   72</span>    std::stringstream outputJsonFilePath;</div>
+<div class="line"><span class="lineno">   73</span>    root[<span class="stringliteral">&quot;ID_Frame&quot;</span>] = nFrame;</div>
+<div class="line"><span class="lineno">   74</span> </div>
+<div class="line"><span class="lineno">   75</span>    <span class="comment">// For each OpenPose&#39;s detected skeleton </span></div>
+<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">for</span> (Json::Value::ArrayIndex i = 0; i &lt; people.size(); i++) {</div>
+<div class="line"><span class="lineno">   77</span>        Json::Value singlePerson = <a class="code hl_function" href="classOutputManagerJSON.html#ab8f239a05495e63d99ef7e783b566587">getValueAt</a>(<span class="stringliteral">&quot;pose_keypoints_2d&quot;</span>, i, people);</div>
+<div class="line"><span class="lineno">   78</span>        <a class="code hl_class" href="classSkeleton.html">Skeleton</a> singlePersonSkeleton = <a class="code hl_class" href="classSkeleton.html">Skeleton</a>(colorImage, distanceImage, skeletonOnlyImage, singlePerson);</div>
+<div class="line"><span class="lineno">   79</span>        singlePersonSkeleton.<a class="code hl_function" href="classSkeleton.html#ae0c3e5472eccf5a1781b609f51679bcb">generateSkeleton</a>();</div>
+<div class="line"><span class="lineno">   80</span>        <span class="comment">// Discard Skeleton with low consistency value</span></div>
+<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">if</span> (singlePersonSkeleton.<a class="code hl_function" href="classSkeleton.html#a1770444f4e0b5dc042216ea11eb140b9">getConsistency</a>() &gt; skeletonThreshold) {</div>
+<div class="line"><span class="lineno">   82</span>            peopleArray.append(<a class="code hl_function" href="classOutputManagerJSON.html#a63603930f5b39d9b1f10e5b667e60ab8">makeOutputString</a>(* singlePersonSkeleton.<a class="code hl_function" href="classSkeleton.html#a4661b8b588d471563909ee49823536db">getSkeletonPoints3D</a>(), singlePersonSkeleton.<a class="code hl_function" href="classSkeleton.html#a79798d4999379bc7063a9fc2dabad55e">getBodyKeyPointsMap</a>(), nFrame, (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) i));</div>
+<div class="line"><span class="lineno">   83</span>        }</div>
+<div class="line"><span class="lineno">   84</span>    }</div>
+<div class="line"><span class="lineno">   85</span>    </div>
+<div class="line"><span class="lineno">   86</span>    root[<span class="stringliteral">&quot;People&quot;</span>] = peopleArray;</div>
+<div class="line"><span class="lineno">   87</span>    <a class="code hl_function" href="classOutputManager.html#a2335cc8b2252dbed78b728452deced26">OutputManager::setStringOutputData</a>(root.toStyledString());</div>
+<div class="line"><span class="lineno">   88</span>    outputJsonFilePath &lt;&lt; outputFolder &lt;&lt; <span class="stringliteral">&quot;movement/frame&quot;</span> &lt;&lt; nFrame &lt;&lt; <span class="stringliteral">&quot;_&quot;</span> &lt;&lt; <a class="code hl_variable" href="constants_8hpp.html#ad17edf12bbd3c466264f620690fda028">JSON_FILE_PATH</a>;</div>
+<div class="line"><span class="lineno">   89</span>    <a class="code hl_function" href="classOutputManagerJSON.html#a720baaccfe9269bb18f3548b9dde0f52">saveJSON</a>(std::string(outputJsonFilePath.str()));</div>
+<div class="line"><span class="lineno">   90</span>    outputJsonFilePath.str(std::string());</div>
+<div class="line"><span class="lineno">   91</span>    outputJsonFilePath.clear();</div>
+<div class="line"><span class="lineno">   92</span>}</div>
 <div class="ttc" id="aclassOutputManagerJSON_html_a63603930f5b39d9b1f10e5b667e60ab8"><div class="ttname"><a href="classOutputManagerJSON.html#a63603930f5b39d9b1f10e5b667e60ab8">OutputManagerJSON::makeOutputString</a></div><div class="ttdeci">Json::Value makeOutputString(std::vector&lt; Point3D * &gt; skeletonPoints3D, std::vector&lt; bool &gt; bodyKeyPointsMap, unsigned int frameID, unsigned int personID) override</div><div class="ttdoc">This method is specific for saving the output in JSON format.</div><div class="ttdef"><b>Definition:</b> <a href="OutputManagerJSON_8cpp_source.html#l00015">OutputManagerJSON.cpp:15</a></div></div>
-<div class="ttc" id="aclassOutputManagerJSON_html_a720baaccfe9269bb18f3548b9dde0f52"><div class="ttname"><a href="classOutputManagerJSON.html#a720baaccfe9269bb18f3548b9dde0f52">OutputManagerJSON::saveJSON</a></div><div class="ttdeci">void saveJSON(std::string filePath)</div><div class="ttdoc">Saves content present in the &quot;stringOutputData&quot; in a JSON file. The file path where to save the file ...</div><div class="ttdef"><b>Definition:</b> <a href="OutputManagerJSON_8cpp_source.html#l00049">OutputManagerJSON.cpp:49</a></div></div>
-<div class="ttc" id="aclassOutputManagerJSON_html_ab8f239a05495e63d99ef7e783b566587"><div class="ttname"><a href="classOutputManagerJSON.html#ab8f239a05495e63d99ef7e783b566587">OutputManagerJSON::getValueAt</a></div><div class="ttdeci">Json::Value getValueAt(std::string key, Json::Value currentJSON)</div><div class="ttdoc">Utility method to get the value at a given key in a given JSON node.</div><div class="ttdef"><b>Definition:</b> <a href="OutputManagerJSON_8cpp_source.html#l00056">OutputManagerJSON.cpp:56</a></div></div>
+<div class="ttc" id="aclassOutputManagerJSON_html_a720baaccfe9269bb18f3548b9dde0f52"><div class="ttname"><a href="classOutputManagerJSON.html#a720baaccfe9269bb18f3548b9dde0f52">OutputManagerJSON::saveJSON</a></div><div class="ttdeci">void saveJSON(std::string filePath)</div><div class="ttdoc">Saves content present in the &quot;stringOutputData&quot; in a JSON file. The file path where to save the file ...</div><div class="ttdef"><b>Definition:</b> <a href="OutputManagerJSON_8cpp_source.html#l00051">OutputManagerJSON.cpp:51</a></div></div>
+<div class="ttc" id="aclassOutputManagerJSON_html_ab8f239a05495e63d99ef7e783b566587"><div class="ttname"><a href="classOutputManagerJSON.html#ab8f239a05495e63d99ef7e783b566587">OutputManagerJSON::getValueAt</a></div><div class="ttdeci">Json::Value getValueAt(std::string key, Json::Value currentJSON)</div><div class="ttdoc">Utility method to get the value at a given key in a given JSON node.</div><div class="ttdef"><b>Definition:</b> <a href="OutputManagerJSON_8cpp_source.html#l00058">OutputManagerJSON.cpp:58</a></div></div>
 <div class="ttc" id="aclassOutputManager_html_a2335cc8b2252dbed78b728452deced26"><div class="ttname"><a href="classOutputManager.html#a2335cc8b2252dbed78b728452deced26">OutputManager::setStringOutputData</a></div><div class="ttdeci">void setStringOutputData(std::string stringOutputData)</div><div class="ttdoc">Set the output file's content.</div><div class="ttdef"><b>Definition:</b> <a href="OutputManager_8cpp_source.html#l00015">OutputManager.cpp:15</a></div></div>
 <div class="ttc" id="aclassSkeleton_html"><div class="ttname"><a href="classSkeleton.html">Skeleton</a></div><div class="ttdoc">Skeleton class is used for skeleton creations and manipulations.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8hpp_source.html#l00037">Skeleton.hpp:37</a></div></div>
 <div class="ttc" id="aclassSkeleton_html_a1770444f4e0b5dc042216ea11eb140b9"><div class="ttname"><a href="classSkeleton.html#a1770444f4e0b5dc042216ea11eb140b9">Skeleton::getConsistency</a></div><div class="ttdeci">float getConsistency(void)</div><div class="ttdoc">Get the Consistency float value.</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00222">Skeleton.cpp:222</a></div></div>
@@ -237,7 +237,7 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassSkeleton_html_ae0c3e5472eccf5a1781b609f51679bcb"><div class="ttname"><a href="classSkeleton.html#ae0c3e5472eccf5a1781b609f51679bcb">Skeleton::generateSkeleton</a></div><div class="ttdeci">void generateSkeleton(void)</div><div class="ttdoc">A high-level method that abstracts all the internal structure and operations of the Skeleton class....</div><div class="ttdef"><b>Definition:</b> <a href="Skeleton_8cpp_source.html#l00203">Skeleton.cpp:203</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_ad17edf12bbd3c466264f620690fda028"><div class="ttname"><a href="constants_8hpp.html#ad17edf12bbd3c466264f620690fda028">JSON_FILE_PATH</a></div><div class="ttdeci">static const char * JSON_FILE_PATH</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00058">constants.hpp:58</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="Skeleton_8cpp_source.html#l00203">Skeleton::generateSkeleton()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00069">Skeleton::getBodyKeyPointsMap()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00222">Skeleton::getConsistency()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00218">Skeleton::getSkeletonPoints3D()</a>, <a class="el" href="OutputManagerJSON_8cpp_source.html#l00056">getValueAt()</a>, <a class="el" href="constants_8hpp_source.html#l00058">JSON_FILE_PATH</a>, <a class="el" href="OutputManagerJSON_8cpp_source.html#l00015">makeOutputString()</a>, <a class="el" href="OutputManagerJSON_8cpp_source.html#l00049">saveJSON()</a>, and <a class="el" href="OutputManager_8cpp_source.html#l00015">OutputManager::setStringOutputData()</a>.</p>
+<p class="reference">References <a class="el" href="Skeleton_8cpp_source.html#l00203">Skeleton::generateSkeleton()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00069">Skeleton::getBodyKeyPointsMap()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00222">Skeleton::getConsistency()</a>, <a class="el" href="Skeleton_8cpp_source.html#l00218">Skeleton::getSkeletonPoints3D()</a>, <a class="el" href="OutputManagerJSON_8cpp_source.html#l00058">getValueAt()</a>, <a class="el" href="constants_8hpp_source.html#l00058">JSON_FILE_PATH</a>, <a class="el" href="OutputManagerJSON_8cpp_source.html#l00015">makeOutputString()</a>, <a class="el" href="OutputManagerJSON_8cpp_source.html#l00051">saveJSON()</a>, and <a class="el" href="OutputManager_8cpp_source.html#l00015">OutputManager::setStringOutputData()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="OpenCV__Manager_8cpp_source.html#l00074">OpenCV_Manager::showSkeletonsCV()</a>.</p>
 
@@ -278,7 +278,7 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="OutputManager_8hpp_source.html#l00037">OutputManager::stringOutputData</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="OutputManagerJSON_8cpp_source.html#l00049">saveJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="OutputManagerJSON_8cpp_source.html#l00051">saveJSON()</a>.</p>
 
 </div>
 </div>
@@ -318,12 +318,12 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Json::Value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="OutputManagerJSON_8cpp_source.html#l00056">56</a> of file <a class="el" href="OutputManagerJSON_8cpp_source.html">OutputManagerJSON.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   56</span>                                                                             {</div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> currentJSON[key];</div>
-<div class="line"><span class="lineno">   58</span>}</div>
+<p class="definition">Definition at line <a class="el" href="OutputManagerJSON_8cpp_source.html#l00058">58</a> of file <a class="el" href="OutputManagerJSON_8cpp_source.html">OutputManagerJSON.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>                                                                             {</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">return</span> currentJSON[key];</div>
+<div class="line"><span class="lineno">   60</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00078">Skeleton::calcBodyKeypoints()</a>, <a class="el" href="OutputManagerJSON_8cpp_source.html#l00068">createJSON()</a>, and <a class="el" href="OpenCV__Manager_8cpp_source.html#l00074">OpenCV_Manager::showSkeletonsCV()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Skeleton_8cpp_source.html#l00078">Skeleton::calcBodyKeypoints()</a>, <a class="el" href="OutputManagerJSON_8cpp_source.html#l00070">createJSON()</a>, and <a class="el" href="OpenCV__Manager_8cpp_source.html#l00074">OpenCV_Manager::showSkeletonsCV()</a>.</p>
 
 </div>
 </div>
@@ -370,10 +370,10 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Json::Value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="OutputManagerJSON_8cpp_source.html#l00064">64</a> of file <a class="el" href="OutputManagerJSON_8cpp_source.html">OutputManagerJSON.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   64</span>                                                                                             {</div>
-<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">return</span> (currentJSON[i])[key];</div>
-<div class="line"><span class="lineno">   66</span>}</div>
+<p class="definition">Definition at line <a class="el" href="OutputManagerJSON_8cpp_source.html#l00066">66</a> of file <a class="el" href="OutputManagerJSON_8cpp_source.html">OutputManagerJSON.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   66</span>                                                                                             {</div>
+<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">return</span> (currentJSON[i])[key];</div>
+<div class="line"><span class="lineno">   68</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -413,10 +413,10 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Json::Value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="OutputManagerJSON_8cpp_source.html#l00060">60</a> of file <a class="el" href="OutputManagerJSON_8cpp_source.html">OutputManagerJSON.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   60</span>                                                                              {</div>
-<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">return</span> currentJSON[i];</div>
-<div class="line"><span class="lineno">   62</span>}</div>
+<p class="definition">Definition at line <a class="el" href="OutputManagerJSON_8cpp_source.html#l00062">62</a> of file <a class="el" href="OutputManagerJSON_8cpp_source.html">OutputManagerJSON.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>                                                                              {</div>
+<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">return</span> currentJSON[i];</div>
+<div class="line"><span class="lineno">   64</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -458,12 +458,12 @@ Private Attributes</h2></td></tr>
 <dd>
 false if the file-loading does not end correctly. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="OutputManagerJSON_8cpp_source.html#l00043">43</a> of file <a class="el" href="OutputManagerJSON_8cpp_source.html">OutputManagerJSON.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   43</span>                                                                                 {</div>
-<div class="line"><span class="lineno">   44</span>    Json::Reader readerJSON;</div>
-<div class="line"><span class="lineno">   45</span>    std::ifstream streamJSON(filePathJSON.c_str(), std::ifstream::binary);</div>
-<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">return</span> readerJSON.parse(streamJSON, currentJSON, <span class="keyword">false</span>);</div>
-<div class="line"><span class="lineno">   47</span>}</div>
+<p class="definition">Definition at line <a class="el" href="OutputManagerJSON_8cpp_source.html#l00045">45</a> of file <a class="el" href="OutputManagerJSON_8cpp_source.html">OutputManagerJSON.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   45</span>                                                                                 {</div>
+<div class="line"><span class="lineno">   46</span>    Json::Reader readerJSON;</div>
+<div class="line"><span class="lineno">   47</span>    std::ifstream streamJSON(filePathJSON.c_str(), std::ifstream::binary);</div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">return</span> readerJSON.parse(streamJSON, currentJSON, <span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">   49</span>}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="FacadeSingleton_8cpp_source.html#l00149">FacadeSingleton::sendData()</a>, and <a class="el" href="OpenCV__Manager_8cpp_source.html#l00074">OpenCV_Manager::showSkeletonsCV()</a>.</p>
 
@@ -537,32 +537,34 @@ false if the file-loading does not end correctly. </dd></dl>
 <div class="line"><span class="lineno">   19</span>    <span class="comment">// For each OpenPose&#39;s skeleton body joint point</span></div>
 <div class="line"><span class="lineno">   20</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> i = 0; i &lt; skeletonPoints3D.size(); i++) {</div>
 <div class="line"><span class="lineno">   21</span>        <span class="keywordflow">if</span> (i &gt;= <a class="code hl_variable" href="constants_8hpp.html#af63f5982d924abff2ec60f905036d8c8">openPoseBodyKeyPointsNumber</a>) <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">   22</span>        Json::Value singlePoint3D_JSON;</div>
-<div class="line"><span class="lineno">   23</span>        <span class="comment">// Build JSON node for i-th body joint point</span></div>
-<div class="line"><span class="lineno">   24</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;pointID&quot;</span>] = Json::Value((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) i);</div>
-<div class="line"><span class="lineno">   25</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;confidence&quot;</span>] = Json::Value(((<a class="code hl_class" href="classBodyKeyPoint.html">BodyKeyPoint</a> *) skeletonPoints3D.at(i)-&gt;getDecorated())-&gt;getConfidence());</div>
-<div class="line"><span class="lineno">   26</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;x&quot;</span>] = Json::Value((<span class="keywordtype">double</span>) skeletonPoints3D.at(i)-&gt;getZ());</div>
-<div class="line"><span class="lineno">   27</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;y&quot;</span>] = Json::Value((<span class="keywordtype">double</span>) skeletonPoints3D.at(i)-&gt;getY());</div>
-<div class="line"><span class="lineno">   28</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;z&quot;</span>] = Json::Value((<span class="keywordtype">double</span>) skeletonPoints3D.at(i)-&gt;getX());</div>
-<div class="line"><span class="lineno">   29</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;x_rotation&quot;</span>] = Json::Value(0.0);</div>
-<div class="line"><span class="lineno">   30</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;y_rotation&quot;</span>] = Json::Value(0.0);</div>
-<div class="line"><span class="lineno">   31</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;z_rotation&quot;</span>] = Json::Value(0.0);</div>
-<div class="line"><span class="lineno">   32</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;w_rotation&quot;</span>] = Json::Value(1.0);</div>
-<div class="line"><span class="lineno">   33</span>        singlePoint3D_JSON[<span class="stringliteral">&quot;thingId&quot;</span>] = Json::Value(std::string(<span class="stringliteral">&quot;digitaltwin:Laboratorio_Corridoio:1&quot;</span>));</div>
-<div class="line"><span class="lineno">   34</span>        arraySkeletonPoints3D.append(singlePoint3D_JSON);</div>
-<div class="line"><span class="lineno">   35</span>    }</div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>    root[<span class="stringliteral">&quot;personID&quot;</span>] = Json::Value((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) personID);</div>
-<div class="line"><span class="lineno">   38</span>    root[<span class="stringliteral">&quot;skeleton&quot;</span>] = arraySkeletonPoints3D;</div>
-<div class="line"><span class="lineno">   39</span>    <a class="code hl_function" href="classOutputManager.html#a2335cc8b2252dbed78b728452deced26">OutputManager::setStringOutputData</a>(root.toStyledString());</div>
-<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">return</span> root;</div>
-<div class="line"><span class="lineno">   41</span>}</div>
+<div class="line"><span class="lineno">   22</span><span class="comment">//        if (i == 8) {</span></div>
+<div class="line"><span class="lineno">   23</span>            Json::Value singlePoint3D_JSON;</div>
+<div class="line"><span class="lineno">   24</span>            <span class="comment">// Build JSON node for i-th body joint point</span></div>
+<div class="line"><span class="lineno">   25</span>            singlePoint3D_JSON[<span class="stringliteral">&quot;pointID&quot;</span>] = Json::Value((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) i);</div>
+<div class="line"><span class="lineno">   26</span>            singlePoint3D_JSON[<span class="stringliteral">&quot;confidence&quot;</span>] = Json::Value(((<a class="code hl_class" href="classBodyKeyPoint.html">BodyKeyPoint</a> *) skeletonPoints3D.at(i)-&gt;getDecorated())-&gt;getConfidence());</div>
+<div class="line"><span class="lineno">   27</span>            singlePoint3D_JSON[<span class="stringliteral">&quot;x&quot;</span>] = Json::Value((<span class="keywordtype">double</span>) skeletonPoints3D.at(i)-&gt;getZ());</div>
+<div class="line"><span class="lineno">   28</span>            singlePoint3D_JSON[<span class="stringliteral">&quot;y&quot;</span>] = Json::Value((<span class="keywordtype">double</span>) skeletonPoints3D.at(i)-&gt;getY());</div>
+<div class="line"><span class="lineno">   29</span>            singlePoint3D_JSON[<span class="stringliteral">&quot;z&quot;</span>] = Json::Value((<span class="keywordtype">double</span>) skeletonPoints3D.at(i)-&gt;getX());</div>
+<div class="line"><span class="lineno">   30</span>            singlePoint3D_JSON[<span class="stringliteral">&quot;x_rotation&quot;</span>] = Json::Value(0.0);</div>
+<div class="line"><span class="lineno">   31</span>            singlePoint3D_JSON[<span class="stringliteral">&quot;y_rotation&quot;</span>] = Json::Value(0.0);</div>
+<div class="line"><span class="lineno">   32</span>            singlePoint3D_JSON[<span class="stringliteral">&quot;z_rotation&quot;</span>] = Json::Value(0.0);</div>
+<div class="line"><span class="lineno">   33</span>            singlePoint3D_JSON[<span class="stringliteral">&quot;w_rotation&quot;</span>] = Json::Value(1.0);</div>
+<div class="line"><span class="lineno">   34</span>            singlePoint3D_JSON[<span class="stringliteral">&quot;thingId&quot;</span>] = Json::Value(std::string(<span class="stringliteral">&quot;digitaltwin:Laboratorio_Corridoio:1&quot;</span>));</div>
+<div class="line"><span class="lineno">   35</span>            arraySkeletonPoints3D.append(singlePoint3D_JSON);</div>
+<div class="line"><span class="lineno">   36</span><span class="comment">//        }</span></div>
+<div class="line"><span class="lineno">   37</span>    }</div>
+<div class="line"><span class="lineno">   38</span> </div>
+<div class="line"><span class="lineno">   39</span>    root[<span class="stringliteral">&quot;personID&quot;</span>] = Json::Value((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) personID);</div>
+<div class="line"><span class="lineno">   40</span>    root[<span class="stringliteral">&quot;skeleton&quot;</span>] = arraySkeletonPoints3D;</div>
+<div class="line"><span class="lineno">   41</span>    <a class="code hl_function" href="classOutputManager.html#a2335cc8b2252dbed78b728452deced26">OutputManager::setStringOutputData</a>(root.toStyledString());</div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">return</span> root;</div>
+<div class="line"><span class="lineno">   43</span>}</div>
 <div class="ttc" id="aclassBodyKeyPoint_html"><div class="ttname"><a href="classBodyKeyPoint.html">BodyKeyPoint</a></div><div class="ttdoc">BodyKeyPoint class is used for body keypoint creations and manipulations.</div><div class="ttdef"><b>Definition:</b> <a href="BodyKeyPoint_8hpp_source.html#l00024">BodyKeyPoint.hpp:24</a></div></div>
 <div class="ttc" id="aconstants_8hpp_html_af63f5982d924abff2ec60f905036d8c8"><div class="ttname"><a href="constants_8hpp.html#af63f5982d924abff2ec60f905036d8c8">openPoseBodyKeyPointsNumber</a></div><div class="ttdeci">static const short int openPoseBodyKeyPointsNumber</div><div class="ttdef"><b>Definition:</b> <a href="constants_8hpp_source.html#l00068">constants.hpp:68</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="constants_8hpp_source.html#l00068">openPoseBodyKeyPointsNumber</a>, and <a class="el" href="OutputManager_8cpp_source.html#l00015">OutputManager::setStringOutputData()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="OutputManagerJSON_8cpp_source.html#l00068">createJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="OutputManagerJSON_8cpp_source.html#l00070">createJSON()</a>.</p>
 
 </div>
 </div>
@@ -590,18 +592,18 @@ false if the file-loading does not end correctly. </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="OutputManagerJSON_8cpp_source.html#l00049">49</a> of file <a class="el" href="OutputManagerJSON_8cpp_source.html">OutputManagerJSON.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   49</span>                                                    {</div>
-<div class="line"><span class="lineno">   50</span>    Json::StyledStreamWriter writer;</div>
-<div class="line"><span class="lineno">   51</span>    std::ofstream outputFile(filePath);</div>
-<div class="line"><span class="lineno">   52</span>    outputFile &lt;&lt; <a class="code hl_function" href="classOutputManager.html#a66991ea844cee883d6538a8a3aedb731">OutputManager::getStringOutputData</a>();</div>
-<div class="line"><span class="lineno">   53</span>    outputFile.close();</div>
-<div class="line"><span class="lineno">   54</span>}</div>
+<p class="definition">Definition at line <a class="el" href="OutputManagerJSON_8cpp_source.html#l00051">51</a> of file <a class="el" href="OutputManagerJSON_8cpp_source.html">OutputManagerJSON.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   51</span>                                                    {</div>
+<div class="line"><span class="lineno">   52</span>    Json::StyledStreamWriter writer;</div>
+<div class="line"><span class="lineno">   53</span>    std::ofstream outputFile(filePath);</div>
+<div class="line"><span class="lineno">   54</span>    outputFile &lt;&lt; <a class="code hl_function" href="classOutputManager.html#a66991ea844cee883d6538a8a3aedb731">OutputManager::getStringOutputData</a>();</div>
+<div class="line"><span class="lineno">   55</span>    outputFile.close();</div>
+<div class="line"><span class="lineno">   56</span>}</div>
 <div class="ttc" id="aclassOutputManager_html_a66991ea844cee883d6538a8a3aedb731"><div class="ttname"><a href="classOutputManager.html#a66991ea844cee883d6538a8a3aedb731">OutputManager::getStringOutputData</a></div><div class="ttdeci">std::string getStringOutputData(void)</div><div class="ttdoc">Get the output file's content.</div><div class="ttdef"><b>Definition:</b> <a href="OutputManager_8cpp_source.html#l00019">OutputManager.cpp:19</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="OutputManager_8cpp_source.html#l00019">OutputManager::getStringOutputData()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="OutputManagerJSON_8cpp_source.html#l00068">createJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="OutputManagerJSON_8cpp_source.html#l00070">createJSON()</a>.</p>
 
 </div>
 </div>
@@ -644,7 +646,7 @@ false if the file-loading does not end correctly. </dd></dl>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="OutputManager_8hpp_source.html#l00037">OutputManager::stringOutputData</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="OutputManagerJSON_8cpp_source.html#l00068">createJSON()</a>, and <a class="el" href="OutputManagerJSON_8cpp_source.html#l00015">makeOutputString()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="OutputManagerJSON_8cpp_source.html#l00070">createJSON()</a>, and <a class="el" href="OutputManagerJSON_8cpp_source.html#l00015">makeOutputString()</a>.</p>
 
 </div>
 </div>

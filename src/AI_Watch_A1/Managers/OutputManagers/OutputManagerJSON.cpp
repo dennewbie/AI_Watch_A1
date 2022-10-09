@@ -19,19 +19,21 @@ Json::Value OutputManagerJSON::makeOutputString (std::vector <Point3D *> skeleto
     // For each OpenPose's skeleton body joint point
     for (unsigned char i = 0; i < skeletonPoints3D.size(); i++) {
         if (i >= openPoseBodyKeyPointsNumber) continue;
-        Json::Value singlePoint3D_JSON;
-        // Build JSON node for i-th body joint point
-        singlePoint3D_JSON["pointID"] = Json::Value((unsigned int) i);
-        singlePoint3D_JSON["confidence"] = Json::Value(((BodyKeyPoint *) skeletonPoints3D.at(i)->getDecorated())->getConfidence());
-        singlePoint3D_JSON["x"] = Json::Value((double) skeletonPoints3D.at(i)->getZ());
-        singlePoint3D_JSON["y"] = Json::Value((double) skeletonPoints3D.at(i)->getY());
-        singlePoint3D_JSON["z"] = Json::Value((double) skeletonPoints3D.at(i)->getX());
-        singlePoint3D_JSON["x_rotation"] = Json::Value(0.0);
-        singlePoint3D_JSON["y_rotation"] = Json::Value(0.0);
-        singlePoint3D_JSON["z_rotation"] = Json::Value(0.0);
-        singlePoint3D_JSON["w_rotation"] = Json::Value(1.0);
-        singlePoint3D_JSON["thingId"] = Json::Value(std::string("digitaltwin:Laboratorio_Corridoio:1"));
-        arraySkeletonPoints3D.append(singlePoint3D_JSON);
+//        if (i == 8) {
+            Json::Value singlePoint3D_JSON;
+            // Build JSON node for i-th body joint point
+            singlePoint3D_JSON["pointID"] = Json::Value((unsigned int) i);
+            singlePoint3D_JSON["confidence"] = Json::Value(((BodyKeyPoint *) skeletonPoints3D.at(i)->getDecorated())->getConfidence());
+            singlePoint3D_JSON["x"] = Json::Value((double) skeletonPoints3D.at(i)->getZ());
+            singlePoint3D_JSON["y"] = Json::Value((double) skeletonPoints3D.at(i)->getY());
+            singlePoint3D_JSON["z"] = Json::Value((double) skeletonPoints3D.at(i)->getX());
+            singlePoint3D_JSON["x_rotation"] = Json::Value(0.0);
+            singlePoint3D_JSON["y_rotation"] = Json::Value(0.0);
+            singlePoint3D_JSON["z_rotation"] = Json::Value(0.0);
+            singlePoint3D_JSON["w_rotation"] = Json::Value(1.0);
+            singlePoint3D_JSON["thingId"] = Json::Value(std::string("digitaltwin:Laboratorio_Corridoio:1"));
+            arraySkeletonPoints3D.append(singlePoint3D_JSON);
+//        }
     }
 
     root["personID"] = Json::Value((unsigned int) personID);

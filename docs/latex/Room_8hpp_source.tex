@@ -16,64 +16,103 @@
 \DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00012}00012 \textcolor{preprocessor}{\#define Room\_hpp}}
 \DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00013}00013 }
 \DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00014}00014 }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00020}\mbox{\hyperlink{classRoom}{00020}} \textcolor{keyword}{class }\mbox{\hyperlink{classRoom}{Room}} \{}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00021}00021 \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00025}\mbox{\hyperlink{classRoom_a95c5b57b10ac9b291085e1a6315b819b}{00025}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a95c5b57b10ac9b291085e1a6315b819b}{\_minWidth}};}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00029}\mbox{\hyperlink{classRoom_ae4e7b37ed56aec2ae948a099ac1eeed6}{00029}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ae4e7b37ed56aec2ae948a099ac1eeed6}{\_maxWidth}};}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00033}\mbox{\hyperlink{classRoom_a477bf016b9eae1282aa81a0c32bdb144}{00033}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a477bf016b9eae1282aa81a0c32bdb144}{\_minHeight}};}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00037}\mbox{\hyperlink{classRoom_aa964fde297fa4244439b08145fae7f50}{00037}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_aa964fde297fa4244439b08145fae7f50}{\_maxHeight}};}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00038}00038 }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00042}\mbox{\hyperlink{classRoom_a064a170976bb6864a3042ad56bfe5425}{00042}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a064a170976bb6864a3042ad56bfe5425}{\_minWidthRS}};}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00046}\mbox{\hyperlink{classRoom_aa6288ec50ebe6ac6444c5d69bbfedca6}{00046}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_aa6288ec50ebe6ac6444c5d69bbfedca6}{\_maxWidthRS}};}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00050}\mbox{\hyperlink{classRoom_aee1374a09690557084add294f3503519}{00050}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_aee1374a09690557084add294f3503519}{\_minHeightRS}};}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00054}\mbox{\hyperlink{classRoom_a97445d3806f6858a16fce72e29868c26}{00054}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a97445d3806f6858a16fce72e29868c26}{\_maxHeightRS}};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00016}00016 \textcolor{comment}{// CVPR Lab's Measurements Renato Esposito 06/22}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00017}\mbox{\hyperlink{Room_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{00017}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{minWidth}} = 0; \textcolor{comment}{// |x<-\/-\/-\/-\/      |}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00018}\mbox{\hyperlink{Room_8hpp_aa8ec0caafe499a74f4989eae1b243a21}{00018}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_aa8ec0caafe499a74f4989eae1b243a21}{maxWidth}} = 5.271; \textcolor{comment}{//  |      -\/-\/-\/-\/>x|}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00019}\mbox{\hyperlink{Room_8hpp_a7a882e3c4c3b228cee91a5f3f3db70dc}{00019}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a7a882e3c4c3b228cee91a5f3f3db70dc}{minHeight}} = 0.0;}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00020}\mbox{\hyperlink{Room_8hpp_ab53ce0f881e099671d39cbeb0ad9da36}{00020}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_ab53ce0f881e099671d39cbeb0ad9da36}{maxHeight}} = 3.0;}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00022}\mbox{\hyperlink{Room_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{00022}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}} = -\/3.5; \textcolor{comment}{// |x<-\/-\/-\/-\/      |}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00023}\mbox{\hyperlink{Room_8hpp_a1454c0812b7f5ea224708b049da3b923}{00023}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a1454c0812b7f5ea224708b049da3b923}{maxWidthRS}} = 3.5; \textcolor{comment}{//  |      -\/-\/-\/-\/>x|}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00024}\mbox{\hyperlink{Room_8hpp_a6fe1a44c4af83e2519071a37be532562}{00024}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a6fe1a44c4af83e2519071a37be532562}{minHeightRS}} = -\/1.0;}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00025}\mbox{\hyperlink{Room_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{00025}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{maxHeightRS}} = 1.0;}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00027}\mbox{\hyperlink{Room_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{00027}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{xOriginUnity}} = -\/26.89;}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00028}\mbox{\hyperlink{Room_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{00028}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{zOriginUnity}} = -\/3.842;}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00030}\mbox{\hyperlink{Room_8hpp_a00219f81f56add6161ea4fe55851c988}{00030}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}} = 0.45;}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00031}\mbox{\hyperlink{Room_8hpp_a988c9ac0a2c7da8c9b8c0f66833cc89a}{00031}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a988c9ac0a2c7da8c9b8c0f66833cc89a}{heightOffset}} = 0.15;}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00035}00035 \textcolor{comment}{// CVPR Lab's Measurements Denny Caruso 09/22}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00036}00036 \textcolor{comment}{//static const float minWidth = 0; // |x<-\/-\/-\/-\/      |}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00037}00037 \textcolor{comment}{//static const float maxWidth = 6.03; //  |      -\/-\/-\/-\/>x|}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00038}00038 \textcolor{comment}{//static const float minHeight = 0.0;}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00039}00039 \textcolor{comment}{//static const float maxHeight = 2.89;}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00040}00040 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00041}00041 \textcolor{comment}{//static const float minWidthRS = -\/3.5; // |x<-\/-\/-\/-\/      |}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00042}00042 \textcolor{comment}{//static const float maxWidthRS = 3.5; //  |      -\/-\/-\/-\/>x|}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00045}00045 \textcolor{comment}{}\textcolor{comment}{//static const float minHeightRS = -\/1.0;}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00046}00046 \textcolor{comment}{//static const float maxHeightRS = 1.0;}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00047}00047 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00048}00048 \textcolor{comment}{//static const float xOriginUnity = -\/26.89;}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00049}00049 \textcolor{comment}{//static const float zOriginUnity = -\/3.842;}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00050}00050 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00051}00051 \textcolor{comment}{//static const float distanceCameraFromBackWall = 0.45;}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00052}00052 \textcolor{comment}{//static const float heightOffset = 0.15;}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00054}00054 }
 \DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00055}00055 }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00059}\mbox{\hyperlink{classRoom_af450a5d54eab1cafc6d92443bb6e6f95}{00059}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_af450a5d54eab1cafc6d92443bb6e6f95}{\_xOriginUnity}};}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00063}\mbox{\hyperlink{classRoom_ad59bae501f3f3e7bfdd15d6a00d18854}{00063}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ad59bae501f3f3e7bfdd15d6a00d18854}{\_zOriginUnity}};}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00064}00064 }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00068}\mbox{\hyperlink{classRoom_a5c46687f2f87e9fc7bd850435b672b4b}{00068}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a5c46687f2f87e9fc7bd850435b672b4b}{\_distanceCameraFromBackWall}};}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00073}\mbox{\hyperlink{classRoom_a3c6c7e69cf800aa782fd0848daba9885}{00073}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a3c6c7e69cf800aa782fd0848daba9885}{\_heightOffset}};}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00074}00074     }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00075}00075 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00080}00080     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a6ba45569908da215686d160aead940cc}{setMinWidth}}        (\textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{minWidth}});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00085}00085     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a310dac7a3864ff70739156ea534334f3}{setMaxWidth}}        (\textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_aa8ec0caafe499a74f4989eae1b243a21}{maxWidth}});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00090}00090     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_aff47953b8df1b0b32207c7d797ef4405}{setMinHeight}}       (\textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a7a882e3c4c3b228cee91a5f3f3db70dc}{minHeight}});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00095}00095     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a4a4083706056546cdc1a22b237bc1fe7}{setMaxHeight}}       (\textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_ab53ce0f881e099671d39cbeb0ad9da36}{maxHeight}});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00096}00096     }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00101}00101     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_aa11d80abd269bd193ab05996e6438f85}{setMinWidthRS}}      (\textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00106}00106     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a6273db5c2bf4a3ead21ecd0e66003fe6}{setMaxWidthRS}}      (\textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a1454c0812b7f5ea224708b049da3b923}{maxWidthRS}});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00111}00111     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a95009d38b53f71fb8017cf31342d638c}{setMinHeightRS}}     (\textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a6fe1a44c4af83e2519071a37be532562}{minHeightRS}});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00116}00116     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a95e1c7fd5ef259f70df743f0ad418b82}{setMaxHeightRS}}     (\textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{maxHeightRS}});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00117}00117     }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00122}00122     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_ad16614c2493d274612790f012c667586}{setXOriginUnity}}    (\textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{xOriginUnity}});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00127}00127     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_ae510eb3a2607b59e64df2d9e31bae2f1}{setZOriginUnity}}    (\textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{zOriginUnity}});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00128}00128     }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00133}00133     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_ad0ab2b0d30bfb2dee3c2faf5bab1b688}{setDistanceCameraFromBackWall}}  (\textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00139}00139     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a9ab2ecdc55242440c587d5f663245dbf}{setHeightOffset}}                (\textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a988c9ac0a2c7da8c9b8c0f66833cc89a}{heightOffset}});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00140}00140 }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00141}00141 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00158}00158     \mbox{\hyperlink{classRoom_ac631b03c0bc78baf63a48a4111a6ca66}{Room}} (\textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{minWidth}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_aa8ec0caafe499a74f4989eae1b243a21}{maxWidth}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a7a882e3c4c3b228cee91a5f3f3db70dc}{minHeight}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_ab53ce0f881e099671d39cbeb0ad9da36}{maxHeight}},}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00159}00159           \textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a1454c0812b7f5ea224708b049da3b923}{maxWidthRS}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a6fe1a44c4af83e2519071a37be532562}{minHeightRS}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{maxHeightRS}},}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00160}00160           \textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{xOriginUnity}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{zOriginUnity}},}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00161}00161           \textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{CVPR__Lab_8hpp_a988c9ac0a2c7da8c9b8c0f66833cc89a}{heightOffset}});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00162}00162     }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00167}00167     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a54ce4fbb5fabe5c206abb2d2c02e9ab6}{getMinWidth}}       (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00172}00172     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ae97c82d29b0d26d70df141eeae2435bf}{getMaxWidth}}       (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00177}00177     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a1517ccae849c47d7600b261b6cdd93e8}{getMinHeight}}      (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00182}00182     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ae5bb2c476119694129f50be36d4093e6}{getMaxHeight}}      (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00183}00183     }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00188}00188     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_afbca768640c1e7e8228d78ae2e3c18e6}{getMinWidthRS}}     (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00193}00193     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a14e9a3defd71fc3b79ea52659bdf4155}{getMaxWidthRS}}     (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00198}00198     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a21ed13dd01d25b868635393f6802cb73}{getMinHeightRS}}    (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00203}00203     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a2dcc632674acc7f025962172eb45d1f6}{getMaxHeightRS}}    (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00204}00204     }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00209}00209     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ab490df2985a1fb148132f63f54e52e10}{getXOriginUnity}}   (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00214}00214     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ae74a51d79a59f68d0e5487e1c5ccd866}{getZOriginUnity}}   (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00215}00215     }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00220}00220     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a6f5548e973484293cfda939ca02d4b1e}{getDistanceCameraFromBackWall}} (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00225}00225     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_aa177d1f721f5985ff5032e9b3ad1bf32}{getHeightOffset}}               (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00226}00226 \};}
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00227}00227 }
-\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00228}00228 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* Room\_hpp */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00061}\mbox{\hyperlink{classRoom}{00061}} \textcolor{keyword}{class }\mbox{\hyperlink{classRoom}{Room}} \{}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00062}00062 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00066}\mbox{\hyperlink{classRoom_a95c5b57b10ac9b291085e1a6315b819b}{00066}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a95c5b57b10ac9b291085e1a6315b819b}{\_minWidth}};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00070}\mbox{\hyperlink{classRoom_ae4e7b37ed56aec2ae948a099ac1eeed6}{00070}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ae4e7b37ed56aec2ae948a099ac1eeed6}{\_maxWidth}};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00074}\mbox{\hyperlink{classRoom_a477bf016b9eae1282aa81a0c32bdb144}{00074}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a477bf016b9eae1282aa81a0c32bdb144}{\_minHeight}};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00078}\mbox{\hyperlink{classRoom_aa964fde297fa4244439b08145fae7f50}{00078}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_aa964fde297fa4244439b08145fae7f50}{\_maxHeight}};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00083}\mbox{\hyperlink{classRoom_a064a170976bb6864a3042ad56bfe5425}{00083}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a064a170976bb6864a3042ad56bfe5425}{\_minWidthRS}};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00087}\mbox{\hyperlink{classRoom_aa6288ec50ebe6ac6444c5d69bbfedca6}{00087}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_aa6288ec50ebe6ac6444c5d69bbfedca6}{\_maxWidthRS}};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00091}\mbox{\hyperlink{classRoom_aee1374a09690557084add294f3503519}{00091}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_aee1374a09690557084add294f3503519}{\_minHeightRS}};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00095}\mbox{\hyperlink{classRoom_a97445d3806f6858a16fce72e29868c26}{00095}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a97445d3806f6858a16fce72e29868c26}{\_maxHeightRS}};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00100}\mbox{\hyperlink{classRoom_af450a5d54eab1cafc6d92443bb6e6f95}{00100}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_af450a5d54eab1cafc6d92443bb6e6f95}{\_xOriginUnity}};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00104}\mbox{\hyperlink{classRoom_ad59bae501f3f3e7bfdd15d6a00d18854}{00104}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ad59bae501f3f3e7bfdd15d6a00d18854}{\_zOriginUnity}};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00109}\mbox{\hyperlink{classRoom_a5c46687f2f87e9fc7bd850435b672b4b}{00109}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a5c46687f2f87e9fc7bd850435b672b4b}{\_distanceCameraFromBackWall}};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00114}\mbox{\hyperlink{classRoom_a3c6c7e69cf800aa782fd0848daba9885}{00114}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a3c6c7e69cf800aa782fd0848daba9885}{\_heightOffset}};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00115}00115     }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00116}00116 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00121}00121     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a6ba45569908da215686d160aead940cc}{setMinWidth}}        (\textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{minWidth}});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00126}00126     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a310dac7a3864ff70739156ea534334f3}{setMaxWidth}}        (\textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_aa8ec0caafe499a74f4989eae1b243a21}{maxWidth}});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00131}00131     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_aff47953b8df1b0b32207c7d797ef4405}{setMinHeight}}       (\textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a7a882e3c4c3b228cee91a5f3f3db70dc}{minHeight}});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00136}00136     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a4a4083706056546cdc1a22b237bc1fe7}{setMaxHeight}}       (\textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_ab53ce0f881e099671d39cbeb0ad9da36}{maxHeight}});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00137}00137     }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00142}00142     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_aa11d80abd269bd193ab05996e6438f85}{setMinWidthRS}}      (\textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00147}00147     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a6273db5c2bf4a3ead21ecd0e66003fe6}{setMaxWidthRS}}      (\textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a1454c0812b7f5ea224708b049da3b923}{maxWidthRS}});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00152}00152     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a95009d38b53f71fb8017cf31342d638c}{setMinHeightRS}}     (\textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a6fe1a44c4af83e2519071a37be532562}{minHeightRS}});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00157}00157     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a95e1c7fd5ef259f70df743f0ad418b82}{setMaxHeightRS}}     (\textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{maxHeightRS}});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00158}00158     }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00163}00163     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_ad16614c2493d274612790f012c667586}{setXOriginUnity}}    (\textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{xOriginUnity}});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00168}00168     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_ae510eb3a2607b59e64df2d9e31bae2f1}{setZOriginUnity}}    (\textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{zOriginUnity}});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00169}00169     }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00174}00174     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_ad0ab2b0d30bfb2dee3c2faf5bab1b688}{setDistanceCameraFromBackWall}}  (\textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00180}00180     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a9ab2ecdc55242440c587d5f663245dbf}{setHeightOffset}}                (\textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a988c9ac0a2c7da8c9b8c0f66833cc89a}{heightOffset}});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00181}00181 }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00182}00182 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00199}00199     \mbox{\hyperlink{classRoom_ac631b03c0bc78baf63a48a4111a6ca66}{Room}} (\textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{minWidth}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_aa8ec0caafe499a74f4989eae1b243a21}{maxWidth}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a7a882e3c4c3b228cee91a5f3f3db70dc}{minHeight}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_ab53ce0f881e099671d39cbeb0ad9da36}{maxHeight}},}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00200}00200           \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a1454c0812b7f5ea224708b049da3b923}{maxWidthRS}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a6fe1a44c4af83e2519071a37be532562}{minHeightRS}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{maxHeightRS}},}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00201}00201           \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{xOriginUnity}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{zOriginUnity}},}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00202}00202           \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{Room_8hpp_a988c9ac0a2c7da8c9b8c0f66833cc89a}{heightOffset}});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00203}00203     }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00208}00208     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a54ce4fbb5fabe5c206abb2d2c02e9ab6}{getMinWidth}}       (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00213}00213     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ae97c82d29b0d26d70df141eeae2435bf}{getMaxWidth}}       (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00218}00218     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a1517ccae849c47d7600b261b6cdd93e8}{getMinHeight}}      (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00223}00223     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ae5bb2c476119694129f50be36d4093e6}{getMaxHeight}}      (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00224}00224     }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00229}00229     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_afbca768640c1e7e8228d78ae2e3c18e6}{getMinWidthRS}}     (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00234}00234     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a14e9a3defd71fc3b79ea52659bdf4155}{getMaxWidthRS}}     (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00239}00239     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a21ed13dd01d25b868635393f6802cb73}{getMinHeightRS}}    (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00244}00244     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a2dcc632674acc7f025962172eb45d1f6}{getMaxHeightRS}}    (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00245}00245     }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00250}00250     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ab490df2985a1fb148132f63f54e52e10}{getXOriginUnity}}   (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00255}00255     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ae74a51d79a59f68d0e5487e1c5ccd866}{getZOriginUnity}}   (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00256}00256     }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00261}00261     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a6f5548e973484293cfda939ca02d4b1e}{getDistanceCameraFromBackWall}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00266}00266     \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_aa177d1f721f5985ff5032e9b3ad1bf32}{getHeightOffset}}               (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00267}00267 \};}
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00268}00268 }
+\DoxyCodeLine{\Hypertarget{Room_8hpp_source_l00269}00269 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* Room\_hpp */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

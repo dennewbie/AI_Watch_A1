@@ -6,5 +6,5 @@ var searchData=
   ['depth_5fmin_3',['depth_min',['../constants_8hpp.html#a704d946ebc135615d343776e32bf4352',1,'constants.hpp']]],
   ['depth_5fto_5fcolor_4',['depth_to_color',['../classRealSenseManager.html#a116cc28e2d0b59b5cf946822a3d5dca4',1,'RealSenseManager']]],
   ['distance_5fimage_5',['distance_Image',['../classSkeleton.html#adc003c36524e2517427709737d3d4414',1,'Skeleton']]],
-  ['distancecamerafrombackwall_6',['distanceCameraFromBackWall',['../CVPR__Lab_8hpp.html#a00219f81f56add6161ea4fe55851c988',1,'CVPR_Lab.hpp']]]
+  ['distancecamerafrombackwall_6',['distanceCameraFromBackWall',['../Room_8hpp.html#a00219f81f56add6161ea4fe55851c988',1,'Room.hpp']]]
 ];
