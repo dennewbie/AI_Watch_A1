@@ -125,50 +125,50 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int The return value for main indicates how the program exited. Normal exit is represented by a 0 return value from main. Abnormal exit is signaled by a non-zero return, but there is no standard for how non-zero codes are interpreted. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00184">184</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  184</span>                                  {</div>
-<div class="line"><span class="lineno">  185</span>    rs2::pipeline pipelineStream;</div>
-<div class="line"><span class="lineno">  186</span>    <span class="comment">// Scaling factor for distance frame and topic name for kafka connection.</span></div>
-<div class="line"><span class="lineno">  187</span>    <span class="keywordtype">float</span> scale;</div>
-<div class="line"><span class="lineno">  188</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> * destinationKafkaTopic = <span class="stringliteral">&quot;topic1&quot;</span>;</div>
-<div class="line"><span class="lineno">  189</span>    <span class="comment">// Optimal resolution for D435: 848x480.</span></div>
-<div class="line"><span class="lineno">  190</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> user_nFrame = 50, resX = 848, resY = 480;</div>
-<div class="line"><span class="lineno">  191</span>    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> framesToSkip = 5;</div>
-<div class="line"><span class="lineno">  192</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> skeletonThreshold = 0.05;</div>
-<div class="line"><span class="lineno">  193</span>    <span class="keyword">struct </span>rs2_intrinsics color_intrin;</div>
-<div class="line"><span class="lineno">  194</span>    <a class="code hl_class" href="classRoom.html">Room</a> room = <a class="code hl_class" href="classCVPR__Lab.html">CVPR_Lab</a>();</div>
-<div class="line"><span class="lineno">  195</span>    </div>
-<div class="line"><span class="lineno">  196</span>    <span class="comment">// Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.</span></div>
-<div class="line"><span class="lineno">  197</span>    <a class="code hl_class" href="classFacadeSingleton.html">FacadeSingleton</a> * myUtility = <a class="code hl_function" href="classFacadeSingleton.html#aeac68956d001824b9ecb75d385687535">FacadeSingleton::getInstance</a>(<a class="code hl_variable" href="main_8cpp.html#a6fa72393436e6821a7e83adbc46766e9">expected_argc</a>, <a class="code hl_variable" href="main_8cpp.html#a447cec8ebf4927b96cdae3a54f92c840">expectedUsageMessage</a>);</div>
-<div class="line"><span class="lineno">  198</span>    myUtility-&gt;<a class="code hl_function" href="classFacadeSingleton.html#a269a1e41f57c4490ec9f8d933b535dbf">startEnvironment</a>(pipelineStream, color_intrin, &amp; scale, resX, resY, destinationKafkaTopic, room);</div>
-<div class="line"><span class="lineno">  199</span> </div>
-<div class="line"><span class="lineno">  200</span>    <span class="comment">/*</span></div>
-<div class="line"><span class="lineno">  201</span><span class="comment">        An infinite loop that captures the frames seen from the camera, gives them to OpenPose, gets the output, and builds skeletons.</span></div>
-<div class="line"><span class="lineno">  202</span><span class="comment">        After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.</span></div>
-<div class="line"><span class="lineno">  203</span><span class="comment">    */</span></div>
-<div class="line"><span class="lineno">  204</span>    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line"><span class="lineno">  205</span>        myUtility-&gt;<a class="code hl_function" href="classFacadeSingleton.html#a9c706fde593f40f6746734382e057738">getVideoFrames</a>(user_nFrame, pipelineStream, scale, framesToSkip);</div>
-<div class="line"><span class="lineno">  206</span>        myUtility-&gt;<a class="code hl_function" href="classFacadeSingleton.html#a7aaaa5771df6a9e3b8367f611b9c126d">getVideoBodyKeyPoints</a>(&amp; argc, &amp; argv);</div>
-<div class="line"><span class="lineno">  207</span>        myUtility-&gt;<a class="code hl_function" href="classFacadeSingleton.html#a06ebcdd6234d6bc1fb416a22030daa9a">showSkeletons</a>(user_nFrame, skeletonThreshold);</div>
-<div class="line"><span class="lineno">  208</span>        myUtility-&gt;<a class="code hl_function" href="classFacadeSingleton.html#ad27a9b955b74b4e549fc84650580bc15">sendData</a>(user_nFrame);</div>
-<div class="line"><span class="lineno">  209</span>        myUtility-&gt;<a class="code hl_function" href="classFacadeSingleton.html#abc5f2b337bf77ee67ea25f62220c261f">cleanBuildFolder</a>();</div>
-<div class="line"><span class="lineno">  210</span>    }</div>
-<div class="line"><span class="lineno">  211</span>    <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
-<div class="line"><span class="lineno">  212</span>}</div>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00191">191</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  191</span>                                  {</div>
+<div class="line"><span class="lineno">  192</span>    rs2::pipeline pipelineStream;</div>
+<div class="line"><span class="lineno">  193</span>    <span class="comment">// Scaling factor for distance frame and topic name for kafka connection.</span></div>
+<div class="line"><span class="lineno">  194</span>    <span class="keywordtype">float</span> scale;</div>
+<div class="line"><span class="lineno">  195</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> * destinationKafkaTopic = <span class="stringliteral">&quot;topic1&quot;</span>;</div>
+<div class="line"><span class="lineno">  196</span>    <span class="comment">// Optimal resolution for D435: 848x480.</span></div>
+<div class="line"><span class="lineno">  197</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> user_nFrame = 50, resX = 848, resY = 480;</div>
+<div class="line"><span class="lineno">  198</span>    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> framesToSkip = 5;</div>
+<div class="line"><span class="lineno">  199</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> skeletonThreshold = 0.05;</div>
+<div class="line"><span class="lineno">  200</span>    <span class="keyword">struct </span>rs2_intrinsics color_intrin;</div>
+<div class="line"><span class="lineno">  201</span>    <a class="code hl_class" href="classRoom.html">Room</a> room = <a class="code hl_class" href="classCVPR__Lab.html">CVPR_Lab</a>();</div>
+<div class="line"><span class="lineno">  202</span>    </div>
+<div class="line"><span class="lineno">  203</span>    <span class="comment">// Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.</span></div>
+<div class="line"><span class="lineno">  204</span>    <a class="code hl_class" href="classFacadeSingleton.html">FacadeSingleton</a> * myUtility = <a class="code hl_function" href="classFacadeSingleton.html#aeac68956d001824b9ecb75d385687535">FacadeSingleton::getInstance</a>(<a class="code hl_variable" href="main_8cpp.html#a6fa72393436e6821a7e83adbc46766e9">expected_argc</a>, <a class="code hl_variable" href="main_8cpp.html#a447cec8ebf4927b96cdae3a54f92c840">expectedUsageMessage</a>);</div>
+<div class="line"><span class="lineno">  205</span>    myUtility-&gt;<a class="code hl_function" href="classFacadeSingleton.html#a269a1e41f57c4490ec9f8d933b535dbf">startEnvironment</a>(pipelineStream, color_intrin, &amp; scale, resX, resY, destinationKafkaTopic, room);</div>
+<div class="line"><span class="lineno">  206</span> </div>
+<div class="line"><span class="lineno">  207</span>    <span class="comment">/*</span></div>
+<div class="line"><span class="lineno">  208</span><span class="comment">        An infinite loop that captures the frames seen from the camera, gives them to OpenPose, gets the output, and builds skeletons.</span></div>
+<div class="line"><span class="lineno">  209</span><span class="comment">        After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.</span></div>
+<div class="line"><span class="lineno">  210</span><span class="comment">    */</span></div>
+<div class="line"><span class="lineno">  211</span>    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><span class="lineno">  212</span>        myUtility-&gt;<a class="code hl_function" href="classFacadeSingleton.html#a9c706fde593f40f6746734382e057738">getVideoFrames</a>(user_nFrame, pipelineStream, scale, framesToSkip);</div>
+<div class="line"><span class="lineno">  213</span>        myUtility-&gt;<a class="code hl_function" href="classFacadeSingleton.html#a7aaaa5771df6a9e3b8367f611b9c126d">getVideoBodyKeyPoints</a>(&amp; argc, &amp; argv);</div>
+<div class="line"><span class="lineno">  214</span>        myUtility-&gt;<a class="code hl_function" href="classFacadeSingleton.html#a06ebcdd6234d6bc1fb416a22030daa9a">showSkeletons</a>(user_nFrame, skeletonThreshold);</div>
+<div class="line"><span class="lineno">  215</span>        myUtility-&gt;<a class="code hl_function" href="classFacadeSingleton.html#ad27a9b955b74b4e549fc84650580bc15">sendData</a>(user_nFrame);</div>
+<div class="line"><span class="lineno">  216</span>        <span class="comment">//myUtility-&gt;cleanBuildFolder();</span></div>
+<div class="line"><span class="lineno">  217</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  218</span>    }</div>
+<div class="line"><span class="lineno">  219</span>    <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line"><span class="lineno">  220</span>}</div>
 <div class="ttc" id="aclassCVPR__Lab_html"><div class="ttname"><a href="classCVPR__Lab.html">CVPR_Lab</a></div><div class="ttdoc">CVPR Lab class represents the CVPR Lab abstraction. The CVPR Lab is a Room with default values....</div><div class="ttdef"><b>Definition:</b> <a href="CVPR__Lab_8hpp_source.html#l00023">CVPR_Lab.hpp:23</a></div></div>
 <div class="ttc" id="aclassFacadeSingleton_html"><div class="ttname"><a href="classFacadeSingleton.html">FacadeSingleton</a></div><div class="ttdoc">FacadeSingleton class is used as a single access point to a simplified interface.</div><div class="ttdef"><b>Definition:</b> <a href="FacadeSingleton_8hpp_source.html#l00044">FacadeSingleton.hpp:44</a></div></div>
 <div class="ttc" id="aclassFacadeSingleton_html_a06ebcdd6234d6bc1fb416a22030daa9a"><div class="ttname"><a href="classFacadeSingleton.html#a06ebcdd6234d6bc1fb416a22030daa9a">FacadeSingleton::showSkeletons</a></div><div class="ttdeci">void showSkeletons(unsigned int user_nFrame, const float skeletonThreshold)</div><div class="ttdoc">Retrieve OpenPose's output, convert it to RealSense coordinate's space, show results and save them.</div><div class="ttdef"><b>Definition:</b> <a href="FacadeSingleton_8cpp_source.html#l00145">FacadeSingleton.cpp:145</a></div></div>
 <div class="ttc" id="aclassFacadeSingleton_html_a269a1e41f57c4490ec9f8d933b535dbf"><div class="ttname"><a href="classFacadeSingleton.html#a269a1e41f57c4490ec9f8d933b535dbf">FacadeSingleton::startEnvironment</a></div><div class="ttdeci">void startEnvironment(rs2::pipeline &amp;pipelineStream, struct rs2_intrinsics &amp;color_intrin, float *scale, unsigned short int resX, unsigned short int resY, const char *destinationKafkaTopic, Room room)</div><div class="ttdoc">This method is useful to invoke at the boot of the program where we want to initialize the different ...</div><div class="ttdef"><b>Definition:</b> <a href="FacadeSingleton_8cpp_source.html#l00123">FacadeSingleton.cpp:123</a></div></div>
 <div class="ttc" id="aclassFacadeSingleton_html_a7aaaa5771df6a9e3b8367f611b9c126d"><div class="ttname"><a href="classFacadeSingleton.html#a7aaaa5771df6a9e3b8367f611b9c126d">FacadeSingleton::getVideoBodyKeyPoints</a></div><div class="ttdeci">void getVideoBodyKeyPoints(int *argc, char ***argv)</div><div class="ttdoc">Start and execute OpenPose submodule.</div><div class="ttdef"><b>Definition:</b> <a href="FacadeSingleton_8cpp_source.html#l00139">FacadeSingleton.cpp:139</a></div></div>
 <div class="ttc" id="aclassFacadeSingleton_html_a9c706fde593f40f6746734382e057738"><div class="ttname"><a href="classFacadeSingleton.html#a9c706fde593f40f6746734382e057738">FacadeSingleton::getVideoFrames</a></div><div class="ttdeci">void getVideoFrames(unsigned int user_nFrame, rs2::pipeline &amp;pipelineStream, float scale, const unsigned short int framesToSkip)</div><div class="ttdoc">Get user_nFrame video frames from the pipeline by applying a specific scaling factor.</div><div class="ttdef"><b>Definition:</b> <a href="FacadeSingleton_8cpp_source.html#l00135">FacadeSingleton.cpp:135</a></div></div>
-<div class="ttc" id="aclassFacadeSingleton_html_abc5f2b337bf77ee67ea25f62220c261f"><div class="ttname"><a href="classFacadeSingleton.html#abc5f2b337bf77ee67ea25f62220c261f">FacadeSingleton::cleanBuildFolder</a></div><div class="ttdeci">void cleanBuildFolder(void)</div><div class="ttdoc">This method cleans the build folder, in order to prepare the environment for the next loop iteration....</div><div class="ttdef"><b>Definition:</b> <a href="FacadeSingleton_8cpp_source.html#l00166">FacadeSingleton.cpp:166</a></div></div>
 <div class="ttc" id="aclassFacadeSingleton_html_ad27a9b955b74b4e549fc84650580bc15"><div class="ttname"><a href="classFacadeSingleton.html#ad27a9b955b74b4e549fc84650580bc15">FacadeSingleton::sendData</a></div><div class="ttdeci">void sendData(unsigned int user_nFrame)</div><div class="ttdoc">Send saved results by getVideoBodyKeyPoints(...) via Kafka using the KafkaManager.</div><div class="ttdef"><b>Definition:</b> <a href="FacadeSingleton_8cpp_source.html#l00149">FacadeSingleton.cpp:149</a></div></div>
 <div class="ttc" id="aclassFacadeSingleton_html_aeac68956d001824b9ecb75d385687535"><div class="ttname"><a href="classFacadeSingleton.html#aeac68956d001824b9ecb75d385687535">FacadeSingleton::getInstance</a></div><div class="ttdeci">static FacadeSingleton * getInstance(void)</div><div class="ttdoc">Get the unique class instance. This methods should be called in the following scenario: when we just ...</div><div class="ttdef"><b>Definition:</b> <a href="FacadeSingleton_8cpp_source.html#l00089">FacadeSingleton.cpp:89</a></div></div>
 <div class="ttc" id="aclassRoom_html"><div class="ttname"><a href="classRoom.html">Room</a></div><div class="ttdoc">Room class represents the Room abstraction. A Room object has different specifications,...</div><div class="ttdef"><b>Definition:</b> <a href="Room_8hpp_source.html#l00061">Room.hpp:61</a></div></div>
-<div class="ttc" id="amain_8cpp_html_a447cec8ebf4927b96cdae3a54f92c840"><div class="ttname"><a href="main_8cpp.html#a447cec8ebf4927b96cdae3a54f92c840">expectedUsageMessage</a></div><div class="ttdeci">const char * expectedUsageMessage</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00169">main.cpp:169</a></div></div>
-<div class="ttc" id="amain_8cpp_html_a6fa72393436e6821a7e83adbc46766e9"><div class="ttname"><a href="main_8cpp.html#a6fa72393436e6821a7e83adbc46766e9">expected_argc</a></div><div class="ttdeci">const int expected_argc</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00168">main.cpp:168</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a447cec8ebf4927b96cdae3a54f92c840"><div class="ttname"><a href="main_8cpp.html#a447cec8ebf4927b96cdae3a54f92c840">expectedUsageMessage</a></div><div class="ttdeci">const char * expectedUsageMessage</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00176">main.cpp:176</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a6fa72393436e6821a7e83adbc46766e9"><div class="ttname"><a href="main_8cpp.html#a6fa72393436e6821a7e83adbc46766e9">expected_argc</a></div><div class="ttdeci">const int expected_argc</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00175">main.cpp:175</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="FacadeSingleton_8cpp_source.html#l00166">FacadeSingleton::cleanBuildFolder()</a>, <a class="el" href="main_8cpp_source.html#l00168">expected_argc</a>, <a class="el" href="main_8cpp_source.html#l00169">expectedUsageMessage</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00089">FacadeSingleton::getInstance()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00139">FacadeSingleton::getVideoBodyKeyPoints()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00135">FacadeSingleton::getVideoFrames()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00149">FacadeSingleton::sendData()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00145">FacadeSingleton::showSkeletons()</a>, and <a class="el" href="FacadeSingleton_8cpp_source.html#l00123">FacadeSingleton::startEnvironment()</a>.</p>
+<p class="reference">References <a class="el" href="main_8cpp_source.html#l00175">expected_argc</a>, <a class="el" href="main_8cpp_source.html#l00176">expectedUsageMessage</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00089">FacadeSingleton::getInstance()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00139">FacadeSingleton::getVideoBodyKeyPoints()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00135">FacadeSingleton::getVideoFrames()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00149">FacadeSingleton::sendData()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00145">FacadeSingleton::showSkeletons()</a>, and <a class="el" href="FacadeSingleton_8cpp_source.html#l00123">FacadeSingleton::startEnvironment()</a>.</p>
 
 </div>
 </div>
@@ -185,9 +185,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00168">168</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00175">175</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="FacadeSingleton_8cpp_source.html#l00020">FacadeSingleton::FacadeSingleton()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00083">FacadeSingleton::getInstance()</a>, and <a class="el" href="main_8cpp_source.html#l00184">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="FacadeSingleton_8cpp_source.html#l00020">FacadeSingleton::FacadeSingleton()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00083">FacadeSingleton::getInstance()</a>, and <a class="el" href="main_8cpp_source.html#l00191">main()</a>.</p>
 
 </div>
 </div>
@@ -205,9 +205,9 @@ Variables</h2></td></tr>
 <b>Initial value:</b><div class="fragment"><div class="line">= <span class="stringliteral">&quot;Usage: sudo ./AI_Watch_A1.bin &lt;path/openpose folder/&gt; &lt;./path/openpose.bin&gt; &quot;</span></div>
 <div class="line">                                    <span class="stringliteral">&quot;&lt;path/images folder/&gt; &lt;path/JSON output folder/&gt;&quot;</span></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00169">169</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00176">176</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="FacadeSingleton_8cpp_source.html#l00020">FacadeSingleton::FacadeSingleton()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00083">FacadeSingleton::getInstance()</a>, and <a class="el" href="main_8cpp_source.html#l00184">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="FacadeSingleton_8cpp_source.html#l00020">FacadeSingleton::FacadeSingleton()</a>, <a class="el" href="FacadeSingleton_8cpp_source.html#l00083">FacadeSingleton::getInstance()</a>, and <a class="el" href="main_8cpp_source.html#l00191">main()</a>.</p>
 
 </div>
 </div>

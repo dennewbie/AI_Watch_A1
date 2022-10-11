@@ -36,9 +36,9 @@ Note: Instructions for MacOS with Intel CPU
 
 1. Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies. The following guide is really helpful: [build RealSense for macOS Monterey (Intel + Apple Silicon)](https://lightbuzz.com/realsense-macos/).
 
-2. Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies.
+2. Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies. Useful guides: [build openpose with/without GPU support for macOS](https://medium.com/@alok.gandhi2002/build-openpose-with-without-gpu-support-for-macos-catalina-10-15-6-8fb936c9ab05#726f), [OpenPose for M1/Intel](https://blog.csdn.net/qq_27180763/article/details/126134888?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-126134888-blog-122796729.pc_relevant_layerdownloadsortv1&spm=1001.2101.3001.4242.1&utm_relevant_index=3).
 
-3. Install [Confluent](https://www.confluent.io/) and its own dependencies. This step is not mandatory, but without Confluent, you will have to set up the Kafka environment.
+3. Install [Apache Kafka](https://kafka.apache.org/), [Confluent](https://www.confluent.io/) and their own dependencies. Confluent is not mandatory, but without it, you will have to set up the Kafka environment on your own. Useful guides: [how to install Apache Kafka on Mac](https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-mac), [how to install Confluent](https://docs.confluent.io/4.0.1/installation/installing_cp.html)
 
 4. Run the following command in your terminal:
    ```
