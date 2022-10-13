@@ -213,8 +213,7 @@ int main (int argc, char ** argv) {
         myUtility->getVideoBodyKeyPoints(& argc, & argv);
         myUtility->showSkeletons(user_nFrame, skeletonThreshold);
         myUtility->sendData(user_nFrame);
-        //myUtility->cleanBuildFolder();
-        break;
+        myUtility->cleanBuildFolder();
     }
     return EXIT_SUCCESS;
 }
