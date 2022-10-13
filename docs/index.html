@@ -102,7 +102,9 @@ Installation 🚀</h1>
 <p >7) Copy OpenPose's <code>BoostConfig.cmake</code>, <code>FindGFlags.cmake</code> and <code>FindGlog.cmake</code> files to the <code>build/cmake/modules/</code> folder.</p>
 <p >8) Update <code>caffe lib</code> path inside <code>CMakeLists.txt</code>. Then run the following commands in your terminal:</p>
 <div class="fragment"><div class="line">cmake .. &amp;&amp; make -j `sysctl -n hw.logicalcpu`</div>
-</div><!-- fragment --><p >9) Now let's start the Kafka environment. Run the following commands in a new terminal session located on the parent folder of the <code>confluent</code> folder. Set the environment variable for the Confluent Platform home directory: </p><div class="fragment"><div class="line">export CONFLUENT_HOME=confluent-7.2.1</div>
+</div><!-- fragment --><p >9) This step is optional. Run the following command in your terminal:</p>
+<div class="fragment"><div class="line">sudo make install</div>
+</div><!-- fragment --><p >10) Now let's start the Kafka environment. Run the following commands in a new terminal session located on the parent folder of the <code>confluent</code> folder. Set the environment variable for the Confluent Platform home directory: </p><div class="fragment"><div class="line">export CONFLUENT_HOME=confluent-7.2.1</div>
 </div><!-- fragment --><p> Add the Confluent Platform bin directory to your PATH:</p>
 <div class="fragment"><div class="line">export PATH=$PATH:$CONFLUENT_HOME/bin</div>
 </div><!-- fragment --><p> Test your installation by running the confluent command: </p><div class="fragment"><div class="line">confluent --help</div>
@@ -128,7 +130,7 @@ Important #1 📌</h3>
 <h3><a class="anchor" id="autotoc_md1"></a>
 Important #2 📌</h3>
 <p >The Confluent CLI requires Java version 1.8 or 1.11. See <a href="https://docs.confluent.io/current/installation/versions-interoperability.html">Confluent versions interoperability</a>.</p>
-<p >10) Navigate to <code><a href="http://localhost:9021">http://localhost:9021</a></code> and create a new topic <code>topic1</code> with default settings. Now go to <code>/AI_Watch_A1/src/AI_Watch_A1/</code> and set up your <a href="https://github.com/edenhill/librdkafka">Kafka</a> parameters within the <code>configuration_file.ini</code> file. At this point:</p><ul>
+<p >11) Navigate to <code><a href="http://localhost:9021">http://localhost:9021</a></code> and create a new topic <code>topic1</code> with default settings. Now go to <code>/AI_Watch_A1/src/AI_Watch_A1/</code> and set up your <a href="https://github.com/edenhill/librdkafka">Kafka</a> parameters within the <code>configuration_file.ini</code> file. At this point:</p><ul>
 <li>if internal OpenPose execution is chosen, then run the following command in your terminal:</li>
 </ul>
 <div class="fragment"><div class="line">sudo ./AI_Watch_A1.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255</div>

@@ -63,7 +63,12 @@ Note: Instructions for MacOS with Intel CPU / M1 chip
    cmake .. && make -j `sysctl -n hw.logicalcpu`
    ```
 
-9. Now let's start the Kafka environment. Run the following commands in a new terminal session located on the parent folder of the `confluent` folder. Set the environment variable for the Confluent Platform home directory:
+9. This step is optional. Run the following command in your terminal:
+ ```
+ sudo make install
+ ```
+
+10. Now let's start the Kafka environment. Run the following commands in a new terminal session located on the parent folder of the `confluent` folder. Set the environment variable for the Confluent Platform home directory:
     ```
     export CONFLUENT_HOME=confluent-7.2.1
     ```
@@ -110,7 +115,7 @@ Note: Instructions for MacOS with Intel CPU / M1 chip
      ### Important #3 📌
      In order to improve speed and general performance, you could disable images' showing and change the number of frames captured per second. In this last option, capturing too few frames per second reduces output' quality. Furthermore, it's also possible to reduce OpenPose's network resolution, but a significant drawback is reduced accuracy.
    
-10. Navigate to http://localhost:9021 and create a new topic `topic1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file. At this point:
+11. Navigate to http://localhost:9021 and create a new topic `topic1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file. At this point:
     - if internal OpenPose execution is chosen, then run the following command in your terminal:
    
         ```
