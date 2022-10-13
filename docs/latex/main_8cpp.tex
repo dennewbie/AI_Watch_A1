@@ -40,44 +40,44 @@ int The return value for main indicates how the program exited. Normal exit is r
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{main_8cpp_source_l00191}{191}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00205}{205}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00191                                   \{}
-\DoxyCodeLine{00192     rs2::pipeline pipelineStream;}
-\DoxyCodeLine{00193     \textcolor{comment}{// Scaling factor for distance frame and topic name for kafka connection.}}
-\DoxyCodeLine{00194     \textcolor{keywordtype}{float} scale;}
-\DoxyCodeLine{00195     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * destinationKafkaTopic = \textcolor{stringliteral}{"{}topic1"{}};}
-\DoxyCodeLine{00196     \textcolor{comment}{// Optimal resolution for D435: 848x480.}}
-\DoxyCodeLine{00197     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} user\_nFrame = 50, resX = 848, resY = 480;}
-\DoxyCodeLine{00198     \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} framesToSkip = 5;}
-\DoxyCodeLine{00199     \textcolor{keyword}{const} \textcolor{keywordtype}{float} skeletonThreshold = 0.05;}
-\DoxyCodeLine{00200     \textcolor{keyword}{struct }rs2\_intrinsics color\_intrin;}
-\DoxyCodeLine{00201     \mbox{\hyperlink{classRoom}{Room}} room = \mbox{\hyperlink{classCVPR__Lab}{CVPR\_Lab}}();}
-\DoxyCodeLine{00202     }
-\DoxyCodeLine{00203     \textcolor{comment}{// Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.}}
-\DoxyCodeLine{00204     \mbox{\hyperlink{classFacadeSingleton}{FacadeSingleton}} * myUtility = \mbox{\hyperlink{classFacadeSingleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}(\mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
-\DoxyCodeLine{00205     myUtility-\/>\mbox{\hyperlink{classFacadeSingleton_a269a1e41f57c4490ec9f8d933b535dbf}{startEnvironment}}(pipelineStream, color\_intrin, \& scale, resX, resY, destinationKafkaTopic, room);}
-\DoxyCodeLine{00206 }
-\DoxyCodeLine{00207     \textcolor{comment}{/*}}
-\DoxyCodeLine{00208 \textcolor{comment}{        An infinite loop that captures the frames seen from the camera, gives them to OpenPose, gets the output, and builds skeletons.}}
-\DoxyCodeLine{00209 \textcolor{comment}{        After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.}}
-\DoxyCodeLine{00210 \textcolor{comment}{    */}}
-\DoxyCodeLine{00211     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
-\DoxyCodeLine{00212         myUtility-\/>\mbox{\hyperlink{classFacadeSingleton_a9c706fde593f40f6746734382e057738}{getVideoFrames}}(user\_nFrame, pipelineStream, scale, framesToSkip);}
-\DoxyCodeLine{00213         myUtility-\/>\mbox{\hyperlink{classFacadeSingleton_a7aaaa5771df6a9e3b8367f611b9c126d}{getVideoBodyKeyPoints}}(\& argc, \& argv);}
-\DoxyCodeLine{00214         myUtility-\/>\mbox{\hyperlink{classFacadeSingleton_a06ebcdd6234d6bc1fb416a22030daa9a}{showSkeletons}}(user\_nFrame, skeletonThreshold);}
-\DoxyCodeLine{00215         myUtility-\/>\mbox{\hyperlink{classFacadeSingleton_ad27a9b955b74b4e549fc84650580bc15}{sendData}}(user\_nFrame);}
-\DoxyCodeLine{00216         myUtility-\/>\mbox{\hyperlink{classFacadeSingleton_abc5f2b337bf77ee67ea25f62220c261f}{cleanBuildFolder}}();}
-\DoxyCodeLine{00217     \}}
-\DoxyCodeLine{00218     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
-\DoxyCodeLine{00219 \}}
+\DoxyCodeLine{00205                                   \{}
+\DoxyCodeLine{00206     rs2::pipeline pipelineStream;}
+\DoxyCodeLine{00207     \textcolor{comment}{// Scaling factor for distance frame and topic name for kafka connection.}}
+\DoxyCodeLine{00208     \textcolor{keywordtype}{float} scale;}
+\DoxyCodeLine{00209     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * destinationKafkaTopic = \textcolor{stringliteral}{"{}topic1"{}};}
+\DoxyCodeLine{00210     \textcolor{comment}{// Optimal resolution for D435: 848x480.}}
+\DoxyCodeLine{00211     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} user\_nFrame = 50, resX = 848, resY = 480;}
+\DoxyCodeLine{00212     \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} framesToSkip = 5;}
+\DoxyCodeLine{00213     \textcolor{keyword}{const} \textcolor{keywordtype}{float} skeletonThreshold = 0.05;}
+\DoxyCodeLine{00214     \textcolor{keyword}{struct }rs2\_intrinsics color\_intrin;}
+\DoxyCodeLine{00215     \mbox{\hyperlink{classRoom}{Room}} room = \mbox{\hyperlink{classCVPR__Lab}{CVPR\_Lab}}();}
+\DoxyCodeLine{00216     }
+\DoxyCodeLine{00217     \textcolor{comment}{// Declaring a pointer to a FacadeSingleton object (it will be helpful to easily interact with all submodules) and starting D435 camera.}}
+\DoxyCodeLine{00218     \mbox{\hyperlink{classFacadeSingleton}{FacadeSingleton}} * myUtility = \mbox{\hyperlink{classFacadeSingleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}(\mbox{\hyperlink{main_8cpp_a6fa72393436e6821a7e83adbc46766e9}{expected\_argc}}, \mbox{\hyperlink{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}{expectedUsageMessage}});}
+\DoxyCodeLine{00219     myUtility-\/>\mbox{\hyperlink{classFacadeSingleton_a269a1e41f57c4490ec9f8d933b535dbf}{startEnvironment}}(pipelineStream, color\_intrin, \& scale, resX, resY, destinationKafkaTopic, room);}
+\DoxyCodeLine{00220 }
+\DoxyCodeLine{00221     \textcolor{comment}{/*}}
+\DoxyCodeLine{00222 \textcolor{comment}{        An infinite loop that captures the frames seen from the camera, gives them to OpenPose, gets the output, and builds skeletons.}}
+\DoxyCodeLine{00223 \textcolor{comment}{        After that, we create a properly formatted output JSON file and send it via Kafka for further elaboration.}}
+\DoxyCodeLine{00224 \textcolor{comment}{    */}}
+\DoxyCodeLine{00225     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{00226         myUtility-\/>\mbox{\hyperlink{classFacadeSingleton_a9c706fde593f40f6746734382e057738}{getVideoFrames}}(user\_nFrame, pipelineStream, scale, framesToSkip);}
+\DoxyCodeLine{00227         myUtility-\/>\mbox{\hyperlink{classFacadeSingleton_a7aaaa5771df6a9e3b8367f611b9c126d}{getVideoBodyKeyPoints}}(\& argc, \& argv);}
+\DoxyCodeLine{00228         myUtility-\/>\mbox{\hyperlink{classFacadeSingleton_a06ebcdd6234d6bc1fb416a22030daa9a}{showSkeletons}}(user\_nFrame, skeletonThreshold);}
+\DoxyCodeLine{00229         myUtility-\/>\mbox{\hyperlink{classFacadeSingleton_ad27a9b955b74b4e549fc84650580bc15}{sendData}}(user\_nFrame);}
+\DoxyCodeLine{00230         myUtility-\/>\mbox{\hyperlink{classFacadeSingleton_abc5f2b337bf77ee67ea25f62220c261f}{cleanBuildFolder}}();}
+\DoxyCodeLine{00231     \}}
+\DoxyCodeLine{00232     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{00233 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00166}{Facade\+Singleton\+::clean\+Build\+Folder()}}, \mbox{\hyperlink{main_8cpp_source_l00175}{expected\+\_\+argc}}, \mbox{\hyperlink{main_8cpp_source_l00176}{expected\+Usage\+Message}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00089}{Facade\+Singleton\+::get\+Instance()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00139}{Facade\+Singleton\+::get\+Video\+Body\+Key\+Points()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00135}{Facade\+Singleton\+::get\+Video\+Frames()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00149}{Facade\+Singleton\+::send\+Data()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00145}{Facade\+Singleton\+::show\+Skeletons()}}, and \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00123}{Facade\+Singleton\+::start\+Environment()}}.
+References \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00166}{Facade\+Singleton\+::clean\+Build\+Folder()}}, \mbox{\hyperlink{main_8cpp_source_l00189}{expected\+\_\+argc}}, \mbox{\hyperlink{main_8cpp_source_l00190}{expected\+Usage\+Message}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00089}{Facade\+Singleton\+::get\+Instance()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00139}{Facade\+Singleton\+::get\+Video\+Body\+Key\+Points()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00135}{Facade\+Singleton\+::get\+Video\+Frames()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00149}{Facade\+Singleton\+::send\+Data()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00145}{Facade\+Singleton\+::show\+Skeletons()}}, and \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00123}{Facade\+Singleton\+::start\+Environment()}}.
 
 
 
@@ -90,11 +90,11 @@ References \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00166}{Facade\+Singleto
 
 
 
-Definition at line \mbox{\hyperlink{main_8cpp_source_l00175}{175}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00189}{189}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00020}{Facade\+Singleton\+::\+Facade\+Singleton()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00083}{Facade\+Singleton\+::get\+Instance()}}, and \mbox{\hyperlink{main_8cpp_source_l00191}{main()}}.
+Referenced by \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00020}{Facade\+Singleton\+::\+Facade\+Singleton()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00083}{Facade\+Singleton\+::get\+Instance()}}, and \mbox{\hyperlink{main_8cpp_source_l00205}{main()}}.
 
 \mbox{\Hypertarget{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}\label{main_8cpp_a447cec8ebf4927b96cdae3a54f92c840}} 
 \index{main.cpp@{main.cpp}!expectedUsageMessage@{expectedUsageMessage}}
@@ -110,9 +110,9 @@ Referenced by \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00020}{Facade\+Singl
 \end{DoxyCode}
 
 
-Definition at line \mbox{\hyperlink{main_8cpp_source_l00176}{176}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00190}{190}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00020}{Facade\+Singleton\+::\+Facade\+Singleton()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00083}{Facade\+Singleton\+::get\+Instance()}}, and \mbox{\hyperlink{main_8cpp_source_l00191}{main()}}.
+Referenced by \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00020}{Facade\+Singleton\+::\+Facade\+Singleton()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00083}{Facade\+Singleton\+::get\+Instance()}}, and \mbox{\hyperlink{main_8cpp_source_l00205}{main()}}.
 

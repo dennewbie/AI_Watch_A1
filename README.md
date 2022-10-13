@@ -31,19 +31,21 @@
 
 
 ## Installation 🚀
-Note: Instructions for MacOS with Intel CPU
+Note: Instructions for MacOS with Intel CPU / M1 chip
 
 
 1. Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies. The following guide is really helpful: [build RealSense for macOS Monterey (Intel + Apple Silicon)](https://lightbuzz.com/realsense-macos/).
 
-2. Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies. Useful guides: [build openpose with/without GPU support for macOS](https://medium.com/@alok.gandhi2002/build-openpose-with-without-gpu-support-for-macos-catalina-10-15-6-8fb936c9ab05#726f), [OpenPose for M1/Intel](https://blog.csdn.net/qq_27180763/article/details/126134888?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-126134888-blog-122796729.pc_relevant_layerdownloadsortv1&spm=1001.2101.3001.4242.1&utm_relevant_index=3).
+2. Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies. Useful guides: [build openpose with/without GPU support for macOS](https://medium.com/@alok.gandhi2002/build-openpose-with-without-gpu-support-for-macos-catalina-10-15-6-8fb936c9ab05#726f), [OpenPose for M1/Intel](https://blog.csdn.net/qq_27180763/article/details/126134888?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-126134888-blog-122796729.pc_relevant_layerdownloadsortv1&spm=1001.2101.3001.4242.1&utm_relevant_index=3). In order to properly choose the `GPU_MODE` during OpenPose installation and/or in order to install OpenPose on other operating systems, check out this page: [OpenPose Docs](https://cmu-perceptual-computing-lab.github.io/openpose/web/html/doc/md_doc_installation_0_index.html). If you have MacOS with Intel CPU and a GPU that matches OpenPose prerequisites, then you can set `GPU_MODE` to `OPENCL` (GPU-accelerated, it is harder to install but provides a faster runtime speed). Otherwise, if you have a MacOS with M1 chip, it's suggested to set `GPU_MODE` to `CPU_ONLY`. 
 
-3. Install [Apache Kafka](https://kafka.apache.org/), [Confluent](https://www.confluent.io/) and their own dependencies. Confluent is not mandatory, but without it, you will have to set up the Kafka environment on your own. Useful guides: [how to install Apache Kafka on Mac](https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-mac), [how to install Confluent](https://docs.confluent.io/4.0.1/installation/installing_cp.html)
+3. Install [Apache Kafka](https://kafka.apache.org/), [Confluent](https://www.confluent.io/) and their own dependencies. Confluent is not mandatory, but without it, you will have to set up the Kafka environment on your own. Useful guides: [how to install Apache Kafka on Mac](https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-mac), [how to install Confluent](https://docs.confluent.io/4.0.1/installation/installing_cp.html).
 
 4. Run the following command in your terminal:
    ```
    git clone --recursive git@github.com:dennewbie/AI_Watch_A1.git
    ```
+
+   After that, remove all the files named `emptyFileForPadding.txt` in the cloned folder.
 
 5. From `/AI_Watch_A1/src/AI_Watch_A1/` folder, run the following commands in your terminal:
    
@@ -55,7 +57,7 @@ Note: Instructions for MacOS with Intel CPU
 
 7. Copy OpenPose's `BoostConfig.cmake`, `FindGFlags.cmake` and `FindGlog.cmake` files  to the `build/cmake/modules/` folder.
 
-8. Run the following commands in your terminal:
+8. Update `caffe lib` path inside `CMakeLists.txt`. Then run the following commands in your terminal:
    
    ```
    cmake .. && make -j `sysctl -n hw.logicalcpu`
@@ -114,11 +116,21 @@ Note: Instructions for MacOS with Intel CPU
         ```
         sudo ./AI_Watch_A1.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255
         ```
-    - if external OpenPose execution is chosen, then set up your OpenPose parameters within the "conf.conf" file, run the following command in your terminal:
+    - if external OpenPose execution is chosen, then set up your OpenPose parameters within the `conf.conf` file, run the following command in your terminal:
 
         ```
         sudo ./AI_Watch_A1.bin
         ```
+ Note that the internal OpenPose execution is suggested.
+
+
+## Known issues ⚠️
+1. The module can rarely get stuck on the following invocation located in `RealSenseD435Manager::23`:
+    ```
+    rs2::pipeline_profile myPipelineProfile = pipelineStream.start(myConfiguration);
+    ```
+
+    This means some errors have occurred, due to the USB connection while starting the camera's environment. In order to fix that, just exit the program, unplug the RealSense camera from the USB cable, and connect it again.
 
 
 
@@ -126,6 +138,7 @@ Note: Instructions for MacOS with Intel CPU
 - [Intel RealSense SDK](https://github.com/IntelRealSense/librealsense)
 - [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
 - [OpenCV](https://github.com/opencv/opencv)
+- [OpenCL](https://www.khronos.org/opencl/)
 - [Kafka](https://kafka.apache.org/)
 - [Kafka C/C++ library](https://github.com/edenhill/librdkafka)
 - [Confluent](https://www.confluent.io/)

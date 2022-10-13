@@ -91,14 +91,16 @@ Installation 🚀</h1>
 <p >Note: Instructions for MacOS with Intel CPU</p>
 <p >1) Install <a href="https://github.com/IntelRealSense/librealsense">RealSense SDK 2.0</a> and its own dependencies. The following guide is really helpful: <a href="https://lightbuzz.com/realsense-macos/">build RealSense for macOS Monterey (Intel + Apple Silicon)</a>.</p>
 <p >2) Install <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">OpenPose</a> and its own dependencies. Useful guides: <a href="https://medium.com/@alok.gandhi2002/build-openpose-with-without-gpu-support-for-macos-catalina-10-15-6-8fb936c9ab05#726f">build openpose with/without GPU support for macOS</a>, <a href="https://blog.csdn.net/qq_27180763/article/details/126134888?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-126134888-blog-122796729.pc_relevant_layerdownloadsortv1&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=3">OpenPose for M1/Intel</a>.</p>
-<p >3) Install <a href="https://kafka.apache.org/">Apache Kafka</a>, <a href="https://www.confluent.io/">Confluent</a> and their own dependencies. Confluent is not mandatory, but without it, you will have to set up the Kafka environment on your own.</p>
-<p >Useful guides: <a href="https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-mac">how to install Apache Kafka on Mac</a>, <a href="https://docs.confluent.io/4.0.1/installation/installing_cp.html">how to install Confluent</a></p>
+<p >In order to properly choose the <code>GPU_MODE</code> during OpenPose installation and/or in order to install OpenPose on other operating systems, check out this page: <a href="https://cmu-perceptual-computing-lab.github.io/openpose/web/html/doc/md_doc_installation_0_index.html">OpenPose Docs</a>. If you have MacOS with Intel CPU and a GPU that matches OpenPose prerequisites, then you can set <code>GPU_MODE</code> to <code>OPENCL</code> (GPU-accelerated, it is harder to install but provides a faster runtime speed). Otherwise, if you have a MacOS with M1 chip, it's suggested to set <code>GPU_MODE</code> to <code>CPU_ONLY</code>.</p>
+<p >3) Install <a href="https://kafka.apache.org/">Apache Kafka</a>, <a href="https://www.confluent.io/">Confluent</a> and their own dependencies. Confluent is not mandatory, but without it, you will have to set up the Kafka environment on your own. Useful guides:</p>
+<p ><a href="https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-mac">how to install Apache Kafka on Mac</a>, <a href="https://docs.confluent.io/4.0.1/installation/installing_cp.html">how to install Confluent</a>.</p>
 <p >4) Run the following command in your terminal: </p><div class="fragment"><div class="line">git clone --recursive git@github.com:dennewbie/AI_Watch_A1.git</div>
-</div><!-- fragment --><p >5) From <code>/AI_Watch_A1/src/AI_Watch_A1/</code> folder, run the following commands in your terminal:</p>
+</div><!-- fragment --><p> After that, remove all the files named <code>emptyFileForPadding.txt</code> in the cloned folder.</p>
+<p >5) From <code>/AI_Watch_A1/src/AI_Watch_A1/</code> folder, run the following commands in your terminal:</p>
 <div class="fragment"><div class="line">mkdir build &amp;&amp; cd build</div>
 </div><!-- fragment --><p >6) Copy OpenPose's <code>models</code> folder to the project's build folder.</p>
 <p >7) Copy OpenPose's <code>BoostConfig.cmake</code>, <code>FindGFlags.cmake</code> and <code>FindGlog.cmake</code> files to the <code>build/cmake/modules/</code> folder.</p>
-<p >8) Run the following commands in your terminal:</p>
+<p >8) Update <code>caffe lib</code> path inside <code>CMakeLists.txt</code>. Then run the following commands in your terminal:</p>
 <div class="fragment"><div class="line">cmake .. &amp;&amp; make -j `sysctl -n hw.logicalcpu`</div>
 </div><!-- fragment --><p >9) Now let's start the Kafka environment. Run the following commands in a new terminal session located on the parent folder of the <code>confluent</code> folder. Set the environment variable for the Confluent Platform home directory: </p><div class="fragment"><div class="line">export CONFLUENT_HOME=confluent-7.2.1</div>
 </div><!-- fragment --><p> Add the Confluent Platform bin directory to your PATH:</p>
@@ -131,15 +133,22 @@ Important #2 📌</h3>
 </ul>
 <div class="fragment"><div class="line">sudo ./AI_Watch_A1.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255</div>
 </div><!-- fragment --><ul>
-<li>if external OpenPose execution is chosen, then set up your OpenPose parameters within the "conf.conf" file and run the following command in your terminal:</li>
+<li>if external OpenPose execution is chosen, then set up your OpenPose parameters within the <code>conf.conf</code> file and run the following command in your terminal:</li>
 </ul>
 <div class="fragment"><div class="line">sudo ./AI_Watch_A1.bin</div>
-</div><!-- fragment --><h1><a class="anchor" id="tools_sec"></a>
+</div><!-- fragment --><p >Note that the internal OpenPose execution is suggested.</p>
+<h1><a class="anchor" id="issues_sec"></a>
+Known issues ⚠️</h1>
+<p >1) The module can rarely get stuck on the following invocation located in <code><a class="el" href="classRealSenseD435Manager.html" title="RealSenseD435Manager class is a class that abstracts the behavior of an Intel RealSense D435 Camera,...">RealSenseD435Manager</a>::23</code>:</p>
+<div class="fragment"><div class="line">rs2::pipeline_profile myPipelineProfile = pipelineStream.start(myConfiguration);</div>
+</div><!-- fragment --><p >This means some errors have occurred, due to the USB connection while starting the camera's environment. In order to fix that, just exit the program, unplug the RealSense camera from the USB cable, and connect it again.</p>
+<h1><a class="anchor" id="tools_sec"></a>
 Tools 🛠</h1>
 <ul>
 <li><a href="https://github.com/IntelRealSense/librealsense">Intel RealSense SDK</a></li>
 <li><a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">OpenPose</a></li>
 <li><a href="https://github.com/opencv/opencv">OpenCV</a></li>
+<li><a href="https://www.khronos.org/opencl/">OpenCL</a></li>
 <li><a href="https://kafka.apache.org/">Kafka</a></li>
 <li><a href="https://github.com/edenhill/librdkafka">Kafka C/C++ library</a></li>
 <li><a href="https://www.confluent.io/">Confluent</a></li>
