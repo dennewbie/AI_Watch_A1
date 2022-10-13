@@ -2,6 +2,7 @@
 # Copyright(c) 2019 Intel Corporation. All Rights Reserved.
 cmake_minimum_required(VERSION 2.8.7)
 set(Boost_USE_STATIC_LIBS       OFF)
+set(CMAKE_INSTALL_PREFIX "/usr/local/AI_Watch_A1")
 
 add_definitions(-std=c++11)
 project(AI_Watch_A1)
@@ -63,6 +64,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 # Add the application sources to the target
 # add_executable(${PROJECT_NAME} hello_librealsense2.cpp)
+add_library(AI_Watch_A1 STATIC main.cpp Skeleton.cpp Points/BodyKeyPoint.cpp Points/Point3D.cpp Points/Point.cpp 
+FacadeSingleton/FacadeSingleton.cpp Managers/OutputManagers/OutputManager.cpp Managers/OutputManagers/OutputManagerJSON.cpp 
+Managers/RealSenseManagers/RealSenseManager.cpp Managers/RealSenseManagers/RealSenseD435Manager.cpp Command/SystemCommand.cpp Command/CleanCommand.cpp 
+Command/MoveCommand.cpp Command/OpenPoseCommand.cpp Managers/OpenCV_Manager.cpp Managers/UsageManager.cpp Managers/CoordinateManagers/CoordinateMappingManager.cpp
+Managers/CoordinateManagers/UnityCoordinateMappingManager.cpp Managers/KafkaManager.cpp Managers/ImageManager.cpp Room/Room.cpp Room/CVPR_Lab.cpp)
+
 add_executable(AI_Watch_A1.bin main.cpp Skeleton.cpp Points/BodyKeyPoint.cpp Points/Point3D.cpp Points/Point.cpp 
 FacadeSingleton/FacadeSingleton.cpp Managers/OutputManagers/OutputManager.cpp Managers/OutputManagers/OutputManagerJSON.cpp 
 Managers/RealSenseManagers/RealSenseManager.cpp Managers/RealSenseManagers/RealSenseD435Manager.cpp Command/SystemCommand.cpp Command/CleanCommand.cpp 
@@ -71,4 +78,12 @@ Managers/CoordinateManagers/UnityCoordinateMappingManager.cpp Managers/KafkaMana
 
 # Link librealsense2 to the target
 link_libraries(${JSONCPP_LIBRARIES})
+target_link_libraries(AI_Watch_A1 PkgConfig::deps ${BOOST_LIBS} Boost::filesystem ${OpenPose_LIBS} ${GFLAGS_LIBRARY} ${GLOG_LIBRARY} ${realsense2_LIBRARY} glfw OpenGL::GL ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} ${JSONCPP_LIBRARIES} ${GLIB_LIBRARIES} )
 target_link_libraries(AI_Watch_A1.bin PkgConfig::deps ${BOOST_LIBS} Boost::filesystem ${OpenPose_LIBS} ${GFLAGS_LIBRARY} ${GLOG_LIBRARY} ${realsense2_LIBRARY} glfw OpenGL::GL ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} ${JSONCPP_LIBRARIES} ${GLIB_LIBRARIES} )
+
+install(TARGETS AI_Watch_A1.bin DESTINATION)
+install(TARGETS AI_Watch_A1 LIBRARY DESTINATION)
+install(FILES Managers/ImageManager.hpp Managers/KafkaManager.hpp Managers/UsageManager.hpp Managers/OpenCV_Manager.hpp 
+Managers/CoordinateManagers/CoordinateMappingManager.hpp Managers/OutputManagers/OutputManager.hpp Managers/RealSenseManagers/RealSenseManager.hpp
+FacadeSingleton/FacadeSingleton.hpp Command/SystemCommand.hpp Points/Point.hpp Points/BodyKeyPoint.hpp Points/Point3D.hpp Room/Room.hpp Room/CVPR_Lab.hpp 
+Skeleton.hpp constants.hpp DESTINATION include)
