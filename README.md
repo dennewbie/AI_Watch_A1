@@ -138,6 +138,12 @@ Note: Instructions for MacOS with Intel CPU / M1 chip
     This means some errors have occurred, due to the USB connection while starting the camera's environment. In order to fix that, just exit the program, unplug the RealSense camera from the USB cable, and connect it again.
 
 
+## System Structure 🏛
+<p>
+    <div align="center">
+        <img src="https://github.com/dennewbie/AI_Watch_A1/blob/main/design/A1_details.png">
+    </div>
+</p>
 
 ## Tools 🛠
 - [Intel RealSense SDK](https://github.com/IntelRealSense/librealsense)
