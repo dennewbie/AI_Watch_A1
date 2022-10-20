@@ -35,5 +35,19 @@
 \DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00031}00031 }
 \DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00032}00032     \textcolor{keywordflow}{return} newPoints;}
 \DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00033}00033 \}}
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00036}00036 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00037}00037 \textcolor{comment}{ }}
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00038}00038 \textcolor{comment}{ Example: Rotating camera by 180°.}}
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00039}00039 \textcolor{comment}{ }}
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00040}00040 \textcolor{comment}{ newPoints-\/>push\_back(new Point3D(}}
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00041}00041 \textcolor{comment}{     transformWidthCoordinate(maxWidth -\/ std::abs(pointsToMap.at(i)-\/>getX()) + std::abs(xOrigin)),}}
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00042}00042 \textcolor{comment}{     transformHeightCoordinate(pointsToMap.at(i)-\/>getY()),}}
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00043}00043 \textcolor{comment}{     -\/ (6.48 -\/ std::abs(pointsToMap.at(i)-\/>getZ()) + std::abs(zOrigin) + getRoom().getDistanceCameraFromBackWall()),}}
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00044}00044 \textcolor{comment}{     new BodyKeyPoint(0, 0, ((BodyKeyPoint *) pointsToMap.at(i)-\/>getDecorated())-\/>getConfidence()))}}
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00045}00045 \textcolor{comment}{ );}}
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00046}00046 \textcolor{comment}{ }}
+\DoxyCodeLine{\Hypertarget{UnityCoordinateMappingManager_8cpp_source_l00047}00047 \textcolor{comment}{ */}}
 
 \end{DoxyCode}

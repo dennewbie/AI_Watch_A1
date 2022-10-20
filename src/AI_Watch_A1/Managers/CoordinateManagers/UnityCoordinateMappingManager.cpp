@@ -31,3 +31,17 @@ std::vector <Point3D *> * UnityCoordinateMappingManager::mapToMeters (std::vecto
 
     return newPoints;
 }
+
+
+/*
+ 
+ Example: Rotating camera by 180°.
+ 
+ newPoints->push_back(new Point3D(
+     transformWidthCoordinate(maxWidth - std::abs(pointsToMap.at(i)->getX()) + std::abs(xOrigin)),
+     transformHeightCoordinate(pointsToMap.at(i)->getY()),
+     - (6.48 - std::abs(pointsToMap.at(i)->getZ()) + std::abs(zOrigin) + getRoom().getDistanceCameraFromBackWall()),
+     new BodyKeyPoint(0, 0, ((BodyKeyPoint *) pointsToMap.at(i)->getDecorated())->getConfidence()))
+ );
+ 
+ */

@@ -24,7 +24,7 @@
  * - [Demo #2](https://youtu.be/pq3m9U3hRrQ)
  *
  * @section otherdoc_sec Other Docs 📜
- * - [Bachelor Thesis in Computer Science](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.pdf)
+ * - Bachelor Thesis in Computer Science: ... Coming soon ...
  *
  * @section install_sec Installation 🚀
  * Note: Instructions for MacOS with Intel CPU
@@ -66,8 +66,14 @@
  * ```
  * cmake .. && make -j `sysctl -n hw.logicalcpu`
  * ```
+ *
+ * 9) This step is optional. Run the following command in your terminal:
+ *
+ * ```
+ * sudo make install
+ * ```
  * 
- * 9) Now let's start the Kafka environment. Run the following commands in a new terminal session located on the parent folder of the `confluent` folder.
+ * 10) Now let's start the Kafka environment. Run the following commands in a new terminal session located on the parent folder of the `confluent` folder.
  * Set the environment variable for the Confluent Platform home directory:
  *   ```
  *   export CONFLUENT_HOME=confluent-7.2.1
@@ -116,7 +122,7 @@
  *   The Confluent CLI requires Java version 1.8 or 1.11.
  *   See [Confluent versions interoperability](https://docs.confluent.io/current/installation/versions-interoperability.html).
  * 
- * 10) Navigate to `http://localhost:9021` and create a new topic `topic1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and
+ * 11) Navigate to `http://localhost:9021` and create a new topic `topic1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and
  *     set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file. At this point:
  *   - if internal OpenPose execution is chosen, then run the following command in your terminal:
  *  
