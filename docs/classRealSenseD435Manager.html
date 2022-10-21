@@ -473,7 +473,7 @@ getVideoFrames (unsigned int user_nFrame, rs2::pipeline &amp; pipelineStream, fl
 <div class="line"><span class="lineno">   50</span>    <span class="keywordflow">do</span> {</div>
 <div class="line"><span class="lineno">   51</span>        streamData = pipelineStream.wait_for_frames();</div>
 <div class="line"><span class="lineno">   52</span>        skippedFrameCounter += 1;</div>
-<div class="line"><span class="lineno">   53</span>    } <span class="keywordflow">while</span> (skippedFrameCounter &lt; framesToSkip);</div>
+<div class="line"><span class="lineno">   53</span>    } <span class="keywordflow">while</span> (skippedFrameCounter &lt;= framesToSkip);</div>
 <div class="line"><span class="lineno">   54</span>    </div>
 <div class="line"><span class="lineno">   55</span>    alignedStreamData = <a class="code hl_function" href="classRealSenseManager.html#acff6020a0a3efe31b637d6dc5b341dd7">RealSenseManager::get_align</a>().process(streamData);</div>
 <div class="line"><span class="lineno">   56</span>    depthFrame = alignedStreamData.get_depth_frame();</div>

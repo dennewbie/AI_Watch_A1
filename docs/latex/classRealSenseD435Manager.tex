@@ -297,7 +297,7 @@ Definition at line \mbox{\hyperlink{RealSenseD435Manager_8cpp_source_l00043}{43}
 \DoxyCodeLine{00050     \textcolor{keywordflow}{do} \{}
 \DoxyCodeLine{00051         streamData = pipelineStream.wait\_for\_frames();}
 \DoxyCodeLine{00052         skippedFrameCounter += 1;}
-\DoxyCodeLine{00053     \} \textcolor{keywordflow}{while} (skippedFrameCounter < framesToSkip);}
+\DoxyCodeLine{00053     \} \textcolor{keywordflow}{while} (skippedFrameCounter <= framesToSkip);}
 \DoxyCodeLine{00054     }
 \DoxyCodeLine{00055     alignedStreamData = \mbox{\hyperlink{classRealSenseManager_acff6020a0a3efe31b637d6dc5b341dd7}{RealSenseManager::get\_align}}().process(streamData);}
 \DoxyCodeLine{00056     depthFrame = alignedStreamData.get\_depth\_frame();}

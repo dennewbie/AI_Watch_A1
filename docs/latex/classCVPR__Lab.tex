@@ -28,6 +28,8 @@ float \mbox{\hyperlink{classRoom_a1517ccae849c47d7600b261b6cdd93e8}{get\+Min\+He
 \begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classRoom}{Room}}\textquotesingle{}s minimum height. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classRoom_ae5bb2c476119694129f50be36d4093e6}{get\+Max\+Height}} (void)
 \begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classRoom}{Room}}\textquotesingle{}s maximum height. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classRoom_a75d0e3e64bb5886a7b289d6fadfd6098}{get\+Max\+Depth}} (void)
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classRoom}{Room}}\textquotesingle{}s maximum depth. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classRoom_afbca768640c1e7e8228d78ae2e3c18e6}{get\+Min\+Width\+RS}} (void)
 \begin{DoxyCompactList}\small\item\em Get the Real\+Sense environment\textquotesingle{}s minimum width. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classRoom_a14e9a3defd71fc3b79ea52659bdf4155}{get\+Max\+Width\+RS}} (void)
@@ -55,6 +57,8 @@ void \mbox{\hyperlink{classRoom_aff47953b8df1b0b32207c7d797ef4405}{set\+Min\+Hei
 \begin{DoxyCompactList}\small\item\em Set the \mbox{\hyperlink{classRoom}{Room}}\textquotesingle{}s minimum height. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRoom_a4a4083706056546cdc1a22b237bc1fe7}{set\+Max\+Height}} (float \mbox{\hyperlink{Room_8hpp_ab53ce0f881e099671d39cbeb0ad9da36}{max\+Height}})
 \begin{DoxyCompactList}\small\item\em Set the \mbox{\hyperlink{classRoom}{Room}}\textquotesingle{}s maximum height. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRoom_a9c9eb883ecf6ea48fe7cdc7cfe111f4e}{set\+Max\+Depth}} (float \mbox{\hyperlink{Room_8hpp_ab53ce0f881e099671d39cbeb0ad9da36}{max\+Height}})
+\begin{DoxyCompactList}\small\item\em Set the \mbox{\hyperlink{classRoom}{Room}}\textquotesingle{}s maximum depth. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRoom_aa11d80abd269bd193ab05996e6438f85}{set\+Min\+Width\+RS}} (float \mbox{\hyperlink{Room_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{min\+Width\+RS}})
 \begin{DoxyCompactList}\small\item\em Set the Real\+Sense environment\textquotesingle{}s minimum width. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRoom_a6273db5c2bf4a3ead21ecd0e66003fe6}{set\+Max\+Width\+RS}} (float \mbox{\hyperlink{Room_8hpp_a1454c0812b7f5ea224708b049da3b923}{max\+Width\+RS}})
@@ -82,6 +86,8 @@ float \mbox{\hyperlink{classRoom_a477bf016b9eae1282aa81a0c32bdb144}{\+\_\+min\+H
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classRoom}{Room}}\textquotesingle{}s minimum height. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classRoom_aa964fde297fa4244439b08145fae7f50}{\+\_\+max\+Height}}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classRoom}{Room}}\textquotesingle{}s maximum height. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classRoom_aa995d91b395a69f22dc71f5886e91267}{\+\_\+max\+Depth}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classRoom}{Room}}\textquotesingle{}s maximum depth. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classRoom_a064a170976bb6864a3042ad56bfe5425}{\+\_\+min\+Width\+RS}}
 \begin{DoxyCompactList}\small\item\em Real\+Sense environment\textquotesingle{}s minimum width. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classRoom_aa6288ec50ebe6ac6444c5d69bbfedca6}{\+\_\+max\+Width\+RS}}
@@ -124,7 +130,7 @@ Definition at line \mbox{\hyperlink{CVPR__Lab_8cpp_source_l00015}{15}} of file \
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00015 : \mbox{\hyperlink{classRoom_ac631b03c0bc78baf63a48a4111a6ca66}{Room}}(\mbox{\hyperlink{Room_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{minWidth}}, \mbox{\hyperlink{Room_8hpp_aa8ec0caafe499a74f4989eae1b243a21}{maxWidth}}, \mbox{\hyperlink{Room_8hpp_a7a882e3c4c3b228cee91a5f3f3db70dc}{minHeight}}, \mbox{\hyperlink{Room_8hpp_ab53ce0f881e099671d39cbeb0ad9da36}{maxHeight}}, \mbox{\hyperlink{Room_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}}, \mbox{\hyperlink{Room_8hpp_a1454c0812b7f5ea224708b049da3b923}{maxWidthRS}}, \mbox{\hyperlink{Room_8hpp_a6fe1a44c4af83e2519071a37be532562}{minHeightRS}}, \mbox{\hyperlink{Room_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{maxHeightRS}}, \mbox{\hyperlink{Room_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{xOriginUnity}}, \mbox{\hyperlink{Room_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{zOriginUnity}}, \mbox{\hyperlink{Room_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}}, \mbox{\hyperlink{Room_8hpp_a988c9ac0a2c7da8c9b8c0f66833cc89a}{heightOffset}}) \{ \}}
+\DoxyCodeLine{00015 : \mbox{\hyperlink{classRoom_ae5f291f5f77b167fb2acc147f7bd499b}{Room}}(\mbox{\hyperlink{Room_8hpp_a461ca54c9a959e62b1c9ac194a32834c}{minWidth}}, \mbox{\hyperlink{Room_8hpp_aa8ec0caafe499a74f4989eae1b243a21}{maxWidth}}, \mbox{\hyperlink{Room_8hpp_a7a882e3c4c3b228cee91a5f3f3db70dc}{minHeight}}, \mbox{\hyperlink{Room_8hpp_ab53ce0f881e099671d39cbeb0ad9da36}{maxHeight}}, \mbox{\hyperlink{Room_8hpp_afe03ad5589b7b58104dd21408cd831bd}{maxDepth}}, \mbox{\hyperlink{Room_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}}, \mbox{\hyperlink{Room_8hpp_a1454c0812b7f5ea224708b049da3b923}{maxWidthRS}}, \mbox{\hyperlink{Room_8hpp_a6fe1a44c4af83e2519071a37be532562}{minHeightRS}}, \mbox{\hyperlink{Room_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{maxHeightRS}}, \mbox{\hyperlink{Room_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{xOriginUnity}}, \mbox{\hyperlink{Room_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{zOriginUnity}}, \mbox{\hyperlink{Room_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}}, \mbox{\hyperlink{Room_8hpp_a988c9ac0a2c7da8c9b8c0f66833cc89a}{heightOffset}}) \{ \}}
 
 \end{DoxyCode}
 
@@ -145,18 +151,18 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00120}{120}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00129}{129}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00120                                                \{}
-\DoxyCodeLine{00121     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_a5c46687f2f87e9fc7bd850435b672b4b}{\_distanceCameraFromBackWall}};}
-\DoxyCodeLine{00122 \}}
+\DoxyCodeLine{00129                                                \{}
+\DoxyCodeLine{00130     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_a5c46687f2f87e9fc7bd850435b672b4b}{\_distanceCameraFromBackWall}};}
+\DoxyCodeLine{00131 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00109}{Room\+::\+\_\+distance\+Camera\+From\+Back\+Wall}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00117}{Room\+::\+\_\+distance\+Camera\+From\+Back\+Wall}}.
 
 \mbox{\Hypertarget{classRoom_aa177d1f721f5985ff5032e9b3ad1bf32}\label{classRoom_aa177d1f721f5985ff5032e9b3ad1bf32}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!getHeightOffset@{getHeightOffset}}
@@ -173,22 +179,50 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00124}{124}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00133}{133}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00124                                  \{}
-\DoxyCodeLine{00125     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_a3c6c7e69cf800aa782fd0848daba9885}{\_heightOffset}};}
-\DoxyCodeLine{00126 \}}
+\DoxyCodeLine{00133                                  \{}
+\DoxyCodeLine{00134     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_a3c6c7e69cf800aa782fd0848daba9885}{\_heightOffset}};}
+\DoxyCodeLine{00135 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00114}{Room\+::\+\_\+height\+Offset}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00122}{Room\+::\+\_\+height\+Offset}}.
 
 
 
 Referenced by \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00026}{Coordinate\+Mapping\+Manager\+::transform\+Height\+Coordinate()}}.
+
+\mbox{\Hypertarget{classRoom_a75d0e3e64bb5886a7b289d6fadfd6098}\label{classRoom_a75d0e3e64bb5886a7b289d6fadfd6098}} 
+\index{CVPR\_Lab@{CVPR\_Lab}!getMaxDepth@{getMaxDepth}}
+\index{getMaxDepth@{getMaxDepth}!CVPR\_Lab@{CVPR\_Lab}}
+\doxysubsubsection{\texorpdfstring{getMaxDepth()}{getMaxDepth()}}
+{\footnotesize\ttfamily float Room\+::get\+Max\+Depth (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the \mbox{\hyperlink{classRoom}{Room}}\textquotesingle{}s maximum depth. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00101}{101}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101                             \{}
+\DoxyCodeLine{00102     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_aa995d91b395a69f22dc71f5886e91267}{\_maxDepth}};}
+\DoxyCodeLine{00103 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{Room_8hpp_source_l00085}{Room\+::\+\_\+max\+Depth}}.
 
 \mbox{\Hypertarget{classRoom_ae5bb2c476119694129f50be36d4093e6}\label{classRoom_ae5bb2c476119694129f50be36d4093e6}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!getMaxHeight@{getMaxHeight}}
@@ -205,18 +239,18 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00092                               \{}
-\DoxyCodeLine{00093     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_aa964fde297fa4244439b08145fae7f50}{\_maxHeight}};}
-\DoxyCodeLine{00094 \}}
+\DoxyCodeLine{00097                               \{}
+\DoxyCodeLine{00098     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_aa964fde297fa4244439b08145fae7f50}{\_maxHeight}};}
+\DoxyCodeLine{00099 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00078}{Room\+::\+\_\+max\+Height}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00081}{Room\+::\+\_\+max\+Height}}.
 
 
 
@@ -237,18 +271,18 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00108}{108}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00117}{117}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00108                                 \{}
-\DoxyCodeLine{00109     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_a97445d3806f6858a16fce72e29868c26}{\_maxHeightRS}};}
-\DoxyCodeLine{00110 \}}
+\DoxyCodeLine{00117                                 \{}
+\DoxyCodeLine{00118     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_a97445d3806f6858a16fce72e29868c26}{\_maxHeightRS}};}
+\DoxyCodeLine{00119 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00095}{Room\+::\+\_\+max\+Height\+RS}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00102}{Room\+::\+\_\+max\+Height\+RS}}.
 
 
 
@@ -269,18 +303,18 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00089}{89}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00084                              \{}
-\DoxyCodeLine{00085     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_ae4e7b37ed56aec2ae948a099ac1eeed6}{\_maxWidth}};}
-\DoxyCodeLine{00086 \}}
+\DoxyCodeLine{00089                              \{}
+\DoxyCodeLine{00090     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_ae4e7b37ed56aec2ae948a099ac1eeed6}{\_maxWidth}};}
+\DoxyCodeLine{00091 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00070}{Room\+::\+\_\+max\+Width}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00073}{Room\+::\+\_\+max\+Width}}.
 
 \mbox{\Hypertarget{classRoom_a14e9a3defd71fc3b79ea52659bdf4155}\label{classRoom_a14e9a3defd71fc3b79ea52659bdf4155}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!getMaxWidthRS@{getMaxWidthRS}}
@@ -297,18 +331,18 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00100                                \{}
-\DoxyCodeLine{00101     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_aa6288ec50ebe6ac6444c5d69bbfedca6}{\_maxWidthRS}};}
-\DoxyCodeLine{00102 \}}
+\DoxyCodeLine{00109                                \{}
+\DoxyCodeLine{00110     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_aa6288ec50ebe6ac6444c5d69bbfedca6}{\_maxWidthRS}};}
+\DoxyCodeLine{00111 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00087}{Room\+::\+\_\+max\+Width\+RS}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00094}{Room\+::\+\_\+max\+Width\+RS}}.
 
 \mbox{\Hypertarget{classRoom_a1517ccae849c47d7600b261b6cdd93e8}\label{classRoom_a1517ccae849c47d7600b261b6cdd93e8}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!getMinHeight@{getMinHeight}}
@@ -325,18 +359,18 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00088                               \{}
-\DoxyCodeLine{00089     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_a477bf016b9eae1282aa81a0c32bdb144}{\_minHeight}};}
-\DoxyCodeLine{00090 \}}
+\DoxyCodeLine{00093                               \{}
+\DoxyCodeLine{00094     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_a477bf016b9eae1282aa81a0c32bdb144}{\_minHeight}};}
+\DoxyCodeLine{00095 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00074}{Room\+::\+\_\+min\+Height}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00077}{Room\+::\+\_\+min\+Height}}.
 
 \mbox{\Hypertarget{classRoom_a21ed13dd01d25b868635393f6802cb73}\label{classRoom_a21ed13dd01d25b868635393f6802cb73}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!getMinHeightRS@{getMinHeightRS}}
@@ -353,18 +387,18 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00113}{113}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00104                                 \{}
-\DoxyCodeLine{00105     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_aee1374a09690557084add294f3503519}{\_minHeightRS}};}
-\DoxyCodeLine{00106 \}}
+\DoxyCodeLine{00113                                 \{}
+\DoxyCodeLine{00114     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_aee1374a09690557084add294f3503519}{\_minHeightRS}};}
+\DoxyCodeLine{00115 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00091}{Room\+::\+\_\+min\+Height\+RS}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00098}{Room\+::\+\_\+min\+Height\+RS}}.
 
 \mbox{\Hypertarget{classRoom_a54ce4fbb5fabe5c206abb2d2c02e9ab6}\label{classRoom_a54ce4fbb5fabe5c206abb2d2c02e9ab6}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!getMinWidth@{getMinWidth}}
@@ -381,18 +415,18 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00080                              \{}
-\DoxyCodeLine{00081     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_a95c5b57b10ac9b291085e1a6315b819b}{\_minWidth}};}
-\DoxyCodeLine{00082 \}}
+\DoxyCodeLine{00085                              \{}
+\DoxyCodeLine{00086     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_a95c5b57b10ac9b291085e1a6315b819b}{\_minWidth}};}
+\DoxyCodeLine{00087 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00066}{Room\+::\+\_\+min\+Width}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00069}{Room\+::\+\_\+min\+Width}}.
 
 
 
@@ -413,18 +447,18 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00105}{105}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00096                                \{}
-\DoxyCodeLine{00097     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_a064a170976bb6864a3042ad56bfe5425}{\_minWidthRS}};}
-\DoxyCodeLine{00098 \}}
+\DoxyCodeLine{00105                                \{}
+\DoxyCodeLine{00106     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_a064a170976bb6864a3042ad56bfe5425}{\_minWidthRS}};}
+\DoxyCodeLine{00107 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00083}{Room\+::\+\_\+min\+Width\+RS}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00090}{Room\+::\+\_\+min\+Width\+RS}}.
 
 \mbox{\Hypertarget{classRoom_ab490df2985a1fb148132f63f54e52e10}\label{classRoom_ab490df2985a1fb148132f63f54e52e10}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!getXOriginUnity@{getXOriginUnity}}
@@ -441,18 +475,18 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00112}{112}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00121}{121}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00112                                  \{}
-\DoxyCodeLine{00113     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_af450a5d54eab1cafc6d92443bb6e6f95}{\_xOriginUnity}};}
-\DoxyCodeLine{00114 \}}
+\DoxyCodeLine{00121                                  \{}
+\DoxyCodeLine{00122     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_af450a5d54eab1cafc6d92443bb6e6f95}{\_xOriginUnity}};}
+\DoxyCodeLine{00123 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00100}{Room\+::\+\_\+x\+Origin\+Unity}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00108}{Room\+::\+\_\+x\+Origin\+Unity}}.
 
 \mbox{\Hypertarget{classRoom_ae74a51d79a59f68d0e5487e1c5ccd866}\label{classRoom_ae74a51d79a59f68d0e5487e1c5ccd866}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!getZOriginUnity@{getZOriginUnity}}
@@ -469,18 +503,18 @@ float
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00116}{116}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00125}{125}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00116                                  \{}
-\DoxyCodeLine{00117     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_ad59bae501f3f3e7bfdd15d6a00d18854}{\_zOriginUnity}};}
-\DoxyCodeLine{00118 \}}
+\DoxyCodeLine{00125                                  \{}
+\DoxyCodeLine{00126     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classRoom_ad59bae501f3f3e7bfdd15d6a00d18854}{\_zOriginUnity}};}
+\DoxyCodeLine{00127 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00104}{Room\+::\+\_\+z\+Origin\+Unity}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00112}{Room\+::\+\_\+z\+Origin\+Unity}}.
 
 \mbox{\Hypertarget{classRoom_ad0ab2b0d30bfb2dee3c2faf5bab1b688}\label{classRoom_ad0ab2b0d30bfb2dee3c2faf5bab1b688}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!setDistanceCameraFromBackWall@{setDistanceCameraFromBackWall}}
@@ -499,22 +533,22 @@ Set the distance between the camera lens and the wall back to the camera.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00053                                                                           \{}
-\DoxyCodeLine{00054     this-\/>\mbox{\hyperlink{classRoom_a5c46687f2f87e9fc7bd850435b672b4b}{\_distanceCameraFromBackWall}} = \mbox{\hyperlink{Room_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}};}
-\DoxyCodeLine{00055 \}}
+\DoxyCodeLine{00057                                                                           \{}
+\DoxyCodeLine{00058     this-\/>\mbox{\hyperlink{classRoom_a5c46687f2f87e9fc7bd850435b672b4b}{\_distanceCameraFromBackWall}} = \mbox{\hyperlink{Room_8hpp_a00219f81f56add6161ea4fe55851c988}{distanceCameraFromBackWall}};}
+\DoxyCodeLine{00059 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00109}{Room\+::\+\_\+distance\+Camera\+From\+Back\+Wall}}, and \mbox{\hyperlink{Room_8hpp_source_l00030}{distance\+Camera\+From\+Back\+Wall}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00117}{Room\+::\+\_\+distance\+Camera\+From\+Back\+Wall}}, and \mbox{\hyperlink{Room_8hpp_source_l00032}{distance\+Camera\+From\+Back\+Wall}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00063}{Room\+::\+Room()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00067}{Room\+::\+Room()}}.
 
 \mbox{\Hypertarget{classRoom_a9ab2ecdc55242440c587d5f663245dbf}\label{classRoom_a9ab2ecdc55242440c587d5f663245dbf}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!setHeightOffset@{setHeightOffset}}
@@ -533,22 +567,56 @@ Set the height offset.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00057                                               \{}
-\DoxyCodeLine{00058     this-\/>\mbox{\hyperlink{classRoom_a3c6c7e69cf800aa782fd0848daba9885}{\_heightOffset}} = \mbox{\hyperlink{Room_8hpp_a988c9ac0a2c7da8c9b8c0f66833cc89a}{heightOffset}};}
-\DoxyCodeLine{00059 \}}
+\DoxyCodeLine{00061                                               \{}
+\DoxyCodeLine{00062     this-\/>\mbox{\hyperlink{classRoom_a3c6c7e69cf800aa782fd0848daba9885}{\_heightOffset}} = \mbox{\hyperlink{Room_8hpp_a988c9ac0a2c7da8c9b8c0f66833cc89a}{heightOffset}};}
+\DoxyCodeLine{00063 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00114}{Room\+::\+\_\+height\+Offset}}, and \mbox{\hyperlink{Room_8hpp_source_l00031}{height\+Offset}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00122}{Room\+::\+\_\+height\+Offset}}, and \mbox{\hyperlink{Room_8hpp_source_l00033}{height\+Offset}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00063}{Room\+::\+Room()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00067}{Room\+::\+Room()}}.
+
+\mbox{\Hypertarget{classRoom_a9c9eb883ecf6ea48fe7cdc7cfe111f4e}\label{classRoom_a9c9eb883ecf6ea48fe7cdc7cfe111f4e}} 
+\index{CVPR\_Lab@{CVPR\_Lab}!setMaxDepth@{setMaxDepth}}
+\index{setMaxDepth@{setMaxDepth}!CVPR\_Lab@{CVPR\_Lab}}
+\doxysubsubsection{\texorpdfstring{setMaxDepth()}{setMaxDepth()}}
+{\footnotesize\ttfamily void Room\+::set\+Max\+Depth (\begin{DoxyParamCaption}\item[{float}]{max\+Height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Set the \mbox{\hyperlink{classRoom}{Room}}\textquotesingle{}s maximum depth. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Height} & \mbox{\hyperlink{classRoom}{Room}}\textquotesingle{}s maximum depth. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029                                      \{}
+\DoxyCodeLine{00030     this-\/>\mbox{\hyperlink{classRoom_aa995d91b395a69f22dc71f5886e91267}{\_maxDepth}} = \mbox{\hyperlink{Room_8hpp_afe03ad5589b7b58104dd21408cd831bd}{maxDepth}};}
+\DoxyCodeLine{00031 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{Room_8hpp_source_l00085}{Room\+::\+\_\+max\+Depth}}, and \mbox{\hyperlink{Room_8hpp_source_l00021}{max\+Depth}}.
+
+
+
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00067}{Room\+::\+Room()}}.
 
 \mbox{\Hypertarget{classRoom_a4a4083706056546cdc1a22b237bc1fe7}\label{classRoom_a4a4083706056546cdc1a22b237bc1fe7}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!setMaxHeight@{setMaxHeight}}
@@ -578,11 +646,11 @@ Definition at line \mbox{\hyperlink{Room_8cpp_source_l00025}{25}} of file \mbox{
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00078}{Room\+::\+\_\+max\+Height}}, and \mbox{\hyperlink{Room_8hpp_source_l00020}{max\+Height}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00081}{Room\+::\+\_\+max\+Height}}, and \mbox{\hyperlink{Room_8hpp_source_l00020}{max\+Height}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00063}{Room\+::\+Room()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00067}{Room\+::\+Room()}}.
 
 \mbox{\Hypertarget{classRoom_a95e1c7fd5ef259f70df743f0ad418b82}\label{classRoom_a95e1c7fd5ef259f70df743f0ad418b82}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!setMaxHeightRS@{setMaxHeightRS}}
@@ -601,22 +669,22 @@ Set the Real\+Sense environment\textquotesingle{}s maximum height.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00041                                             \{}
-\DoxyCodeLine{00042     this-\/>\mbox{\hyperlink{classRoom_a97445d3806f6858a16fce72e29868c26}{\_maxHeightRS}} = \mbox{\hyperlink{Room_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{maxHeightRS}};}
-\DoxyCodeLine{00043 \}}
+\DoxyCodeLine{00045                                             \{}
+\DoxyCodeLine{00046     this-\/>\mbox{\hyperlink{classRoom_a97445d3806f6858a16fce72e29868c26}{\_maxHeightRS}} = \mbox{\hyperlink{Room_8hpp_aca8b8eb6ae4b4a05edb5f73985e88175}{maxHeightRS}};}
+\DoxyCodeLine{00047 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00095}{Room\+::\+\_\+max\+Height\+RS}}, and \mbox{\hyperlink{Room_8hpp_source_l00025}{max\+Height\+RS}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00102}{Room\+::\+\_\+max\+Height\+RS}}, and \mbox{\hyperlink{Room_8hpp_source_l00027}{max\+Height\+RS}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00063}{Room\+::\+Room()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00067}{Room\+::\+Room()}}.
 
 \mbox{\Hypertarget{classRoom_a310dac7a3864ff70739156ea534334f3}\label{classRoom_a310dac7a3864ff70739156ea534334f3}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!setMaxWidth@{setMaxWidth}}
@@ -646,11 +714,11 @@ Definition at line \mbox{\hyperlink{Room_8cpp_source_l00017}{17}} of file \mbox{
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00070}{Room\+::\+\_\+max\+Width}}, and \mbox{\hyperlink{Room_8hpp_source_l00018}{max\+Width}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00073}{Room\+::\+\_\+max\+Width}}, and \mbox{\hyperlink{Room_8hpp_source_l00018}{max\+Width}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00063}{Room\+::\+Room()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00067}{Room\+::\+Room()}}.
 
 \mbox{\Hypertarget{classRoom_a6273db5c2bf4a3ead21ecd0e66003fe6}\label{classRoom_a6273db5c2bf4a3ead21ecd0e66003fe6}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!setMaxWidthRS@{setMaxWidthRS}}
@@ -669,22 +737,22 @@ Set the Real\+Sense environment\textquotesingle{}s maximum width.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00033                                           \{}
-\DoxyCodeLine{00034     this-\/>\mbox{\hyperlink{classRoom_aa6288ec50ebe6ac6444c5d69bbfedca6}{\_maxWidthRS}} = \mbox{\hyperlink{Room_8hpp_a1454c0812b7f5ea224708b049da3b923}{maxWidthRS}};}
-\DoxyCodeLine{00035 \}}
+\DoxyCodeLine{00037                                           \{}
+\DoxyCodeLine{00038     this-\/>\mbox{\hyperlink{classRoom_aa6288ec50ebe6ac6444c5d69bbfedca6}{\_maxWidthRS}} = \mbox{\hyperlink{Room_8hpp_a1454c0812b7f5ea224708b049da3b923}{maxWidthRS}};}
+\DoxyCodeLine{00039 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00087}{Room\+::\+\_\+max\+Width\+RS}}, and \mbox{\hyperlink{Room_8hpp_source_l00023}{max\+Width\+RS}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00094}{Room\+::\+\_\+max\+Width\+RS}}, and \mbox{\hyperlink{Room_8hpp_source_l00025}{max\+Width\+RS}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00063}{Room\+::\+Room()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00067}{Room\+::\+Room()}}.
 
 \mbox{\Hypertarget{classRoom_aff47953b8df1b0b32207c7d797ef4405}\label{classRoom_aff47953b8df1b0b32207c7d797ef4405}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!setMinHeight@{setMinHeight}}
@@ -714,11 +782,11 @@ Definition at line \mbox{\hyperlink{Room_8cpp_source_l00021}{21}} of file \mbox{
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00074}{Room\+::\+\_\+min\+Height}}, and \mbox{\hyperlink{Room_8hpp_source_l00019}{min\+Height}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00077}{Room\+::\+\_\+min\+Height}}, and \mbox{\hyperlink{Room_8hpp_source_l00019}{min\+Height}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00063}{Room\+::\+Room()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00067}{Room\+::\+Room()}}.
 
 \mbox{\Hypertarget{classRoom_a95009d38b53f71fb8017cf31342d638c}\label{classRoom_a95009d38b53f71fb8017cf31342d638c}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!setMinHeightRS@{setMinHeightRS}}
@@ -737,22 +805,22 @@ Set the Real\+Sense environment\textquotesingle{}s minimum height.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00037                                             \{}
-\DoxyCodeLine{00038     this-\/>\mbox{\hyperlink{classRoom_aee1374a09690557084add294f3503519}{\_minHeightRS}} = \mbox{\hyperlink{Room_8hpp_a6fe1a44c4af83e2519071a37be532562}{minHeightRS}};}
-\DoxyCodeLine{00039 \}}
+\DoxyCodeLine{00041                                             \{}
+\DoxyCodeLine{00042     this-\/>\mbox{\hyperlink{classRoom_aee1374a09690557084add294f3503519}{\_minHeightRS}} = \mbox{\hyperlink{Room_8hpp_a6fe1a44c4af83e2519071a37be532562}{minHeightRS}};}
+\DoxyCodeLine{00043 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00091}{Room\+::\+\_\+min\+Height\+RS}}, and \mbox{\hyperlink{Room_8hpp_source_l00024}{min\+Height\+RS}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00098}{Room\+::\+\_\+min\+Height\+RS}}, and \mbox{\hyperlink{Room_8hpp_source_l00026}{min\+Height\+RS}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00063}{Room\+::\+Room()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00067}{Room\+::\+Room()}}.
 
 \mbox{\Hypertarget{classRoom_a6ba45569908da215686d160aead940cc}\label{classRoom_a6ba45569908da215686d160aead940cc}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!setMinWidth@{setMinWidth}}
@@ -782,11 +850,11 @@ Definition at line \mbox{\hyperlink{Room_8cpp_source_l00013}{13}} of file \mbox{
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00066}{Room\+::\+\_\+min\+Width}}, and \mbox{\hyperlink{Room_8hpp_source_l00017}{min\+Width}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00069}{Room\+::\+\_\+min\+Width}}, and \mbox{\hyperlink{Room_8hpp_source_l00017}{min\+Width}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00063}{Room\+::\+Room()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00067}{Room\+::\+Room()}}.
 
 \mbox{\Hypertarget{classRoom_aa11d80abd269bd193ab05996e6438f85}\label{classRoom_aa11d80abd269bd193ab05996e6438f85}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!setMinWidthRS@{setMinWidthRS}}
@@ -805,22 +873,22 @@ Set the Real\+Sense environment\textquotesingle{}s minimum width.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00029                                           \{}
-\DoxyCodeLine{00030     this-\/>\mbox{\hyperlink{classRoom_a064a170976bb6864a3042ad56bfe5425}{\_minWidthRS}} = \mbox{\hyperlink{Room_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}};}
-\DoxyCodeLine{00031 \}}
+\DoxyCodeLine{00033                                           \{}
+\DoxyCodeLine{00034     this-\/>\mbox{\hyperlink{classRoom_a064a170976bb6864a3042ad56bfe5425}{\_minWidthRS}} = \mbox{\hyperlink{Room_8hpp_a594d18d8b2e29b5be556468dd2f603c2}{minWidthRS}};}
+\DoxyCodeLine{00035 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00083}{Room\+::\+\_\+min\+Width\+RS}}, and \mbox{\hyperlink{Room_8hpp_source_l00022}{min\+Width\+RS}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00090}{Room\+::\+\_\+min\+Width\+RS}}, and \mbox{\hyperlink{Room_8hpp_source_l00024}{min\+Width\+RS}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00063}{Room\+::\+Room()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00067}{Room\+::\+Room()}}.
 
 \mbox{\Hypertarget{classRoom_ad16614c2493d274612790f012c667586}\label{classRoom_ad16614c2493d274612790f012c667586}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!setXOriginUnity@{setXOriginUnity}}
@@ -839,22 +907,22 @@ Set the digital twin\textquotesingle{}s x axis\textquotesingle{} origin.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00045                                               \{}
-\DoxyCodeLine{00046     this-\/>\mbox{\hyperlink{classRoom_af450a5d54eab1cafc6d92443bb6e6f95}{\_xOriginUnity}} = \mbox{\hyperlink{Room_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{xOriginUnity}};}
-\DoxyCodeLine{00047 \}}
+\DoxyCodeLine{00049                                               \{}
+\DoxyCodeLine{00050     this-\/>\mbox{\hyperlink{classRoom_af450a5d54eab1cafc6d92443bb6e6f95}{\_xOriginUnity}} = \mbox{\hyperlink{Room_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{xOriginUnity}};}
+\DoxyCodeLine{00051 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00100}{Room\+::\+\_\+x\+Origin\+Unity}}, and \mbox{\hyperlink{Room_8hpp_source_l00027}{x\+Origin\+Unity}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00108}{Room\+::\+\_\+x\+Origin\+Unity}}, and \mbox{\hyperlink{Room_8hpp_source_l00029}{x\+Origin\+Unity}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00063}{Room\+::\+Room()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00067}{Room\+::\+Room()}}.
 
 \mbox{\Hypertarget{classRoom_ae510eb3a2607b59e64df2d9e31bae2f1}\label{classRoom_ae510eb3a2607b59e64df2d9e31bae2f1}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!setZOriginUnity@{setZOriginUnity}}
@@ -873,22 +941,22 @@ Set the digital twin\textquotesingle{}s z axis\textquotesingle{} origin.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Room_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
+Definition at line \mbox{\hyperlink{Room_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{Room_8cpp_source}{Room.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00049                                                  \{}
-\DoxyCodeLine{00050     this-\/>\mbox{\hyperlink{classRoom_ad59bae501f3f3e7bfdd15d6a00d18854}{\_zOriginUnity}} = \mbox{\hyperlink{Room_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{zOriginUnity}};}
-\DoxyCodeLine{00051 \}}
+\DoxyCodeLine{00053                                                  \{}
+\DoxyCodeLine{00054     this-\/>\mbox{\hyperlink{classRoom_ad59bae501f3f3e7bfdd15d6a00d18854}{\_zOriginUnity}} = \mbox{\hyperlink{Room_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{zOriginUnity}};}
+\DoxyCodeLine{00055 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Room_8hpp_source_l00104}{Room\+::\+\_\+z\+Origin\+Unity}}, and \mbox{\hyperlink{Room_8hpp_source_l00028}{z\+Origin\+Unity}}.
+References \mbox{\hyperlink{Room_8hpp_source_l00112}{Room\+::\+\_\+z\+Origin\+Unity}}, and \mbox{\hyperlink{Room_8hpp_source_l00030}{z\+Origin\+Unity}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00063}{Room\+::\+Room()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00067}{Room\+::\+Room()}}.
 
 
 
@@ -905,11 +973,11 @@ Distance between the camera lens and the wall back to the camera.
 
 
 
-Definition at line \mbox{\hyperlink{Room_8hpp_source_l00109}{109}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
+Definition at line \mbox{\hyperlink{Room_8hpp_source_l00117}{117}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00120}{Room\+::get\+Distance\+Camera\+From\+Back\+Wall()}}, and \mbox{\hyperlink{Room_8cpp_source_l00053}{Room\+::set\+Distance\+Camera\+From\+Back\+Wall()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00129}{Room\+::get\+Distance\+Camera\+From\+Back\+Wall()}}, and \mbox{\hyperlink{Room_8cpp_source_l00057}{Room\+::set\+Distance\+Camera\+From\+Back\+Wall()}}.
 
 \mbox{\Hypertarget{classRoom_a3c6c7e69cf800aa782fd0848daba9885}\label{classRoom_a3c6c7e69cf800aa782fd0848daba9885}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!\_heightOffset@{\_heightOffset}}
@@ -923,11 +991,29 @@ Specific offset that is experimentally considered optimal in order to get more a
 
 
 
-Definition at line \mbox{\hyperlink{Room_8hpp_source_l00114}{114}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
+Definition at line \mbox{\hyperlink{Room_8hpp_source_l00122}{122}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00124}{Room\+::get\+Height\+Offset()}}, and \mbox{\hyperlink{Room_8cpp_source_l00057}{Room\+::set\+Height\+Offset()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00133}{Room\+::get\+Height\+Offset()}}, and \mbox{\hyperlink{Room_8cpp_source_l00061}{Room\+::set\+Height\+Offset()}}.
+
+\mbox{\Hypertarget{classRoom_aa995d91b395a69f22dc71f5886e91267}\label{classRoom_aa995d91b395a69f22dc71f5886e91267}} 
+\index{CVPR\_Lab@{CVPR\_Lab}!\_maxDepth@{\_maxDepth}}
+\index{\_maxDepth@{\_maxDepth}!CVPR\_Lab@{CVPR\_Lab}}
+\doxysubsubsection{\texorpdfstring{\_maxDepth}{\_maxDepth}}
+{\footnotesize\ttfamily float Room\+::\+\_\+max\+Depth\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+
+
+\mbox{\hyperlink{classRoom}{Room}}\textquotesingle{}s maximum depth. 
+
+
+
+Definition at line \mbox{\hyperlink{Room_8hpp_source_l00085}{85}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00101}{Room\+::get\+Max\+Depth()}}, and \mbox{\hyperlink{Room_8cpp_source_l00029}{Room\+::set\+Max\+Depth()}}.
 
 \mbox{\Hypertarget{classRoom_aa964fde297fa4244439b08145fae7f50}\label{classRoom_aa964fde297fa4244439b08145fae7f50}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!\_maxHeight@{\_maxHeight}}
@@ -941,11 +1027,11 @@ Referenced by \mbox{\hyperlink{Room_8cpp_source_l00124}{Room\+::get\+Height\+Off
 
 
 
-Definition at line \mbox{\hyperlink{Room_8hpp_source_l00078}{78}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
+Definition at line \mbox{\hyperlink{Room_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00092}{Room\+::get\+Max\+Height()}}, and \mbox{\hyperlink{Room_8cpp_source_l00025}{Room\+::set\+Max\+Height()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00097}{Room\+::get\+Max\+Height()}}, and \mbox{\hyperlink{Room_8cpp_source_l00025}{Room\+::set\+Max\+Height()}}.
 
 \mbox{\Hypertarget{classRoom_a97445d3806f6858a16fce72e29868c26}\label{classRoom_a97445d3806f6858a16fce72e29868c26}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!\_maxHeightRS@{\_maxHeightRS}}
@@ -959,11 +1045,11 @@ Real\+Sense environment\textquotesingle{}s maximum height.
 
 
 
-Definition at line \mbox{\hyperlink{Room_8hpp_source_l00095}{95}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
+Definition at line \mbox{\hyperlink{Room_8hpp_source_l00102}{102}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00108}{Room\+::get\+Max\+Height\+RS()}}, and \mbox{\hyperlink{Room_8cpp_source_l00041}{Room\+::set\+Max\+Height\+RS()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00117}{Room\+::get\+Max\+Height\+RS()}}, and \mbox{\hyperlink{Room_8cpp_source_l00045}{Room\+::set\+Max\+Height\+RS()}}.
 
 \mbox{\Hypertarget{classRoom_ae4e7b37ed56aec2ae948a099ac1eeed6}\label{classRoom_ae4e7b37ed56aec2ae948a099ac1eeed6}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!\_maxWidth@{\_maxWidth}}
@@ -977,11 +1063,11 @@ Referenced by \mbox{\hyperlink{Room_8cpp_source_l00108}{Room\+::get\+Max\+Height
 
 
 
-Definition at line \mbox{\hyperlink{Room_8hpp_source_l00070}{70}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
+Definition at line \mbox{\hyperlink{Room_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00084}{Room\+::get\+Max\+Width()}}, and \mbox{\hyperlink{Room_8cpp_source_l00017}{Room\+::set\+Max\+Width()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00089}{Room\+::get\+Max\+Width()}}, and \mbox{\hyperlink{Room_8cpp_source_l00017}{Room\+::set\+Max\+Width()}}.
 
 \mbox{\Hypertarget{classRoom_aa6288ec50ebe6ac6444c5d69bbfedca6}\label{classRoom_aa6288ec50ebe6ac6444c5d69bbfedca6}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!\_maxWidthRS@{\_maxWidthRS}}
@@ -995,11 +1081,11 @@ Real\+Sense environment\textquotesingle{}s maximum width.
 
 
 
-Definition at line \mbox{\hyperlink{Room_8hpp_source_l00087}{87}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
+Definition at line \mbox{\hyperlink{Room_8hpp_source_l00094}{94}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00100}{Room\+::get\+Max\+Width\+RS()}}, and \mbox{\hyperlink{Room_8cpp_source_l00033}{Room\+::set\+Max\+Width\+RS()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00109}{Room\+::get\+Max\+Width\+RS()}}, and \mbox{\hyperlink{Room_8cpp_source_l00037}{Room\+::set\+Max\+Width\+RS()}}.
 
 \mbox{\Hypertarget{classRoom_a477bf016b9eae1282aa81a0c32bdb144}\label{classRoom_a477bf016b9eae1282aa81a0c32bdb144}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!\_minHeight@{\_minHeight}}
@@ -1013,11 +1099,11 @@ Referenced by \mbox{\hyperlink{Room_8cpp_source_l00100}{Room\+::get\+Max\+Width\
 
 
 
-Definition at line \mbox{\hyperlink{Room_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
+Definition at line \mbox{\hyperlink{Room_8hpp_source_l00077}{77}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00088}{Room\+::get\+Min\+Height()}}, and \mbox{\hyperlink{Room_8cpp_source_l00021}{Room\+::set\+Min\+Height()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00093}{Room\+::get\+Min\+Height()}}, and \mbox{\hyperlink{Room_8cpp_source_l00021}{Room\+::set\+Min\+Height()}}.
 
 \mbox{\Hypertarget{classRoom_aee1374a09690557084add294f3503519}\label{classRoom_aee1374a09690557084add294f3503519}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!\_minHeightRS@{\_minHeightRS}}
@@ -1031,11 +1117,11 @@ Real\+Sense environment\textquotesingle{}s minimum height.
 
 
 
-Definition at line \mbox{\hyperlink{Room_8hpp_source_l00091}{91}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
+Definition at line \mbox{\hyperlink{Room_8hpp_source_l00098}{98}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00104}{Room\+::get\+Min\+Height\+RS()}}, and \mbox{\hyperlink{Room_8cpp_source_l00037}{Room\+::set\+Min\+Height\+RS()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00113}{Room\+::get\+Min\+Height\+RS()}}, and \mbox{\hyperlink{Room_8cpp_source_l00041}{Room\+::set\+Min\+Height\+RS()}}.
 
 \mbox{\Hypertarget{classRoom_a95c5b57b10ac9b291085e1a6315b819b}\label{classRoom_a95c5b57b10ac9b291085e1a6315b819b}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!\_minWidth@{\_minWidth}}
@@ -1049,11 +1135,11 @@ Referenced by \mbox{\hyperlink{Room_8cpp_source_l00104}{Room\+::get\+Min\+Height
 
 
 
-Definition at line \mbox{\hyperlink{Room_8hpp_source_l00066}{66}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
+Definition at line \mbox{\hyperlink{Room_8hpp_source_l00069}{69}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00080}{Room\+::get\+Min\+Width()}}, and \mbox{\hyperlink{Room_8cpp_source_l00013}{Room\+::set\+Min\+Width()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00085}{Room\+::get\+Min\+Width()}}, and \mbox{\hyperlink{Room_8cpp_source_l00013}{Room\+::set\+Min\+Width()}}.
 
 \mbox{\Hypertarget{classRoom_a064a170976bb6864a3042ad56bfe5425}\label{classRoom_a064a170976bb6864a3042ad56bfe5425}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!\_minWidthRS@{\_minWidthRS}}
@@ -1067,11 +1153,11 @@ Real\+Sense environment\textquotesingle{}s minimum width.
 
 
 
-Definition at line \mbox{\hyperlink{Room_8hpp_source_l00083}{83}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
+Definition at line \mbox{\hyperlink{Room_8hpp_source_l00090}{90}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00096}{Room\+::get\+Min\+Width\+RS()}}, and \mbox{\hyperlink{Room_8cpp_source_l00029}{Room\+::set\+Min\+Width\+RS()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00105}{Room\+::get\+Min\+Width\+RS()}}, and \mbox{\hyperlink{Room_8cpp_source_l00033}{Room\+::set\+Min\+Width\+RS()}}.
 
 \mbox{\Hypertarget{classRoom_af450a5d54eab1cafc6d92443bb6e6f95}\label{classRoom_af450a5d54eab1cafc6d92443bb6e6f95}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!\_xOriginUnity@{\_xOriginUnity}}
@@ -1085,11 +1171,11 @@ Digital twin\textquotesingle{}s x axis\textquotesingle{} origin.
 
 
 
-Definition at line \mbox{\hyperlink{Room_8hpp_source_l00100}{100}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
+Definition at line \mbox{\hyperlink{Room_8hpp_source_l00108}{108}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00112}{Room\+::get\+XOrigin\+Unity()}}, and \mbox{\hyperlink{Room_8cpp_source_l00045}{Room\+::set\+XOrigin\+Unity()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00121}{Room\+::get\+XOrigin\+Unity()}}, and \mbox{\hyperlink{Room_8cpp_source_l00049}{Room\+::set\+XOrigin\+Unity()}}.
 
 \mbox{\Hypertarget{classRoom_ad59bae501f3f3e7bfdd15d6a00d18854}\label{classRoom_ad59bae501f3f3e7bfdd15d6a00d18854}} 
 \index{CVPR\_Lab@{CVPR\_Lab}!\_zOriginUnity@{\_zOriginUnity}}
@@ -1103,11 +1189,11 @@ Digital twin\textquotesingle{}s z axis\textquotesingle{} origin.
 
 
 
-Definition at line \mbox{\hyperlink{Room_8hpp_source_l00104}{104}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
+Definition at line \mbox{\hyperlink{Room_8hpp_source_l00112}{112}} of file \mbox{\hyperlink{Room_8hpp_source}{Room.\+hpp}}.
 
 
 
-Referenced by \mbox{\hyperlink{Room_8cpp_source_l00116}{Room\+::get\+ZOrigin\+Unity()}}, and \mbox{\hyperlink{Room_8cpp_source_l00049}{Room\+::set\+ZOrigin\+Unity()}}.
+Referenced by \mbox{\hyperlink{Room_8cpp_source_l00125}{Room\+::get\+ZOrigin\+Unity()}}, and \mbox{\hyperlink{Room_8cpp_source_l00053}{Room\+::set\+ZOrigin\+Unity()}}.
 
 
 

@@ -54,7 +54,7 @@
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00050}00050     \textcolor{keywordflow}{do} \{}
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00051}00051         streamData = pipelineStream.wait\_for\_frames();}
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00052}00052         skippedFrameCounter += 1;}
-\DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00053}00053     \} \textcolor{keywordflow}{while} (skippedFrameCounter < framesToSkip);}
+\DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00053}00053     \} \textcolor{keywordflow}{while} (skippedFrameCounter <= framesToSkip);}
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00054}00054     }
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00055}00055     alignedStreamData = \mbox{\hyperlink{classRealSenseManager_acff6020a0a3efe31b637d6dc5b341dd7}{RealSenseManager::get\_align}}().process(streamData);}
 \DoxyCodeLine{\Hypertarget{RealSenseD435Manager_8cpp_source_l00056}00056     depthFrame = alignedStreamData.get\_depth\_frame();}
