@@ -38,6 +38,14 @@ Note: Instructions for MacOS with Intel CPU / M1 chip
 
 2. Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies. Useful guides: [build openpose with/without GPU support for macOS](https://medium.com/@alok.gandhi2002/build-openpose-with-without-gpu-support-for-macos-catalina-10-15-6-8fb936c9ab05#726f), [OpenPose for M1/Intel](https://blog.csdn.net/qq_27180763/article/details/126134888?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-126134888-blog-122796729.pc_relevant_layerdownloadsortv1&spm=1001.2101.3001.4242.1&utm_relevant_index=3). In order to properly choose the `GPU_MODE` during OpenPose installation and/or in order to install OpenPose on other operating systems, check out this page: [OpenPose Docs](https://cmu-perceptual-computing-lab.github.io/openpose/web/html/doc/md_doc_installation_0_index.html). If you have MacOS with Intel CPU and a GPU that matches OpenPose prerequisites, then you can set `GPU_MODE` to `OPENCL` (GPU-accelerated, it is harder to install but provides a faster runtime speed). Otherwise, if you have a MacOS with M1 chip, it's suggested to set `GPU_MODE` to `CPU_ONLY`. 
 
+CMake Settings for Intel:
+<img width="1150" alt="opencl_installation" src="https://user-images.githubusercontent.com/41870472/197208265-82949343-d927-4894-ac0b-591c788e7974.png">
+
+CMake Settings for >= M1:
+<img width="1164" alt="cpu_only_installation" src="https://user-images.githubusercontent.com/41870472/197208278-4498ff62-0295-4eda-b6a1-023c2d89c0ec.png">
+
+
+
 3. Install [Apache Kafka](https://kafka.apache.org/), [Confluent](https://www.confluent.io/) and their own dependencies. Confluent is not mandatory, but without it, you will have to set up the Kafka environment on your own. Useful guides: [how to install Apache Kafka on Mac](https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-mac), [how to install Confluent](https://docs.confluent.io/4.0.1/installation/installing_cp.html).
 
 4. Run the following command in your terminal:
