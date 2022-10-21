@@ -20,12 +20,11 @@ find_package(PkgConfig REQUIRED)
 find_package(GFlags)
 find_package(Glog)
 find_package(OpenPose REQUIRED)
-find_package(Boost 1.80.0 COMPONENTS filesystem system thread iostreams chrono date_time regex REQUIRED)
+find_package(Boost 1.79.0 COMPONENTS filesystem system thread iostreams chrono date_time regex REQUIRED)
 
 
-pkg_search_module(GLIB REQUIRED glib-2.0)
-include_directories(${GLIB_INCLUDE_DIRS})
-link_directories(${GLIB_LIBRARY_DIRS})
+
+pkg_check_modules(deps REQUIRED IMPORTED_TARGET glib-2.0)
 set(CMAKE_EXE_LINKER_FLAGS "-lrdkafka++ -lrdkafka -lgflags")
 
 include_directories(${PROTOBUF_INCLUDE_DIR})
@@ -50,14 +49,15 @@ include_directories("/usr/local/Cellar/librdkafka/1.9.2/include")
 
 
 link_directories(/usr/local/Cellar/jsoncpp/1.9.5/lib)
-link_directories(/usr/local/Cellar/glib/2.74.0/lib)
+link_directories(/usr/local/opt/glib/lib)
 link_directories(/usr/local/Cellar/librdkafka/1.9.2/lib)
 link_directories(/Users/dennycaruso/Desktop/materiale_tesi/openpose/build/caffe/lib) 
-link_directories(/usr/local/opt/boost@1.80/lib)
+link_directories(/usr/local/opt/boost@1.79/lib)
 link_directories(${BOOST_LIBRARYDIR}) 
 link_directories(/usr/local/opt/gflags/lib)
 
 pkg_check_modules(JSONCPP jsoncpp)
+pkg_check_modules(deps REQUIRED IMPORTED_TARGET glib-2.0)
 # Enable C++11
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
@@ -78,9 +78,8 @@ Managers/CoordinateManagers/UnityCoordinateMappingManager.cpp Managers/KafkaMana
 
 # Link librealsense2 to the target
 link_libraries(${JSONCPP_LIBRARIES})
-target_link_libraries(AI_Watch_A1 ${BOOST_LIBS} Boost::filesystem ${OpenPose_LIBS} ${GFLAGS_LIBRARY} ${GLOG_LIBRARY} ${realsense2_LIBRARY} glfw OpenGL::GL ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} ${JSONCPP_LIBRARIES} ${GLIB_LIBRARIES} )
-target_link_libraries(AI_Watch_A1.bin ${BOOST_LIBS} Boost::filesystem ${OpenPose_LIBS} ${GFLAGS_LIBRARY} ${GLOG_LIBRARY} ${realsense2_LIBRARY} glfw OpenGL::GL ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} ${JSONCPP_LIBRARIES} ${GLIB_LIBRARIES} )
-add_definitions(${GLIB_CFLAGS_OTHER})
+target_link_libraries(AI_Watch_A1 PkgConfig::deps ${BOOST_LIBS} Boost::filesystem ${OpenPose_LIBS} ${GFLAGS_LIBRARY} ${GLOG_LIBRARY} ${realsense2_LIBRARY} glfw OpenGL::GL ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} ${JSONCPP_LIBRARIES} ${GLIB_LIBRARIES} )
+target_link_libraries(AI_Watch_A1.bin PkgConfig::deps ${BOOST_LIBS} Boost::filesystem ${OpenPose_LIBS} ${GFLAGS_LIBRARY} ${GLOG_LIBRARY} ${realsense2_LIBRARY} glfw OpenGL::GL ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} ${JSONCPP_LIBRARIES} ${GLIB_LIBRARIES} )
 
 install(TARGETS AI_Watch_A1.bin DESTINATION)
 install(TARGETS AI_Watch_A1 LIBRARY DESTINATION)

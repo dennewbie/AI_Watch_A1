@@ -283,7 +283,7 @@ Definition at line \mbox{\hyperlink{Skeleton_8cpp_source_l00078}{78}} of file \m
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Skeleton_8hpp_source_l00055}{body\+Key\+Points}}, \mbox{\hyperlink{Skeleton_8hpp_source_l00062}{body\+Key\+Points\+Map}}, \mbox{\hyperlink{constants_8hpp_source_l00032}{FACADE\+\_\+\+SINGLETON\+\_\+\+NULLPTR\+\_\+\+ERROR}}, \mbox{\hyperlink{constants_8hpp_source_l00033}{FACADE\+\_\+\+SINGLETON\+\_\+\+NULLPTR\+\_\+\+SCOPE}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00222}{get\+Consistency()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00089}{Facade\+Singleton\+::get\+Instance()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00099}{Facade\+Singleton\+::get\+Output\+Manager()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00073}{get\+Skeleton\+Data()}}, \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00056}{Output\+Manager\+JSON\+::get\+Value\+At()}}, \mbox{\hyperlink{constants_8hpp_source_l00068}{open\+Pose\+Body\+Key\+Points\+Number}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00047}{set\+Consistency()}}, and \mbox{\hyperlink{Skeleton_8hpp_source_l00078}{skeleton\+Data}}.
+References \mbox{\hyperlink{Skeleton_8hpp_source_l00055}{body\+Key\+Points}}, \mbox{\hyperlink{Skeleton_8hpp_source_l00062}{body\+Key\+Points\+Map}}, \mbox{\hyperlink{constants_8hpp_source_l00032}{FACADE\+\_\+\+SINGLETON\+\_\+\+NULLPTR\+\_\+\+ERROR}}, \mbox{\hyperlink{constants_8hpp_source_l00033}{FACADE\+\_\+\+SINGLETON\+\_\+\+NULLPTR\+\_\+\+SCOPE}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00222}{get\+Consistency()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00089}{Facade\+Singleton\+::get\+Instance()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00099}{Facade\+Singleton\+::get\+Output\+Manager()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00073}{get\+Skeleton\+Data()}}, \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00055}{Output\+Manager\+JSON\+::get\+Value\+At()}}, \mbox{\hyperlink{constants_8hpp_source_l00068}{open\+Pose\+Body\+Key\+Points\+Number}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00047}{set\+Consistency()}}, and \mbox{\hyperlink{Skeleton_8hpp_source_l00078}{skeleton\+Data}}.
 
 
 
@@ -449,18 +449,18 @@ Definition at line \mbox{\hyperlink{Skeleton_8cpp_source_l00203}{203}} of file \
 \DoxyCodeLine{00207     \mbox{\hyperlink{classFacadeSingleton}{FacadeSingleton}} * facadeSingletonInstance = \mbox{\hyperlink{classFacadeSingleton_aeac68956d001824b9ecb75d385687535}{FacadeSingleton::getInstance}}();}
 \DoxyCodeLine{00208     \textcolor{keywordflow}{if} (facadeSingletonInstance == \textcolor{keyword}{nullptr}) CV\_Error(\mbox{\hyperlink{constants_8hpp_aba8cd558b16927b8fe2d962968d20c10}{FACADE\_SINGLETON\_NULLPTR\_ERROR}}, \mbox{\hyperlink{constants_8hpp_ae5a935d42848889b474e368ef77cf46a}{FACADE\_SINGLETON\_NULLPTR\_SCOPE}});}
 \DoxyCodeLine{00209     \textcolor{comment}{// xOrigin and zOrigin parameters are inverted as the built Unity world requires.}}
-\DoxyCodeLine{00210     \mbox{\hyperlink{classSkeleton_aaebcbeeb42522c6147f0c63713bf3641}{setSkeletonPoints3D}}(facadeSingletonInstance-\/>\mbox{\hyperlink{classFacadeSingleton_a06a51b5942524c62681b032f8aa163f3}{getCoordinateMappingManager}}()-\/>\mbox{\hyperlink{classCoordinateMappingManager_a53059f45e764e26353439bc495074e86}{mapToMeters}}(\mbox{\hyperlink{classSkeleton_af62bfa912dd7f33164768b338bf9cc67}{getSkeletonPoints3D\_RS}}(), \mbox{\hyperlink{classSkeleton_a79798d4999379bc7063a9fc2dabad55e}{getBodyKeyPointsMap}}(), \mbox{\hyperlink{CVPR__Lab_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{zOriginUnity}}, \mbox{\hyperlink{CVPR__Lab_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{xOriginUnity}}));}
+\DoxyCodeLine{00210     \mbox{\hyperlink{classSkeleton_aaebcbeeb42522c6147f0c63713bf3641}{setSkeletonPoints3D}}(facadeSingletonInstance-\/>\mbox{\hyperlink{classFacadeSingleton_a06a51b5942524c62681b032f8aa163f3}{getCoordinateMappingManager}}()-\/>\mbox{\hyperlink{classCoordinateMappingManager_a53059f45e764e26353439bc495074e86}{mapToMeters}}(\mbox{\hyperlink{classSkeleton_af62bfa912dd7f33164768b338bf9cc67}{getSkeletonPoints3D\_RS}}(), \mbox{\hyperlink{classSkeleton_a79798d4999379bc7063a9fc2dabad55e}{getBodyKeyPointsMap}}(), \mbox{\hyperlink{Room_8hpp_a1ba74a014193cc047f5d9c6d21ab8e04}{zOriginUnity}}, \mbox{\hyperlink{Room_8hpp_a22e05a7dd1691d5e0ff93d47bb2cb2e6}{xOriginUnity}}));}
 \DoxyCodeLine{00211     \mbox{\hyperlink{classSkeleton_a960ce534a29be39bff035c8ef5e49004}{writeCoordinates}}();}
 \DoxyCodeLine{00212 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{Skeleton_8cpp_source_l00099}{calc\+Body\+Edges()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00078}{calc\+Body\+Keypoints()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00145}{deproject\+Skeleton\+Points3\+D()}}, \mbox{\hyperlink{constants_8hpp_source_l00032}{FACADE\+\_\+\+SINGLETON\+\_\+\+NULLPTR\+\_\+\+ERROR}}, \mbox{\hyperlink{constants_8hpp_source_l00033}{FACADE\+\_\+\+SINGLETON\+\_\+\+NULLPTR\+\_\+\+SCOPE}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00069}{get\+Body\+Key\+Points\+Map()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00111}{Facade\+Singleton\+::get\+Coordinate\+Mapping\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00089}{Facade\+Singleton\+::get\+Instance()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00214}{get\+Skeleton\+Points3\+D\+\_\+\+RS()}}, \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00057}{Coordinate\+Mapping\+Manager\+::map\+To\+Meters()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00043}{set\+Skeleton\+Points3\+D()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00169}{write\+Coordinates()}}, \mbox{\hyperlink{CVPR__Lab_8hpp_source_l00029}{x\+Origin\+Unity}}, and \mbox{\hyperlink{CVPR__Lab_8hpp_source_l00030}{z\+Origin\+Unity}}.
+References \mbox{\hyperlink{Skeleton_8cpp_source_l00099}{calc\+Body\+Edges()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00078}{calc\+Body\+Keypoints()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00145}{deproject\+Skeleton\+Points3\+D()}}, \mbox{\hyperlink{constants_8hpp_source_l00032}{FACADE\+\_\+\+SINGLETON\+\_\+\+NULLPTR\+\_\+\+ERROR}}, \mbox{\hyperlink{constants_8hpp_source_l00033}{FACADE\+\_\+\+SINGLETON\+\_\+\+NULLPTR\+\_\+\+SCOPE}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00069}{get\+Body\+Key\+Points\+Map()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00111}{Facade\+Singleton\+::get\+Coordinate\+Mapping\+Manager()}}, \mbox{\hyperlink{FacadeSingleton_8cpp_source_l00089}{Facade\+Singleton\+::get\+Instance()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00214}{get\+Skeleton\+Points3\+D\+\_\+\+RS()}}, \mbox{\hyperlink{CoordinateMappingManager_8cpp_source_l00057}{Coordinate\+Mapping\+Manager\+::map\+To\+Meters()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00043}{set\+Skeleton\+Points3\+D()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00169}{write\+Coordinates()}}, \mbox{\hyperlink{Room_8hpp_source_l00029}{x\+Origin\+Unity}}, and \mbox{\hyperlink{Room_8hpp_source_l00030}{z\+Origin\+Unity}}.
 
 
 
-Referenced by \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00068}{Output\+Manager\+JSON\+::create\+JSON()}}.
+Referenced by \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00067}{Output\+Manager\+JSON\+::create\+JSON()}}.
 
 \mbox{\Hypertarget{classSkeleton_a0a21332dc3b5943626e7817b07e20f7e}\label{classSkeleton_a0a21332dc3b5943626e7817b07e20f7e}} 
 \index{Skeleton@{Skeleton}!getBodyKeyPoints@{getBodyKeyPoints}}
@@ -524,7 +524,7 @@ References \mbox{\hyperlink{Skeleton_8hpp_source_l00062}{body\+Key\+Points\+Map}
 
 
 
-Referenced by \mbox{\hyperlink{Skeleton_8cpp_source_l00099}{calc\+Body\+Edges()}}, \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00068}{Output\+Manager\+JSON\+::create\+JSON()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00145}{deproject\+Skeleton\+Points3\+D()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00131}{draw\+Line()}}, and \mbox{\hyperlink{Skeleton_8cpp_source_l00203}{generate\+Skeleton()}}.
+Referenced by \mbox{\hyperlink{Skeleton_8cpp_source_l00099}{calc\+Body\+Edges()}}, \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00067}{Output\+Manager\+JSON\+::create\+JSON()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00145}{deproject\+Skeleton\+Points3\+D()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00131}{draw\+Line()}}, and \mbox{\hyperlink{Skeleton_8cpp_source_l00203}{generate\+Skeleton()}}.
 
 \mbox{\Hypertarget{classSkeleton_a1770444f4e0b5dc042216ea11eb140b9}\label{classSkeleton_a1770444f4e0b5dc042216ea11eb140b9}} 
 \index{Skeleton@{Skeleton}!getConsistency@{getConsistency}}
@@ -556,7 +556,7 @@ References \mbox{\hyperlink{Skeleton_8hpp_source_l00099}{consistency}}.
 
 
 
-Referenced by \mbox{\hyperlink{Skeleton_8cpp_source_l00078}{calc\+Body\+Keypoints()}}, and \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00068}{Output\+Manager\+JSON\+::create\+JSON()}}.
+Referenced by \mbox{\hyperlink{Skeleton_8cpp_source_l00078}{calc\+Body\+Keypoints()}}, and \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00067}{Output\+Manager\+JSON\+::create\+JSON()}}.
 
 \mbox{\Hypertarget{classSkeleton_af23efe934c386caad075ecc3634e7510}\label{classSkeleton_af23efe934c386caad075ecc3634e7510}} 
 \index{Skeleton@{Skeleton}!getDistance\_Image@{getDistance\_Image}}
@@ -716,7 +716,7 @@ References \mbox{\hyperlink{Skeleton_8hpp_source_l00093}{skeleton\+Points3D}}.
 
 
 
-Referenced by \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00068}{Output\+Manager\+JSON\+::create\+JSON()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00169}{write\+Coordinates()}}, and \mbox{\hyperlink{Skeleton_8cpp_source_l00195}{$\sim$\+Skeleton()}}.
+Referenced by \mbox{\hyperlink{OutputManagerJSON_8cpp_source_l00067}{Output\+Manager\+JSON\+::create\+JSON()}}, \mbox{\hyperlink{Skeleton_8cpp_source_l00169}{write\+Coordinates()}}, and \mbox{\hyperlink{Skeleton_8cpp_source_l00195}{$\sim$\+Skeleton()}}.
 
 \mbox{\Hypertarget{classSkeleton_af62bfa912dd7f33164768b338bf9cc67}\label{classSkeleton_af62bfa912dd7f33164768b338bf9cc67}} 
 \index{Skeleton@{Skeleton}!getSkeletonPoints3D\_RS@{getSkeletonPoints3D\_RS}}

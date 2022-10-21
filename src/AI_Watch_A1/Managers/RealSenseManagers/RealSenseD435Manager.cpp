@@ -1,5 +1,5 @@
 //
-//  RealSenseManager.cpp
+//  RealSenseD435Manager.cpp
 //  AI Watch A1
 //
 //  Created by Denny Caruso on 23/07/22.
@@ -50,7 +50,7 @@ void RealSenseD435Manager::getVideoFramesRS (unsigned int user_nFrame, rs2::pipe
     do {
         streamData = pipelineStream.wait_for_frames();
         skippedFrameCounter += 1;
-    } while (skippedFrameCounter < framesToSkip);
+    } while (skippedFrameCounter <= framesToSkip);
     
     alignedStreamData = RealSenseManager::get_align().process(streamData);
     depthFrame = alignedStreamData.get_depth_frame();

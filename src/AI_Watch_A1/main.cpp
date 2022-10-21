@@ -24,23 +24,32 @@
  * - [Demo #2](https://youtu.be/pq3m9U3hRrQ)
  *
  * @section otherdoc_sec Other Docs 📜
- * - [Bachelor Thesis in Computer Science](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.pdf)
+ * - Bachelor Thesis in Computer Science: ... Coming soon ...
  *
  * @section install_sec Installation 🚀
  * Note: Instructions for MacOS with Intel CPU
  *
  *
- * 1) Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies.
+ * 1) Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies. The following guide is really helpful:
+ * [build RealSense for macOS Monterey (Intel + Apple Silicon)](https://lightbuzz.com/realsense-macos/).
  * 
- * 2) Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies.
- * 
- * 3) Install [Confluent](https://www.confluent.io/) and its own dependencies. This step is not mandatory, but without Confluent,
- * you will have to set up the Kafka environment.
+ * 2) Install [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) and its own dependencies. Useful guides: [build openpose with/without GPU support for macOS](https://medium.com/@alok.gandhi2002/build-openpose-with-without-gpu-support-for-macos-catalina-10-15-6-8fb936c9ab05#726f), [OpenPose for M1/Intel](https://blog.csdn.net/qq_27180763/article/details/126134888?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-126134888-blog-122796729.pc_relevant_layerdownloadsortv1&spm=1001.2101.3001.4242.1&utm_relevant_index=3).
+ *
+ * In order to properly choose the `GPU_MODE` during OpenPose installation and/or in order to install OpenPose on other operating systems, check out this page: [OpenPose Docs](https://cmu-perceptual-computing-lab.github.io/openpose/web/html/doc/md_doc_installation_0_index.html). If you have MacOS with Intel CPU and a GPU that matches OpenPose prerequisites, then you can set `GPU_MODE` to `OPENCL` (GPU-accelerated, it is harder to install but provides a faster runtime speed).
+ * Otherwise, if you have a MacOS with M1 chip, it's suggested to set `GPU_MODE` to `CPU_ONLY`.
+ *
+ *
+ * 3) Install [Apache Kafka](https://kafka.apache.org/), [Confluent](https://www.confluent.io/) and their own dependencies.
+ * Confluent is not mandatory, but without it, you will have to set up the Kafka environment on your own. Useful guides:
+ *
+ * [how to install Apache Kafka on Mac](https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-mac),
+ * [how to install Confluent](https://docs.confluent.io/4.0.1/installation/installing_cp.html).
  * 
  * 4) Run the following command in your terminal:
  * ```
  * git clone --recursive git@github.com:dennewbie/AI_Watch_A1.git
  * ```
+ * After that, remove all the files named `emptyFileForPadding.txt` in the cloned folder.
  * 
  * 5) From `/AI_Watch_A1/src/AI_Watch_A1/` folder, run the following commands in your terminal:
  *  
@@ -52,13 +61,19 @@
  * 
  * 7) Copy OpenPose's `BoostConfig.cmake`, `FindGFlags.cmake` and `FindGlog.cmake` files  to the `build/cmake/modules/` folder.
  * 
- * 8) Run the following commands in your terminal:
+ * 8) Update `caffe lib` path inside `CMakeLists.txt`. Then run the following commands in your terminal:
  * 
  * ```
  * cmake .. && make -j `sysctl -n hw.logicalcpu`
  * ```
+ *
+ * 9) This step is optional. Run the following command in your terminal:
+ *
+ * ```
+ * sudo make install
+ * ```
  * 
- * 9) Now let's start the Kafka environment. Run the following commands in a new terminal session located on the parent folder of the `confluent` folder.
+ * 10) Now let's start the Kafka environment. Run the following commands in a new terminal session located on the parent folder of the `confluent` folder.
  * Set the environment variable for the Confluent Platform home directory:
  *   ```
  *   export CONFLUENT_HOME=confluent-7.2.1
@@ -107,23 +122,36 @@
  *   The Confluent CLI requires Java version 1.8 or 1.11.
  *   See [Confluent versions interoperability](https://docs.confluent.io/current/installation/versions-interoperability.html).
  * 
- * 10) Navigate to `http://localhost:9021` and create a new topic `t1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and 
+ * 11) Navigate to `http://localhost:9021` and create a new topic `topic1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and
  *     set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file. At this point:
  *   - if internal OpenPose execution is chosen, then run the following command in your terminal:
  *  
  * ```
  * sudo ./AI_Watch_A1.bin --num_gpu 1 --num_gpu_start 2 --image_dir rs_images/rgb --write_json op_output/op --logging_level 255
  * ```
- *   - if external OpenPose execution is chosen, then set up your OpenPose parameters within the "conf.conf" file and run the following command in your terminal:
+ *   - if external OpenPose execution is chosen, then set up your OpenPose parameters within the `conf.conf` file and run the following command in your terminal:
  *
  * ```
  * sudo ./AI_Watch_A1.bin
  * ```
- * 
+ *
+ *  Note that the internal OpenPose execution is suggested.
+ *
+ *
+ * @section issues_sec Known issues ⚠️
+ * 1) The module can rarely get stuck on the following invocation located in `RealSenseD435Manager::23`:
+ *
+     ```
+     rs2::pipeline_profile myPipelineProfile = pipelineStream.start(myConfiguration);
+     ```
+ *
+     This means some errors have occurred, due to the USB connection while starting the camera's environment. In order to fix that, just exit the program, unplug the RealSense camera from the USB cable, and connect it again.
+ *
  * @section tools_sec Tools 🛠
  * - [Intel RealSense SDK](https://github.com/IntelRealSense/librealsense)
  * - [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
  * - [OpenCV](https://github.com/opencv/opencv)
+ * - [OpenCL](https://www.khronos.org/opencl/)
  * - [Kafka](https://kafka.apache.org/)
  * - [Kafka C/C++ library](https://github.com/edenhill/librdkafka)
  * - [Confluent](https://www.confluent.io/)
@@ -184,7 +212,7 @@ int main (int argc, char ** argv) {
     rs2::pipeline pipelineStream;
     // Scaling factor for distance frame and topic name for kafka connection.
     float scale;
-    const char * destinationKafkaTopic = "t1";
+    const char * destinationKafkaTopic = "topic1";
     // Optimal resolution for D435: 848x480.
     unsigned int user_nFrame = 50, resX = 848, resY = 480;
     const unsigned short int framesToSkip = 5;
