@@ -12,4 +12,4 @@
 
 
 
-CVPR_Lab::CVPR_Lab (void) : Room(minWidth, maxWidth, minHeight, maxHeight, minWidthRS, maxWidthRS, minHeightRS, maxHeightRS, xOriginUnity, zOriginUnity, distanceCameraFromBackWall, heightOffset) { }
+CVPR_Lab::CVPR_Lab (void) : Room(minWidth, maxWidth, minHeight, maxHeight, maxDepth, minWidthRS, maxWidthRS, minHeightRS, maxHeightRS, xOriginUnity, zOriginUnity, distanceCameraFromBackWall, heightOffset) { }

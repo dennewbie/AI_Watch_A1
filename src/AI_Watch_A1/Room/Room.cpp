@@ -26,6 +26,10 @@ void Room::setMaxHeight (float maxHeight) {
     this->_maxHeight = maxHeight;
 }
 
+void Room::setMaxDepth(float maxDepth) {
+    this->_maxDepth = maxDepth;
+}
+
 void Room::setMinWidthRS (float minWidthRS) {
     this->_minWidthRS = minWidthRS;
 }
@@ -60,13 +64,14 @@ void Room::setHeightOffset (float heightOffset) {
 
 
 
-Room::Room (float minWidth, float maxWidth, float minHeight, float maxHeight,
+Room::Room (float minWidth, float maxWidth, float minHeight, float maxHeight, float maxDepth,
       float minWidthRS, float maxWidthRS, float minHeightRS, float maxHeightRS,
       float xOriginUnity, float zOriginUnity, float distanceCameraFromBackWall, float heightOffset) {
     setMinWidth(minWidth);
     setMaxWidth(maxWidth);
     setMinHeight(minHeight);
     setMaxHeight(maxHeight);
+    setMaxDepth(maxDepth);
     setMinWidthRS(minWidthRS);
     setMaxWidthRS(maxWidthRS);
     setMinHeightRS(minHeightRS);
@@ -91,6 +96,10 @@ float Room::getMinHeight (void) {
 
 float Room::getMaxHeight (void) {
     return this->_maxHeight;
+}
+
+float Room::getMaxDepth(void) {
+    return this->_maxDepth;
 }
 
 float Room::getMinWidthRS (void) {

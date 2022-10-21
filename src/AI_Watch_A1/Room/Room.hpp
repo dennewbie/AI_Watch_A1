@@ -18,6 +18,8 @@ static const float minWidth = 0; // |x<----      |
 static const float maxWidth = 5.271; //  |      ---->x|
 static const float minHeight = 0.0;
 static const float maxHeight = 3.0;
+static const float maxDepth = 6.48;
+
 
 static const float minWidthRS = -3.5; // |x<----      |
 static const float maxWidthRS = 3.5; //  |      ---->x|
@@ -37,6 +39,7 @@ static const float heightOffset = 0.15;
 //static const float maxWidth = 6.03; //  |      ---->x|
 //static const float minHeight = 0.0;
 //static const float maxHeight = 2.89;
+//static const float maxDepth = ???;
 //
 //static const float minWidthRS = -3.5; // |x<----      |
 //static const float maxWidthRS = 3.5; //  |      ---->x|
@@ -76,6 +79,10 @@ private:
      * @brief Room's maximum height.
      */
     float _maxHeight;
+    /**
+     * @brief Room's maximum depth.
+    */
+    float _maxDepth;
 
     /**
      * @brief RealSense environment's minimum width.
@@ -93,6 +100,7 @@ private:
      * @brief RealSense environment's maximum height.
      */
     float _maxHeightRS;
+
 
     /**
      * @brief Digital twin's x axis' origin.
@@ -134,6 +142,11 @@ protected:
      * @param maxHeight Room's maximum height.
      */
     void setMaxHeight       (float maxHeight);
+    /**
+     * @brief Set the Room's maximum depth.
+     * @param maxHeight Room's maximum depth.
+     */
+    void setMaxDepth       (float maxHeight);
     
     /**
      * @brief Set the RealSense environment's minimum width.
@@ -196,7 +209,7 @@ public:
      * @param heightOffset Specific offset that is experimentally considered optimal in order to
      * get more accurate height's measurements.
      */
-    Room (float minWidth, float maxWidth, float minHeight, float maxHeight,
+    Room (float minWidth, float maxWidth, float minHeight, float maxHeight, float maxDepth,
           float minWidthRS, float maxWidthRS, float minHeightRS, float maxHeightRS,
           float xOriginUnity, float zOriginUnity,
           float distanceCameraFromBackWall, float heightOffset);
@@ -221,6 +234,11 @@ public:
      * @return float 
      */
     float getMaxHeight      (void);
+    /**
+     * @brief Get the Room's maximum depth.
+     * @return float 
+     */
+    float getMaxDepth      (void);
     
     /**
      * @brief Get the RealSense environment's minimum width.
