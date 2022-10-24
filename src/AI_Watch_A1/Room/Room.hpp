@@ -39,7 +39,7 @@ static const float heightOffset = 0.15;
 //static const float maxWidth = 6.03; //  |      ---->x|
 //static const float minHeight = 0.0;
 //static const float maxHeight = 2.89;
-//static const float maxDepth = ???;
+//static const float maxDepth = 7.25;
 //
 //static const float minWidthRS = -3.5; // |x<----      |
 //static const float maxWidthRS = 3.5; //  |      ---->x|
