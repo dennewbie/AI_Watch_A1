@@ -25,7 +25,7 @@
 
 
 ## Docs 📜
-- [AI Watch A1 documentation](https://dennewbie.github.io/AI_Watch_A1/doc/index.html) was generated using [Doxygen](https://doxygen.nl/)
+- [AI Watch A1 documentation](dennewbie.github.io/AI_Watch_A1/index.html) was generated using [Doxygen](https://doxygen.nl/)
 - Bachelor Thesis in Computer Science: ... Coming soon ...
 
 
