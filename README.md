@@ -26,7 +26,7 @@
 
 ## Docs 📜
 - AI Watch A1 documentation was generated using [Doxygen](https://doxygen.nl/)
-- Bachelor Thesis in Computer Science: ... Coming soon ...
+- Bachelor Thesis in Computer Science: [PDF TesiOnline](http://www.tesionline.it/default/tesi.asp?idt=57417)
 
 
 

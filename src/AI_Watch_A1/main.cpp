@@ -24,7 +24,7 @@
  * - [Demo #2](https://youtu.be/pq3m9U3hRrQ)
  *
  * @section otherdoc_sec Other Docs 📜
- * - Bachelor Thesis in Computer Science: ... Coming soon ...
+ * - Bachelor Thesis in Computer Science: [PDF Tesi Online](http://www.tesionline.it/default/tesi.asp?idt=57417)
  *
  * @section install_sec Installation 🚀
  * Note: Instructions for MacOS with Intel CPU
