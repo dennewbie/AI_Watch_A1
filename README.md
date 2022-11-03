@@ -197,8 +197,8 @@ AI Watch A1 is licensed under the Apache License, Version 2.0. Copyright 2022. P
 
 
 ## Other modules 
-- [B1 - Anomaly detection + Digital Twin](https://github.com/dennewbie/AI_Watch_A1) 
-- [C1 - Unity3D rendering] ... soon available ...
+- [B1: anomaly detection + digital twin](https://github.com/dennewbie/AI_Watch_A1) 
+- [C1: Unity3D rendering] ... soon available ...
 
 
 a.a. 2021/2022
