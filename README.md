@@ -196,5 +196,9 @@ AI Watch A1 is licensed under the Apache License, Version 2.0. Copyright 2022. P
 - [Dr. Alessio Ferone](https://www.researchgate.net/profile/Alessio-Ferone), CS Assistant Professor at the [University of Naples Parthenope](https://www.uniparthenope.it/).
 
 
+## Other modules 
+- [B1: anomaly detection + digital twin](https://github.com/dennewbie/AI_Watch_A1) 
+- [C1: Unity3D rendering] ... soon available ...
+
 
 a.a. 2021/2022
