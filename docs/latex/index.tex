@@ -11,15 +11,19 @@ This is the AI Watch A1 docum entation for C++. AI Watch A1 uses one Intel Real\
 \end{DoxyItemize}\hypertarget{index_otherdoc_sec}{}\doxysection{Other Docs 📜}\label{index_otherdoc_sec}
 
 \begin{DoxyItemize}
-\item Bachelor Thesis in Computer Science\+: \href{http://www.tesionline.it/default/tesi.asp?idt=57417}{\texttt{ PDF Tesi Online}}
+\item Bachelor Thesis in Computer Science\+: \href{http://www.tesionline.it/default/tesi.asp?idt=57417}{\texttt{ PDF Tesi\+Online}}
 \end{DoxyItemize}\hypertarget{index_install_sec}{}\doxysection{Installation 🚀}\label{index_install_sec}
-Note\+: Instructions for Mac\+OS with Intel CPU
+Note\+: Instructions for Mac\+OS with Intel CPU / M1 chip
 
 1) Install \href{https://github.com/IntelRealSense/librealsense}{\texttt{ Real\+Sense SDK 2.\+0}} and its own dependencies. The following guide is really helpful\+: \href{https://lightbuzz.com/realsense-macos/}{\texttt{ build Real\+Sense for mac\+OS Monterey (Intel + Apple Silicon)}}.
 
 2) Install \href{https://github.com/CMU-Perceptual-Computing-Lab/openpose}{\texttt{ Open\+Pose}} and its own dependencies. Useful guides\+: \href{https://medium.com/@alok.gandhi2002/build-openpose-with-without-gpu-support-for-macos-catalina-10-15-6-8fb936c9ab05\#726f}{\texttt{ build openpose with/without GPU support for mac\+OS}}, \href{https://blog.csdn.net/qq_27180763/article/details/126134888?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-126134888-blog-122796729.pc_relevant_layerdownloadsortv1&spm=1001.2101.3001.4242.1&utm_relevant_index=3}{\texttt{ Open\+Pose for M1/\+Intel}}.
 
 In order to properly choose the {\ttfamily GPU\+\_\+\+MODE} during Open\+Pose installation and/or in order to install Open\+Pose on other operating systems, check out this page\+: \href{https://cmu-perceptual-computing-lab.github.io/openpose/web/html/doc/md_doc_installation_0_index.html}{\texttt{ Open\+Pose Docs}}. If you have Mac\+OS with Intel CPU and a GPU that matches Open\+Pose prerequisites, then you can set {\ttfamily GPU\+\_\+\+MODE} to {\ttfamily OPENCL} (GPU-\/accelerated, it is harder to install but provides a faster runtime speed). Otherwise, if you have a Mac\+OS with M1 chip, it\textquotesingle{}s suggested to set {\ttfamily GPU\+\_\+\+MODE} to {\ttfamily CPU\+\_\+\+ONLY}.
+
+\href{https://user-images.githubusercontent.com/41870472/197208265-82949343-d927-4894-ac0b-591c788e7974.png}{\texttt{ CMake Settings for Intel}}
+
+\href{https://user-images.githubusercontent.com/41870472/197208278-4498ff62-0295-4eda-b6a1-023c2d89c0ec.png}{\texttt{ CMake Settings for \texorpdfstring{$>$}{>}= M1}}
 
 3) Install \href{https://kafka.apache.org/}{\texttt{ Apache Kafka}}, \href{https://www.confluent.io/}{\texttt{ Confluent}} and their own dependencies. Confluent is not mandatory, but without it, you will have to set up the Kafka environment on your own. Useful guides\+:
 
@@ -109,7 +113,9 @@ Your output should resemble\+:
 \end{DoxyCode}
 \hypertarget{index_autotoc_md0}{}\doxysubsubsection{Important \#1 📌}\label{index_autotoc_md0}
 The confluent local commands are intended for a single-\/node development environment and are not suitable for a production environment. The data that are produced are transient and are intended to be temporary. For production-\/ready workflows, check \href{https://www.confluent.io/}{\texttt{ Confluent website}}.\hypertarget{index_autotoc_md1}{}\doxysubsubsection{Important \#2 📌}\label{index_autotoc_md1}
-The Confluent CLI requires Java version 1.\+8 or 1.\+11. See \href{https://docs.confluent.io/current/installation/versions-interoperability.html}{\texttt{ Confluent versions interoperability}}.
+The Confluent CLI requires Java version 1.\+8 or 1.\+11. See \href{https://docs.confluent.io/current/installation/versions-interoperability.html}{\texttt{ Confluent versions interoperability}}.\hypertarget{index_autotoc_md2}{}\doxysubsubsection{Important \#3 📌}\label{index_autotoc_md2}
+In order to improve speed and general performance, you could disable images\textquotesingle{} showing and change the number of frames captured per second. In this last option, capturing too few frames per second reduces output\textquotesingle{} quality. Furthermore, it\textquotesingle{}s also possible to reduce Open\+Pose\textquotesingle{}s network resolution, but a significant drawback is reduced accuracy.\hypertarget{index_autotoc_md3}{}\doxysubsubsection{Important \#4 📌}\label{index_autotoc_md3}
+Place the camera in a way that it can \char`\"{}see\char`\"{} the left and the right wall of the room.
 
 11) Navigate to {\ttfamily \href{http://localhost:9021}{\texttt{ http\+://localhost\+:9021}}} and create a new topic {\ttfamily topic1} with default settings. Now go to {\ttfamily /\+AI\+\_\+\+Watch\+\_\+\+A1/src/\+AI\+\_\+\+Watch\+\_\+\+A1/} and set up your \href{https://github.com/edenhill/librdkafka}{\texttt{ Kafka}} parameters within the {\ttfamily configuration\+\_\+file.\+ini} file. At this point\+:
 \begin{DoxyItemize}
@@ -143,7 +149,8 @@ Note that the internal Open\+Pose execution is suggested.\hypertarget{index_issu
 \end{DoxyCode}
 
 
-This means some errors have occurred, due to the USB connection while starting the camera\textquotesingle{}s environment. In order to fix that, just exit the program, unplug the Real\+Sense camera from the USB cable, and connect it again.\hypertarget{index_tools_sec}{}\doxysection{Tools 🛠}\label{index_tools_sec}
+This means some errors have occurred, due to the USB connection while starting the camera\textquotesingle{}s environment. In order to fix that, just exit the program, unplug the Real\+Sense camera from the USB cable, and connect it again.\hypertarget{index_sys_structure}{}\doxysection{System Structure 🏛}\label{index_sys_structure}
+\href{https://github.com/dennewbie/AI_Watch_A1/blob/main/design/A1_details.png}{\texttt{ A1 System Structure}}\hypertarget{index_tools_sec}{}\doxysection{Tools 🛠}\label{index_tools_sec}
 
 \begin{DoxyItemize}
 \item \href{https://github.com/IntelRealSense/librealsense}{\texttt{ Intel Real\+Sense SDK}}
@@ -178,6 +185,11 @@ AI Watch A1 is licensed under the Apache License, Version 2.\+0. Copyright 2022.
 
 \begin{DoxyItemize}
 \item \href{https://www.researchgate.net/profile/Alessio-Ferone}{\texttt{ Dr. Alessio Ferone}}, CS Assistant Professor at the \href{https://www.uniparthenope.it/}{\texttt{ University of Naples Parthenope}}.
+\end{DoxyItemize}\hypertarget{index_Other_modules_sec}{}\doxysection{Other modules}\label{index_Other_modules_sec}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/Luruu/AI_Watch_B1}{\texttt{ B1\+: anomaly detection + digital twin}}
+\item \href{https://github.com/RenatoEsposito1999/AIWatch_C1}{\texttt{ C1\+: Unity3D rendering}}
 \end{DoxyItemize}
 
 a.\+a. 2021/2022 

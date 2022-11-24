@@ -122,6 +122,9 @@ CMake Settings for >= M1:
 
      ### Important #3 📌
      In order to improve speed and general performance, you could disable images' showing and change the number of frames captured per second. In this last option, capturing too few frames per second reduces output' quality. Furthermore, it's also possible to reduce OpenPose's network resolution, but a significant drawback is reduced accuracy.
+
+     ### Important #4 📌
+     Place the camera in a way that it can "see" the left and the right wall of the room.
    
 11. Navigate to http://localhost:9021 and create a new topic `topic1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file. At this point:
     - if internal OpenPose execution is chosen, then run the following command in your terminal:
@@ -197,8 +200,8 @@ AI Watch A1 is licensed under the Apache License, Version 2.0. Copyright 2022. P
 
 
 ## Other modules 
-- [B1: anomaly detection + digital twin](https://github.com/dennewbie/AI_Watch_A1) 
-- [C1: Unity3D rendering](https://github.com/RenatoEsposito1999/AIWatch)
+- [B1: anomaly detection + digital twin](https://github.com/Luruu/AI_Watch_B1) 
+- [C1: Unity3D rendering](https://github.com/RenatoEsposito1999/AIWatch_C1)
 
 
 a.a. 2021/2022

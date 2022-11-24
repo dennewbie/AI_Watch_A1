@@ -24,10 +24,10 @@
  * - [Demo #2](https://youtu.be/pq3m9U3hRrQ)
  *
  * @section otherdoc_sec Other Docs 📜
- * - Bachelor Thesis in Computer Science: [PDF Tesi Online](http://www.tesionline.it/default/tesi.asp?idt=57417)
+ * - Bachelor Thesis in Computer Science: [PDF TesiOnline](http://www.tesionline.it/default/tesi.asp?idt=57417)
  *
  * @section install_sec Installation 🚀
- * Note: Instructions for MacOS with Intel CPU
+ * Note: Instructions for MacOS with Intel CPU / M1 chip
  *
  *
  * 1) Install [RealSense SDK 2.0](https://github.com/IntelRealSense/librealsense) and its own dependencies. The following guide is really helpful:
@@ -37,6 +37,10 @@
  *
  * In order to properly choose the `GPU_MODE` during OpenPose installation and/or in order to install OpenPose on other operating systems, check out this page: [OpenPose Docs](https://cmu-perceptual-computing-lab.github.io/openpose/web/html/doc/md_doc_installation_0_index.html). If you have MacOS with Intel CPU and a GPU that matches OpenPose prerequisites, then you can set `GPU_MODE` to `OPENCL` (GPU-accelerated, it is harder to install but provides a faster runtime speed).
  * Otherwise, if you have a MacOS with M1 chip, it's suggested to set `GPU_MODE` to `CPU_ONLY`.
+ *
+ * [CMake Settings for Intel](https://user-images.githubusercontent.com/41870472/197208265-82949343-d927-4894-ac0b-591c788e7974.png)
+ *
+ * [CMake Settings for >= M1](https://user-images.githubusercontent.com/41870472/197208278-4498ff62-0295-4eda-b6a1-023c2d89c0ec.png)
  *
  *
  * 3) Install [Apache Kafka](https://kafka.apache.org/), [Confluent](https://www.confluent.io/) and their own dependencies.
@@ -121,6 +125,12 @@
  *   ### Important #2 📌
  *   The Confluent CLI requires Java version 1.8 or 1.11.
  *   See [Confluent versions interoperability](https://docs.confluent.io/current/installation/versions-interoperability.html).
+ *
+ *  ### Important #3 📌
+ *  In order to improve speed and general performance, you could disable images' showing and change the number of frames captured per second. In this last option, capturing too few frames per second reduces output' quality. Furthermore, it's also possible to reduce OpenPose's network resolution, but a significant drawback is reduced accuracy.
+ *
+ *  ### Important #4 📌
+ *  Place the camera in a way that it can "see" the left and the right wall of the room.
  * 
  * 11) Navigate to `http://localhost:9021` and create a new topic `topic1` with default settings. Now go to `/AI_Watch_A1/src/AI_Watch_A1/` and
  *     set up your [Kafka](https://github.com/edenhill/librdkafka) parameters within the `configuration_file.ini` file. At this point:
@@ -146,6 +156,9 @@
      ```
  *
      This means some errors have occurred, due to the USB connection while starting the camera's environment. In order to fix that, just exit the program, unplug the RealSense camera from the USB cable, and connect it again.
+ *
+ *  @section sys_structure System Structure 🏛
+ *  [A1 System Structure](https://github.com/dennewbie/AI_Watch_A1/blob/main/design/A1_details.png)
  *
  * @section tools_sec Tools 🛠
  * - [Intel RealSense SDK](https://github.com/IntelRealSense/librealsense)
@@ -182,6 +195,10 @@
  * 
  * @section supervisor_sec Supervisor 
  * - [Dr. Alessio Ferone](https://www.researchgate.net/profile/Alessio-Ferone), CS Assistant Professor at the [University of Naples Parthenope](https://www.uniparthenope.it/).
+ *
+ * @section Other_modules_sec Other modules
+ * - [B1: anomaly detection + digital twin](https://github.com/Luruu/AI_Watch_B1)
+ * - [C1: Unity3D rendering](https://github.com/RenatoEsposito1999/AIWatch_C1)
  *
  * a.a. 2021/2022
  */

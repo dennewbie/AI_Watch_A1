@@ -18,12 +18,13 @@ var searchData=
   ['configurewrapper_15',['configureWrapper',['../OpenPoseCommand_8cpp.html#a0509e444b5f3971dc0bc6b88830ee677',1,'OpenPoseCommand.cpp']]],
   ['consistency_16',['consistency',['../classSkeleton.html#add4518caaf948e4207dc0885b7238a04',1,'Skeleton']]],
   ['constants_2ehpp_17',['constants.hpp',['../constants_8hpp.html',1,'']]],
-  ['coordinatemappingmanager_18',['CoordinateMappingManager',['../classCoordinateMappingManager.html',1,'CoordinateMappingManager'],['../classCoordinateMappingManager.html#ab0e6f1164d1f65697d8af15801aa8f04',1,'CoordinateMappingManager::CoordinateMappingManager()']]],
+  ['coordinatemappingmanager_18',['CoordinateMappingManager',['../classCoordinateMappingManager.html',1,'']]],
   ['coordinatemappingmanager_19',['coordinateMappingManager',['../classFacadeSingleton.html#a21b9379face73a60c0328c2132f77940',1,'FacadeSingleton']]],
-  ['coordinatemappingmanager_2ecpp_20',['CoordinateMappingManager.cpp',['../CoordinateMappingManager_8cpp.html',1,'']]],
-  ['coordinatemappingmanager_2ehpp_21',['CoordinateMappingManager.hpp',['../CoordinateMappingManager_8hpp.html',1,'']]],
-  ['createjson_22',['createJSON',['../classOutputManagerJSON.html#a5e38880053af77de3de66925209ca5eb',1,'OutputManagerJSON']]],
-  ['cvpr_5flab_23',['CVPR_Lab',['../classCVPR__Lab.html',1,'CVPR_Lab'],['../classCVPR__Lab.html#ad2f547f06ae0772286f72fc463d99e69',1,'CVPR_Lab::CVPR_Lab()']]],
-  ['cvpr_5flab_2ecpp_24',['CVPR_Lab.cpp',['../CVPR__Lab_8cpp.html',1,'']]],
-  ['cvpr_5flab_2ehpp_25',['CVPR_Lab.hpp',['../CVPR__Lab_8hpp.html',1,'']]]
+  ['coordinatemappingmanager_20',['CoordinateMappingManager',['../classCoordinateMappingManager.html#ab0e6f1164d1f65697d8af15801aa8f04',1,'CoordinateMappingManager']]],
+  ['coordinatemappingmanager_2ecpp_21',['CoordinateMappingManager.cpp',['../CoordinateMappingManager_8cpp.html',1,'']]],
+  ['coordinatemappingmanager_2ehpp_22',['CoordinateMappingManager.hpp',['../CoordinateMappingManager_8hpp.html',1,'']]],
+  ['createjson_23',['createJSON',['../classOutputManagerJSON.html#a5e38880053af77de3de66925209ca5eb',1,'OutputManagerJSON']]],
+  ['cvpr_5flab_24',['CVPR_Lab',['../classCVPR__Lab.html',1,'CVPR_Lab'],['../classCVPR__Lab.html#ad2f547f06ae0772286f72fc463d99e69',1,'CVPR_Lab::CVPR_Lab()']]],
+  ['cvpr_5flab_2ecpp_25',['CVPR_Lab.cpp',['../CVPR__Lab_8cpp.html',1,'']]],
+  ['cvpr_5flab_2ehpp_26',['CVPR_Lab.hpp',['../CVPR__Lab_8hpp.html',1,'']]]
 ];
