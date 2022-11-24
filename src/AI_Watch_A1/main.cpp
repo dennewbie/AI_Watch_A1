@@ -17,7 +17,7 @@
  * computation possible.
  *
  * @section keynote_sec Keynote 📋
- * - [Keynote](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs.pdf)
+ * - [Keynote](https://github.com/dennewbie/AI_Watch_A1/blob/main/caruso_denny_tesi_bsc_cs_keynote.pdf)
  *
  * @section demo_sec Demo 💻
  * - [Demo #1](https://youtu.be/Ac0V8Dj0FbI)
