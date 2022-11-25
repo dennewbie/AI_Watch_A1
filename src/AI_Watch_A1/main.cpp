@@ -22,6 +22,7 @@
  * @section demo_sec Demo 💻
  * - [Demo #1](https://youtu.be/Ac0V8Dj0FbI)
  * - [Demo #2](https://youtu.be/pq3m9U3hRrQ)
+ * - [Graduation Day](https://www.youtube.com/watch?v=_YaRFdXXQnY)
  *
  * @section otherdoc_sec Other Docs 📜
  * - Bachelor Thesis in Computer Science: [PDF TesiOnline](http://www.tesionline.it/default/tesi.asp?idt=57417)
