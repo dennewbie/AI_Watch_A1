@@ -65,7 +65,7 @@ void OpenCV_Manager::getVideoFramesCV (unsigned int user_nFrame, rs2::pipeline &
         distanceImagePath <<        imagesFolder << "d/" <<     frameID << "_Distance.exr";
         colorizedDepthImagePath <<  imagesFolder << "depth/" << frameID << "_Depth.png";
         // Save
-        imageManager->saveImages( { colorImage, distanceImage, colorizedDepthImage },
+        // imageManager->saveImages( { colorImage, distanceImage, colorizedDepthImage },
                                  { colorImagePath.str(), distanceImagePath.str(), colorizedDepthImagePath.str() } );
         imageManager->releaseImages( { colorImage, depthImage, distanceImage, colorizedDepthImage } );
     }
@@ -103,22 +103,22 @@ void OpenCV_Manager::showSkeletonsCV (unsigned int user_nFrame, const float skel
             
             // Load images captured previously from camera
             cv::Mat colorImage, colorizedDepthImage;
-            imageManager->loadImage(colorImagePath.str(), cv::IMREAD_COLOR, colorImage);
+            // imageManager->loadImage(colorImagePath.str(), cv::IMREAD_COLOR, colorImage);
             cv::Mat distanceImage = cv::Mat(colorImage.rows, colorImage.cols, CV_32FC1);
-            imageManager->loadImage(distanceImagePath.str(), cv::IMREAD_ANYCOLOR | cv::IMREAD_ANYDEPTH, distanceImage);
-            imageManager->loadImage(colorizedDepthImagePath.str(), cv::IMREAD_COLOR, colorizedDepthImage);
+            //imageManager->loadImage(distanceImagePath.str(), cv::IMREAD_ANYCOLOR | cv::IMREAD_ANYDEPTH, distanceImage);
+            // imageManager->loadImage(colorizedDepthImagePath.str(), cv::IMREAD_COLOR, colorizedDepthImage);
             // Note: Comment following line for better performance
-            imageManager->showImages( { colorImage, colorizedDepthImage }, { "Frame No Skeleton", "Frame Colorized Depth" } );
+            // imageManager->showImages( { colorImage, colorizedDepthImage }, { "Frame No Skeleton", "Frame Colorized Depth" } );
             cv::Mat skeletonOnlyImage = cv::Mat::zeros(colorImage.rows, colorImage.cols, colorImage.type());
             
             // Produce a JSON output file for people present in this frame
             outputManagerJSON->createJSON(people, colorImage, distanceImage, skeletonOnlyImage, currentImageID, outputFolder, skeletonThreshold);
             
             // Show images and save them. Note: Comment following line for better performance
-            imageManager->showImages( { skeletonOnlyImage, colorImage }, { "Frame Skeleton Background Cut", "Frame Skeleton" } );
+            // imageManager->showImages( { skeletonOnlyImage, colorImage }, { "Frame Skeleton Background Cut", "Frame Skeleton" } );
             skeletonOnlyImagePath << imagesFolder << "sk/" << currentImageID << "_sk.png";
             skeletonImagePath << imagesFolder << "skeleton/" << currentImageID << "_Skeleton.png";
-            imageManager->saveImages( { colorImage, skeletonOnlyImage }, { skeletonImagePath.str(), skeletonOnlyImagePath.str() } );
+            // imageManager->saveImages( { colorImage, skeletonOnlyImage }, { skeletonImagePath.str(), skeletonOnlyImagePath.str() } );
             imageManager->releaseImages( { colorImage, distanceImage, colorizedDepthImage, skeletonOnlyImage } );
         }
     }
